@@ -1,0 +1,15 @@
+---
+layout: default
+title: Apuntes Programación en JAVA
+---
+
+    <h2>Programación en Java</h2>
+    <blockquote>Apuntes del módulo Programación del Ciclo Desarrollo de Aplicaciones Web 
+    </blockquote>
+
+	<ol class='portada'> 
+	{% for post in site.posts reversed %}
+	<li><h4><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></h4></li>
+	{% endfor %}
+	</ol>
+
