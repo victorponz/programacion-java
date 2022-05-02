@@ -180,7 +180,7 @@ Math.PI
 
 ```
 
->  **Definir constantes en java**
+>  -info-**Definir constantes en java**
 >
 > [http://lineadecodigo.com/java/constantes-en-java/](http://lineadecodigo.com/java/constantes-en-java/)
 
@@ -199,14 +199,14 @@ Math.PI
 > 		//1- Leer un carácter como int desde el teclado
 > 		Scanner miScanner = new Scanner(System.in);
 > 		radio = miScanner.nextInt();
->         miScanner.close();
+>         	miScanner.close();
 >         
 >         //2. Cálculos
 > 		float area =  Math.PI * radio * radio;
->         float perimetro = 2 * Math.PI * radio;
+>         	float perimetro = 2 * Math.PI * radio;
 > 		
 >         // 3 Imprimimos
->         System.out.printf("El área de la circunferencia es: %f %n", area);
+>            System.out.printf("El área de la circunferencia es: %f %n", area);
 > 		System.out.printf("El perímetro de la circunferencia es: %f %n",perimetro);
 > 
 > 		
@@ -227,29 +227,29 @@ Math.PI
 > 
 > //Un programa que pida el precio real de un producto, el precio rebajado y muestre el descuento realizado
 > public class Ejemplo7 {
-> 	public static void main(String argv[]) {
-> 		float precio;
-> 		float precioRebajado;
-> 		float descuento;
+>     public static void main(String argv[]) {
+>         float precio;
+>         float precioRebajado;
+>         float descuento;
 > 
-> 		System.out.println("Introduce el precio:");
+>         System.out.println("Introduce el precio:");
 > 
-> 		// 1. Leer un carácter como float desde el teclado
-> 		Scanner miScanner = new Scanner(System.in);
-> 		precio = miScanner.nextFloat();
+>         // 1. Leer un carácter como float desde el teclado
+>         Scanner miScanner = new Scanner(System.in);
+>         precio = miScanner.nextFloat();
 > 
-> 		System.out.println("Introduce el precio rebajado:");
-> 		precioRebajado = miScanner.nextFloat();
-> 		miScanner.close();
->         
-> 		// 2. Calcular el descuento
-> 		descuento = (precio - precioRebajado) / precio * 100;
+>         System.out.println("Introduce el precio rebajado:");
+>         precioRebajado = miScanner.nextFloat();
+>         miScanner.close();
+>    
+>         // 2. Calcular el descuento
+>         descuento = (precio - precioRebajado) / precio * 100;
 > 
-> 		// 3. El resultado es un número Float o Double
-> 		System.out.printf("El descuento es de: %f %n", descuento);
+>         // 3. El resultado es un número Float o Double
+>         System.out.printf("El descuento es de: %f %n", descuento);
 > 
-> 		
-> 	}
+> 
+>     }
 > }
 > ```
 >
@@ -273,8 +273,6 @@ Math.PI
 >    ```
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/b2ZtZndiT1Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-## 
 
 ![](/programacion-java/assets/img/java-basico//ej8.png)
 
@@ -315,7 +313,7 @@ Math.PI
 > 
 > 		// Leer un carácter como int desde el teclado	
 > 		edad = miScanner.nextInt();
->         miScanner.close();
+> 		miScanner.close();
 > 
 > 		// Si las condiciones son mutuamente excluyentes, se usa if .. else
 > 		if (edad >= 18) {
@@ -333,11 +331,145 @@ Math.PI
 
 ## 10 Diseña un algoritmo que lea un valor y muestre si es positivo o negativo \(0 es positivo\)
 
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> 
+> //Diseña un algoritmo que lea un valor y muestre si es positivo o negativo (0 es positivo)
+> public class Ejemplo10 {
+> 	public static void main(String argv[]) {
+> 		int numero;
+> 		Scanner miScanner = new Scanner(System.in);
+> 		System.out.println("Introduce un número entero:");
+> 
+> 		// Leer un carácter como int desde el teclado
+> 		numero = miScanner.nextInt();
+>         miScanner.close();
+> 		
+> 		//Si las condiciones son mutuamente excluyentes, se usa if .. else
+> 		if (numero >= 0) {
+> 			System.out.println("El número es positivo");
+> 		} else {
+> 			System.out.println("El número es negativo");
+> 		}	
+> 	}
+> }
+> ```
+
 ## 11 Diseña un algoritmo que lea dos valores y los muestre en orden ascendente.
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> 
+> //Diseña un algoritmo que lea dos valores y los muestre en orden ascendente.
+> public class Ejemplo11 {
+> 	public static void main(String argv[]) {
+> 		int numero;
+> 		int numero2;
+> 		Scanner miScanner = new Scanner(System.in);
+> 		
+> 		// Leer un carácter como int desde el teclado
+>         System.out.println("Introduce un número entero:");
+> 		numero = miScanner.nextInt();
+> 		System.out.println("Introduce otro número entero:");
+> 		numero2 = miScanner.nextInt();
+> 		miScanner.close();
+>         
+> 		// Si las condiciones son mutuamente excluyentes, se usa if .. else
+> 		if (numero > numero2) {
+> 			System.out.println(numero + " - " + numero2);
+> 		} else {
+> 			System.out.println(numero2 + " - " + numero);
+> 		}
+> 		
+> 		
+> 	}
+> }
+> ```
+>
+> 
 
 ## 12 Diseña un algoritmo que lea dos valores y muestre el más grande de ellos.
 
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> 
+> //Diseña un algoritmo que lea dos valores y muestre el más grande de ellos.
+> public class Ejemplo12 {
+> 	public static void main(String argv[]) {
+> 		int numero;
+> 		int numero2;
+> 		Scanner miScanner = new Scanner(System.in);
+> 		
+>         System.out.println("Introduce un número entero:");
+> 		numero = miScanner.nextInt();
+> 		
+>         System.out.println("Introduce otro número entero:");
+> 		numero2 = miScanner.nextInt();
+> 		miScanner.close();
+> 		// Si las condiciones son mutuamente excluyentes, se usa if .. else
+> 		if (numero > numero2) {
+> 			System.out.println("El número más grande es: " + numero);
+> 		} else {
+> 			System.out.println("El número más grande es: " + numero2);
+> 		}
+> 		
+> 		//Otra forma de hacerlo es con el operador ternario
+> 		//(condition ? exprTrue : exprFalse). 
+> 		System.out.println("El número más grande es: " + ((numero > numero2) ? numero : numero2));
+> 	}
+> }
+> ```
+
 ## 13 Realiza un programa que lea dos valores y los orden ascendente o descendentemente según elija el usuario.
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> 
+> //Realiza un programa que lea dos valores y los orden ascende o descentemente según elija el usuario.
+> public class Ejemplo13 {
+> 	public static void main(String argv[]) {
+> 		int numero;
+> 		int numero2;
+> 		int orden;
+> 		Scanner inputValue = new Scanner(System.in);
+> 		
+> 		System.out.println("Introduce un número entero:");
+> 		numero = inputValue.nextInt();
+> 
+> 		System.out.println("Introduce otro número entero:");
+> 		numero2 = inputValue.nextInt();
+> 		
+> 		System.out.println("¿Cómo lo quieres ordenar?: 1 - Ascendente; 2 - Descendente");
+> 		orden = inputValue.nextInt();
+> 		inputValue.close();
+>         
+> 		if (1 == orden) {
+> 			if (numero > numero2) {
+> 				System.out.println(numero2 + " " + numero);
+> 			} else {
+> 				System.out.println(numero + " " + numero2);
+> 			}
+> 		} else {
+> 			if (numero > numero2) {
+> 				System.out.println(numero + " " + numero2);
+> 			} else {
+> 				System.out.println(numero2 + " " + numero);
+> 			}
+> 			
+> 		}
+> 	}
+> }
+> ```
+>
+> 
 
 ## 14 Diseña un algoritmo que lea un valor numérico entero correspondiente a la nota de un examen y muestre su valor en letra:
 
@@ -352,6 +484,46 @@ de 6 a 7 Bien
 de 7 a 9 Notable
 
 de 9 a 10 Sobresaliente
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> 
+> //Diseña un algoritmo que lea un valor numérico 
+> //entero correspondiente a la nota de un examen y muestre su valor en letra
+> public class Ejemplo14 {
+> 	public static void main(String argv[]) {
+> 		int nota;
+> 		Scanner miScanner = new Scanner(System.in);
+> 		
+> 		System.out.println("Introduce el valor de la nota entera:");
+> 		nota = miScanner.nextInt();
+> 		miScanner.close();
+>         
+> 		// Si las condiciones son mutuamente excluyentes, se usa if .. else if ...
+> 		if ((nota < 0) || (nota > 10)) {
+> 			System.out.println("Nota inválida");
+> 		}else if (nota < 3) {
+> 			System.out.println("Muy deficiente");
+> 		}else if (nota < 5 ) {
+> 			// No hace falta que comprobemos que es mayor que 3, porque si lo fuera
+> 			// habría entrado por el if (nota < 3) {
+> 			System.out.println("Insuficiente");
+> 		}else if (nota < 6 ) {
+> 			System.out.println("Suficiente");
+> 		}else if (nota < 7 ) {
+> 			System.out.println("bien");
+> 		}else if (nota < 9 ) {
+> 			System.out.println("Notable");
+> 		}else {
+> 			System.out.println("Sobresaliente");
+> 		}
+> 	}
+> }
+> ```
+>
+> 
 
 # Estructuras de decisión múltiple
 
@@ -407,19 +579,65 @@ Hay que hacer notar que la condición swith sólo admite un char o un entero
 Os dejo un vídeo del canal de [Píldoras Informáticas](https://www.youtube.com/channel/UCdulIs-x_xrRd1ezwJZR9ww)
 <iframe width="560" height="315" src="https://www.youtube.com/embed/b2ZtZndiT1Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
 ## 15 Realiza un programa que lea un número entero del 1 al 10 y que muestre su valor en letra.
 
-## 16 Realiza un programa que lea dos números enteros y dependiendo de la operación que indique el usuario \(+, -, \* , /\) muestre el resultado
-
->   Para leer un carácter con el objeto `Scanner`, usad el siguiente código
+> -toogle-Piensa antes de mirar
 >
 > ```java
->  String op; 
->  //Leer la entrada como String
->  Scanner miScanner = new Scanner(System.in);
->  op = miScanner.next();
->  ```
+> import java.util.Scanner;
+> 
+> //realiza un programa que lea un número entero del 1 al 10 y que muestre su valor en letra:
+> public class Ejemplo15 {
+> 	public static void main(String argv[]) {
+> 		int numero;
+> 		Scanner miScanner = new Scanner(System.in);
+> 		
+>         System.out.println("Introduce un número del 1 al 10:");
+> 		numero = miScanner.nextInt();
+> 		miScanner.close();
+> 		
+> 		switch (numero) {
+> 		case 1:
+> 			System.out.println("Uno");
+> 			//Importante usar break para que no continúe ejecuntando la siguiente instrucción 
+> 			break;
+> 		case 2:
+> 			System.out.println("Dos");
+> 			break;
+> 		case 3:
+> 			System.out.println("Tres");
+> 			break;
+> 		case 4:
+> 			System.out.println("Cuatro");
+> 			break;
+> 		case 5:
+> 			System.out.println("Cinco");
+> 			break;
+> 		case 6:
+> 			System.out.println("Seis");
+> 			break;
+> 		case 7:
+> 			System.out.println("Siete");
+> 			break;
+> 		case 8:
+> 			System.out.println("Ocho");
+> 			break;
+> 		case 9:
+> 			System.out.println("Nueve");
+> 			break;
+> 		case 10:
+> 			System.out.println("Diez");
+> 			break;
+> 		default:
+> 			System.out.println("El número debe estar comprendido entre 0 y 10");
+> 		}
+> 	}
+> }
+> ```
+>
+> 
+
+## 16 Realiza un programa que lea dos números enteros y dependiendo de la operación que indique el usuario \(+, -, \* , /\) muestre el resultado
 
 
 
