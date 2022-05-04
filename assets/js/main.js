@@ -264,4 +264,30 @@ document.querySelectorAll('blockquote p.toogle').forEach(el => {
 	el.parentElement.removeChild(firstParagraf);
 });
 
+//Sequence
+document.querySelectorAll('code.language-sequence').forEach((el , i) => {
+   	addClass(el.parentElement, "language-sequence");
+   	const newNode = document.createElement("div");
+    	newNode.id= 'diagram-' + i;
+        el.parentElement.insertBefore(newNode, el.parentElement.firstChild);
+        var diagram = Diagram.parse(el.innerText);
+        diagram.drawSVG(newNode.id, {theme: 'simple'});
+        addClass(el, "hidden");
+});
+
+//Mermaid
+document.querySelectorAll('code.language-mermaid').forEach((el , i) => {
+   	addClass(el, "mermaid");
+});
+
+//Flowchart
+document.querySelectorAll('code.language-flow').forEach((el , i) => {
+   	addClass(el.parentElement, "language-flow");
+   	const newNode = document.createElement("div");
+    	newNode.id= 'flow-diagram-' + i;
+        el.parentElement.insertBefore(newNode, el.parentElement.firstChild);
+        var diagram = flowchart.parse(el.innerText);
+        diagram.drawSVG(newNode.id);
+        addClass(el, "hidden");
+});
 

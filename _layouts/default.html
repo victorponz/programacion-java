@@ -22,7 +22,18 @@
         <a href="#top" id='back-to-top-link'><i class='fa fa-angle-up'></i></a>
       </div>
     </div>    
+   
+    <script src="{{ site.baseurl }}/assets/js/webfont.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/snap.svg-min.js"></script>   
+    <script src="{{ site.baseurl }}/assets/js/underscore-min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/sequence-diagram-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/raphael.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/flowchart-latest.js"></script>    
     <script src="{{ site.baseurl }}/assets/js/main.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
     {% include analytics.html %}
   </body>
 </html>
