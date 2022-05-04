@@ -1414,14 +1414,86 @@ Diseña un programa que calcule el factorial de un número
 
 Escribe un programa que lea un número y escriba su tabla de multiplicación
 
+```
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5 x 4 = 20
+5 x 5 = 25
+5 x 6 = 30
+5 x 7 = 35
+5 x 8 = 40
+5 x 9 = 45
+5 x 10 = 50
+```
+
+> -info-Aquí también usaremos un bucle `for` porque sabemos cuántas veces se va a ejecutar el bucle
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> public class Ejemplo26 {
+>     public static void main(String[] args)
+>     {	
+> 		int numero;		
+> 		Scanner inputValue = new Scanner(System.in);
+> 		
+> 		System.out.println("Introduce un número entero entre el 1 y el 9:");
+> 		numero = inputValue.nextInt();
+> 		inputValue.close();
+> 		
+> 		for (int i = 1; i <= 10; i++) {
+> 			System.out.printf("%d x %d = %d %n", numero, i, (numero * i));
+> 		}
+>     }
+> }
+> ```
+>
+> 
+
 ## 27 Impresión de números I
 
 Diseña un algoritmo que lea un número ***n*** e imprima esto:  
+
+```
 1  
 1 2  
 1 2 3  
 ...  
 1 2 3 4 5 ... n
+```
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> public class Ejemplo27 {
+>     public static void main(String[] args)
+>     {	
+> 		int numero;
+> 		// resultado es un acumulador, que se inicializa a "" para las cadenas
+> 		String resultado = "";
+> 		Scanner miScanner = new Scanner(System.in);
+> 		
+> 		System.out.println("Introduce un número entero:");		
+> 		numero = miScanner.nextInt();
+> 		miScanner.close();
+> 		
+> 		for (int i = 1; i <= numero; i++) {
+> 			//Vamos acumulando el resultado:
+> 			// 1 
+> 			// 1 2
+> 			// 1 2 3 
+> 			// ...
+> 			resultado += i + " ";
+> 			System.out.println(resultado);
+> 		}		
+>     }
+> }
+> ```
+
+
 
 ## 28 Números primos
 
@@ -1433,193 +1505,90 @@ Para saber si un número impar es primo, dividimos dicho número por todos los n
 
 Por ejemplo, para saber si 13 es un número primo basta dividirlo por 3, y 5. Para saber si 25 es número primo se divide entre 3, 5, 7, 9, y 11. Si el resto de la división \(operación módulo %\) es cero, el número no es primo.
 
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> public class Ejemplo28 {
+>     public static void main(String[] args)
+>     {	
+> 		int numero;
+> 		boolean esPrimo = true;
+> 		Scanner inputValue = new Scanner(System.in);
+> 		
+> 		System.out.println("Introduce un número entero positivo:");
+> 		numero = inputValue.nextInt();
+> 		inputValue.close();
+> 
+> 		if ((numero == 1) || ((numero != 2 ) && (numero % 2 == 0))) {
+> 			esPrimo = false;
+> 		}else{
+> 			//Sólo lo dividimos por los impares, hasta la mitad del número
+> 		    for(int i=3; i <= (numero / 2); i+=2) {
+> 				//Si el resto de la multiplicación es 0 es divisible
+> 		        if(numero %i ==0){ 
+> 		        	esPrimo = false;
+> 					//Una vez sabemos que no es primo ya podemos salir del bucle
+> 		        	break;
+> 		        }
+> 		    }
+> 		}
+> 	    if (esPrimo) {
+> 	    	System.out.println("El número " + numero + " es primo");
+> 	    }else {
+> 	    	System.out.println("El número " + numero + " NO es primo");
+> 	    }
+>     }
+> }
+> ```
+
+> -info-En este programa hemos usado la palabra reservada `break` que permite finalizar un bucle. En este caso, cuando sabemos que un número es divisible ya no hace falta continuar el bucle pues ya sabemos la solución:  no es primo.
+
 ## 29 Números primos II
 
-Realiza un programa que imprima todos los números primos entre 3 y 100
+Realiza un programa que imprima todos los números primos entre 3 y 100.
 
-## 30 Palíndromo (opcional)
+Este caso es una unión del algoritmo anterior pero repetido un número determinado de veces. Por tanto, usamos un bucle `for` 
 
-Realiza un programa que averigüe si una palabra o frase es palíndroma. Para averiguar el número de caracteres de una cadena se usa el método `length()`.
+> -toogle-Piensa antes de mirar
+>
+> 
 
-# Arrays
+## 30 Palíndromo (avanzado)
 
-[http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/arays.htm](http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/arays.htm)
+Realiza un programa que averigüe si una palabra o frase es palíndroma. Para averiguar el número de caracteres de una cadena se usa el método `length()` y para acceder al carácter iésimo usa la función `chartAt()`
 
-[https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html)
-
-Aquí os dejo el vídeo de [Píldoras Informáticas](https://www.youtube.com/watch?v=UID_EKKfpcE&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=23)
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UID_EKKfpcE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-Mirad el resto de vídeos haciendo saltos de fe cuando sea necesario.
-
-```java
-class ArrayDemo {
-    public static void main(String[] args) {
-        // declares an array of integers
-        int[] anArray;
-
-        // allocates memory for 10 integers
-        anArray = new int[10];
-
-        // initialize first element
-        anArray[0] = 100;
-        // initialize second element
-        anArray[1] = 200;
-        // and so forth
-        anArray[2] = 300;
-        anArray[3] = 400;
-        anArray[4] = 500;
-        anArray[5] = 600;
-        anArray[6] = 700;
-        anArray[7] = 800;
-        anArray[8] = 900;
-        anArray[9] = 1000;
-
-        System.out.println("Element at index 0: "
-                           + anArray[0]);
-        System.out.println("Element at index 1: "
-                           + anArray[1]);
-        System.out.println("Element at index 2: "
-                           + anArray[2]);
-        System.out.println("Element at index 3: "
-                           + anArray[3]);
-        System.out.println("Element at index 4: "
-                           + anArray[4]);
-        System.out.println("Element at index 5: "
-                           + anArray[5]);
-        System.out.println("Element at index 6: "
-                           + anArray[6]);
-        System.out.println("Element at index 7: "
-                           + anArray[7]);
-        System.out.println("Element at index 8: "
-                           + anArray[8]);
-        System.out.println("Element at index 9: "
-                           + anArray[9]);
-    }
-}
-```
-
-## 31 Imprimir array
-
-A partir del código anterior, imprime el contenido del array mediante un bucle for
-
-## 32 Orden inverso
-
-Realiza un programa que lea 10 números y los muestre en orden inverso
-
-## 33 DNI
-
-Realiza un programa que lea un DNI sin letra y calcula la misma \(usad un array para almacenar las letras\)  
-En este [enlace](http://www.interior.gob.es/web/servicios-al-ciudadano/dni/calculo-del-digito-de-control-del-nif-nie) se explica cómo se calcula la letra del DNI.
-
-## 34 NIE
-
-Realiza un programa que calcule la letra de un NIE
-
-# For mejorado para arrays
-
-Una forma de hacer los bucles más compactos para arrays es usar `enhanced for`
-
-```java
-class EnhancedForDemo {
-	public static void main(String[] args){
-        int[] numbers = {1,2,3,4,5,6,7,8,9,10};
-        for (int item : numbers) {
-            System.out.println("Count is: " + item);
-        }
-    }
-}
-```
-
-## 35 Suma y media de un array
-
-Realiza el programa 24 con arrays. 
-
-**Supón que se introducen siempre 10 notas, así que no tengas en cuenta el -1.**
-
-## 36 Máximo
-
-Realiza un programa que pida diez números e imprima el mayor
-
-## 37 Máximo y mínimo
-
-Realiza un programa que pida diez números e imprima el mayor y el menor
-
-## 38 Contar vocales
-
-Realiza un programa que lea una cadena de texto e imprima cuantas vocales no acentuadas contiene.
-
-## 39 Divisores
-
-Realiza un programa que pida un número natural y escriba sus divisores
-
-## 40 Fibonacci
-
-![](/programacion-java/assets/img/java-basico//fibonacci.png)
-
-Diseña un programa que muestre los primeros 40 términos de la serie de [Fibonacci](https://es.wikipedia.org/wiki/Sucesión_de_Fibonacci)
-Este programa utiliza una técnica usada mucho en programación que se denomina _swap_ y que consiste en intercambiar el valor de dos variables usando una variable auxiliar. 
-
-## 41 Número Áureo
-
-Modifica el programa anterior para que muestre la relación \(división\) entre el valor n y el \(n - 1\) de la serie de Fibonacci (40 veces). Esta es una manera de obtener una aproximación al [Número Áureo](https://es.wikipedia.org/wiki/Número_áureo).
-
-## 42 Sumas sucesivas 
-Realiza un programa que calcule la multiplicación de dos números usando el método de las sumas sucesivas
-
-## 43 Restas sucesivas
-Realiza un programa que calcule el resto de una división usando el método de las restas sucesivas.
-
-
-
-![](/programacion-java/assets/img/java-basico/restas.png)
-
-## 44 Binario a decimal (opcional)
-Realiza un programa que lea una cadena de números binarios y calcule su valor en decimal
-
-## 45 Decimal a binario (opcional)
-Realiza un programa que lea un número entero decimal (máximo 255) e imprima su valor en binario
-## 46 Juego Adivina un número  (opcional)
-Diseña un algoritmo para jugar a "adivinar un número". El algoritmo generará un número _aleatorio_ entre 1 y 100, que llamaremos el número secreto, y le pedirá al jugador que introduzca un número hasta que gane o un -1 para rendirse:
-
-* Si el número es igual al número secreto, mostrará "Has Ganado" en la pantalla y terminará
-* Si el número introducido es mayor que el número secreto, mostrará "El número secreto es más pequeño" y le pedirá que introduzca otro.
-* Si el número introducido es menor que el número secreto, mostrará "El número secreto es más grande" y le pedirá que introduzca otro.
-* Si el número introducido es -1, mostrará "Se rinde" y terminará
-
-Para generar un número aleatorio usa este código.
-```java
-import java.util.Random;
-....
-    int max, min;
-    // Producir nuevo int aleatorio entre max y min    
-	int aleatorio = (int) (Math.random() * (max - min + 1) + min);
-
-```
-## 47 Marco con cadenas
-Escribe una función que recoja una lista de cinco cadenas, una por línea, y las imprima en un marco rectangular. 
-Por ejemplo, la lista **["Hola", "esto", "es", "un", "marco"]**
-
-![](/programacion-java/assets/img/java-basico//marco.png)
-
-```java
-import java.util.Scanner;
-
-class Ejemplo48 {
-	public static void main(String[] args){
-		String[] cadenas = new String[5];
-		System.out.println("Introduce 5 cadenas de texto:");
-		Scanner miScanner;
-        miScanner = new Scanner(System.in);
-		
-		for (int i = 0; i < cadenas.length; i++){
-			cadenas[i] = miScanner.next();
-		}
-		
-		....
-
-	}
-}
-```
-
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> 
+> import java.util.Scanner;
+> public class Ejemplo30 {
+>     public static void main(String[] args)
+>     {
+>     	boolean esPalindromo = true;
+>     	Scanner miScanner = new Scanner(System.in);
+>     	
+>     	System.out.println("Introduzca una cadena:");
+>     	   	
+>         String cadena = miScanner.nextLine();
+>         miScanner.close();
+>         
+> 	    for (int i = 0; i < (cadena.length() / 2); i++) {
+> 	    	//Recorremos la mitad de la cadena y comparamos el valor primer valor con el último
+> 	    	//el segundo con el penúltimo, etc
+> 	    	//En el momento que alguno no coincida ya podemos parar porque la palabra no es palíndroma
+> 	    	if (cadena.charAt(i) != cadena.charAt(cadena.length() - i - 1)) {
+> 	    		esPalindromo = false;
+> 	    		break;
+> 	    	}
+> 	    }
+> 	    if (esPalindromo) {
+> 	    	System.out.println("La cadena es palíndroma");
+> 	    }else {
+> 	    	System.out.println("La cadena NO es palíndroma");
+> 	    }
+>     }
+> }
+> ```
+>Fíjate en `cadena.charAt(cadena.length() - i - 1)` Es el iésimo carácter empezando por el final. Recuerda que el primer carácter es 0 
