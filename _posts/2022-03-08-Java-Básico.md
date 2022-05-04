@@ -34,7 +34,15 @@ Os dejo un [vídeo](https://www.youtube.com/watch?v=bq6nJRJq27A) donde se explic
 
 ## 3 Un programa que calcula y muestra el área de un cuadrado de lado 5
 
-![](/programacion-java/assets/img/java-basico//ej2.png)
+```flow
+st=>start: Start:
+e=>end: End:
+op1=>operation: area = 5 * 5 
+io=>inputoutput: Escribe area
+st->op1->io->e
+```
+
+
 
 > -toogle-Piensa antes de ver la solución
 >
@@ -76,18 +84,28 @@ public class Ejemplo4 {
         lado = inputValue.nextFloat();
         
         inputValue.close();
-        //Ahora que ya hemos guardado los datos en memoria ya podemos realizar el programa
+        //Aquí usamos los datos obtenidos
     }
 }
 ```
 
 En este código hemos introducido muchos conceptos:
 
-1. <span style='color:red'>(1)</span> Usamos librerías de java. Una librería es como una caja de herramientas o un *objeto* que permite realizar tareas. Estas se organizan en salas y estanterías. Por ejemplo, la librería `java.util.Scanner` es un `Scanner` que se encuentra en la estantería `util` de la sala `java`.  El objecto `Scanner` puede realizar muchas tareas entre las que se encuentran la posibilidad de leer enteros (`nextFloat`).
+1. <span style='color:red'>(1)</span> Usamos librerías de java. Una librería es como una caja de herramientas o un *objeto* que permite realizar tareas. Estas se organizan en salas y estanterías. Por ejemplo, la librería `java.util.Scanner` es un `Scanner` que se encuentra en la estantería `util` de la sala `java`.  El objecto `Scanner` puede realizar muchas tareas entre las que se encuentran la posibilidad de leer números decimales (`nextFloat`).
    En la estantería `util` hay muchos más [objetos](https://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html). Por ejemplo, el objeto `Calendar` permite trabajar con datos de tipo fecha para, por ejemplo, saber qué día de la semana es una fecha.
 2. <span style='color:red'>(5)</span> En esta instrucción creamos un nuevo `Scanner`. 
 3. <span style='color:red'>(8)</span> Escaneamos un valor de tipo decimal
-4. <span style='color:red'>(10)</span> Apagamos el `Scanner`
+4. <span style='color:red'>(10)</span> Apagamos el `Scanner` una vez hemos dejado de usarlo
+
+> -alert-Si en vez de introducir un número como lado introduces una letra, dará una **Exception** porque no puede *traducir* la letra a un número decimal. De momento, haz un salto de fe e introduce siempre en los ejercicios el tipo de dato que se espera. Ya lo arreglaremos cuando veamos las **excepciones**
+>
+> ```
+> Exception in thread "main" java.util.InputMismatchException
+>         at java.util.Scanner.throwFor(Scanner.java:864)
+>         at java.util.Scanner.next(Scanner.java:1485)
+>         at java.util.Scanner.nextFloat(Scanner.java:2345)
+>         at Ejemplo4.main(Ejemplo4.java:13)
+> ```
 
 ## 4 Un programa que calcula y muestra el área de un cuadrado cuyo lado se introduce por pantalla
 
@@ -108,7 +126,7 @@ En este código hemos introducido muchos conceptos:
 >         System.out.println("Introduce el lado:");
 >         //Leer un carácter como Float desde el teclado
 >         lado = inputValue.nextFloat();
-> 		inputValue.close();
+>         inputValue.close();
 > 
 >         // 2. Realizamos el algoritmo
 >         area = lado * lado;
@@ -132,7 +150,18 @@ En este código hemos introducido muchos conceptos:
 > 2. Se procesan estos datos. Es decir a partir de los datos de entrada y de un algoritmo se generan los datos de salida.
 > 3. Se muestran estos datos: en pantalla, en una impresora, en una página web, etc
 
-
+> -info-**Cómo escribir un programa**
+>
+> **Nadie escribe un programa informático de un tirón**
+>
+> Un programa informático, al igual que un libro, está compuesto de muchas instrucciones (frases y oraciones). Cuando se escribe un libro, se van creando palabras, frases, oraciones, capítulos, etc. Es decir, se debe empezar por lo más básico e ir formando el *todo*.
+>
+> Pues lo mismo se aplica a un programa informático: **se hace poco a poco**.
+>
+> * La primera fase es *pensar*  **cómo solucionar** el problema
+> * La segunda fase es *pensar* **cómo descomponer** el problema en partes más sencillas. Ya hemos visto que un libro se hace por partes, ¿no?. Pues piensa en esas partes. Seguro que sigue una estructura como hemos visto antes
+> * Ahora es el momento de realizar cada una de las partes definidas e ir juntándolas
+> * Y, muy importante, cada vez que realizas una parte compruebas que funciona.
 
 ## 5 Un programa que lea dos números enteros y muestre el resultado de sumarlos, restarlos, multiplicarlos y dividirlos
 
@@ -253,48 +282,47 @@ Math.PI
 > }
 > ```
 >
-> 
 
-## 8 Realiza un programa que pida la edad al usuario y muestre un mensaje si es mayor de **edad**
+# Estructuras condicionales \(if\)
 
-### Estructuras condicionales \(if\)
+La estructura condicional más simple es el `if`: se evalúa una condición y en caso de que se cumpla se ejecuta el contenido entre las llaves {}.
 
-> La estructura condicional más simple es el if, se evalúa una condición y en caso de que se cumpla se ejecuta el contenido entre las llaves {}.
->
-> ```java
->public static void main(String[] args) {
-> 
->  ......
->  if (edad >= 18){
->         System.out.println("Mayor de edad");
->     }
->     .....
->    }
->    ```
+ ```java
+public static void main(String[] args) {
+ 
+  ......
+  if (edad >= 18){
+         System.out.println("Mayor de edad");
+     }
+     .....
+    }
+ ```
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/b2ZtZndiT1Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+## 8 Realiza un programa que pida la edad al usuario y muestre un mensaje si es mayor de **edad**
+
 ![](/programacion-java/assets/img/java-basico//ej8.png)
 
-## 9 Igual que el anterior pero que también muestre un mensaje si es menor de edad
 
-### Estructuras condicionales \(if - else\)
 
-> En este caso, si no se cumple la condición del if, ejecuta el código definido en el else
->
-> ```java
->public static void main(String[] args) {
-> 
->  ......
->  if (edad >= 18){
->         System.out.println("Mayor de edad");
->     }else{
->         System.out.println("Menor de edad");
->     }
->     .....
->    }
->    ```
+# Estructuras condicionales \(if - else\)
+
+En este caso, si no se cumple la condición del `if`, ejecuta el código definido en el `else`
+ ```java
+public static void main(String[] args) {
+   ......
+       if (edad >= 18){
+           System.out.println("Mayor de edad");
+       }else{
+           System.out.println("Menor de edad");
+       }
+    .....
+}
+ ```
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8t5-D5dZu5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## 9 Igual que el anterior pero que también muestre un mensaje si es menor de edad
 
 ![](/programacion-java/assets/img/java-basico//ej9.png)
 
@@ -372,7 +400,7 @@ Math.PI
 > 		Scanner miScanner = new Scanner(System.in);
 > 		
 > 		// Leer un carácter como int desde el teclado
->         System.out.println("Introduce un número entero:");
+>        	System.out.println("Introduce un número entero:");
 > 		numero = miScanner.nextInt();
 > 		System.out.println("Introduce otro número entero:");
 > 		numero2 = miScanner.nextInt();
@@ -390,7 +418,6 @@ Math.PI
 > }
 > ```
 >
-> 
 
 ## 12 Diseña un algoritmo que lea dos valores y muestre el más grande de ellos.
 
@@ -427,6 +454,16 @@ Math.PI
 > ```
 
 ## 13 Realiza un programa que lea dos valores y los orden ascendente o descendentemente según elija el usuario.
+
+En este caso necesitamos *acordarnos* de tres cosas:
+
+* Los dos números a comparar
+* El orden (por ejemplo: 1 para Ascendente y otro cualquiera para descendente)
+* Para hacer el programa sigue estas fases:
+  1. Lee los datos del teclado
+  2. Ahora haz el algoritmo para cuando el orden es Ascendente
+  3. Una vez te funcione, crea la sentencia `if` y ahora realiza la sentencia `else` para ordenar descendentemente.
+  4. Comprueba que todo funciona bien.
 
 > -toogle-Piensa antes de mirar
 >
@@ -470,6 +507,26 @@ Math.PI
 > ```
 >
 > 
+
+# La sentencia `else if`
+
+ Puede ser que haya más de una condición. En este caso se usan tantos bloques `else if` como condiciones haya:
+
+```java
+int time = 22;
+if (time < 10) {
+  System.out.println("Good morning.");
+} else if (time < 20) {
+  System.out.println("Good day.");
+} else {
+  System.out.println("Good evening.");
+}
+// Outputs "Good evening."
+```
+
+
+
+> -info-Más info en [https://www.w3schools.com/java/java_conditions.asp](https://www.w3schools.com/java/java_conditions.asp)
 
 ## 14 Diseña un algoritmo que lea un valor numérico entero correspondiente a la nota de un examen y muestre su valor en letra:
 
@@ -523,13 +580,22 @@ de 9 a 10 Sobresaliente
 > }
 > ```
 >
-> 
+
+> -info-Fíjate en la condición
+>
+> ```java
+> if ((nota < 0) || (nota > 10)) {
+> ```
+>
+> `||` es un operador de comparación que significa **O**. En este caso si la nota es menor que 0 **O** mayor que 10, se trata de un error
+>
+> Más info sobre operadores en [https://www.w3schools.com/java/java_operators.asp](https://www.w3schools.com/java/java_operators.asp)
 
 # Estructuras de decisión múltiple
 
 Hay momentos en los que desea comprobar una serie de condiciones y ejecutar código diferente dependiendo de la condición.
 
-Una forma de hacerlo es con la lógica if / else, como el siguiente ejemplo:
+Una forma de hacerlo es con la lógica `if / else`, como el siguiente ejemplo:
 
 ```java
 int x = 1;
@@ -581,6 +647,28 @@ Os dejo un vídeo del canal de [Píldoras Informáticas](https://www.youtube.com
 
 ## 15 Realiza un programa que lea un número entero del 1 al 10 y que muestre su valor en letra.
 
+En este programa sólo nos hemos de *acordar* de un dato: la nota. Dependiendo de la nota imprimiremos una cadena u otra. Como hay 10 opciones mutuamente excluyentes es más sencillo usar un `switch` que un conjunto de `if-else if-...` 
+
+> -alert-**Cuidado**
+>
+> En la condición `case` **sólo** se permiten valores escalares, es decir, no se puede escribir:
+>
+> ```java
+> case <= 3:
+> ```
+>
+> Para simular este caso (que es un tema más avanzado) se haría así:
+>
+> ```java
+> case 1:
+> case 2:
+> case 3:
+> 	System.out.println("Entre uno y tres");
+> 	break:
+> case 4:
+> 	....
+> ```
+
 > -toogle-Piensa antes de mirar
 >
 > ```java
@@ -592,7 +680,7 @@ Os dejo un vídeo del canal de [Píldoras Informáticas](https://www.youtube.com
 > 		int numero;
 > 		Scanner miScanner = new Scanner(System.in);
 > 		
->         System.out.println("Introduce un número del 1 al 10:");
+> 		System.out.println("Introduce un número del 1 al 10:");
 > 		numero = miScanner.nextInt();
 > 		miScanner.close();
 > 		
@@ -639,21 +727,226 @@ Os dejo un vídeo del canal de [Píldoras Informáticas](https://www.youtube.com
 
 ## 16 Realiza un programa que lea dos números enteros y dependiendo de la operación que indique el usuario \(+, -, \* , /\) muestre el resultado
 
+En este caso nos hemos de *acordar* de tres cosas:
 
+* Dos números (por ejemplo, de tipo `int`)
+
+* Una operación (en este caso usaremos el tipo `string`). Para leer un dato de tipo `String` usamos el método `inputValue.next()` 
+
+  > -hint-Aquí va el código para la operación `+`
+  >
+  > ```java
+  > System.out.println("Introduce la operación a realizar (+, -, *, /):");
+  > operacion = inputValue.next();
+  > switch (operacion) {
+  >     /* Fíjate que usamos dobles comillas " porque es de tipo String */
+  >     case "+":			
+  >         System.out.printf("El resultado de sumar %d y %d es: %d %n", n, m, n+m);
+  >         break;
+  >     case "-":
+  >         ....
+  > ```
+
+Como la operación a realizar es **mutuamente excluyente** usaremos un bloque `if-else if` o un bloque `switch`, el que más rabia te dé.
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> 
+> //Realiza un programa que lea dos números enteros y 
+> // dependiendo de la operación que indique el usuario (+, -, * , /) muestre el resultado
+> public class Ejemplo16 {
+> 	public static void main(String argv[]) {
+> 		int n;
+> 		int m;
+> 		String operacion;
+> 		String cadena; 
+> 		Scanner inputValue  = new Scanner(System.in);
+> 
+> 
+> 		// Leer un carácter como int desde el teclado
+> 		System.out.println("Introduce un número entero:");
+> 		n = inputValue.nextInt();
+> 
+> 		System.out.println("Introduce otro número entero:");
+> 		m = inputValue.nextInt();
+> 		
+> 		System.out.println("Introduce la operación a realizar (+, -, *, /):");
+> 		operacion = inputValue.next();
+> 		switch (operacion) {
+> 			/* Fíjate que usamos dobles comillas " porque es de tipo String */
+> 		case "+":			
+> 			System.out.printf("El resultado de sumar %d y %d es: %d %n", n, m, n+m);
+> 			break;
+> 		case "-":
+> 			System.out.printf("El resultado de restar %d y %d es: %d %n", n, m, n-m);
+> 			break;
+> 		case "*":
+> 			System.out.printf("El resultado de multiplicar %d y %d es: %d %n", n, m, n*m);
+> 			break;
+> 		case "/":
+> 			System.out.printf("El resultado de dividir %d y %d es: %d %n", n, m, n/m);
+> 			break;
+> 		default:
+> 			System.out.println("Operación incorrecta");
+> 		}
+> 		//También se puede hacer así. Leyendo sólo el primer carácter de la cadena
+> 		char op;
+> 		
+> 		System.out.println("Introduce la operación a realizar (+, -, *, /):");
+> 		//Leemos toda una cadena
+> 		cadena = inputValue.next();
+> 		// y nos quedamos con el carácter 0 (el primero)
+> 		op = cadena.charAt(0);
+> 		 
+> 		switch (op) {
+> 			/* Fíjate que usamos comilla simple ` porque es de tipo char */
+> 		case '+':
+> 			System.out.printf("El resultado de sumar %d y %d es: %d %n", n, m, n+m);
+> 			break;
+> 		case '-':
+> 			System.out.printf("El resultado de restar %d y %d es: %d %n", n, m, n-m);
+> 			break;
+> 		case '*':
+> 			System.out.printf("El resultado de multiplicar %d y %d es: %d %n", n, m, n*m);
+> 			break;
+> 		case '/':
+> 			System.out.printf("El resultado de dividir %d y %d es: %d %n", n, m, n/m);
+> 			break;
+> 		default:
+> 			System.out.println("Operación incorrecta");
+> 		}
+> 
+> 		// Y también se puede hacer con un bloque if-else-if
+> 		if ('+' == op)
+> 			System.out.printf("El resultado de sumar %d y %d es: %d %n", n, m, n+m);
+> 		else if ('-' == op)
+> 			System.out.printf("El resultado de restar %d y %d es: %d %n", n, m, n-m);
+> 		else if ('*' == op)
+> 			System.out.printf("El resultado de multiplicar %d y %d es: %d %n", n, m, n*m);
+> 		else if ('/' == op)
+> 			System.out.printf("El resultado de dividir %d y %d es: %d %n", n, m, n/m);
+> 		else 
+> 			System.out.println("Operación incorrecta");
+> 
+> 		inputValue.close();
+> 	}
+> }
+> ```
 
 ## 17 Realiza un programa que pida al usuario un mes e imprima el número de días que tiene.
+
+En este caso es más sencillo usar un bloque `switch`, por ejemplo:
 
 ```java
 switch (mes){
     case 1:
     case 3:
+    ....
         System.out.print("Tiene 31 días : ");
         break;
     case 2:
             .....
 ```
 
+Y, de momento, vamos a suponer que no hay años bisiestos!
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> 
+> //Realiza un programa que pida al usuario un mes e imprima el número de días que tiene.
+> public class Ejemplo17 {
+> 	public static void main(String argv[]) {
+> 		int mes;
+> 		Scanner miScanner = new Scanner(System.in);
+> 		
+> 		// Leer un carácter como int desde el teclado
+> 		System.out.println("Introduce un mes :");
+> 		mes = miScanner.nextInt();
+> 		miScanner.close();
+> 		
+> 		//En este caso tenemos un switch que imprime lo mismo para varios casos
+> 		switch (mes) {
+> 		case 1:
+> 		case 3:
+> 		case 5:
+> 		case 7:
+> 		case 8:
+> 		case 10:
+> 		case 12:
+> 			System.out.println("El mes tiene 31 días");
+> 			break;			
+> 		case 2:
+> 			System.out.println("El mes tiene 28 o 29 días");
+> 			break;
+> 		case 4:
+> 		case 6:
+> 		case 9:
+> 		case 11:
+> 			System.out.println("El mes tiene 30 días");
+> 			break;
+> 		default:
+> 			System.out.println("Mes incorrecto");
+> 		}
+> 
+> 	}
+> }
+> ```
+
 ## 18 Diseña un algoritmo que recibe horas, minutos y segundos y muestra horas, minutos y segundos resultantes de la adición de un segundo.
+
+Este problema parece trivial, ¿no?. Cojo una horas, minutos, segundos y el sumo 1. Y si resulta que ahora tengo 60 segundos? ¿Y si ahora tengo 60 minutos? Ya no parece tan simple. Pero seguro que en tu cabeza lo ves claro. El problema es que todavía no tienes práctica en traducir tus pensamientos a código. Poco a poco. Al memos haz el algoritmo para sumar un minuto si los segundos suman 60 ahora.
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> 
+> //Diseña un algoritmo que recibe horas, minutos y segundos y 
+> // muestra horas, minutos y segundos resultantes de la adición de un segundo.
+> public class Ejemplo18 {
+> 	public static void main(String argv[]) {
+> 		int horas;
+> 		int minutos;
+> 		int segundos;
+> 		Scanner miScanner = new Scanner(System.in);
+> 		
+> 		System.out.println("Introduce las horas:");
+> 		horas = miScanner.nextInt();
+> 		
+> 		System.out.println("Introduce los minutos:");
+> 		minutos = miScanner.nextInt();
+> 		
+> 		System.out.println("Introduce los segundos:");
+> 		segundos = miScanner.nextInt();
+> 		miScanner.close();
+> 		
+> 		//Añadimos un segundo
+> 		segundos = segundos + 1; // o segundos++
+> 		
+> 		//Si al sumar un segundo, llegamos a 60 significa que hemos de aumentar un minuto
+> 		if (60 == segundos) {
+> 			minutos++;
+> 			segundos = 0;
+> 			//Si ahora los minutos son 60, hemos de aumentar una hora		
+> 			if (60 == minutos) {
+> 				horas++;
+> 				minutos = 0;
+> 				//Si ahora las horas son 24, la ponemos a 0 (ha pasado un día)
+> 				if (24 == horas) {
+> 					horas = 0;
+> 				}
+> 			}
+> 		}
+> 		
+> 		System.out.printf("Ahora son %d:%d:%d %n", horas, minutos, segundos);
+> 	}
+> }
+> 
+> ```
 
 ## 19 Diseña un algoritmo que calcule el salario neto de un trabajador en función del número de horas de trabajo y los impuestos según las siguientes reglas:
 
@@ -679,9 +972,135 @@ Datos resultantes:
 * Salario neto
 * Impuestos
 
+> -info-Ya hemos visto que un programa hay que descomponerlo en partes. Fíjate que se calculan tres datos que son dependientes. ( y cada cálculo individual es relativamente sencillo, ¿no?). Pues hacer todo el programa es la suma de hacer tres pequeños programas. Parece sencillo
+>
+> Primero piensa bien el problema. A continuación haz cálculos en una hoja de cálculo. Parece mentira pero cuando programas echas mano de papel, calculadora, ... ¡No lo haces todo en la cabeza!
+>
+> Ahora calcula el salario bruto. Una vez funcione, calcula el salario neto. Y, por último, los impuestos
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> public class Ejemplo19 {
+> 	public static void main(String argv[]) {
+> 		int horas;
+> 		float precio;
+> 		float bruto;
+> 		float impuestos;
+> 		Scanner miScanner = new Scanner(System.in);
+> 		/* Habitualmente, los programas se dividen en 3 partes:
+> 		 * 1.- Recoger datos
+> 		 * 2.- Procesarlos
+> 		 * 3.- Imprimir resultados
+> 		 * Estas 3 partes deben estar diferenciadas, es decir, en la parte de proceso no
+> 		 * imprimimos nada, sólo hacemos cálculos
+> 		 */
+> 		
+> 		/*
+> 		 * 1.- RECOGER DATOS 
+> 		 */
+> 		//Suponemos que el usuario introduce datos correctos
+> 		System.out.println("Introduce las horas:");
+> 		horas = miScanner.nextInt();
+> 		
+> 		System.out.println("Introduce el precio por hora:");
+> 		precio = miScanner.nextFloat();
+> 		miScanner.close();
+> 	
+> 		/*
+> 		 * 2.- PROCESAR DATOS 
+> 		 */
+> 		
+> 		/*
+> 		 *  Primero calculamos el pago bruto.
+> 		 *  Las primeras 35 horas se pagan al precio normal por hora
+> 		 *  Las horas que exceden esas 35 horas se pagan 1,5 veces el precio normal.
+> 		 */
+> 		if (horas <= 35) {
+> 			bruto = horas * precio;
+> 		}else {
+> 			//Las primeras 35 se pagan normal
+> 			bruto = 35 * precio;
+> 			//Las siguientes se pagan a 1,5 veces el precio normal
+> 			bruto += (horas - 35) * precio * 1.5;
+> 		}
+> 		/*
+> 		 * Ahora calculamos los impuestos:
+> 		 *   Los primeros 500 € son libres de impuestos.
+> 		 *   los próximos 400 € tienen un impuesto del 25%
+> 		 *   Y el resto una tasa de impuestos del 45%.
+> 		 */
+> 		if (bruto <= 500) {
+> 			impuestos = 0;
+> 		}else if (bruto <= 900){
+> 			//Cobra entre 500 y 900, de los primeros 500 no paga nada
+> 			impuestos = (bruto - 500) * 0.25f;
+> 		}else {
+> 			//Si cobra más de 900
+> 			impuestos = (400 * 0.25f) + (bruto - 500 - 400) * 0.45f;
+> 		}
+> 		
+> 		/*
+> 		 * 3.- IMPRIMIR RESULTADOS
+> 		 */
+> 		
+> 		System.out.println("Pago bruto: " + bruto);
+> 		System.out.println("Salario neto: " + (bruto - impuestos));
+> 		System.out.println("Impuestos: " + impuestos);
+> 		
+> 	}
+> }
+> ```
+
 ## 20 Precio final
 
 Un cierto comercio hace un descuento dependiendo del precio de cada producto. Si el precio es inferior a 6 euros no hay descuento. Si es mayor o igual a 6 euros  y menos de 60 €, se aplica un 5% de descuento, y si es mayor o igual a 60 € se aplica  un 10% de descuento. Diseña el algoritmo para calcular el precio final.
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> 
+> public class Ejemplo20 {
+> 	/*
+> 	 * Un cierto comercio hace un descuento dependiendo del precio de cada producto.
+> 	Si el precio es inferior a 6 euros no hay descuento. Si es mayor o igual a 6 euros
+> 	y menos de 60 €, se aplica un 5% de descuento, y si es mayor o igual a 60 € se aplica
+> 	un 10% de descuento. Diseña el algoritmo para calcular el precio final.
+> 	 */
+> 	public static void main(String[] args) {
+> 		float precio;
+> 		float descuento;
+> 		Scanner miScanner = new Scanner(System.in);
+> 
+> 		/*
+> 		 * 1.- RECOGER DATOS 
+> 		 */
+> 		System.out.println("Introduce el precio:");
+> 		precio = miScanner.nextFloat();
+> 		miScanner.close();
+> 
+> 		/*
+> 		 * 2.- PROCESAR DATOS 
+> 		 */
+> 		if (precio < 6) {
+> 			descuento = 0;
+> 		}else if(precio < 60) {
+> 			descuento = precio * 0.05f;
+> 		}else {
+> 			descuento = precio * 0.10f;
+> 		}
+> 		
+> 		/*
+> 		 * 3.- IMPRIMIR RESULTADOS
+> 		 */
+> 		System.out.println("El precio final es: " + (precio - descuento) + " €");
+> 	}
+> }
+> ```
+>
+> 
 
 ## 21 Año bisiesto
 
