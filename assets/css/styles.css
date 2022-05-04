@@ -670,3 +670,15 @@ pre {
     -o-tab-size:      4; /* Opera 11.5 & 12.1 only */
     tab-size:         4; /* Chrome 21+, Safari 6.1+, Opera 15+ */
 }
+.language-mermaid svg, .language-flow svg{
+  margin: auto;
+  width: 100%;
+}
+
+.language-sequence svg{
+  margin: auto;
+}
+.language-sequence div, .mermaid-container{
+  text-align:center;
+}
+

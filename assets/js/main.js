@@ -278,6 +278,10 @@ document.querySelectorAll('code.language-sequence').forEach((el , i) => {
 //Mermaid
 document.querySelectorAll('code.language-mermaid').forEach((el , i) => {
    	addClass(el, "mermaid");
+   	const newNode = document.createElement("div");
+    	newNode.className= 'mermaid-container';
+    	el.parentElement.insertBefore(newNode, el.parentElement.firstChild);
+    	newNode.appendChild(el);
 });
 
 //Flowchart
