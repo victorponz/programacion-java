@@ -19,7 +19,6 @@ public class Ejemplo20 {
 		precio = miScanner.nextFloat();
 		miScanner.close();
 
-		
 		/*
 		 * 2.- PROCESAR DATOS 
 		 */
@@ -35,8 +34,5 @@ public class Ejemplo20 {
 		 * 3.- IMPRIMIR RESULTADOS
 		 */
 		System.out.println("El precio final es: " + (precio - descuento) + " €");
-		
-	
 	}
-
 }

@@ -1104,9 +1104,57 @@ Un cierto comercio hace un descuento dependiendo del precio de cada producto. Si
 
 ## 21 Año bisiesto
 
-Diseña un algoritmo que lea un año como dato de entrada y que muestre si es un año bisiesto o no. Todos los múltiplos de 4, excepto los que son múltiples de 100 y no de 400 son años bisiestos.  
+Diseña un algoritmo que lea un año como dato de entrada y que muestre si es un año bisiesto o no. Todos los múltiplos de 400 o los que son múltiples de 4 pero no de 100 son bisiestos.
 
-(Ej. Años bisiestos: 1600, 2000, 2400. No años bisiestos: 1700, 1800, 1900 ..\)
+(Ej. Años bisiestos: 1600, 2000, 2400, 2024. No años bisiestos: 1700, 1800, 1900, 2021..\)
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> public class Ejemplo21 {
+> 	public static void main(String[] args) {
+> 		int anyo;
+> 		/*
+> 		 * Este tipo de variables se llaman banderas o flags, y sirven para marcar situaciones
+> 		 * En este caso, queremos probar que un año es bisiesto, por lo que en principio suponemos
+> 		 * que no lo es
+> 		 */
+> 		boolean esBisiesto = false;
+> 		Scanner miScanner = new Scanner(System.in);
+> 		/*
+> 		 * 1.- RECOGER DATOS 
+> 		 */
+> 		System.out.println("Introduce un año:");
+> 		anyo = miScanner.nextInt();
+> 		miScanner.close();
+> 
+> 		/*
+> 		 * 2.- PROCESAR DATOS 
+> 		 * Resumiendo: Si el año es múltiplo de 400 (que entonces también lo es de 100 y 4), es bisiesto
+> 		 * 				O el año es múltiplo de 4 pero no de 100
+> 		 */
+> 		if ((anyo % 400 == 0 ) || ((anyo % 4 == 0 ) && (anyo % 100 != 0 ))) {
+> 			//Cambiamos la bandera
+> 			esBisiesto = true;
+> 		}
+> 	
+> 		/*
+> 		 * 3.- IMPRIMIR RESULTADOS
+> 		 */
+> 		if (esBisiesto) {
+> 			 System.out.println("Es bisiesto");
+> 		}else {
+> 			 System.out.println("No es bisiesto");
+> 		}
+> 
+> 	}
+> }
+> ```
+
+> -info-En este programa hemos usado un tipo de variable llamada **bandera (flag)**, que se fija a false y luego a true si se cumple alguna condición.
+>
+> Es este caso hemos supuesto que el año **no es bisiesto** y luego comprobamos si lo es.
 
 # Estructuras Iterativas \(loops\)
 
@@ -1119,7 +1167,7 @@ Las estructuras iterativas alteran el flujo normal de ejecución de un algoritmo
 ## While
 
 Un bloque de acciones se ejecuta mientras una condición se evalúa como verdadera. La condición se evalúa siempre antes de entrar en el bucle, lo que hace posible que el bloque de acciones nunca se ejecutan si la condición se evalúa como falsa al principio.  
-A veces,  no sabemos de antemano el número de veces que se ejecutará el bucle.  
+A veces, no sabemos de antemano el número de veces que se ejecutará el bucle.  
 ![](/programacion-java/assets/img/java-basico/while.png)
 
 ```java
@@ -1174,20 +1222,193 @@ Os dejo el vídeo de [Píldoras Informáticas](https://www.youtube.com/watch?v=H
 
 ## 22 Números positivos
 
-Escribe un programa que pida al usuario 10 números y que muestre cuántos son positivos
+Escribe un programa que pida al usuario 10 números y que muestre cuántos son positivos.
+
+> -info-En este caso como sabemos cuántas veces lo hacemos (10) usamos un bucle `for`
+>
+> Además, necesitamos *guardar* el valor del número de positivos
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> /*
+>  * Escribe un programa que pida al usuario 10 números y que muestre cuántos son positivos
+>  */
+> public class Ejemplo22 {
+>     public static void main(String[] args)
+>     {	
+> 		int numero;
+> 		/*
+> 		 * La variable "positivos" es un "contador" que se inicializa a 0
+> 		 */
+> 		int positivos = 0;
+> 		Scanner miScanner = new Scanner(System.in);
+> 		
+> 		System.out.println("Introduce 10 números enteros");
+> 		
+> 		for (int i = 0; i < 10; i++) {
+> 			numero = miScanner.nextInt();
+> 			if (numero >= 0){
+> 				//Cuando encuentro un positivo, se aumenta la variable de tipo "contador"
+> 				positivos++;
+> 			}
+> 		
+> 		}
+> 		miScanner.close();
+> 		
+> 		System.out.println("Ha introducido " + positivos + " números positivos");
+> 		System.out.println("Ha introducido " + (10 - positivos) + " números negativos");	
+>     }
+> }
+> ```
+
+>-info-En este programa hemos usado un tipo de variable llamada **contador (counter)**, que se fija a 0 y se va incrementando si se cumple una condición
 
 ## 23 Números positivos II
 
-Escribe un programa que pida al usuario n números y que muestre cuántos son positivos \(para acabar el programa, el usuario debe introducir el número 0\)
+Escribe un programa que pida al usuario n números y que muestre cuántos son positivos \(para acabar el programa, el usuario debe introducir el número 0)
+
+> -info-Como de entrada no sabemos cuántas veces se va a hacer el bucle, usamos un `do ... while`
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> /*
+>  * Escribe un programa que pida al usuario n números y que muestre cuántos son 
+>  * positivos (para acabar el programa, el usuario debe introducir el número 0)
+>  * 
+>  */
+> public class Ejemplo23 {
+>     public static void main(String[] args)
+>     {	
+> 		int dato;
+> 		/*
+> 		 * Las dos variables siguientes son de tipo "contador"
+> 		 */
+> 		int positivos = 0;
+> 		int cuantos = 0;
+> 		Scanner miScanner = new Scanner(System.in);
+> 		
+> 		System.out.println("Introduce números enteros (para acabar introduce un 0)");
+> 		//Como de entrada no sabemos cuántas veces se va a hacer el bucle, usamos un do ... while
+> 		do{
+> 			dato = miScanner.nextInt();
+> 			if (dato != 0){
+> 				if (dato > 0){
+> 					positivos++;
+> 				}
+> 				cuantos++;
+> 			}
+> 		}while ( dato != 0);
+> 		miScanner.close();
+> 
+> 		System.out.println("Ha introducido " + positivos + " números positivos");
+> 		System.out.println("Ha introducido " + (cuantos - positivos) + " números negativos");
+>     }
+> }
+> ```
+>
+> 
 
 ## 24 Nota media 
 
-Diseña un algoritmo que lea un conjunto de notas del teclado hasta que se introduzca  -1 y muestre la nota media y si había un 10 o no.  
-![](/programacion-java/assets/img/java-basico//media.png)
+Diseña un algoritmo que lea un conjunto de notas del teclado hasta que se introduzca  -1 y muestre la nota media y si había un 10 o no.
+
+> -info-Al igual que antes, como no conocemos cuántas veces se va a realizar (pero al menos se va a realizar una vez) usamos un `do...while`
+>
+> Para calcular la media, hemos de saber la suma de todas las notas y cuántas notas hay.
+>
+> Primero calcula la media y luego si hay un 10 o no
+
+```java
+import java.util.Scanner;
+/*
+ * Diseña un algoritmo que lea un conjunto de notas del teclado hasta 
+ * que se introduzca -1 y muestre la nota media y si había un 10 o no. 
+ */
+public class Ejemplo24 {
+    public static void main(String[] args)
+    {	
+		int nota;
+		/* Esta variable es un contador */
+		int cuantasNotas = 0;
+		/* sumaNotas es un acumulador, que se inicializa a 0 para la suma, a 1 para la multiplicación
+		 */
+		int sumaNotas = 0;
+		/*
+		 * hayUnDiez es una variable de tipo bandera
+		 */
+		boolean hayUnDiez = false;
+		Scanner miScanner = new Scanner(System.in);
+		
+		System.out.println("Introduce las notas (enteros) (para acabar introduce un -1)");
+		//Como de entrada no sabemos cuántas veces se va a hacer el bucle, usamos un do ... while
+		do{
+			nota = miScanner.nextInt();
+			if (nota != -1){
+				sumaNotas += nota; //Equivale a sumaNotas = sumaNotas + nota;
+				cuantasNotas++;
+				if (10 == nota) {
+					//cambiamos el valor de la bandera
+					hayUnDiez = true;
+				}
+			}
+		}while ( nota != -1);
+		miScanner.close();
+		
+		System.out.println("La nota media es " + ((float)sumaNotas / (float)cuantasNotas));
+		
+		if (hayUnDiez) {
+			System.out.println("Había al menos un 10 en las notas");
+		}
+    }
+}
+```
+
+
 
 ## 25 Factorial
 
 Diseña un programa que calcule el factorial de un número
+
+> -info-En este caso usamos un bucle `for` porque conocemos de antemano cuántas veces se debe realizar el algoritmo: el número que introduzca el usuario
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> /*
+>  * Diseña un programa que calcule el factorial de un número
+>  */
+> public class Ejemplo25 {
+> 
+> 	
+>     public static void main(String[] args)
+>     {	
+> 		int numero;
+> 		// factorial es un acumulador, que se inicializa a 1 para la multiplicación 
+> 		int factorial = 1;
+> 		
+> 		Scanner inputValue = new Scanner(System.in);
+> 		
+> 		System.out.println("Introduce un número entero:");
+> 		numero = inputValue.nextInt();
+> 		inputValue.close();
+> 		
+> 		//No hace falta empezar en 1, pues 1 * 1 = 1!!
+> 		for (int i = 2; i <= numero; i++) {
+> 			//Vamos acumulando el resultado
+> 			factorial *= i;
+> 		}
+> 		
+> 		System.out.printf("El factorial de %d es %d", numero, factorial);
+>     }
+> }
+> ```
+>
+> 
 
 ## 26 Tabla de multiplicar
 
