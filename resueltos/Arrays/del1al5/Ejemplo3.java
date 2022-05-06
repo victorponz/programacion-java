@@ -1,11 +1,6 @@
-package del31al35;
-
 import java.util.Scanner;
 
-/*
- * Realiza un programa que lea un DNI sin letra y calcula la misma (usad un array para almacenar las letras)
- */
-public class Ejemplo33 {
+public class Ejemplo3 {
 	public static void main(String[] args) {
 		int dni;
 		Scanner miScanner = new Scanner(System.in);
