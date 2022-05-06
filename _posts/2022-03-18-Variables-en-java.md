@@ -84,27 +84,6 @@ int hour = 11;
 int minute = 59;
 ```
 
-## Diagramas de estado
-Debido a que Java usa el símbolo **=** para la asignación, es tentador interpretar la declaración *a = b* como una declaración de igualdad. ¡No lo es!
-La igualdad es conmutativa y la asignación no lo es. Por ejemplo, en matemáticas si *a = 7* entonces *7 = a*. En Java *a = 7*; es una declaración de asignación legal, pero *7 = a*; no lo es. La lado izquierdo de una declaración de asignación tiene que ser un nombre de variable (ubicación de almacenamiento).
-Además, en matemáticas, una declaración de igualdad es verdadera para todos los tiempos. Si *a = b* ahora, a es siempre igual a b. En Java, una declaración de asignación puede hacer que dos variables sean iguales, pero no tienen que permanecer así.
-
-```java
-int a = 5;
-int b = a; // a and b are now equal
-a = 3; // a and b are no longer equal
-```
-
-La tercera línea cambia el valor de **a**, pero no cambia el valor de **b**, por lo que ya no son iguales.
-Tomadas en conjunto, las variables en un programa y sus valores actuales conforman el **estado del programa**. La **Figura 1** muestra el estado del programa después de ejecutar estas instrucciones de asignación.
-
-![1536603432102](/programacion-java/assets/img/variables/1536603432102.png)
-
-**Figura 1**. Diagrama de estado de las variables **a** y **b** 
-
-Los diagramas como este que muestran el estado del programa se llaman **diagramas de estado**.
-Cada variable se representa con un cuadro que muestra el nombre de la variable en el exterior y el valor en el interior. A medida que el programa se ejecuta, el estado cambia, por lo que debes pensar en un diagrama de estado como una instantánea de un punto particular en el tiempo.
-
 ## Imprimir variables
 
 Puedes visualizar el valor de una variable usando `print` o `println`. Las siguientes declaraciones declaran una variable llamada **firstLine**, le asigna el valor *"Hello, again!"* y muestra ese valor:
@@ -123,7 +102,11 @@ System.out.println(firstLine);
 ```
 
 Para este ejemplo, la salida es:
-	*The value of firstLine is Hello, again!*
+
+```
+The value of firstLine is Hello, again!
+```
+
 Convenientemente, la sintaxis para mostrar una variable es la misma independientemente de su tipo.
 Por ejemplo:
 
@@ -138,7 +121,10 @@ System.out.println(".");
 ```
 
 La salida de este programa es:
-	*The current time is 11:59.*
+
+```
+The current time is 11:59.
+```
 
 ## Operadores aritméticos
 
