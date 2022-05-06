@@ -1766,3 +1766,209 @@ Realiza un programa que calcule el resto de una división usando el método de l
 > 
 > }
 > ```
+
+## 36 Decimal a binario (avanzado)
+
+Realiza un programa que lea un número entero decimal (máximo 255) e imprima su valor en binario
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> 
+> public class Ejemplo36 {
+> 
+> 	public static void main(String[] args) {
+> 		Scanner miScanner = new Scanner(System.in);
+> 		int numero, digito;
+> 		//binario es de tipo acumulador
+> 		String binario = "";
+> 		System.out.println("Introduce un número entero >= 0: ");
+> 		numero = miScanner.nextInt();
+>         miScanner.close();
+> 
+> 		while (numero != 0) {
+>             //Cogemos el resto de la división para saber si 
+>             //el resultado es el bit 0 o 1
+> 			digito = numero % 2;
+> 			binario = digito + binario;
+>             //El siguiente número será el cociente
+>             //de la división entera
+> 			numero = numero / 2;
+> 		}
+> 		System.out.printf("Binario: %s", binario);
+> 	}
+> }
+> ```
+
+## 37 Binario a decimal (avanzado)
+
+Realiza un programa que lea una cadena de números binarios y calcule su valor en decimal
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> 
+> public class Ejemplo37 {
+> 	 public static void main(String[] args){
+> 		 	Scanner miScanner = new Scanner(System.in);
+> 		   	int decimal = 0;
+> 		    int potencia = 0;
+> 		    
+> 		    /*
+> 		     * En este primera versión deñ algoritmo 
+>              * vamos a leer en número como una cadena
+> 		     */
+> 		    System.out.println("Introduce un número binario ");
+> 		    
+> 		   	String binario = miScanner.next();
+> 		   	miScanner.close();
+> 		   	
+> 		   	char bit;
+>             //Empezamos por el bit menos significativo (el último)
+> 		   	for (int i = binario.length() - 1; i >= 0; i--) {
+>                 /* El último bit se eleva a 0,
+> 				 * el antepenúltimo a 1, ...
+>                  */
+> 		   		bit = binario.charAt(i);
+> 		   		potencia = (binario.length() - 1) - i;
+> 		   		if (bit == '1') {
+> 		   			decimal += Math.pow(2, potencia);
+> 		   		}
+> 		   		
+> 		   		//El siguiente código comentado es sin usar variables
+> 		   		/*
+> 		   		if (binario.charAt(i) == '1') {
+> 		   			decimal += Math.pow(2, (binario.length() - 1) - i);	
+> 		   		}
+> 		   		*/
+> 		   		
+> 		   	}
+> 		   	System.out.printf("Método I.- El número %s en binario es %d %n", binario, decimal);
+> 		   	
+> 		  
+> 		   	/*
+> 		   	 * En este segundo método, ahora el binario está en formato decimal (int)
+> 		   	 * o con binarioEntero = miScaner.nextInt()
+> 		   	 */
+> 		    int binarioEntero =  Integer.parseInt(binario);
+> 	       
+> 	        decimal = 0;
+> 	        potencia = 0;
+> 	        while (binarioEntero != 0) {
+> 	        	//En ultimoDigito tenemos un 0 o un 1
+> 	            int ultimoDigito = binarioEntero % 10;
+> 	            //Lo elevamos a la potencia actual
+> 	            decimal += ultimoDigito * Math.pow(2, potencia);
+> 	            //Aumentamos la potencia
+> 	            potencia++;
+> 	            //Dividimos el número entre 10 (división entera) por lo le quitamos el últmo dígito
+> 	            binarioEntero = binarioEntero / 10;
+> 	        }
+> 	        System.out.printf("Método II.- El número %s en binario es %d %n", binario, decimal);
+> 	 }
+> }
+> ```
+
+## 38 Juego Adivina un número  (avanzado)
+
+Diseña un algoritmo para jugar a "adivinar un número". El algoritmo generará un número _aleatorio_ entre 1 y 100, que llamaremos el número secreto, y le pedirá al jugador que introduzca un número hasta que gane o un -1 para rendirse:
+
+* Si el número es igual al número secreto, mostrará "Has Ganado" en la pantalla y terminará
+* Si el número introducido es mayor que el número secreto, mostrará "El número secreto es más pequeño" y le pedirá que introduzca otro.
+* Si el número introducido es menor que el número secreto, mostrará "El número secreto es más grande" y le pedirá que introduzca otro.
+* Si el número introducido es -1, mostrará "Se rinde" y terminará
+
+Para generar un número aleatorio usa este código.
+
+```java
+import java.util.Random;
+---
+Random aleatorio = new Random(System.currentTimeMillis());
+// Producir nuevo int aleatorio entre 0 y 99
+int secreto = aleatorio.nextInt(100);
+```
+
+Como no sabemos cuántas veces se va a realizar el bucle, usamos un `do..while` 
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> 
+> import java.util.Random;
+> import java.util.Scanner;
+> 
+> public class Ejemplo38 {
+> 	public static void main(String[] args) {
+> 		Scanner miScanner = new Scanner(System.in);
+> 		
+> 		int numero = -1;
+> 		
+> 		boolean haGanado = false;
+> 		
+> 		Random aleatorio = new Random(System.currentTimeMillis());
+> 	    // Producir nuevo int aleatorio entre 0 y 99
+> 	    int secreto = aleatorio.nextInt(100);
+> 	    do {
+> 			System.out.println("Introduce un número (-1 para rendirse)");
+> 			numero = miScanner.nextInt();
+> 
+> 			if (numero != -1) {
+> 				if (numero > secreto) {
+> 					System.out.println("El número secreto es más pequeño");
+> 				}else if (numero < secreto) {
+> 					System.out.println("El número secreto es más grande");
+> 				}else {
+> 					System.out.println("Has Ganado");
+> 					haGanado = true;
+> 				}
+> 			}else {
+> 				System.out.println("Se rinde");
+> 			}
+> 	    } while (!haGanado && (numero != -1));
+> 	    
+> 	    miScanner.close();
+> 	}
+> }
+> ```
+> > -info-Este programa es el típico en el que se aprecia la descomposición de un algoritmo en partes más sencillas.
+> >
+> > Si analizas el código, verás que solo usas estructuras ya conocidas.
+> >
+> > El problema es que no sabéis descomponerlo en partes y esto es muy complicado de enseñar. Sólo la práctica te hará maestro.
+> >
+> > El primer paso sería empezar a generar un número aleatorio. Como no sé, pues busco en Internet `java random`
+> >
+> > El segundo paso sería generar el bucle que lee. Ya sabemos que debe ser `do..while` porque no sabemos cuántas veces se repite pero sabemos que al menos se va a realizar una vez
+> >
+> > ```java
+> > do {
+> >     System.out.println("Introduce un número (-1 para rendirse)");
+> >     numero = miScanner.nextInt();
+> > 
+> > } while (numero != -1);
+> > ```
+> >
+> > Y por último, completaríamos el algoritmo del bucle
+> >
+> > ```java
+> > do {
+> >     System.out.println("Introduce un número (-1 para rendirse)");
+> >     numero = miScanner.nextInt();
+> > 
+> >     if (numero != -1) {
+> >         if (numero > secreto) {
+> >             System.out.println("El número secreto es más pequeño");
+> >         }else if (numero < secreto) {
+> >             System.out.println("El número secreto es más grande");
+> >         }else {
+> >             System.out.println("Has Ganado");
+> >             haGanado = true;
+> >         }
+> >     }else {
+> >         System.out.println("Se rinde");
+> >     }
+> > } while (!haGanado && (numero != -1));
+> > ```
+
