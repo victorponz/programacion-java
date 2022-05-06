@@ -1592,3 +1592,177 @@ Realiza un programa que averigüe si una palabra o frase es palíndroma. Para av
 > }
 > ```
 >Fíjate en `cadena.charAt(cadena.length() - i - 1)` Es el iésimo carácter empezando por el final. Recuerda que el primer carácter es 0 
+
+## 31 Divisores
+
+Realiza un programa que pida un número natural y escriba sus divisores
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> 
+> public class Ejemplo31 {
+> 
+> 	public static void main(String[] args){	
+> 		Scanner miScanner = new Scanner(System.in);
+> 		System.out.println("Introduce un número entero:");
+> 
+> 		int numero = miScanner.nextInt();
+> 		miScanner.close();
+> 			
+> 		//Hacemos un bucle hasta la mitad del número (un divisor no puede ser mayor que la mitad!)
+> 		System.out.println("Divisores de " + numero);
+> 		//Hay que revisar siempre los límites de los bucles!!
+> 		for (int i = 1; i <= numero / 2; i++) {
+> 			if ((numero % i) == 0) {
+>                 //"\t" imprime un tabulador
+> 				System.out.println("\t" + i);
+> 			}
+> 		}
+> 	}
+> 
+> }
+> ```
+
+## 32 Fibonacci
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Pp6D-xhJr4A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+![](/programacion-java/assets/img/java-basico//fibonacci.png)
+
+Diseña un programa que muestre los primeros 40 términos de la serie de [Fibonacci](https://es.wikipedia.org/wiki/Sucesión_de_Fibonacci)
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> public class Ejemplo32 {
+> 	public static void main(String[] args) {
+> 		int fibonacci= 0;
+> 		
+> 		int n1 = 1;
+> 		int n2 = 1;
+> 		System.out.printf("1 %n1 %n");
+> 		for (int i = 0; i < 40; i++) {
+> 			fibonacci = n1 + n2;
+> 			System.out.println(fibonacci);
+>             //Ahora intercambiamos los valores, proceso que se llama swap para 
+>             //la siguiente iteración
+> 			n1 = n2;
+> 			n2 = fibonacci;
+> 		}
+> 	}
+> }
+> ```
+
+> -info-Este programa utiliza una técnica usada mucho en programación que se denomina **_swap_** y que consiste en intercambiar el valor de dos variables usando una variable auxiliar.  
+
+## 33 Número Áureo
+
+Modifica el programa anterior para que muestre la relación \(división\) entre el valor n y el \(n - 1\) de la serie de Fibonacci (40 veces). Esta es una manera de obtener una aproximación al [Número Áureo](https://es.wikipedia.org/wiki/Número_áureo).
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> 
+> public class Ejemplo33 {
+> 	public static void main(String[] args) {
+> 		
+> 		int n1 = 1;
+> 		int n2= 1;
+> 		int fibonacci;
+> 		
+> 		for (int i = 0; i < 40; i++) {
+> 			fibonacci = n1 + n2;
+>             //Como queremos realizar una operación con decimales,
+>             //hacemos un cast a double
+> 			System.out.println((double)fibonacci / (double)n2);
+> 			n1 = n2;
+> 			n2 = fibonacci;
+> 		}
+> 
+> 	}
+> 
+> }
+> ```
+
+> -info-En este ejercicio hemos usado una técnica llamada `cast` que consiste en convertir o promocionar un tipo de dato en otro. En este caso estamos convirtiendo un dato de tipo `int` en otro de tipo `double`. Si no lo hiciéramos así, sólo devolvería un número entero
+
+
+
+## 34 Sumas sucesivas 
+
+Realiza un programa que calcule la multiplicación de dos números usando el método de las sumas sucesivas
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> 
+> public class Ejemplo34 {
+>     public static void main(String[] args)
+>     {	
+>     	Scanner miScanner = new Scanner(System.in);
+> 		int x;
+> 		int y;
+> 		
+> 		System.out.println("Introduce un número");
+> 		x = miScanner.nextInt();
+> 		
+> 		System.out.println("Introduce otro número");
+> 		y = miScanner.nextInt();
+> 		
+> 		miScanner.close();
+> 
+> 		// La variable `mul` es un acumulador, 
+>         // inicializada en este caso al primer número `x`
+> 		int mul = x;
+> 		
+> 		for (int i = 1; i < y; i++) {
+> 			//Vamos sumando tantas veces como indique `y` 
+>             //(es decir, multiplicando)
+> 			mul += x;
+> 		}
+> 		System.out.printf("%d x %d = %d", x, y, mul);
+> 	}
+> 
+> }
+> ```
+
+
+
+## 35 Restas sucesivas
+
+Realiza un programa que calcule el resto de una división usando el método de las restas sucesivas.
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.Scanner;
+> 
+> public class Ejemplo35 {
+>     public static void main(String[] args)
+>     {	
+>     	Scanner miScanner = new Scanner(System.in);
+>     	
+>     	int dividendo;
+> 		int divisor;
+> 		
+> 		System.out.println("Introduce el dividendo");
+> 		dividendo = miScanner.nextInt();
+> 		
+> 		System.out.println("Introduce el divisor");
+> 		divisor = miScanner.nextInt();
+> 		
+> 		miScanner.close();
+> 		
+> 		//Resto también es un acumulador, aunque vamos restando
+> 		int resto = dividendo;
+> 		while(resto >= divisor){
+> 			resto -= divisor;
+> 		}
+> 		System.out.printf("El resto de dividir %d entre %d es %d", dividendo, divisor, resto);
+> 	}
+> 
+> }
+> ```
