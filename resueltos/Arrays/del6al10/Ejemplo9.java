@@ -1,11 +1,10 @@
 import java.util.Scanner;
 
-public class Ejemplo8 {
+public class Ejemplo9 {
     public static void main(String[] args)
     {
         int[] numeros = new int[10];
-        int sumaPositivos = 0;
-        int sumaNegativos = 0;
+        int pares = 0;
         Scanner miScanner = new Scanner(System.in);
 
         System.out.println("Introduce " + numeros.length + " números");
@@ -15,12 +14,10 @@ public class Ejemplo8 {
         miScanner.close();
 
         for (int numero: numeros){
-            if (numero > 0 )
-                sumaPositivos += numero;
-            else
-                sumaNegativos += numero;
+            if (numero % 2 == 0 )
+                pares++;
         }
-        System.out.printf("Los positivos suman %d y los negativos %d %n", sumaPositivos, sumaNegativos);
+        System.out.printf("Hay %d números pares y %d números impares %n", pares, numeros.length - pares);
 		
     }
 }
