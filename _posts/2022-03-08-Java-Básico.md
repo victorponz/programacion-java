@@ -8,7 +8,7 @@ conToc: true
 permalink: primeros-pasos-en-java
 ---
 
-# Primeros pasos en Java - Juanvi
+# Primeros pasos en Java
 
 > -info-En esta unidad aprenderemos a usar los tipos básicos de datos en java, a usar librerías para leer la entrada del teclado y la diferencia entre una variable y una constante. También se introducen los [diagramas de flujo](https://es.wikipedia.org/wiki/Diagrama_de_flujo) \(_flowcharts_\) y aprendemos las [estructuras condicionales](#Estructuras condicionales \(if\)).
 
