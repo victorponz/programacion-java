@@ -8,7 +8,7 @@ conToc: true
 permalink: arrays-avanzado
 ---
 
-> -alert-En todos los programas de esta serie usaremos la siguiente clase de utilidades
+> -info-En todos los programas de esta serie usaremos la siguiente clase de utilidades
 
 <script src="https://gist.github.com/victorponz/93c93fb7f8d88171b4792d78b8b03259.js"></script>
 
