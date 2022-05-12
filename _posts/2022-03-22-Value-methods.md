@@ -54,9 +54,7 @@ public static double calculateArea(double radius) {
 }
 ```
 
-Como de costumbre, este método es **público** y **estático**. Pero en el lugar donde estamos  
-acostumbrados a ver **void**, vemos **double**, lo que significa que el valor de retorno de este método es un **double**.  
-La última línea es una nueva forma de declaración de devolución que incluye un **valor de retorno**. Esta declaración significa, "regrese inmediatamente de este método y use la siguiente expresión como el valor de retorno". La expresión que se proporcione puede ser arbitrariamente compleja, por lo que podríamos haber escrito este método de manera más concisa:
+Como de costumbre, este método es **público** y **estático**. Pero en el lugar donde estamos  acostumbrados a ver **void**, vemos **double**, lo que significa que el valor de retorno de este método es un **double**.  La última línea es una nueva forma de declaración de devolución que incluye un **valor de retorno**. Esta declaración significa, "regrese inmediatamente de este método y use la siguiente expresión como el valor de retorno". La expresión que se proporcione puede ser arbitrariamente compleja, por lo que podríamos haber escrito este método de manera más concisa:
 
 ```java
 public static double calculateArea(double radius) {
@@ -67,6 +65,7 @@ public static double calculateArea(double radius) {
 Por otro lado, las variables temporales como resultado a menudo hacen que la depuración sea más fácil, especialmente cuando estamos pasando por el código usando un depurador
 
 El tipo de expresión en la declaración de devolución debe coincidir con el tipo de retorno del método. Cuando declara que el tipo de devolución es **double**, estamos haciendo la promesa de que este método producirá un valor **double**. Si intenta regresar sin expresión, o una expresión con el tipo incorrecto, el compilador generará un error.  
+
 A veces es útil tener múltiples declaraciones de devolución, por ejemplo, una en cada rama de un condicional:
 
 ```java
@@ -79,8 +78,7 @@ public static double absoluteValue(double x) {
 }
 ```
 
-Dado que estas declaraciones de retorno están en una declaración condicional, solo una será ejecutada. Tan pronto como cualquiera de ellas se ejecuta, el método termina sin ejecutar más declaraciones._  
-El código que aparece después de una declaración de devolución \(en el mismo bloque\) o en cualquier lugar donde nunca se pueda ejecutar, se llama código muerto \(dead code_\). El compilador dará un error de "unreachable statement" si parte de nuestro código está muerto. Por ejemplo, este método contiene un código muerto:
+Dado que estas declaraciones de retorno están en una declaración condicional, solo una será ejecutada. Tan pronto como cualquiera de ellas se ejecuta, el método termina sin ejecutar más declaraciones. El código que aparece después de una declaración de devolución \(en el mismo bloque\) o en cualquier lugar donde nunca se pueda ejecutar, se llama código muerto \(dead code_\). El compilador dará un error de "unreachable statement" si parte de nuestro código está muerto. Por ejemplo, este método contiene un código muerto:
 
 ```java
 public static double absoluteValue(double x) {
@@ -106,9 +104,7 @@ public static double absoluteValue(double x) {
 }
 ```
 
-Cuando `x` es `0`, ninguna condición es verdadera, por lo que el método finaliza sin alcanzar  
-una declaración de devolución. El mensaje de error en este caso podría ser algo así como  
-"missing return statement", que es confusa ya que hay dos _returns_. Pero con suerte sabrás lo que significa.
+Cuando `x` es `0`, ninguna condición es verdadera, por lo que el método finaliza sin alcanzar una declaración de devolución. El mensaje de error en este caso podría ser algo así como "missing return statement", que es confusa ya que hay dos _returns_. Pero con suerte sabrás lo que significa.
 
 ## 1 Escribir métodos
 
@@ -122,6 +118,7 @@ Como ejemplo, supongamos que queremos encontrar la distancia entre dos puntos, d
 ![](.//programacion-java/assets/img/valuemethods/dist.png)  
 El primer paso es considerar cómo debería ser un método para calcular la  distancia en Java.  
 En otras palabras, ¿cuáles son las entradas \(`parámetros`\) y cuál es la salida? \(`valor de retorno`\)? En este caso, los dos puntos son los parámetros, y es natural para representarlos usando cuatro valores `double`. El valor de retorno es el **distancia**, que también debería tener tipo `double`.  
+
 Ya podemos escribir un esquema para el método, que a veces se llama **stub**. El **stub** incluye la _signatura_ del método y una declaración de devolución:
 
 ```java
@@ -137,7 +134,9 @@ double dist = distance(1.0, 2.0, 4.0, 6.0);
 ```
 
 Con estos valores, la distancia horizontal es 3.0 y la distancia vertical es 4.0. Entonces el resultado debería ser 5.0, la hipotenusa de un triángulo 3-4-5. Cuando estamos probando un método, es útil saber la respuesta correcta.  
+
 Una vez que hemos compilado el código auxiliar, podemos comenzar a agregar líneas de código una a una. Después de cada cambio incremental, volvemos a compilar y ejecutar el programa. Si hay un error en cualquier punto, tenemos una buena idea de dónde buscar: la última línea que agregamos.  
+
 El siguiente paso es encontrar las diferencias `x2 - x1` y `y2 - y1`. Almacenamos esos valores en variables temporales llamadas `dx` y `dy`.
 
 ```java
@@ -151,8 +150,8 @@ public static double distance (double x1, double y1, double x2, double y2) {
 ```
 
 Las instrucciones de impresión nos permiten verificar los valores intermedios antes de proceder Deberían ser 3.0 y 4.0. Eliminaremos las declaraciones impresas cuando el método está terminado. El código como ese se llama **scaffolding**, porque es útil para construir el programa, pero no es parte del producto final.  
-El siguiente paso es hacer el cuadrado de `dx` y `dy`. Podríamos usar el método `Math.pow`,  
-pero es más simple multiplicar cada término por sí mismo.
+
+El siguiente paso es hacer el cuadrado de `dx` y `dy`. Podríamos usar el método `Math.pow`,  pero es más simple multiplicar cada término por sí mismo.
 
 ```java
 public static double distance (double x1, double y1, double x2, double y2) {
@@ -181,6 +180,7 @@ A medida que ganemos más experiencia en programación, podremos escribir y depu
 ## 2 Composición de métodos
 
 Una vez que definimos un nuevo método, podemos usarlo como parte de una expresión, o construir nuevos métodos usando métodos existentes. Por ejemplo, supongamos que alguien nos da dos puntos, el **centro del círculo** y un **punto en el perímetro**, y pregunta por el **área del círculo**. Digamos que el punto central se almacena en las variables `xc` y `yc`, y el punto del perímetro está en `xp` y `yp`.  
+
 El primer paso es encontrar el radio del círculo, que es la distancia entre los dos puntos. Afortunadamente, tenemos un método que hace exactamente eso \(`distance`\).
 
 ```java
@@ -213,11 +213,13 @@ public static double circleArea (double xc, double yc, double xp, double yp) {
 ```
 
 Este ejemplo demuestra un proceso llamado **descomposición funcional**; esto es, dividir un cálculo complejo en métodos simples, probando los métodos de forma aislada, y luego componer los métodos para realizar el cálculo.  
+
 Este proceso reduce el tiempo de depuración y produce un código que es más probable que sea correcto y más fácil de mantener.
 
 ## 3 Sobrecarga \(overloading\)
 
 Podéis haber notado que `circleArea` y `calculateArea` realizan funciones similares. Ambos encuentran el área de un círculo, pero toman diferentes parámetros. Para `calculateArea`, tenemos que proporcionar el **radio**; para `circleArea` proporcionar **dos puntos**. Si dos métodos hacen lo mismo, es natural darles el mismo nombre.  
+
 Tener más de un método con el mismo nombre se llama sobrecarga, y es legal en Java siempre que cada versión tome diferentes parámetros. Asi que podríamos cambiar el nombre `circleArea` por `calculateArea`:
 
 ```java
@@ -239,8 +241,9 @@ Java busca un método llamado `calculateArea` que toma una `double` como argumen
 ```
 
 Java usa la segunda versión de `calculateArea`, que interpreta los argumentos como dos puntos. En este ejemplo, la segunda versión en realidad invoca a la primera versión.  
-Muchos métodos Java están sobrecargados, lo que significa que hay diferentes versiones  
-que aceptan diferentes número o tipo de parámetros. Por ejemplo, hay versiones de `print` y `println` que aceptan un solo parámetro de cualquier tipo de dato. En la clase de `Math`, hay una versión de `abs` \(valor absoluto\) que funciona en **doubles**, y también hay una versión para **ints**.  
+
+Muchos métodos Java están sobrecargados, lo que significa que hay diferentes versiones que aceptan diferentes número o tipo de parámetros. Por ejemplo, hay versiones de `print` y `println` que aceptan un solo parámetro de cualquier tipo de dato. En la clase de `Math`, hay una versión de `abs` \(valor absoluto\) que funciona en **doubles**, y también hay una versión para **ints**.  
+
 Aunque la sobrecarga es una característica útil, debe usarse con precaución. Puede llegar a confundir mucho si estamos intentando depurar una versión de un método mientras invocamos accidentalmente uno diferente.
 
 ## 4 Métodos booleanos
@@ -258,6 +261,7 @@ public static boolean isSingleDigit(int x) {
 ```
 
 El nombre de este método es `isSingleDigit`. Es común dar a los métodos booleanos nombres que suenen como preguntas sí / no. Dado que el tipo de devolución es **boolean**, la instrucción return debe proporcionar una expresión booleana. El código en sí es sencillo, aunque es más largo de lo que necesita ser.  
+
 Recordad que la expresión`x> -10 && x <10` tiene un tipo booleano, por lo que no tiene nada de malo devolverlo directamente \(sin la instrucción if\):
 
 ```java
@@ -274,6 +278,7 @@ En `main`, podemos invocar el método de la forma habitual:
 ```
 
 La primera línea muestra **true** porque 2 es un número de un solo dígito. La segunda línea establece **bigFlag** también a **true** , porque **17** no es un número de un solo dígito.  
+
 Las instrucciones condicionales a menudo invocan métodos booleanos y usan el resultado como la condición:
 
 ```java
@@ -293,6 +298,7 @@ Vamos a explorar una de las cosas más mágicas que un programa puede hacer: **r
 ![1556604736975](/programacion-java/assets/img/valuemethods/1556604736975.png)
 
 El nombre del método es `countdown`; toma un solo entero como parámetro. Si el parámetro es cero, muestra la palabra "Blastoff". De lo contrario, muestra el número y luego se invoca a sí mismo, pasando **n - 1** como argumento. Un método que se invoca a sí mismo se llama **recursivo**.  
+
 ¿Qué sucede si invocamos `countdonw(3)` desde `main`?
 
 ```
@@ -314,7 +320,7 @@ Y ahora estamos de vuelva en `main`. Así que, al final, la salida es:
 Blastoff!
 ```
 
-Como un segundo ejemplo, reescribiremos los métodos `newLine` ant `threeLine` que vimos en el tema void methods.
+Como un segundo ejemplo, reescribiremos los métodos `newLine` y `threeLine` que vimos en el tema void methods.
 
 ![1556604763659](/programacion-java/assets/img/valuemethods/1556604763659.png)
 
@@ -323,7 +329,9 @@ Aunque estos métodos funcionan, no ayudarían si quisiéramos mostrar dos nueva
 ![1556604780281](/programacion-java/assets/img/valuemethods/1556604780281.png)
 
 Este método toma un entero, _n_, como parámetro y muestra _n_ nuevas líneas. La estructura es similar a la cuenta regresiva \(`countdown`\). Siempre que _n_ sea mayor que cero, muestra una nueva línea y luego se invoca a sí mismo para mostrar _\(n - 1\)_ nuevas líneas adicionales. El número total de nuevas líneas es _1 + \(n - 1\)_, que es justo lo que queríamos: _n_.  
+
 En un método recursivo **siempre** debe haber un caso en que no se produzca la recursión. Este caso es llamado **caso base**.  
+
 En los métodos `nLines` y `countdown`, el caso base se produce cuando n es igual a 0. Si un método recursivo no tiene caso base o este nunca llega a alcanzarse, el programa entraría en un bucle infinito, aunque acabará en algún momento dando el error `StackOverflowError`.
 
 El siguiente programa no tiene caso base:
@@ -358,6 +366,7 @@ Este comportamiento es útil cuando es más fácil calcular los resultados en or
 ```
 
 Al leer estos restos de abajo hacia arriba, 23 en binario es 10111. Para saber más sobre los números binarios, visita [http://www.mathsisfun.com/binary-number-system.html](http://www.mathsisfun.com/binary-number-system.html).  
+
 Aquí hay un método recursivo que muestra la representación binaria de cualquier entero positivo:
 
 ![1556604831347](/programacion-java/assets/img/valuemethods/1556604831347.png)
