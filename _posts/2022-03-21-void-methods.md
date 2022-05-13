@@ -3,7 +3,7 @@ typora-copy-images-to: ../assets/img/voidmethods/
 typora-root-url: ../../
 layout: post
 title: Métodos que no devuelven valores
-categories: parte1
+categories: metodos
 conToc: true
 permalink: void-methods
 ---

@@ -6,10 +6,36 @@ title: Apuntes Programación en JAVA
     <h2>Programación en Java</h2>
     <blockquote>Apuntes del módulo Programación del Ciclo Desarrollo de Aplicaciones Web 
     </blockquote>
-
+  <h2>Tema 1 - Introducción</h2>
 	<ol class='portada'> 
 	{% for post in site.posts reversed %}
+	{% if post.categories contains "parte1" %}
 	<li><h4><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></h4></li>
+	{% endif %}
+	{% endfor %}
+	</ol>
+  <h2>Tema 2 - Métodos</h2>
+	<ol class='portada'> 
+	{% for post in site.posts reversed %}
+	{% if post.categories contains "metodos" %}
+	<li><h4><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></h4></li>
+	{% endif %}
+	{% endfor %}
+	</ol>
+  <h2>Tema 3 - Cadenas</h2>
+	<ol class='portada'> 
+	{% for post in site.posts reversed %}
+	{% if post.categories contains "strings" %}
+	<li><h4><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></h4></li>
+	{% endif %}
+	{% endfor %}
+	</ol>
+  <h2>Tema 4 - Arrays</h2>
+	<ol class='portada'> 
+	{% for post in site.posts reversed %}
+	{% if post.categories contains "arrays" %}
+	<li><h4><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></h4></li>
+	{% endif %}
 	{% endfor %}
 	</ol>
 

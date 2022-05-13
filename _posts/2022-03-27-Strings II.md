@@ -3,7 +3,7 @@ typora-copy-images-to: ../assets/img/strings/
 typora-root-url: ../../
 layout: post
 title: Strings II
-categories: parte1
+categories: strings
 conToc: true
 permalink: strings-II
 ---

@@ -3,7 +3,7 @@ typora-copy-images-to: ../programacion-java/assets/img/valuemethods/img/valuemet
 typora-root-url: ../../
 layout: post
 title: Convertir un algoritmo en método
-categories: parte1
+categories: metodos
 conToc: true
 permalink: creating-methods
 ---
