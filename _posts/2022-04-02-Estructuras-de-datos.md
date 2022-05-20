@@ -12,7 +12,7 @@ permalink: estructuras-basicas
 
 Hemos visto en el tema de Arrays que éstos tienen un tamaño definido en el momento de la creación y que este tamaño es inmutable.
 
-Si queremos usar este tipo de estructura pero que pueda cambiar el tamaño, usaremos `ArrayList`
+Si queremos usar este tipo de estructura pero que **pueda cambiar el tamaño**, usaremos `ArrayList`
 
 ```java
 import java.util.ArrayList; 
@@ -88,12 +88,78 @@ Realiza un programa que permita al usuario añadir Coches. Al final debe imprimi
 > }
 > ```
 
-## Ejercicio `Coches2`
+## Ejercicio `Altura`
 
-Realiza un programa que muestre un menú al usuario para:
+Programa Java que pida por teclado las alturas de N alumnos de una clase y las guarde en un `ArrayList` de tipo **Double**. 
 
-* **Opción 1 - Añadir un coche**. Se pide la marca y se añade a la lista
-* **Opción 2 - Eliminar un coche**. Se pide una marca y se elimina de la lista 
+A continuación el programa calculará la altura media de todos los alumnos, cuántos alumnos hay más altos que la media y cuantos más bajos.
+Para resolverlo vamos a utilizar 6 métodos además del método `main`:
+
+* Método `numeroAlumnos()`: este método pide por teclado el número de alumnos de la clase y devuelve dicho número al programa principal.
+* Método `leerAlturas()`: pide por teclado las alturas de los N alumnos y las almacena en el `ArrayList`. Este método recibe como parámetros el `ArrayList` inicialmente vacío y el número de alumnos a leer.
+* Método `calcularMedia()`: calcula y devuelve la media de los alumnos de la clase. Este método recibe como parámetro el `ArrayList` con las alturas de todos los alumnos.
+* Método `calcularAlumnosAlturaSuperior`: devuelve el número de alumnos con una altura superior a la media
+* Método `calcularAlumnosAlturaInferior`: devuelve el número de alumnos con una altura inferior a la media
+* Método `mostrarResultados()`: muestra por pantalla todas las alturas y calcula y muestra el número de alumnos con altura superior e inferior a la media. Recibe como parámetros el `ArrayList` con las alturas de todos los alumnos y la media calculada anteriormente.
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.ArrayList;
+> public class Altura {
+>     public static int numeroAlumnos(){
+>         return Utilidades.leerEntero("Cuántos alumnos? ");
+>     }
+>     public static double calcularMedia(ArrayList<Double> alturas){
+>         Double suma = 0D;
+>         for (Double altura: alturas){
+>             suma+= altura;
+>         }
+>         return suma / alturas.size();
+>     }
+>     public static int calcularAlumnosAlturaSuperior(ArrayList<Double> alturas, Double media){
+>         int total = 0;
+>         for (Double altura: alturas){
+>             if (altura > media)
+>                 total++;
+>         }
+>         return total;
+>     }
+>     public static int calcularAlumnosAlturainferior(ArrayList<Double> alturas, Double media){
+>         int total = 0;
+>         for (Double altura: alturas){
+>             if (altura < media)
+>                 total++;
+>         }
+>         return total;
+>     }   
+>     public static void mostrarResultados(ArrayList<Double> alturas){
+>         Double media = calcularMedia(alturas);
+>         int superior = calcularAlumnosAlturaSuperior(alturas, media);
+>         int inferior = calcularAlumnosAlturainferior(alturas, media);
+>         System.out.println("Las alturas son las siguientes:");
+>         for(Double altura: alturas)
+>             System.out.print(altura + ", ");
+>         System.out.println("");
+>         System.out.printf("La altura media es %f%n", media);
+>         System.out.printf("El número de alummos con una altura superior es %d%n", superior);
+>         System.out.printf("El número de alummos con una altura inferior es %d%n", inferior);
+>     }
+>     public static ArrayList<Double> leerAlturas(int numAlumnos){
+>         ArrayList<Double> alturas = new ArrayList<Double>(); 
+>         System.out.printf("Introduzca las %d alturas", numAlumnos);
+>         for (int i = 1; i <= numAlumnos; i++){
+>             alturas.add(Utilidades.leerDoble(""));
+>         }
+>         return alturas;
+>     }
+>     public static void main(String[] args) {
+>         int numAlumnos = numeroAlumnos();
+>         ArrayList<Double> alturas = leerAlturas(numAlumnos);
+>         mostrarResultados(alturas);
+>     }
+> }
+> ```
 
 ## HashMap, TreeMap y LinkedHashMap
 
@@ -239,4 +305,4 @@ Declara un `HashMap` que almacene el país y la capital de varios países Europe
 > }
 > ```
 >
-> 
+
