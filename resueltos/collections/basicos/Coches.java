@@ -7,7 +7,7 @@ public class Coches {
         do{
             coche = Utilidades.leerCadena("Introduzca un coche (cadena vacía para acabar)");
             if (coche.length() != 0)
-               coches.add(coche);
+                coches.add(coche);
         }while (coche.length() != 0);
 
         Collections.sort(coches);

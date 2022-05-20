@@ -2,7 +2,7 @@
 typora-copy-images-to: ../assets/img/estructuras/
 typora-root-url: ../../
 layout: post
-title: Básicas
+title: Estructuras básicas
 categories: estructuras
 conToc: true
 permalink: estructuras-basicas
@@ -76,7 +76,7 @@ Realiza un programa que permita al usuario añadir Coches. Al final debe imprimi
 >         do{
 >             coche = Utilidades.leerCadena("Introduzca un coche (cadena vacía para acabar)");
 >             if (coche.length() != 0)
->                coches.add(coche);
+>                 coches.add(coche);
 >         }while (coche.length() != 0);
 > 
 >         Collections.sort(coches);
