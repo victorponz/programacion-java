@@ -60,7 +60,7 @@ Collections.sort(coches);
 ...
 ```
 
-## Ejercicio `Coches`
+### Ejercicio `Coches`
 
 Realiza un programa que permita al usuario añadir Coches. Al final debe imprimirlos ordenados en líneas separadas
 
@@ -88,7 +88,7 @@ Realiza un programa que permita al usuario añadir Coches. Al final debe imprimi
 > }
 > ```
 
-## Ejercicio `Altura`
+### Ejercicio `Altura`
 
 Programa Java que pida por teclado las alturas de N alumnos de una clase y las guarde en un `ArrayList` de tipo **Double**. 
 
@@ -278,7 +278,7 @@ Hemos utilizado la clase `HashMap` para resolver el problema. La clase  `TreeMap
 
 Finalmente la clase `LinkedHashMap` mantiene ordenado los elementos del mapa según el orden de inserción.
 
-## Ejercicio `PaisCapital`
+### Ejercicio `PaisCapital`
 
 Declara un `HashMap` que almacene el país y la capital de varios países Europeos. Luego realiza un programa que pida un País al usuario y muestre su capital.
 

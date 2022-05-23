@@ -1,0 +1,369 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "31",
+               "short_name" : "31",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Carrerasa de la Gallenca",
+               "short_name" : "Carrerasa de la Gallenca",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Castellón de la Plana",
+               "short_name" : "Castellón de la Plana",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Castellón",
+               "short_name" : "Castellón",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Comunidad Valenciana",
+               "short_name" : "Comunidad Valenciana",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "España",
+               "short_name" : "ES",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "12004",
+               "short_name" : "12004",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "Carrerasa de la Gallenca, 31, 12004 Castellón de la Plana, Castellón, España",
+         "geometry" : {
+            "location" : {
+               "lat" : 39.997701,
+               "lng" : 0.0009023
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 39.9990499802915,
+                  "lng" : 0.00225128029150203
+               },
+               "southwest" : {
+                  "lat" : 39.9963520197085,
+                  "lng" : -0.0004466802915020301
+               }
+            }
+         },
+         "place_id" : "ChIJM6FxFAoAoBIRJoJc_bBHm-c",
+         "types" : [ "street_address" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "12004",
+               "short_name" : "12004",
+               "types" : [ "postal_code" ]
+            },
+            {
+               "long_name" : "Castellón de la Plana",
+               "short_name" : "Castellón de la Plana",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Castellón",
+               "short_name" : "Castellón",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Comunidad Valenciana",
+               "short_name" : "Comunidad Valenciana",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "España",
+               "short_name" : "ES",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "12004 Castellón de la Plana, Castellón, España",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 40.06441350000001,
+                  "lng" : 0.0199294
+               },
+               "southwest" : {
+                  "lat" : 39.9876763,
+                  "lng" : -0.0908162
+               }
+            },
+            "location" : {
+               "lat" : 40.0120227,
+               "lng" : -0.0279867
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.06441350000001,
+                  "lng" : 0.0199294
+               },
+               "southwest" : {
+                  "lat" : 39.9876763,
+                  "lng" : -0.0908162
+               }
+            }
+         },
+         "place_id" : "ChIJRxeTAgn_Xw0REF0TPnKvAhw",
+         "types" : [ "postal_code" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Castellón de la Plana",
+               "short_name" : "Castellón de la Plana",
+               "types" : [ "administrative_area_level_4", "political" ]
+            },
+            {
+               "long_name" : "Plana Alta",
+               "short_name" : "Plana Alta",
+               "types" : [ "administrative_area_level_3", "political" ]
+            },
+            {
+               "long_name" : "Castellón",
+               "short_name" : "Castellón",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Comunidad Valenciana",
+               "short_name" : "Comunidad Valenciana",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "España",
+               "short_name" : "ES",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Castellón de la Plana, Castellón, España",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 40.06441350000001,
+                  "lng" : 0.6912275999999999
+               },
+               "southwest" : {
+                  "lat" : 39.8501212,
+                  "lng" : -0.1644067
+               }
+            },
+            "location" : {
+               "lat" : 40.0017505,
+               "lng" : -0.05599390000000001
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.06441350000001,
+                  "lng" : 0.6912275999999999
+               },
+               "southwest" : {
+                  "lat" : 39.8501212,
+                  "lng" : -0.1644067
+               }
+            }
+         },
+         "place_id" : "ChIJ34vk7yj-Xw0RXqONjd-SdlM",
+         "types" : [ "administrative_area_level_4", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Plana Alta",
+               "short_name" : "Plana Alta",
+               "types" : [ "administrative_area_level_3", "political" ]
+            },
+            {
+               "long_name" : "Castellón",
+               "short_name" : "Castellón",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Comunidad Valenciana",
+               "short_name" : "Comunidad Valenciana",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "España",
+               "short_name" : "ES",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Plana Alta, Castellón, España",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 40.4182745,
+                  "lng" : 0.6887496
+               },
+               "southwest" : {
+                  "lat" : 39.8933317,
+                  "lng" : -0.1659079
+               }
+            },
+            "location" : {
+               "lat" : 40.2271003,
+               "lng" : 0.0746767
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.4182745,
+                  "lng" : 0.6887496
+               },
+               "southwest" : {
+                  "lat" : 39.8933317,
+                  "lng" : -0.1659079
+               }
+            }
+         },
+         "place_id" : "ChIJHWyn-ncXoBIRxF_Aq-DRWQg",
+         "types" : [ "administrative_area_level_3", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Castellón",
+               "short_name" : "Castellón",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Comunidad Valenciana",
+               "short_name" : "Comunidad Valenciana",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "España",
+               "short_name" : "ES",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Castellón, España",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 40.7886312,
+                  "lng" : 0.6912275999999999
+               },
+               "southwest" : {
+                  "lat" : 39.7146978,
+                  "lng" : -0.8462968
+               }
+            },
+            "location" : {
+               "lat" : 40.1451772,
+               "lng" : -0.1494988
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.7886312,
+                  "lng" : 0.6912275999999999
+               },
+               "southwest" : {
+                  "lat" : 39.7146978,
+                  "lng" : -0.8462968
+               }
+            }
+         },
+         "place_id" : "ChIJd-4zz4vzXw0R8Mkh126vAgM",
+         "types" : [ "administrative_area_level_2", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Comunidad Valenciana",
+               "short_name" : "Comunidad Valenciana",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "España",
+               "short_name" : "ES",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Comunidad Valenciana, España",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 40.7886312,
+                  "lng" : 0.6912275999999999
+               },
+               "southwest" : {
+                  "lat" : 37.8438987,
+                  "lng" : -1.5289447
+               }
+            },
+            "location" : {
+               "lat" : 39.4840108,
+               "lng" : -0.7532808999999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.7886312,
+                  "lng" : 0.6912275999999999
+               },
+               "southwest" : {
+                  "lat" : 37.8438987,
+                  "lng" : -1.5289447
+               }
+            }
+         },
+         "place_id" : "ChIJDTGOzUD8XQ0RXQsxGLjLQF8",
+         "types" : [ "administrative_area_level_1", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "España",
+               "short_name" : "ES",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "España",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 43.8504,
+                  "lng" : 4.6362
+               },
+               "southwest" : {
+                  "lat" : 27.4985,
+                  "lng" : -18.2648001
+               }
+            },
+            "location" : {
+               "lat" : 40.46366700000001,
+               "lng" : -3.74922
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 45.244,
+                  "lng" : 5.098
+               },
+               "southwest" : {
+                  "lat" : 35.17300000000001,
+                  "lng" : -12.524
+               }
+            }
+         },
+         "place_id" : "ChIJi7xhMnjjQgwR7KNoB5Qs7KY",
+         "types" : [ "country", "political" ]
+      }
+   ],
+   "status" : "OK"
+}
+
