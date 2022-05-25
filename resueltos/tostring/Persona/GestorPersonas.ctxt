@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=GestorPersonas
+comment1.params=
+comment1.target=GestorPersonas()
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ GestorPersonas\n
+comment2.params=persona
+comment2.target=void\ addPersona(Persona)
+comment3.params=
+comment3.target=void\ addSamplePersons()
+comment3.text=\n\ A\u00F1ade\ personas\ de\ ejemplo\n
+comment4.params=
+comment4.target=void\ printAll()
+numComments=5
