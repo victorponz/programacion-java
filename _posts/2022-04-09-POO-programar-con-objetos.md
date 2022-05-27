@@ -789,3 +789,120 @@ La inexistencia de la sentencia `package` implica que las clases del archivo fue
 Un paquete está constituido por el conjunto de clases diseñadas en archivos fuente que incorporan la sentencia `package` con un nombre de paquete idéntico. 
 
 El paquete predeterminado está constituido por todas las clases diseñadas en archivos fuente que no incorporan la sentencia `package`.
+
+Todas las clases de un paquete llamado `xxx.yyy.zzz` residen en la subcarpeta “zzz” de la estructura de directorios “xxx/yyy/zzz”, pero podemos tener físicamente esta estructura en diferentes ubicaciones. Es decir, dadas las clases C1 y C2 del mismo paquete “xxx.yyy.zzz”, se podría dar el caso de que el archivo `.class` correspondiente a C1 residiera en path “xxx/yyy/zzz/C1” y que el archivo .class correspondiente a C2 reside en path “xxx/yyy/zzz/C2”.
+
+Recordamos que el código incorporado en una clase (iniciadores y métodos) tiene acceso a todos los miembros sin modificador de acceso de todas las clases del mismo paquete (además del acceso a los miembros con modificador de acceso público).
+
+En el diseño de una clase se tiene acceso a todas las clases del mismo paquete, pero para acceder a clases de diferentes paquetes es necesario utilizar uno de los dos mecanismos siguientes:
+
+* Utilizar el nombre de la clase precedido del nombre del paquete cada vez que deba utilizarse el nombre de la clase, con la siguiente sintaxis:
+
+  ```java
+  nombrePaquete.NombreClase
+  ```
+
+* Explicitar las clases de otros paquetes a las que se hará referencia con una sentencia importe antes de la declaración de la nueva clase, siguiendo la siguiente sintaxis:
+
+  ```java
+  import <nombrePaquete>.<NombreClase>;
+  ```
+
+Es factible cargar todas las clases de un paquete con una única sentencia utilizando un asterisco:
+
+```java
+import <nombrePaquete>.*;
+```
+
+Las sentencias `import` en un archivo fuente deben preceder a todas las declaraciones de clases incorporadas en el archivo.
+
+Así pues, si tenemos una clase `C` en un paquete `xxx.yyy.zzz` y debemos utilizarla en otra clase, tenemos dos opciones:
+
+* Escribir `xxx.yyy.zzz.C` cada vez que debamos referirnos a la clase `C`.
+* Utilizar la sentencia `import xxx.yyy.zzz.C` antes de ninguna declaración de clase y utilizar directamente el nombre `C` para referirnos a la clase.
+
+### Ejemplo de definición
+
+Consideramos las clases diseñadas en el siguiente archivo:
+
+```java
+//Fichero xxx/yyy/zzz/ClaseC1.java
+package xxx.yyy.zzz;
+
+public class ClaseC1 {
+  int mc1=10;
+}
+
+class ClaseC1Bis {
+  int mc1=20;
+}
+```
+
+Vemos que este archivo define las clases `ClaseC1` y `ClaseC1Bis` dentro de un paquete llamado `xxx.yyy.zzz`. Fijémonos en que una de ellas tiene el modificador `public` para que se pueda acceder desde fuera del paquete, y recordemos que en un archivo `.java` sólo puede haber una clase pública.
+
+Consideramos un nuevo archivo `.java` que crea más clases en el mismo paquete `xxx.yyy.zzz`: `ClaseC2.java`
+
+```java
+//Fichero xxx/yyy/zzz/ClasseC2.java
+package xxx.yyy.zzz;
+
+public class ClaseC2 {
+  int mc2=10;
+}
+
+class ClaseC2Bis {
+  int mc2=20;
+}
+```
+
+Veamos, en primer lugar, que cualquier clase de un paquete tiene acceso a todas las clases del mismo paquete  y a los miembros de las que no hayan sido declaradas `private`. Vamos:
+
+```java
+//Fichero: xxx/yyy/zzz/AccesIntern.java
+package xxx.yyy.zzz;
+
+class AccesoInterno {
+  public static void main (String args[]) {
+   ClaseC1 c1 = new ClaseC1();
+   ClaseC1Bis c1b = new ClaseC1Bis();
+   ClaseC2 c2 = new ClaseC2();
+   ClaseC2Bis c2b = new ClaseC2Bis();
+   System.out.println ("c1.mc1 = " + c1.mc1);
+   System.out.println ("c1b.mc1 = " + c1b.mc1);
+   System.out.println ("c2.mc2 = " + c2.mc2);
+   System.out.println ("c2b.mc2 = " + c2b.mc2);
+  }
+}
+```
+
+Si procedemos a ejecutar el programa obtenemos:
+
+```
+c1.mc1 = 10
+c1b.mc1 = 20
+c2.mc2 = 10
+c2b.mc2 = 20
+```
+
+Vemos que la clase `AccesoInterno` tiene acceso a todas las clases del mismo paquete y sus datos miembros, ya que no se habían definido como `private`.
+
+Comprobamos ahora qué hacer para acceder a las clases del paquete `xxx.yyy.zzz` desde una clase de otro paquete. Comprobaremos que no podemos acceder a las clases no públicas del paquete `xxx.yyy.zzz` ni a los miembros no públicos de las clases públicas. Para realizar estas comprobaciones, consideramos la clase `AccesoExterno` siguiente:
+
+```java
+//Fitxer AccesoExterno.java
+package externo;
+
+import xxx.yyy.zzz.*;
+
+class AccesExtern {
+   public static void main (String args[]) {
+      ClaseC1 c1 = new ClaseC1();
+      //ClaseC1Bis c1b = new ClaseC1Bis();    // No es clase pública
+      ClaseC2 c2 = new ClaseC2();
+      //ClaseC2Bis c2b = new ClaseC2Bis();    // No es clase pública
+      //System.out.println ("c1.mc1 = " + c1.mc1); // No son miembros públicps
+      //System.out.println ("c2.mc2 = " + c2.mc2); // No son miembros públicos
+   }
+}
+```
+
