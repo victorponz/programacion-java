@@ -616,7 +616,7 @@ Ejemplos de métodos sobrecargados los podemos encontrar en muchas clases propor
 
 Java existe una palabra reservada especialmente útil para tratar la manipulación de atributos y su inicialización. Se trata de `this`, que tiene dos finalidades principales:
 
-* Dentro de los métodos no constructores, para r**eferirse al objeto actual** sobre el que se está ejecutando el método. Así, cuando dentro de un método de una clase se quiere acceder a un dato del objeto actual, podemos utilizar la palabra reservada `this`, escribiendo `this.nombreDato`, y si se quiere llamar otro método sobre el objeto actual, podemos escribir `this.nombreMétodo(…)`. En estos casos, la utilización de la palabra `this` es redundante, ya que dentro de un método, para referirnos a un dato del objeto actual, podemos escribir directamente nombre, y para llamar a otro método sobre el objeto actual podemos escribir directamente `nombreMétodo`(…). A veces, sin embargo, la palabra reservada `this` **no es redundante**, como en el caso en que se quiere llamar un método en una clase y hay que pasar el objeto actual como argumento: `nombreMétodo(this)`.
+* Dentro de los métodos no constructores, para **referirse al objeto actual** sobre el que se está ejecutando el método. Así, cuando dentro de un método de una clase se quiere acceder a un dato del objeto actual, podemos utilizar la palabra reservada `this`, escribiendo `this.nombreDato`, y si se quiere llamar otro método sobre el objeto actual, podemos escribir `this.nombreMétodo(…)`. En estos casos, la utilización de la palabra `this` es redundante, ya que dentro de un método, para referirnos a un dato del objeto actual, podemos escribir directamente nombre, y para llamar a otro método sobre el objeto actual podemos escribir directamente `nombreMétodo`(…). A veces, sin embargo, la palabra reservada `this` **no es redundante**, como en el caso en que se quiere llamar un método en una clase y hay que pasar el objeto actual como argumento: `nombreMétodo(this)`.
 * Dentro de los métodos constructores, como nombre de método para llamar a otro constructor de la propia clase. En ocasiones puede ocurrir que un método constructor tenga que ejecutar el mismo código que otro método constructor ya diseñado. En esta situación sería interesante poder llamar al constructor existente, con los parámetros adecuados, sin tener que copiar el código del constructor ya diseñado, lo que nos lo facilita la palabra reservada `this` utilizada como nombre de método: `this(<listaParámetros>)`. La palabra reservada `this` como método para llamar a un constructor en el diseño de otro constructor sólo se puede utilizar en la primera sentencia del nuevo constructor. Al finalizar la llamada de otro constructor mediante `this`, se continúa con la ejecución de las instrucciones que haya después de la llamada `this(…)`.
 
 **Ejemplo de `this` en un setter.** 
@@ -655,6 +655,61 @@ public Persona (Persona p) {
   this (p.dni, p.nombre, p.edad);
 }
 ```
+
+## Sobreescritura de métodos
+
+Supongamos la siguiente clase `Circle`
+
+```java
+public class Circle {
+   // private instance variables
+   private double radius;
+   private String color;
+
+   // Constructors
+   public Circle() {
+      this.radius = 1.0;
+      this.color = "red";
+      System.out.println("Constructed a Circle with Circle()");  // for debugging
+   }
+   public Circle(double radius) {
+      this.radius = radius;
+      this.color = "red";
+      System.out.println("Constructed a Circle with Circle(radius)");  // for debugging
+   }
+   public Circle(double radius, String color) {
+      this.radius = radius;
+      this.color = color;
+      System.out.println("Constructed a Circle with Circle(radius, color)");  // for debugging
+   }
+
+   // public getters and setters for the private variables
+   public double getRadius() {
+      return this.radius;
+   }
+   public String getColor() {
+      return this.color;
+   }
+   public void setRadius(double radius) {
+      this.radius = radius;
+   }
+   public void setColor(String color) {
+      this.color = color;
+   }
+
+   /** Returns a self-descriptive String */
+   public String toString() {
+      return "Circle[radius=" + radius + ",color=" + color + "]";
+   }
+
+   /** Returns the area of this Circle */
+   public double getArea() {
+      return radius * radius * Math.PI;
+   }
+}
+```
+
+
 
 ## Elementos estáticos de una clase
 
@@ -905,4 +960,17 @@ class AccesExtern {
    }
 }
 ```
+
+Vemos que las instrucciones comentadas darían error por los siguientes motivos:
+
+* Las clases `ClaseC1Bis` y `ClaseC2Bis` no son públicas y, por tanto, no se tiene acceso desde fuera del paquete “`xxx.yyy.zzz`”.
+* El miembro `mc1` de la clase `ClaseC1` y el miembro `mc2` de la clase `ClaseC2` no son públicos y, por tanto, no se tiene acceso desde fuera del paquete `xxx.yyy.zzz`.
+
+En el desarrollo de aplicaciones en Java es necesario tener especial cuidado en utilizar nombres que sean únicos y así poder asegurar su reutilización en una gran organización y, más aún, en cualquier lugar del mundo. Esto puede ser una tarea difícil en una gran organización y absolutamente imposible en la comunidad de Internet. Por eso se propone que toda organización utilice el nombre de su dominio, invertido, como prefijo para todas las clases. Es decir, los paquetes de clases desarrollados el IES El Caminàs, que tiene el dominio "ieselcaminas.org", podrían empezar por "org.ieselcaminas".
+
+https://avansti.github.io/TI1.1-OGP0-OGP1-Lesmateriaal/subjects/object-oriented-programming/
+
+
+
+https://www3.ntu.edu.sg/home/ehchua/programming/java/J3b_OOPInheritancePolymorphism.html
 
