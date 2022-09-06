@@ -179,7 +179,7 @@ Pero la cadena
 
 no lo está.
 
-Diseña un programa que nos siga si una cadena está bien parentizada o no.
+Diseña un programa que nos diga si una cadena está bien parentizada o no.
 
 > -toogle-Piensa antes de mirar
 >
