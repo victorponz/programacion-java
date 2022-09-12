@@ -76,7 +76,7 @@ Otra posibilidad importante del ordenador, atendidas las limitaciones del sistem
 
 > -hint-**Un ordenador es como una pizzería**
 >
-> Si se quiere hacer un símil con nuestro mundo de cada día, un ordenador es como la cocina de una pizzería que acepta pedidos telefónicos. Hacer un pedido equivale a pedir el inicio de la ejecución de un programa. Para llevar a cabo este pedido, habrá que manipular una serie de ingredientes, que representarían los datos. El cocinero con sus enseres \(horno, pastador, etc.\) serían el procesador, puesto que manipulan y transforman los ingredientes. La nevera, los armarios o los contenedores, de donde el cocinero puede sacar ingredientes o donde los puede desar mientras no los está manipulando, representarían la memoria. El sistema de entrada/salida serían los elementos de comunicación con el exterior de la pizzería, como el motorista que trae la pizza o el teléfono que el cocinero puede utilizar para pedir que le traigan nuevos ingredientes cuando se le acaban, pedir información adicional al usuario \(“Se ha acabado el pimiento, va bien si  ponemos cebolla?”\), o avisarlo de algún acontecimiento \(“Me sabe mal, tardará algo más del previsto”\). De hecho, continuando con el símil, el cocinero prepara una pizza siguiendo un conjunto de pasos. En este caso la receta son las órdenes que tiene que seguir el programa. Y si el cocinero no tiene la receta no puede llevar a cabo el pedido.
+> Si se quiere hacer un símil con nuestro mundo de cada día, un ordenador es como la cocina de una pizzería que acepta pedidos telefónicos. Hacer un pedido equivale a pedir el inicio de la ejecución de un programa. Para llevar a cabo este pedido, habrá que manipular una serie de ingredientes, que representarían los datos. El cocinero con sus enseres \(horno, pastador, etc.\) serían el procesador, puesto que manipulan y transforman los ingredientes. La nevera, los armarios o los contenedores, de donde el cocinero puede sacar ingredientes o donde los puede dejar mientras no los está manipulando, representarían la memoria. El sistema de entrada/salida serían los elementos de comunicación con el exterior de la pizzería, como el motorista que trae la pizza o el teléfono que el cocinero puede utilizar para pedir que le traigan nuevos ingredientes cuando se le acaban, pedir información adicional al usuario \(“Se ha acabado el pimiento, va bien si  ponemos cebolla?”\), o avisarlo de algún acontecimiento \(“Me sabe mal, tardará algo más del previsto”\). De hecho, continuando con el símil, el cocinero prepara una pizza siguiendo un conjunto de pasos. En este caso la receta son las órdenes que tiene que seguir el programa. Y si el cocinero no tiene la receta no puede llevar a cabo el pedido.
 >
 > **Lenguaje natural**
 >
@@ -183,7 +183,7 @@ De hecho, en los lenguajes de nivel alto más frecuentes, entre los cuales está
 
 > -info-Una **sentencia** es el elemento mínimo de un lenguaje de programación, a menudo identificado por una cadena de texto especial, que sirve para describir exactamente una acción que el programa tiene que hacer.
 
-Por lo tanto, a partir de ahora se usará el término sentencia en lugar de instrucción cuando el texto se refiera a un lenguaje de este tipo.
+Por lo tanto, a partir de ahora se usará el término **sentencia en lugar de instrucción** cuando el texto se refiera a un lenguaje de este tipo.
 
 Una vez se han acabado de generar los ficheros con su código fuente, estos también se tienen que compilar para traducirlos a código objeto. Ahora bien, en este caso, el proceso de traducción a código objeto será bastante más complicado que desde ensamblador. El compilador de un lenguaje de nivel alto es un programa mucho más complejo. En cuanto al proceso de compilación, una consecuencia adicional del hecho de que el lenguaje no dependa directamente del tipo de procesador es que desde un mismo código fuente se puede generar código objeto para diferentes procesadores. Sólo hay que disponer de un compilador diferente para cada tipo de procesador que se quiera soportar. Por lo tanto, un mismo código fuente original puede servir para generar programas que funcionen con diferentes tipos de procesador sin tenerlo que modificar cada vez.
 
@@ -213,11 +213,11 @@ Hay que ser conscientes que un programador puede llegar a dedicar una buena part
 
 ### ... mediante un lenguaje interpretado
 
-En contraposición de los lenguajes compilados, tenemos los lenguajes interpretados. En este caso, no se hace una distinción interna entre nivel alto y bajo, puesto que la inmensa mayoría de lenguajes interpretados son de nivel alto. Lo que interesa es entender la idea general del funcionamiento y las diferencias con los compilados. Cómo en el caso de los lenguajes compilados, los programas también se escriben en ficheros de texto que contienen código fuente. La divergencia surge inmediatamente después de acabar de escribirlos, en la manera como se genera un fichero ejecutable. El quid de la cuestión es que, precisamente, ni se genera ningún código objeto ni ningún fichero ejecutable. Se trabaja directamente con el fichero de código fuente. Una vez este está escrito, el proceso de creación del programa ejecutable ha finalizado.
+En contraposición de los lenguajes compilados, tenemos los lenguajes interpretados. En este caso, no se hace una distinción interna entre nivel alto y bajo, puesto que la inmensa mayoría de lenguajes interpretados son de nivel alto. Lo que interesa es entender la idea general del funcionamiento y las diferencias con los compilados. Como en el caso de los lenguajes compilados, los programas también se escriben en ficheros de texto que contienen código fuente. La divergencia surge inmediatamente después de acabar de escribirlos, en la manera como se genera un fichero ejecutable. El quid de la cuestión es que, precisamente, ni se genera ningún código objeto ni ningún fichero ejecutable. Se trabaja directamente con el fichero de código fuente. Una vez este está escrito, el proceso de creación del programa ejecutable ha finalizado.
 
 > -warning-**Intérprete**
 >
-> Alerta, un intérprete no traduce el código fuente del programa a código objeto y entonces lo ejecuta. Lo que hace es ejecutar diferentes instrucciones de su propio código según cada instrucción leída del código fuente.
+> Un intérprete no traduce el código fuente del programa a código objeto y entonces lo ejecuta. Lo que hace es ejecutar diferentes instrucciones de su propio código según cada instrucción leída del código fuente.
 
 Imagináis un programa que acepta una serie de datos que codifican unas instrucciones, las va leyendo una por una y las va procesando de forma que actúa de una forma o de otra, es decir, ejecuta una parte u otra de su propio código objeto según el tipo de instrucción leída. A fin de cuentas, sería un programa que imita el comportamiento de un procesador, pero a escala de software. Pues esto es exactamente un intérprete.
 
@@ -231,7 +231,7 @@ Algunos lenguajes interpretados usan una aproximación híbrida. El código fuen
 
 Por sus características, los lenguajes interpretados no requieren un proceso posterior de enlazamiento.
 
-La **figura 3 **muestra un esquema del proceso de ejecución de un programa en lenguaje interpretado. Notad que en el caso de un lenguaje con bytecode, lo que se proporciona al intérprete son ficheros con la versión del código fuente previamente compilado en bytecode, y no el código fuente directamente.
+La **figura 3** muestra un esquema del proceso de ejecución de un programa en lenguaje interpretado. Notad que en el caso de un lenguaje con bytecode, lo que se proporciona al intérprete son ficheros con la versión del código fuente previamente compilado en bytecode, y no el código fuente directamente.
 
 **Figura 3** Proceso de interpretación del código fuente
 
@@ -239,13 +239,13 @@ La **figura 3 **muestra un esquema del proceso de ejecución de un programa en l
 
 ## Entornos integrados de desarrollo
 
-> -info-Un **IDE** \(Integrated Development Environment o en torno integrado de desarrollo\) es una herramienta que integra todo lo que hace falta para generar programas de ordenador, de forma que el trabajo sea mucho más cómodo.
+> -info-Un **IDE** \(Integrated Development Environment o Entorno Integrado de Desarrollo\) es una herramienta que integra todo lo que hace falta para generar programas de ordenador, de forma que el trabajo sea mucho más cómodo.
 
 Una vez se ha descrito el proceso general para desarrollar y llegar a ejecutar un programa, se hace evidente que hay que tener instalados y correctamente configurados dos programas completamente diferentes e independientes en vuestro ordenador para desarrollarlos: editor, por un lado, y compilador \(incluyendo el enlazador\) o intérprete por la otra, según el tipo de lenguaje. Cada vez que queráis modificar y probar vuestro programa tendréis que ir alternando ejecuciones entre los dos. Realmente, sería mucho más cómodo si todo ello se pudiera hacer desde un único programa, que integrara los tres. Un editor avanzado desde el cual se pueda compilar, enlazar si se tercia, e iniciar la ejecución de código fuente para comprobar si funciona.
 
 > -info-**Ejemplos de IDE**
 >
-> Algunos ejemplos de IDE son Visual Studio, para los lenguajes C\#, C++ y Visual Basic; Netbeans y Eclipse, para los lenguajes Java y Ruby; Dev-Pascal, para el lenguaje Pascal, o el Dev-C, para el lenguaje C.
+> Algunos ejemplos de IDE son Visual Studio, para los lenguajes C\#, C++ y Visual Basic; IntelliJ IDEA , Netbeans y Eclipse, para los lenguajes Java y Ruby; Dev-Pascal, para el lenguaje Pascal, o el Dev-C, para el lenguaje C.
 
 La utilización de estas herramientas agiliza increíblemente el trabajo del programador. Además, los IDE más modernos van más allá de integrar editor, compilador y enlazador o intérprete, y aportan otras características que hacen todavía más eficiente la tarea de programar. Por ejemplo:
 
@@ -294,9 +294,9 @@ Desgraciadamente, no hay el lenguaje perfecto, sin ningún inconveniente y que s
 
 ## Creación y ejecución de programas Java
 
-> Por ahora se tratará el caso de la creación de programas sencillos que se compongan de un único fichero de código fuente.
+> -info-Por ahora se tratará el caso de la creación de programas sencillos que se compongan de un único fichero de código fuente.
 
-Este apartado se centrar a mostrar en detalle cómo se crea y se ejecuta un programa en lenguaje Java.
+Este apartado se centrará en mostrar en detalle cómo se crea y se ejecuta un programa en lenguaje Java.
 
 Dado que Java es un lenguaje interpretado, las herramientas que os hacen falta son:
 
@@ -328,7 +328,7 @@ El programa que pone en marcha el compilador es el ejecutable llamado javac \(en
 javac HolaMundo.java
 ```
 
-> El fichero con bytecode resultante del proceso de compilación se denomina igual que el fichero de código fuente, pero con la extensión `.class`.
+> -info-El fichero con bytecode resultante del proceso de compilación se denomina igual que el fichero de código fuente, pero con la extensión `.class`.
 
 Una vez disponemos del fichero con bytecode, este sólo puede ser ejecutado con la ayuda del intérprete de Java, conocido popularmente como la JVM \(Java virtual machine, máquina virtual de Java\). Esta se incluye dentro del paquete llamado JRE \(Java runtime environment, entorno a ejecución de Java\). A la vez, el JRE ya va incorporado automáticamente dentro del JDK. La **figura 4** muestra un esquema de la relación entre herramientas incluidas a los diferentes paquetes para el desarrollo y ejecución de programas en Java.
 
