@@ -8,8 +8,6 @@ conToc: true
 permalink: introduccion-a-la-programacion
 ---
 
-http://repositori.uji.es/xmlui/bitstream/handle/10234/24305/s23.pdf
-
 # Iniciación a la programación
 
 Como en cualquier proceso de aprendizaje, hay que empezar por el principio. Es importante tener claros un conjunto de conceptos básicos que ayuden a comprender los conceptos más avanzados que vendrán posteriormente. En este caso, se trata de establecer qué es un programa, como funciona y qué es el modelo general para crear uno. Sólo una vez lo tengáis claro os podéis plantear sentaros ante el ordenador y empezar a programar.
