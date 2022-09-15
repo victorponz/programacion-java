@@ -132,9 +132,9 @@ En este código hemos introducido muchos conceptos:
 >         area = lado * lado;
 >         
 >         // 3. Mostramos los datos
->         System.out.println("El área del cuadrado es: " + squareArea);
+>         System.out.println("El área del cuadrado es: " + area);
 >         //o bien
->         System.out.printf("El área del cuadrado es: %f", squareArea);
+>         System.out.printf("El área del cuadrado es: %f", area);
 >         
 >     }
 > }
@@ -203,11 +203,9 @@ En este código hemos introducido muchos conceptos:
 
 ![](/programacion-java/assets/img/java-basico//ej5-prop.png)
 
-```java
-//Nota. Para definir el valor de PI usad la constante PI de la librería Math
-Math.PI
-
-```
+> -info-
+>
+> **Nota**. Para definir el valor de PI usad la constante PI `Math.PI`
 
 >  -info-**Definir constantes en java**
 >
@@ -237,12 +235,10 @@ Math.PI
 >         // 3 Imprimimos
 >            System.out.printf("El área de la circunferencia es: %f %n", area);
 > 		System.out.printf("El perímetro de la circunferencia es: %f %n",perimetro);
-> 
-> 		
 > 	}
 > }
 > ```
->
+> 
 > 
 
 ## 7 Un programa que pida el precio real de un producto, el precio rebajado y muestre el descuento realizado
@@ -289,13 +285,12 @@ La estructura condicional más simple es el `if`: se evalúa una condición y en
 
  ```java
 public static void main(String[] args) {
- 
-  ......
-  if (edad >= 18){
-         System.out.println("Mayor de edad");
-     }
-     .....
+   ......
+	if (edad >= 18){
+        System.out.println("Mayor de edad");
     }
+    .....
+}
  ```
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/b2ZtZndiT1Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
