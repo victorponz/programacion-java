@@ -402,7 +402,7 @@ public static void main(String[] args) {
 > 		miScanner.close();
 >         
 > 		// Si las condiciones son mutuamente excluyentes, se usa if .. else
-> 		if (numero > numero2) {
+> 		if (numero < numero2) {
 > 			System.out.println(numero + " - " + numero2);
 > 		} else {
 > 			System.out.println(numero2 + " - " + numero);
@@ -1018,7 +1018,7 @@ Datos resultantes:
 > 			//Las primeras 35 se pagan normal
 > 			bruto = 35 * precio;
 > 			//Las siguientes se pagan a 1,5 veces el precio normal
-> 			bruto += (horas - 35) * precio * 1.5;
+> 			bruto += (horas - 35) * precio * 1.5f;
 > 		}
 > 		/*
 > 		 * Ahora calculamos los impuestos:
