@@ -1166,13 +1166,12 @@ A veces, no sabemos de antemano el número de veces que se ejecutará el bucle.
 ![](/programacion-java/assets/img/java-basico/while.png)
 
 ```java
-i = 0;
-while (i < 10) {
-    num = miScanner.nextInt();
+num = inputValue.nextInt();
+while (num != 0) {
     if (num >= 0) {
         positives = positives + 1;
     }
-    i = i + 1;
+    num = inputValue.nextInt();
 }
 ```
 
@@ -1183,14 +1182,12 @@ A veces, no sabemos de antemano el número de veces que se ejecutará el bucle.
 ![](/programacion-java/assets/img/java-basico/until.png)
 
 ```java
-i = 0;
-do  {
-    num = miScanner.nextInt();
+do {
+    num = inputValue.nextInt();
     if (num >= 0) {
         positives = positives + 1;
     }
-    i = i + 1;
-}while (i < 10)
+}while (num != 0);
 ```
 
 ## For
