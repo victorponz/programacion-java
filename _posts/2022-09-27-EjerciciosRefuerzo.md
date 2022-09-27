@@ -10,7 +10,7 @@ permalink: ejercicios-refuerzo
 
 ## 1 Pedir un número entre 0 y 9.999 y mostrarlo con las cifras al revés
 
-> -toggle- Piensa antes de ver la solución
+> -toogle- Piensa antes de ver la solución
 >
 > ```java
 > import java.util.Scanner;
