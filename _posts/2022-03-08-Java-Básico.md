@@ -402,7 +402,7 @@ public static void main(String[] args) {
 > 		miScanner.close();
 >         
 > 		// Si las condiciones son mutuamente excluyentes, se usa if .. else
-> 		if (numero > numero2) {
+> 		if (numero < numero2) {
 > 			System.out.println(numero + " - " + numero2);
 > 		} else {
 > 			System.out.println(numero2 + " - " + numero);
@@ -1018,7 +1018,7 @@ Datos resultantes:
 > 			//Las primeras 35 se pagan normal
 > 			bruto = 35 * precio;
 > 			//Las siguientes se pagan a 1,5 veces el precio normal
-> 			bruto += (horas - 35) * precio * 1.5;
+> 			bruto += (horas - 35) * precio * 1.5f;
 > 		}
 > 		/*
 > 		 * Ahora calculamos los impuestos:
@@ -1166,13 +1166,12 @@ A veces, no sabemos de antemano el número de veces que se ejecutará el bucle.
 ![](/programacion-java/assets/img/java-basico/while.png)
 
 ```java
-i = 0;
-while (i < 10) {
-    num = miScanner.nextInt();
+num = inputValue.nextInt();
+while (num != 0) {
     if (num >= 0) {
         positives = positives + 1;
     }
-    i = i + 1;
+    num = inputValue.nextInt();
 }
 ```
 
@@ -1183,14 +1182,12 @@ A veces, no sabemos de antemano el número de veces que se ejecutará el bucle.
 ![](/programacion-java/assets/img/java-basico/until.png)
 
 ```java
-i = 0;
-do  {
-    num = miScanner.nextInt();
+do {
+    num = inputValue.nextInt();
     if (num >= 0) {
         positives = positives + 1;
     }
-    i = i + 1;
-}while (i < 10)
+}while (num != 0);
 ```
 
 ## For
