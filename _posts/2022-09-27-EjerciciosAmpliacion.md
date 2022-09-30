@@ -2,10 +2,10 @@
 typora-copy-images-to: ../assets/img/refuerzo/
 typora-root-url: ../../
 layout: post
-title: Ejercicios de refuerzo
+title: Ejercicios de ampliación
 categories: varios
 conToc: true
-permalink: ejercicios-refuerzo
+permalink: ejercicios-ampliacion
 ---
 
 ## 1 Pedir un número entre 0 y 9.999 y mostrarlo con las cifras al revés
