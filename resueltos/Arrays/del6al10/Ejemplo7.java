@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Ejemplo7 {
@@ -24,7 +23,7 @@ public class Ejemplo7 {
 		}
 		
 		//Imprimir la primera línea de asteriscos
-		for (int i = 0; i < maxLength + (cadenas.length -1); i++) {
+		for (int i = 0; i < maxLength + 4; i++) {
 			System.out.print("*");
 		}
 		System.out.println("");
@@ -50,9 +49,9 @@ public class Ejemplo7 {
 		*/
 		
 		//Imprimir la  última línea de asteriscos
-		for (int i = 0; i < maxLength + (cadenas.length -1); i++) {
+		for (int i = 0; i < maxLength + 4; i++) {
 			System.out.print("*");
 		}
-
     }
+
 }
