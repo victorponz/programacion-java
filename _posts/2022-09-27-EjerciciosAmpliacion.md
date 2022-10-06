@@ -172,7 +172,7 @@ assertEquals(radar.esMulta(12000, 100, 431), true);
 > }
 > ```
 
-## Kaprekar (avanzado)
+## 5 Kaprekar
 
 El matemático indio Dattaraya Ramchandra Kaprekar descubrió en 1949 una curiosa característica del número 6174. Hoy, se conoce a dicho número como *constante de Kaprekar* en honor a él.
 
@@ -261,3 +261,175 @@ assertEquals(kaprekar.iterations(1893), 7);
 >     }
 > }
 > ```
+
+## 6 Códigos de barras
+
+En el lejano 1952, tres norteamericanos patentaron lo que terminó llamándose *código de barras*. Consiste en una técnica para representar números (y, en menos  ocasiones, letras) mediante una serie de líneas verticales paralelas,  con diferentes grosores y separaciones entre ellas. Si bien el primer  uso sirvió para identificar de manera automática los vagones de un  ferrocarril, hoy los códigos de barras se utilizan en infinidad de  lugares, siendo la catalogación de productos la más habitual.
+
+La manera concreta de codificar mediante barras los números y las letras puede ser muy variada, lo que ha llevado a la aparición de diferentes  estándares. De todos ellos, el EAN (*European Article Number*)  resulta ser el más extendido. De éste, hay principalmente dos formatos,  que se diferencian en el ancho. Existe así el llamado EAN-8, que  codifica 8 números, y el EAN-13, que, naturalmente, codifica 13.
+
+![image-20221006172603328](/programacion-java/assets/img/refuerzo/image-20221006172603328.png)
+
+El último dígito del código se utiliza para detección de errores, y se calcula a partir de los demás. Para eso:
+
+- Empezando por la derecha  (sin contar el dígito de control que se está calculando), se suman los dígitos individuales, multiplicados por un factor:  
+
+  - Los dígitos en posiciones impares (empezando a contar por la derecha saltándonos el de control) se multiplican por 3.
+  - Los dígitos en posiciones pares se multiplican por 1.
+
+  Por ejemplo, para el código EAN-8 de la figura la operación a realizar es:
+
+    2 · 3 + 5 · 1 + 9 · 3 + 3 · 1 + 8 · 3 + 5 · 1 + 6 · 3 = 88
+
+- El dígito de comprobación es el número que hay que sumar al resultado anterior para llegar a un valor múltiplo de 10. En el ejemplo  de EAN-8, para llegar al múltiplo de 10 más cercano por encima del  número 88 hay que sumar 2 (y llegar al 90).  Ten en cuenta que si la suma resulta ser ya múltiplo de 10, el dígito de control será 0.
+
+> -toogle-Piensa antes de ver la solución
+>
+> ```java
+> public class CodigoBarras {
+>     public boolean check(String codigo) {
+>         int calculo, codigoControl, flag, len, n;
+> 
+>         len = codigo.length();
+> 
+>         if (len < 14) {
+>             flag = 0;
+>             calculo = 0;
+> 
+>             for (int i = len - 2; i >= 0; i--) {
+>                 n = Integer.parseInt("" + codigo.charAt(i));
+>                 if (flag == 0) {
+>                     calculo += n * 3;
+>                     flag = 1;
+>                 } else {
+>                     calculo += n;
+>                     flag = 0;
+>                 }
+>             }
+> 
+>             codigoControl = Integer.parseInt("" + codigo.charAt(len - 1));
+> 
+>             if ((codigoControl + calculo) % 10 == 0) {
+>                 return true;
+>             } else {
+>                 return false;
+>             }
+>         } else {
+>             return false;
+>         }
+>     }
+> }
+> ```
+>
+> 
+
+```java
+assertEquals(codigoBarras.check("65839522"), true);
+assertEquals(codigoBarras.check("65839521"), false);
+assertEquals(codigoBarras.check("8414533043847"), true);
+assertEquals(codigoBarras.check("5029365779425"), true);
+assertEquals(codigoBarras.check("5129365779425"), false);
+```
+
+## 7 Escudos del ejército romano
+
+Son famosas las formaciones que el antiguo ejército romano utilizaba para entrar en batalla. En esas formaciones, los legionarios se agrupaban en una figura geométrica (normalmente un rectángulo) y protegían tanto los flancos como la parte superior utilizando escudos. Los legionarios que ocupaban posiciones interiores cubrían la parte superior colocando el escudo sobre su cabeza, mientras que los que ocupaban los flancos llevaban dos y hasta tres escudos: uno para proteger la parte superior y uno o dos escudos (si estaban en la esquina) para proteger los laterales. Con esta formación, todos los legionarios quedaban protegidos por los escudos y eran muy difíciles de vencer.
+
+Cuenta la historia que existió un general que estableció que la mejor figura para la formación no era la rectangular sino la cuadrada, de forma que el número de filas y columnas de legionarios coincidía. El problema al que se enfrentaba este general era decidir en cuántas formaciones (y de qué tamaño) debía separar su ejército para que:
+
+- No quedara ningún legionario fuera de una formación (aunque admitía formaciones de *un único legionario*).
+- Se minimizara el número de escudos necesarios para protegerlos.
+
+Nuestro general, después de hacer muchos cálculos, decidió que la mejor manera de que estas dos condiciones se cumpliesen era comenzar haciendo  el cuadrado más grande posible con  sus legionarios. Con los que le quedasen libres volvía a repetir la  operación, y así hasta que no quedasen legionarios que formar[3](https://www.aceptaelreto.com/problem/statement.php?id=119#ftn.3). 
+
+Por ejemplo, si el número de legionarios en el ejército era 35, la  manera utilizada por el general para hacer la formación consistía en un cuadrado de 25 legionarios (5×5), otro de 9 (3×3) y otro de 1 (1×1):
+
+![image-20221006175121262](/programacion-java/assets/img/refuerzo/image-20221006175121262.png)
+
+> -toogle-Piensa antes de ver la solución
+>
+> ```java
+> public class EjercitoRomano {
+> 
+>     public int cuantosEscudos(int ejercito) {
+>         int total, temp;
+> 
+>         total = 0;
+>         while (true) {
+>             if (ejercito == 0)
+>                 break;
+>             if (ejercito < 4) {
+>                 total += ejercito * 5;
+>                 break;
+>             }
+>             temp = (int) Math.sqrt(ejercito);
+>             ejercito -= (temp * temp);
+>             total += (temp - 2) * (temp - 2); // interior
+>             total += (((temp - 2) * 4) * 2) + 12; // exterior + esquinas
+>         }
+>         return total;
+>     }
+> 
+> }
+> ```
+>
+> 
+
+```java
+assertEquals(ejercitoRomano.cuantosEscudos(35), 71);
+assertEquals(ejercitoRomano.cuantosEscudos(20), 44);
+assertEquals(ejercitoRomano.cuantosEscudos(10), 26);
+```
+
+## 8 ¿Cuántas me llevo?
+
+Cuando aprendemos a sumar números pronto nos cuentan aquello de "llevarse una": cuando los dos dígitos que sumamos llegan a la decena tenemos "acarreo" que debemos sumar a los siguientes dígitos (de la izquierda).
+
+Cuando nuestros maestros nos ponían ejercicios, antes tenían que contar cuántas veces tendríamos que "llevarnos una" y en base a eso medían la dificultad del ejercicio.
+
+¿Puedes hacer un programa que automatice esa tarea?
+
+> -toogle-Piensa antes de ver la solución
+>
+> ```java
+> public class CuantasMeLlevo {
+>     public int calcular(int num1, int num2) {
+>         String str1 = Integer.toString(num1);
+>         String str2 = Integer.toString(num2);
+>         int[] n1, n2;
+>         n1 = new int[Math.max(str1.length(), str2.length())];
+>         n2 = new int[Math.max(str1.length(), str2.length())];
+>         for (int i = 0; i < str1.length(); i++) {
+>             n1[i] = Integer.parseInt(str1.charAt(str1.length() - 1 - i) + "");
+>         }
+>         for (int i = 0; i < str2.length(); i++) {
+>             n2[i] = Integer.parseInt(str2.charAt(str2.length() - 1 - i) + "");
+>         }
+>         int ans = 0, carry = 0;
+>         for (int i = 0; i < n1.length; i++) {
+>             if ((n1[i] + n2[i] + carry) >= 10) {
+>                 ans++;
+>                 carry = (n1[i] + n2[i] + carry) / 10;
+>             } else
+>                 carry = 0;
+>         }
+> 
+>         return ans;
+>     }
+> }
+> 
+> ```
+>
+> 
+
+```java
+assertEquals(cuantasMeLlevo.calcular(123, 456), 0);
+assertEquals(cuantasMeLlevo.calcular(555, 555), 3);
+assertEquals(cuantasMeLlevo.calcular(123, 594), 1);
+```
+
+## 9 Separar en palabras
+
+Dado una frase, devuelve de cuántas palabras está compuesta. Ten en cuenta que las palabras pueden estar separadas por más de un espacio. No tengas en cuenta los signos de puntuación
+
+**Sólo** se pueden usar los métodos `String.length()` y `String.charAt()`
