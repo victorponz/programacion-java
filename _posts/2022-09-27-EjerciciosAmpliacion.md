@@ -428,8 +428,158 @@ assertEquals(cuantasMeLlevo.calcular(555, 555), 3);
 assertEquals(cuantasMeLlevo.calcular(123, 594), 1);
 ```
 
-## 9 Separar en palabras
+## 9 Contar palabras
 
-Dado una frase, devuelve de cuántas palabras está compuesta. Ten en cuenta que las palabras pueden estar separadas por más de un espacio. No tengas en cuenta los signos de puntuación
+Dada una frase, devuelve de cuántas palabras está compuesta. Ten en cuenta que las palabras pueden estar separadas por más de un espacio. No tengas en cuenta los signos de puntuación
 
 **Sólo** se pueden usar los métodos `String.length()` y `String.charAt()`
+
+> -toogle-Piensa antes de ver la solución
+>
+> ```java
+> public class ContarPalabras {
+>     public int contar(String cadena){
+>         int palabras = 0;
+> 		int largo = cadena.length();
+> 		boolean  buscoBlanco = false;
+> 		for (int i = 0;  i < largo; i++){
+> 			if (buscoBlanco){
+> 				if (cadena.charAt(i) == ' '){
+> 					buscoBlanco = !buscoBlanco;
+> 				}
+> 			}else{
+> 				if (cadena.charAt(i) != ' '){
+> 					buscoBlanco = !buscoBlanco;
+> 					palabras++;
+> 				}
+> 			}
+> 
+> 		}
+>         return palabras;
+>     }
+> }
+> ```
+
+```java
+assertEquals(contarPalabras.contar("Esto es una cadena con  varios espacios"), 7);
+assertEquals(contarPalabras.contar("Esto es una frase que acaba en un espacio "), 9);
+assertEquals(contarPalabras.contar("Esto es una frase normal"), 5);
+```
+
+## 10 Llenando piscinas
+
+Se acerca el verano y llega el momento de sacar de los armarios y trasteros las piscinas para los niños (y no tan niños), colocarlas en la terraza, patio o jardín y llenarlas de agua para que los pequeños de la casa puedan empezar a disfrutarlas.
+
+Este año la tarea se presenta complicada porque durante el invierno la larga manguera que permitía llevar el agua desde el grifo de la cocina hasta la propia piscina se ha perdido y habrá que hacerlo con un barreño… 
+
+Para complicar aún más las cosas, también durante el invierno la piscina (a pesar de ser de fibra de vidrio) se ha pinchado y pierde un poco de agua. Aún así, como los pequeños están ansiosos por darse un chapuzón decidimos llenarla cuanto antes, con pinchazo incluido, y luego mientras ellos disfrutan lo arreglaremos. Dado que la piscina está perdiendo agua constantemente, estará llena únicamente durante un instante de tiempo. En ese preciso momento dejaremos de hacer viajes a la cocina y nos pondremos rápidamente a arreglarla.
+
+Como dice el refrán "mal de mucho consuelo de tontos"; la tarea de llenado será un poco más llevadera gracias al consuelo de saber que nuestro vecino está en la misma situación. A través del seto del jardín podemos verle haciendo viajes como un loco de su cocina a su piscina, para compensar el pinchazo que también él tiene. La pregunta es ¿quién tardará menos en llenar la piscina?
+
+El método aceptará tres parámetros: Los tres primeros números indican los litros de agua de nuestra piscina (1≤ *p* ≤ 109), el número de litros de nuestro barreño (1 ≤ *b* ≤ 109) y por último los litros de agua que la piscina pierde durante el viaje. A continuación aparecen tres números para indicar la misma información pero de nuestro vecino.
+
+Debe devolver 0 si empatan, -1 si gana el vecino y 1 en caso contrario
+
+> -toogle-Piensa antes de ver la solución
+>
+> ```java
+> public class Piscina {
+> 
+>     public int quienGana(int piscinaA, int barrenyoA, int pierdeA, int piscinaB, int barrenyoB, int pierdeB){
+>         int yo     = getViajes(piscinaA, barrenyoA, pierdeA);
+>         int vecino = getViajes(piscinaB, barrenyoB, pierdeB);
+> 
+>         /*if (yo == -1 && vecino == -1) {
+>             yo = 0;
+>             vecino = 0;
+>         }*/
+> 
+>         if (yo == vecino) 
+>             return 0;
+>         else 
+>             return (yo > vecino ? -1 : 1);
+> 
+>     } 
+>     private static int getViajes(int piscina, int barreno, int pierde) {
+>         if (pierde >= barreno && barreno < piscina) return Integer.MAX_VALUE;
+>         else if (barreno >= piscina) return 1;
+>         int viajes = 0, aux, rest;
+>         while (piscina > 1) {
+>             aux = piscina / barreno;
+>             rest = aux * pierde;
+>             piscina = (piscina - (aux * barreno)) + rest;
+>             viajes += aux;
+>             if (piscina != 0 && piscina <= barreno) {
+>                 viajes++; 
+>                 break;
+>             }
+>         }
+>         return viajes;
+>     }
+> }
+> ```
+
+```java
+assertEquals(piscina.quienGana(10, 5, 1, 15, 6, 1), 0);
+assertEquals(piscina.quienGana(50, 5, 1, 50, 5, 0), -1);
+assertEquals(piscina.quienGana(50, 5, 1, 50, 5, 6), 1);
+```
+
+## 11 Escalera de color
+
+La llamada *baraja inglesa* es una modificación menor de la *baraja francesa*. Sus similitudes son tan grandes, que es habitual considerarlas la  misma. Contiene 52 cartas, distribuidas en 4 palos diferentes. Los palos se conocen con el nombre de *picas* (♠), *diamantes* (♦), *tréboles* (♣) y *corazones* (♥). De cada uno, hay trece cartas, con valores del 1 (al que se conoce como *As*) hasta el 10, más las tres figuras, *Jack* (*J*), *Queen* (*Q*) y *King* (*K*), que, numéricamente, serían los valores 11, 12 y 13. Las diferencias más notables entre la baraja francesa y la inglesa están en el nombre de la carta *Jack* (conocida en la francesa como *Valet*, *V*), y el As, nombre específico de la baraja inglesa que, además, desplaza  su valor en muchos juegos del 1 al 14, convirtiéndola en una carta más  poderosa que la *K*.
+
+La baraja inglesa se utiliza en juegos mundialmente conocidos, como el *bridge*, la *canasta* o el *póquer*.
+
+En este último, la jugada más valiosa es una *escalera de color*, que se forma cuando un mismo jugador consigue una mano de 5 cartas del mismo palo con valores consecutivos.
+
+Cada carta se representa por su número contando J = 11, Q = 12, K = 13 y AS = 14
+
+Al programa se le pasan 4 números de cartas y debe calcular la carta necesaria que habría que añadir a las cuatro recibidas para obtener la escalera de color más alta posible
+
+> -toogle-Piensa antes de ver la solución
+>
+> ```java
+> import java.util.Arrays;
+> 
+> public class EscaleraDeColor {
+>     public static int escalera(int c1, int c2, int c3, int c4){
+>         final int AS = 14;
+>         int [] ordenadas = {c1, c2, c3, c4};
+>         int carta = 0;
+>         
+>         Arrays.sort(ordenadas);
+> 
+>         //Si no hay nigún hueco
+>         if (ordenadas[3] - ordenadas[0] == 3){
+>             //la más alta posible será añadiendo una al final, siempre que no sea ya un As
+>             if (ordenadas[3] != AS){
+>                 carta = ordenadas[3] + 1;
+>             }else{
+>                 carta = ordenadas[0] - 1;
+>             }
+>         }else if (ordenadas[3] - ordenadas[0] == 4){
+>             //Sólo se podrá hacer escalera si hay un hueco de sólo una carta
+>             for (int i = 0; i < ordenadas.length - 1; i++) {
+>                if (ordenadas[i + 1] - ordenadas[i] == 2){
+>                     return ordenadas[i] + 1;
+>                 }
+>             }
+>         }
+>         return carta;
+>     }
+>     public static void main(String[] args) {
+>         System.out.println(escalera(11, 12,13 ,14));
+>         System.out.println(escalera(10, 12,13 ,14));
+>         System.out.println(escalera(9, 12,13 ,14));
+>     }
+> }
+> ```
+
+```java
+assertEquals(escaleraDeColor.escalera(11, 12,13 ,14), 10);
+assertEquals(escaleraDeColor.escalera(10, 12,13 ,14), 11);
+assertEquals(escaleraDeColor.escalera(5, 6,7 ,8), 9);
+assertEquals(escaleraDeColor.escalera(9, 12,13 ,14), 0);
+```
+
