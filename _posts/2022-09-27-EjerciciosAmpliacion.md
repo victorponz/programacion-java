@@ -583,3 +583,416 @@ assertEquals(escaleraDeColor.escalera(5, 6,7 ,8), 9);
 assertEquals(escaleraDeColor.escalera(9, 12,13 ,14), 0);
 ```
 
+## 12 Números vampiro
+
+En 1994, Clifford A. Pickover puso de manifiesto la existencia de los temidos *números vampiro*. Los números vampiro sobreviven ocultos entre el resto de nuestro  sistema numérico, conservando los genes de sus padres tras  multiplicarse. Así, por ejemplo, el número 2.187 es un número vampiro,  al tener los mismos genes (dígitos) que sus dos progenitores, 27 y 81  (27 · 81 = 2.187).
+
+Los números vampiro *verdaderos* (con pedigrí) cumplen cuatro condiciones:
+
+- Tienen un número par de dígitos.
+- Se obtienen al multiplicar dos números, llamados *colmillos*, que tienen la mitad de dígitos que el original.
+- Tienen los mismos dígitos que los colmillos, y en la misma cantidad (aunque en cualquier orden).
+
+Como con los vampiros humanos, los números vampiro no son fáciles de detectar. ¿Puedes ayudarnos?
+
+Para simplificar, en número debe estar comprendido entre 1000 y 9999
+
+> -toogle-Piensa antes de ver la solución
+>
+> ```java
+> import java.util.Arrays;
+> 
+> public class Vampiros {
+>     public boolean esVampiro(int num){
+>         String n = Integer.toString(num);
+>         int primerNumero, segundoNumero;
+>         int primerTermino, segundoTermino;
+>         
+>         for (int i = 0; i < n.length(); i++){
+>             primerNumero = Integer.parseInt("" + n.charAt(i));
+>             for (int j = 0; j < n.length(); j++) {
+>                 //Combinarlo con el resto de dígitos excepto él mismo
+>                 if (j == i) continue;
+>                 
+>                 segundoNumero = Integer.parseInt("" + n.charAt(j));
+>                 primerTermino = Integer.parseInt(Integer.toString(primerNumero) +  Integer.toString(segundoNumero));
+>                 
+>                 //Comprobar que el número es divisible entre primerTermino
+>                 if (num % primerTermino == 0){
+>                     //Es un candidato
+>                     //Comprobar que es menor que 100
+>                     segundoTermino = num / primerTermino;
+>                     if (segundoTermino < 100){
+>                         //Ahora comprobar que los dígitos son distintos a primerTermino
+>                         char[] n2 = (Integer.toString(segundoTermino) + Integer.toString(primerTermino)).toCharArray();
+>                         Arrays.sort(n2);
+>                         char[] n3= n.toCharArray();
+>                         Arrays.sort(n3);
+>                         if (Arrays.equals(n2, n3))
+>                             return true;
+>                     }
+>                 }
+>             }
+>         }
+>         return false;
+>     }
+> }
+> ```
+
+```java
+assertTrue("Error", vampiros.esVampiro(1260));
+assertTrue("Error", vampiros.esVampiro(1395));
+assertTrue("Error", vampiros.esVampiro(1435));
+assertTrue("Error", vampiros.esVampiro(1530));
+assertTrue("Error", vampiros.esVampiro(1827));
+assertTrue("Error", vampiros.esVampiro(2187));
+assertTrue("Error", vampiros.esVampiro(6880));
+assertFalse("Error", vampiros.esVampiro(6881));
+```
+
+## 13 Números cubifinitos
+
+Se dice que un número es *cubifinito* cuando al elevar  todos sus dígitos al cubo y sumarlos el resultado o bien es 1 o  bien es un número cubifinito.
+
+Por ejemplo, el número `1243` es cubifinito, pues al  elevar todos sus dígitos al cubo obtenemos `100` que es  cubifinito.
+
+Por su parte, el `513` no es cubifinito, pues al elevar  al cubo sus dígitos conseguimos el `153` que nunca podrá  ser cubifinito, pues la suma de los cubos de sus dígitos vuelve a  dar `153`.
+
+Dado un número, se trata de determinar si éste es o no  cubifinito.
+
+> -hint-
+>
+> Usa un `Set` para almacenar los números ya calculados
+>
+> ```java
+>  Set<Integer> set;
+>  set = new TreeSet<>();
+> ```
+
+> -toogle- Piensa antes de ver la solución
+>
+> ```java
+> import java.util.Set;
+> import java.util.TreeSet;
+> 
+> public class Cubifinito {
+> 
+>     public boolean esCubifinito(int num){
+>         int  digito;
+>         String temp;
+>         int suma;
+>         Set<Integer> set;
+>         set = new TreeSet<>();
+>         set.add(num);
+> 
+>         if (num == 1) 
+>             return true;
+>         else {
+>             while (true) {
+> 
+>                 suma = 0;
+>                 temp = String.valueOf(num);
+>                 for (int i = temp.length()-1; i >= 0; i--) {
+>                     digito = Integer.parseInt(""+temp.charAt(i));
+>                     suma += digito * digito * digito;
+>                 }
+> 
+>                 if (suma == 1)  {
+>                     return true;
+>                 }else if (set.contains(suma)) {
+>                     //La suma se repite, ya no es cubifinito
+>                     return false;
+>                 }else {
+>                     //Lo añadimos porque si vuelve a dar la misma cifra ya no es cubifinito
+>                     set.add(suma);
+>                     num = suma;
+>                 }
+>             }
+> 
+>         }
+>     }
+>    }
+> ```
+
+```java
+assertTrue("Error", cubifinito.esCubifinito(1));
+assertTrue("Error", cubifinito.esCubifinito(10));
+assertTrue("Error", cubifinito.esCubifinito(1243));
+assertTrue("Error", cubifinito.esCubifinito(87418));        
+assertFalse("Error", cubifinito.esCubifinito(513));
+```
+
+## 14 Paréntesis
+
+Se entiende que una secuencia de caracteres está correctamente  equilibrada con respecto a los paréntesis si cada uno de los paréntesis  de apertura tiene su paréntesis cerrado. Cuando añadimos otros  mecanismos de agrupación (como los corchetes, [ y ] o las llaves, { y  }), el equilibrio se da si el número de aperturas de cada símbolo  coincide con el de cierres y además se cierran en el orden correcto.
+
+Se trata de implementar un programa que indique si una cadena está  correctamente balanceada con respecto a paréntesis, corchetes y llaves.
+
+> -toogle-Piensa antes de ver la solución
+>
+> ```java
+> import java.util.LinkedList;
+> 
+> public class Parentesis {
+> 
+>     public boolean esBalacenado(String cadena){
+>         boolean balanced;
+>         LinkedList<Character> cola = new LinkedList<>();
+>         balanced = true;
+>         char c;
+> 
+>         for (int i = 0; i < cadena.length(); i++) {
+>             c = cadena.charAt(i);
+>             if (c == '{' || c == '[' || c == '(') {
+>                 cola.addLast(c);
+>             }
+>             else if (c == ']' || c == '}' || c == ')') {
+>                 if (cola.isEmpty()) {
+>                     return false;
+>                 }
+>                 else {
+>                     Character removed = cola.removeLast();
+>                     switch (c) {
+>                         case '}':
+>                             balanced = removed == '{';
+>                             break;
+>                         case ')':
+>                             balanced = removed == '(';
+>                             break;
+>                         case ']':
+>                             balanced = removed == '[';
+>                             break;
+>                         default:
+>                             balanced = false;
+>                     }
+>                     if (!balanced)
+>                         return false;
+>                 }
+>             }
+>         }
+>         return cola.isEmpty();
+>     }
+> 
+> }
+> ```
+>
+> ```java
+> assertTrue("Error", parentesis.esBalancenado("[{[(hola)]}]"));
+> assertFalse("Error", parentesis.esBalancenado("{(hola)]}]"));
+> ```
+
+## 15 ¿Quién empieza?
+
+Los siete niños decidieron jugar al escondite, y se enfrentaron a la tarea de elegir quién era el que empezaba    buscando. Procedieron como siempre. Se colocaron en círculo y uno de ellos empezó a contar señalando con el dedo a cada uno y avanzando hacia la derecha, de forma que uno de cada tres niños se iban salvando de la pesada tarea de empezar buscando y salía del círculo. El último niño que quedó en el círculo fue el seleccionado para buscar.
+
+De forma más general, el proceso de selección es el siguiente: nse numeran a los N niños desde el 1 hasta el N, y se les coloca en círculo. Empezando por el niño número 1, se va eliminando a uno de cada 3, es decir, se elimina al número 3, al 6, al 9, etc. Cuando se llega al final del círculo se continúa contando desde el principio. Siguiendo con el ejemplo, si hay 10 niños, tras eliminar al 9, se salta al 10, se salta al 1, y se elimina al número 2.
+
+Crea un método al que se le pase como parámetro el número de niños y cuántos niños nos saltamos antes de sacar del círculo a uno de ellos y debe devolver el número de niño que empezará buscando en el juego.
+
+> -toogle-Piensa antes de ver la solución
+>
+> ```java
+> import java.util.ArrayList;
+> 
+> public class QuienEmpieza {
+>     public int jugar(int jugadores, int saltos){
+>         int eliminar;
+>         ArrayList<Integer> juego;
+>         juego = new ArrayList<>();
+> 
+>         for (int i = 1; i <= jugadores; i++) juego.add(i);
+> 
+>         eliminar = 0;
+>         while (juego.size() > 1) {
+>             eliminar += saltos;
+>             eliminar %= juego.size();
+>             juego.remove(eliminar);
+>         }
+> 
+>         return juego.get(0);
+>     }
+> }
+> ```
+
+```java
+assertEquals(quienEmpieza.jugar(4, 1), 1);
+assertEquals(quienEmpieza.jugar(7, 2), 4);
+assertEquals(quienEmpieza.jugar(10, 2), 4);
+```
+
+## 16 Año 2013
+
+Mary lleva muchos años redactando cartas para sus jefes. Cuando comenzó el año 2013, observó con fastidio que al poner la fecha se veía obligada a utilizar más teclas diferentes que otras veces. Empezó a hacer memoria y se dio cuenta de que, tras 25 años, el año 2013 era el primero que tenía sus cuatro dígitos diferentes. Desde 1988, todos los años habían tenido al menos un dígito repetido.    
+
+La *serie* de años *sin* dígitos repetidos que comienza con 2013 terminará en 2019. En 2020 comenzó una serie      nueva de números *con* dígitos repetidos, que se mantendrá hasta el 2030, incluido.    
+
+El método debe indicar el primer año de *la serie* de números con o sin dígitos repetidos a la que pertenece.
+
+> -toogle-Piensa antes de ver la solución
+>
+> ```java
+> public class Anyo2013 {
+>     public int primeroSerie(int num){
+>         int temp_num;
+>         boolean repetido, temp;
+>         int left;
+>         repetido = getState(String.valueOf(num));
+> 
+>         temp = repetido;
+>         temp_num = num;
+> 
+>         left = 0;
+>         while (temp == repetido) {
+>             temp = getState(String.valueOf(temp_num));
+>             if (temp == repetido) {
+>                 temp_num--;
+>                 left++;
+>             }
+>         }
+> 
+>         left--;
+>         
+>         return (num - left);
+>     }
+>     static boolean getState(String n) {
+>         for (int i = 0; i < n.length() - 1; i++) {
+>             for (int j = i + 1; j < n.length(); j++) {
+>                 if (n.charAt(i) == n.charAt(j)) return true;
+>             }
+>         }
+>         return false;
+>     }
+> }
+> ```
+
+
+
+```java
+assertEquals(anyo2013.primeroSerie(1990), 1988);
+assertEquals(anyo2013.primeroSerie(2015), 2013);
+assertEquals(anyo2013.primeroSerie(2025), 2020);        
+```
+
+## 17 Expresiones aritméticas
+
+Las expresiones aritméticas suelen escribirse utilizando lo que se conoce como notación *infija* en la que los operadores se colocan entre los operandos. Esta notación, intuitiva para los humanos, tiene el problema de obligarnos a poner  paréntesis en ciertas ocasiones para cambiar el orden de aplicación de  los operadores.
+
+Por otro lado, la notación *postfija* consiste en colocar el operador *tras los dos operandos*; una de sus ventajas es que no necesita paréntesis. Además es fácilmente evaluable con una pila. El proceso de evaluación consiste en añadir a  la pila los operandos que nos vayamos encontrando. Cuando leemos un  operador, extraemos dos valores de la pila los combinamos con el  operador encontrado (teniendo en cuenta que el primer valor que se  extrae es el segundo operando de la operación) y añadimos el resultado  de vuelta.
+
+Existe otra posibilidad de notación que sigue la misma idea que la  anterior pero en vez de utilizar una pila para la evaluación, utiliza  una *cola*. Cuando se tienen que añadir elementos a la cola, se hace por detrás, mientras que la extracción se realiza por delante.
+
+Dada una expresión, nos preguntamos si, al ser considerada escrita en cada una de las dos notaciones, dará el mismo resultado, uno distinto, o incluso si la expresión no será correcta en alguna de las dos (debido a división por cero).
+
+Debes escribir dos métodos, uno para la pila y otro para la cola a los que se pasa una expresión. Los operandos serán siempre dígitos individuales positivos y los operadores podrán ser suma (`+`), resta (`-`), multiplicación (`*`) o división (`/`). 
+
+> -toogle-Piensa antes de ver la solución
+>
+> ```java
+> import java.util.LinkedList;
+> import java.util.Queue;
+> import java.util.Stack;
+> 
+> public class EvaluarExpresion {
+>     public String pila(String expresionAritmetica) {
+>         char[] expresion = expresionAritmetica.toCharArray();
+>         Stack<Integer> pila;
+>         int n1, n2 = 0;
+> 
+>         pila = new Stack<>();
+> 
+>         for (int i = 0; i < expresion.length; i++) {
+>             if (Character.isDigit(expresion[i])) {
+>                 int num = Integer.parseInt("" + expresion[i]);
+>                 pila.push(num);
+>             } else {
+>                 switch (expresion[i]) {
+>                     case '+':
+>                         n2 = pila.pop();
+>                         n1 = pila.pop();
+>                         pila.push(n1 + n2);
+>                         break;
+>                     case '-':
+>                         n2 = pila.pop();
+>                         n1 = pila.pop();
+>                         pila.push(n1 - n2);
+>                         break;
+>                     case '/':
+>                         try {
+>                             n2 = pila.pop();
+>                             n1 = pila.pop();
+>                             pila.push(n1 / n2);
+>                         } catch (ArithmeticException e) {
+>                             return "ERROR";
+>                         }
+>                         break;
+>                     case '*':
+>                         n2 = pila.pop();
+>                         n1 = pila.pop();
+>                         pila.push(n1 * n2);
+>                         break;
+>                 }
+>             }
+>         }
+>         return String.valueOf(pila.pop());
+> 
+>     }
+> 
+>     public String cola(String expresionAritmetica) {
+> 
+>         char[] expresion = expresionAritmetica.toCharArray();
+>         Queue<Integer> cola;
+>         int n1, n2 = 0;
+>         cola = new LinkedList<>();
+> 
+>         for (int i = 0; i < expresion.length; i++) {
+>             if (Character.isDigit(expresion[i])) {
+>                 int num = Integer.parseInt("" + expresion[i]);
+>                 cola.add(num);
+>             } else {
+>                 switch (expresion[i]) {
+>                     case '+':
+>                         n2 = cola.poll();
+>                         n1 = cola.poll();
+>                         cola.add(n1 + n2);
+>                         break;
+>                     case '-':
+>                         n2 = cola.poll();
+>                         n1 = cola.poll();
+>                         cola.add(n1 - n2);
+>                         break;
+>                     case '/':
+>                         try {
+>                             n2 = cola.poll();
+>                             n1 = cola.poll();
+>                             cola.add(n1 / n2);
+>                         } catch (ArithmeticException e) {
+>                             return "ERROR";
+>                         }
+>                         break;
+>                     case '*':
+>                         n2 = cola.poll();
+>                         n1 = cola.poll();
+>                         cola.add(n1 * n2);
+>                 }
+>             }
+>         }
+> 
+>         return String.valueOf(cola.poll());
+>     }
+> }
+> ```
+
+```java
+assertEquals(evaluarExpresion.pila("2453/*+"), "6");
+assertEquals(evaluarExpresion.pila("6"), "6");
+assertEquals(evaluarExpresion.pila("811-/"), "ERROR");
+assertEquals(evaluarExpresion.pila("11-8/"), "0");
+assertEquals(evaluarExpresion.pila("00/"), "ERROR");
+
+assertEquals(evaluarExpresion.cola("2453/*+"), "17");
+assertEquals(evaluarExpresion.cola("6"), "6");
+assertEquals(evaluarExpresion.cola("811-/"), "-7");
+assertEquals(evaluarExpresion.cola("11-8/"), "ERROR");
+assertEquals(evaluarExpresion.cola("00/"), "ERROR");
+```
+
