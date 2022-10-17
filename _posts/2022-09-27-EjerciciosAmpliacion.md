@@ -287,40 +287,38 @@ El último dígito del código se utiliza para detección de errores, y se calcu
 >
 > ```java
 > public class CodigoBarras {
->     public boolean check(String codigo) {
->         int calculo, codigoControl, flag, len, n;
+>        public boolean check(String codigo) {
+>            int calculo, codigoControl, len, n;
 > 
->         len = codigo.length();
+>            len = codigo.length();
 > 
->         if (len < 14) {
->             flag = 0;
->             calculo = 0;
-> 
+>            if (len < 14) {
+>                calculo = 0;
+>    
 >             for (int i = len - 2; i >= 0; i--) {
->                 n = Integer.parseInt("" + codigo.charAt(i));
->                 if (flag == 0) {
->                     calculo += n * 3;
->                     flag = 1;
->                 } else {
->                     calculo += n;
->                     flag = 0;
->                 }
->             }
-> 
->             codigoControl = Integer.parseInt("" + codigo.charAt(len - 1));
-> 
+>                    n = Integer.parseInt("" + codigo.charAt(i));
+>                    if (i % 2 != 0) {
+>                        calculo += n * 3;
+>                    } else {
+>                        calculo += n;
+>                    }
+>                }
+>    
+>                codigoControl = Integer.parseInt("" + codigo.charAt(len - 1));
+>    
 >             if ((codigoControl + calculo) % 10 == 0) {
->                 return true;
+>                    return true;
 >             } else {
->                 return false;
->             }
->         } else {
->             return false;
->         }
->     }
-> }
-> ```
->
+>                    return false;
+>                }
+>    
+>            } else {
+>                return false;
+>            }
+>        }
+>    }
+>    ```
+> 
 > 
 
 ```java
@@ -994,5 +992,96 @@ assertEquals(evaluarExpresion.cola("6"), "6");
 assertEquals(evaluarExpresion.cola("811-/"), "-7");
 assertEquals(evaluarExpresion.cola("11-8/"), "ERROR");
 assertEquals(evaluarExpresion.cola("00/"), "ERROR");
+```
+
+## 18 Números afortunados
+
+Dado un *N* ≥ 2, se llaman números afortunados a los que resultan de ejecutar el siguiente proceso: se comienza generando una lista que contiene los números desde 1 hasta N en este orden; se elimina de la lista un número de cada 2  (es decir, los números 1, 3, 5, etc.); de la lista final resultante se elimina un número de cada 3, etc. El proceso termina cuando se va a eliminar un número de cada *M* y el número de elementos que quedan es menor que *M*. Los números que queden en la lista en este momento son los afortunados.
+
+> -toogle-Piensa antes de ver la solución
+>
+> ```java
+> import java.util.ArrayList;
+> public class Afortunados {
+>        public static String calcular(int num){
+>            ArrayList<Integer> numeros = new ArrayList<Integer>(); 
+>            String res = "";
+>            int cuantos = 2;
+>            for (int i = 1; i <= num; i++) {
+>                numeros.add(i);
+>            }
+>            int max = numeros.size();
+>         while(cuantos < numeros.size()){
+>                for (int i = 0; i < max; i+=cuantos) {
+>                    numeros.remove(i);
+>                    i--;
+>                    max--;
+>                }
+>                cuantos++;
+>            }
+>            for (int i = 0; i < numeros.size(); i++) {
+>                res += numeros.get(i) + " ";
+>            }
+>            return res;
+>        }
+>    }
+>    ```
+>    
+
+```java
+assertEquals(Afortunados.calcular(3), "2 ");
+assertEquals(Afortunados.calcular(10), "4 6 10 ");
+assertEquals(Afortunados.calcular(30), "10 12 18 22 30 ");
+assertEquals(Afortunados.calcular(100), "30 34 42 48 58 60 78 82 ");
+```
+
+## 19 Orden 
+
+Dado un array de 10 números enteros, la aplicación debe indicarnos si los números están ordenados de forma creciente, decreciente, o si están desordenados
+
+> -alert-Sólo se puede hacer un bucle
+
+> -toogle-Piensa antes de ver la solución
+>
+> ```java
+> public class Orden {
+>     public static int comprobar(int[] numeros) {
+>         int orden = 0;
+>         boolean comparado = false;
+>         for (int i = 0; i < numeros.length - 1; i++) {
+>             if (numeros[i+1] > numeros[i]){
+>                 //Si ya hemos comparado y cambia el orden
+>                 if (orden != 1 && comparado){
+>                     orden = 3;
+>                     break;
+>                 }
+>                 orden = 1;
+>                 comparado = true;
+> 
+>             }else  if (numeros[i+1] < numeros[i]){
+>                 //Si ya hemos comparado y cambia el orden
+>                 if (orden != 2 && comparado){
+>                     orden = 3;
+>                     break;
+>                 }
+>                 orden = 2;
+>                 comparado = true;
+>             }
+>         }
+>         
+>         return orden; 
+>     }
+> }
+> ```
+
+```java
+int [] numeros = {1,5,7,9};
+assertEquals(Orden.comprobar(numeros) , 1);
+int [] numeros2 = {9, 5, 4, 3};
+assertEquals(Orden.comprobar(numeros2) , 2);
+int [] numeros3 = {9, 5, 7, 3};
+assertEquals(Orden.comprobar(numeros3) , 3);
+int [] numeros4 = {9, 9, 9, 9};
+assertEquals(Orden.comprobar(numeros4) , 0);
 ```
 
