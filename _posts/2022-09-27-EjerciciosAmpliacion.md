@@ -172,6 +172,11 @@ assertEquals(radar.esMulta(12000, 100, 431), true);
 > }
 > ```
 
+**Créditos**
+
+**Autores:** [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5), Patricia Díaz García y [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6).
+**Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=112](https://www.aceptaelreto.com/problem/statement.php?id=112)
+
 ## 5 Kaprekar
 
 El matemático indio Dattaraya Ramchandra Kaprekar descubrió en 1949 una curiosa característica del número 6174. Hoy, se conoce a dicho número como *constante de Kaprekar* en honor a él.
@@ -262,6 +267,12 @@ assertEquals(kaprekar.iterations(1893), 7);
 > }
 > ```
 
+**Créditos**
+
+ **Autores:** [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6), [Patricia Díaz García](https://www.aceptaelreto.com/user/profile.php?id=7) y [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5).
+
+**Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=100](https://www.aceptaelreto.com/problem/statement.php?id=100)
+
 ## 6 Códigos de barras
 
 En el lejano 1952, tres norteamericanos patentaron lo que terminó llamándose *código de barras*. Consiste en una técnica para representar números (y, en menos  ocasiones, letras) mediante una serie de líneas verticales paralelas,  con diferentes grosores y separaciones entre ellas. Si bien el primer  uso sirvió para identificar de manera automática los vagones de un  ferrocarril, hoy los códigos de barras se utilizan en infinidad de  lugares, siendo la catalogación de productos la más habitual.
@@ -329,6 +340,12 @@ assertEquals(codigoBarras.check("5029365779425"), true);
 assertEquals(codigoBarras.check("5129365779425"), false);
 ```
 
+**Créditos**
+
+**Autores:** [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6), [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5) y [Patricia Díaz García](https://www.aceptaelreto.com/user/profile.php?id=7).
+
+**Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=106](https://www.aceptaelreto.com/problem/statement.php?id=106)
+
 ## 7 Escudos del ejército romano
 
 Son famosas las formaciones que el antiguo ejército romano utilizaba para entrar en batalla. En esas formaciones, los legionarios se agrupaban en una figura geométrica (normalmente un rectángulo) y protegían tanto los flancos como la parte superior utilizando escudos. Los legionarios que ocupaban posiciones interiores cubrían la parte superior colocando el escudo sobre su cabeza, mientras que los que ocupaban los flancos llevaban dos y hasta tres escudos: uno para proteger la parte superior y uno o dos escudos (si estaban en la esquina) para proteger los laterales. Con esta formación, todos los legionarios quedaban protegidos por los escudos y eran muy difíciles de vencer.
@@ -379,6 +396,12 @@ assertEquals(ejercitoRomano.cuantosEscudos(20), 44);
 assertEquals(ejercitoRomano.cuantosEscudos(10), 26);
 ```
 
+**Créditos**
+
+**Autores:** [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5), [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6) y Patricia Díaz García.
+**Revisor:** Catalina Molano Alvarado.
+**Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=119](https://www.aceptaelreto.com/problem/statement.php?id=119)
+
 ## 8 ¿Cuántas me llevo?
 
 Cuando aprendemos a sumar números pronto nos cuentan aquello de "llevarse una": cuando los dos dígitos que sumamos llegan a la decena tenemos "acarreo" que debemos sumar a los siguientes dígitos (de la izquierda).
@@ -425,6 +448,12 @@ assertEquals(cuantasMeLlevo.calcular(123, 456), 0);
 assertEquals(cuantasMeLlevo.calcular(555, 555), 3);
 assertEquals(cuantasMeLlevo.calcular(123, 594), 1);
 ```
+
+**Créditos**
+
+**Autores:** [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5), [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6) y Patricia Díaz García.
+**Revisor:** Catalina Molano Alvarado.
+**Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=124](https://www.aceptaelreto.com/problem/statement.php?id=124)  
 
 ## 9 Contar palabras
 
@@ -523,6 +552,12 @@ assertEquals(piscina.quienGana(50, 5, 1, 50, 5, 0), -1);
 assertEquals(piscina.quienGana(50, 5, 1, 50, 5, 6), 1);
 ```
 
+**Créditos**
+
+**Autores:** [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5), Patricia Díaz García y [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6).
+**Revisor:** Catalina Molano Alvarado.
+**Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=131](https://www.aceptaelreto.com/problem/statement.php?id=131)
+
 ## 11 Escalera de color
 
 La llamada *baraja inglesa* es una modificación menor de la *baraja francesa*. Sus similitudes son tan grandes, que es habitual considerarlas la  misma. Contiene 52 cartas, distribuidas en 4 palos diferentes. Los palos se conocen con el nombre de *picas* (♠), *diamantes* (♦), *tréboles* (♣) y *corazones* (♥). De cada uno, hay trece cartas, con valores del 1 (al que se conoce como *As*) hasta el 10, más las tres figuras, *Jack* (*J*), *Queen* (*Q*) y *King* (*K*), que, numéricamente, serían los valores 11, 12 y 13. Las diferencias más notables entre la baraja francesa y la inglesa están en el nombre de la carta *Jack* (conocida en la francesa como *Valet*, *V*), y el As, nombre específico de la baraja inglesa que, además, desplaza  su valor en muchos juegos del 1 al 14, convirtiéndola en una carta más  poderosa que la *K*.
@@ -580,6 +615,11 @@ assertEquals(escaleraDeColor.escalera(10, 12,13 ,14), 11);
 assertEquals(escaleraDeColor.escalera(5, 6,7 ,8), 9);
 assertEquals(escaleraDeColor.escalera(9, 12,13 ,14), 0);
 ```
+
+**Créditos**
+**Autores:** Patricia Díaz García, [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5) y [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6).
+**Revisor:** Catalina Molano Alvarado.
+**Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=134](https://www.aceptaelreto.com/problem/statement.php?id=134)
 
 ## 12 Números vampiro
 
@@ -647,6 +687,11 @@ assertTrue("Error", vampiros.esVampiro(2187));
 assertTrue("Error", vampiros.esVampiro(6880));
 assertFalse("Error", vampiros.esVampiro(6881));
 ```
+
+**Créditos**
+**Autores:** [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6), [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5) y Patricia Díaz García.
+**Revisor:** Catalina Molano Alvarado.
+**Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=125](https://www.aceptaelreto.com/problem/statement.php?id=125)
 
 ## 13 Números cubifinitos
 
@@ -720,6 +765,11 @@ assertTrue("Error", cubifinito.esCubifinito(87418));
 assertFalse("Error", cubifinito.esCubifinito(513));
 ```
 
+**Créditos**
+ **Autor:** [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5).
+**Revisor:** [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6).
+**Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=139](https://www.aceptaelreto.com/problem/statement.php?id=139)
+
 ## 14 Paréntesis
 
 Se entiende que una secuencia de caracteres está correctamente  equilibrada con respecto a los paréntesis si cada uno de los paréntesis  de apertura tiene su paréntesis cerrado. Cuando añadimos otros  mecanismos de agrupación (como los corchetes, [ y ] o las llaves, { y  }), el equilibrio se da si el número de aperturas de cada símbolo  coincide con el de cierres y además se cierran en el orden correcto.
@@ -779,6 +829,11 @@ Se trata de implementar un programa que indique si una cadena está  correctamen
 > assertFalse("Error", parentesis.esBalancenado("{(hola)]}]"));
 > ```
 
+**Créditos**
+**Autor:** [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5).
+**Revisor:** [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6).
+**Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=141](https://www.aceptaelreto.com/problem/statement.php?id=141)
+
 ## 15 ¿Quién empieza?
 
 Los siete niños decidieron jugar al escondite, y se enfrentaron a la tarea de elegir quién era el que empezaba    buscando. Procedieron como siempre. Se colocaron en círculo y uno de ellos empezó a contar señalando con el dedo a cada uno y avanzando hacia la derecha, de forma que uno de cada tres niños se iban salvando de la pesada tarea de empezar buscando y salía del círculo. El último niño que quedó en el círculo fue el seleccionado para buscar.
@@ -817,6 +872,11 @@ assertEquals(quienEmpieza.jugar(4, 1), 1);
 assertEquals(quienEmpieza.jugar(7, 2), 4);
 assertEquals(quienEmpieza.jugar(10, 2), 4);
 ```
+
+**Créditos**
+**Autor:** [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5).
+**Revisor:** [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6).
+**Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=142](https://www.aceptaelreto.com/problem/statement.php?id=142)
 
 ## 16 Año 2013
 
@@ -871,17 +931,22 @@ assertEquals(anyo2013.primeroSerie(2015), 2013);
 assertEquals(anyo2013.primeroSerie(2025), 2020);        
 ```
 
+**Créditos**
+**Autores:** [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6), [Patricia Díaz García](https://www.aceptaelreto.com/user/profile.php?id=7) y [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5).
+**Revisores:** [Ferran Borrell Micola](https://www.aceptaelreto.com/user/profile.php?id=20), Cristina Gómez Alonso, Catalina Molano Alvarado y Roger Meix Mañá.
+**Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=174](https://www.aceptaelreto.com/problem/statement.php?id=174)
+
 ## 17 Expresiones aritméticas
 
 Las expresiones aritméticas suelen escribirse utilizando lo que se conoce como notación *infija* en la que los operadores se colocan entre los operandos. Esta notación, intuitiva para los humanos, tiene el problema de obligarnos a poner  paréntesis en ciertas ocasiones para cambiar el orden de aplicación de  los operadores.
 
-Por otro lado, la notación *postfija* consiste en colocar el operador *tras los dos operandos*; una de sus ventajas es que no necesita paréntesis. Además es fácilmente evaluable con una pila. El proceso de evaluación consiste en añadir a  la pila los operandos que nos vayamos encontrando. Cuando leemos un  operador, extraemos dos valores de la pila los combinamos con el  operador encontrado (teniendo en cuenta que el primer valor que se  extrae es el segundo operando de la operación) y añadimos el resultado  de vuelta.
+Por otro lado, la notación *postfija* consiste en colocar el operador *tras los dos operandos*; una de sus ventajas es que no necesita paréntesis. Además es fácilmente evaluable con una pila. El proceso de evaluación consiste en añadir a  la pila los operandos que nos vayamos encontrando. Cuando leemos un  operador, extraemos dos valores de la pila los combinamos con el  operador encontrado (teniendo en cuenta que el primer valor que se  extrae es el segundo operando de la operación) y añadimos el resultado de vuelta.
 
 Existe otra posibilidad de notación que sigue la misma idea que la  anterior pero en vez de utilizar una pila para la evaluación, utiliza  una *cola*. Cuando se tienen que añadir elementos a la cola, se hace por detrás, mientras que la extracción se realiza por delante.
 
 Dada una expresión, nos preguntamos si, al ser considerada escrita en cada una de las dos notaciones, dará el mismo resultado, uno distinto, o incluso si la expresión no será correcta en alguna de las dos (debido a división por cero).
 
-Debes escribir dos métodos, uno para la pila y otro para la cola a los que se pasa una expresión. Los operandos serán siempre dígitos individuales positivos y los operadores podrán ser suma (`+`), resta (`-`), multiplicación (`*`) o división (`/`). 
+Debes escribir dos métodos, uno para la pila y otro para la cola a los que se pasa una expresión. Cada elemento de la expresión debe estar separado por un espacio en blanco:
 
 > -toogle-Piensa antes de ver la solución
 >
@@ -891,30 +956,34 @@ Debes escribir dos métodos, uno para la pila y otro para la cola a los que se p
 > import java.util.Stack;
 > 
 > public class EvaluarExpresion {
+>     private boolean esNumero(String num){
+>         //Vamos a suponer que la expresión aritmética está bien formada
+>         return Character.isDigit(num.charAt(0));
+>     }
 >     public String pila(String expresionAritmetica) {
->         char[] expresion = expresionAritmetica.toCharArray();
+>         String[] expresion = expresionAritmetica.split(" ");
 >         Stack<Integer> pila;
 >         int n1, n2 = 0;
 > 
 >         pila = new Stack<>();
 > 
 >         for (int i = 0; i < expresion.length; i++) {
->             if (Character.isDigit(expresion[i])) {
->                 int num = Integer.parseInt("" + expresion[i]);
+>             if (esNumero(expresion[i])) {
+>                 int num = Integer.parseInt(expresion[i]);
 >                 pila.push(num);
 >             } else {
 >                 switch (expresion[i]) {
->                     case '+':
+>                     case "+":
 >                         n2 = pila.pop();
 >                         n1 = pila.pop();
 >                         pila.push(n1 + n2);
 >                         break;
->                     case '-':
+>                     case "-":
 >                         n2 = pila.pop();
 >                         n1 = pila.pop();
 >                         pila.push(n1 - n2);
 >                         break;
->                     case '/':
+>                     case "/":
 >                         try {
 >                             n2 = pila.pop();
 >                             n1 = pila.pop();
@@ -923,7 +992,7 @@ Debes escribir dos métodos, uno para la pila y otro para la cola a los que se p
 >                             return "ERROR";
 >                         }
 >                         break;
->                     case '*':
+>                     case "*":
 >                         n2 = pila.pop();
 >                         n1 = pila.pop();
 >                         pila.push(n1 * n2);
@@ -937,28 +1006,28 @@ Debes escribir dos métodos, uno para la pila y otro para la cola a los que se p
 > 
 >     public String cola(String expresionAritmetica) {
 > 
->         char[] expresion = expresionAritmetica.toCharArray();
+>         String[] expresion = expresionAritmetica.split(" ");
 >         Queue<Integer> cola;
 >         int n1, n2 = 0;
 >         cola = new LinkedList<>();
 > 
 >         for (int i = 0; i < expresion.length; i++) {
->             if (Character.isDigit(expresion[i])) {
->                 int num = Integer.parseInt("" + expresion[i]);
+>             if (esNumero(expresion[i])) {
+>                 int num = Integer.parseInt(expresion[i]);
 >                 cola.add(num);
 >             } else {
 >                 switch (expresion[i]) {
->                     case '+':
+>                     case "+":
 >                         n2 = cola.poll();
 >                         n1 = cola.poll();
 >                         cola.add(n1 + n2);
 >                         break;
->                     case '-':
+>                     case "-":
 >                         n2 = cola.poll();
 >                         n1 = cola.poll();
 >                         cola.add(n1 - n2);
 >                         break;
->                     case '/':
+>                     case "/":
 >                         try {
 >                             n2 = cola.poll();
 >                             n1 = cola.poll();
@@ -967,7 +1036,7 @@ Debes escribir dos métodos, uno para la pila y otro para la cola a los que se p
 >                             return "ERROR";
 >                         }
 >                         break;
->                     case '*':
+>                     case "*":
 >                         n2 = cola.poll();
 >                         n1 = cola.poll();
 >                         cola.add(n1 * n2);
@@ -981,18 +1050,26 @@ Debes escribir dos métodos, uno para la pila y otro para la cola a los que se p
 > ```
 
 ```java
-assertEquals(evaluarExpresion.pila("2453/*+"), "6");
+assertEquals(evaluarExpresion.pila("5 1 2 + 4 * + 3 -"), "14");
+assertEquals(evaluarExpresion.pila("2 4 5 3 / * +"), "6");
 assertEquals(evaluarExpresion.pila("6"), "6");
-assertEquals(evaluarExpresion.pila("811-/"), "ERROR");
-assertEquals(evaluarExpresion.pila("11-8/"), "0");
-assertEquals(evaluarExpresion.pila("00/"), "ERROR");
+assertEquals(evaluarExpresion.pila("3 5 4 + *"), "27");
 
-assertEquals(evaluarExpresion.cola("2453/*+"), "17");
+assertEquals(evaluarExpresion.pila("8 1 1 - /"), "ERROR");
+assertEquals(evaluarExpresion.pila("1 1 - 8 /"), "0");
+assertEquals(evaluarExpresion.pila("0 0 /"), "ERROR");
+
+assertEquals(evaluarExpresion.cola("2 4 5 3 / * +"), "17");
 assertEquals(evaluarExpresion.cola("6"), "6");
-assertEquals(evaluarExpresion.cola("811-/"), "-7");
-assertEquals(evaluarExpresion.cola("11-8/"), "ERROR");
-assertEquals(evaluarExpresion.cola("00/"), "ERROR");
+assertEquals(evaluarExpresion.cola("8 1 1 - /"), "-7");
+assertEquals(evaluarExpresion.cola("1 1 - 8 /"), "ERROR");
+assertEquals(evaluarExpresion.cola("0 0 /"), "ERROR");
 ```
+
+**Créditos**
+**Autor:** [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5).
+**Revisor:** [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6).
+**Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=198](https://www.aceptaelreto.com/problem/statement.php?id=198)
 
 ## 18 Números afortunados
 
@@ -1084,4 +1161,48 @@ assertEquals(Orden.comprobar(numeros3) , 3);
 int [] numeros4 = {9, 9, 9, 9};
 assertEquals(Orden.comprobar(numeros4) , 0);
 ```
+
+## 20 Persistencia multiplicativa
+
+En 1973, el matemático inglés Neil Sloane definió, en una revista dedicada a las matemáticas recreativas, la      *persistencia multiplicativa* de los números. Consiste en el número de veces que hay que multiplicar los dígitos de un número (escrito en base 10) hasta llegar a un número de un único dígito.    
+
+​      Por ejemplo, el número 39 tiene una persistencia multiplicativa de 3:  
+
+```
+  39 -> 3*9 = 27 -> 2*7 = 14 -> 1*4 = 4
+```
+
+> -toogle-Piensa antes de ver la solución
+>
+> ```java
+> public class Persistencia {
+> 
+>     public static int calcular(int num){
+>         int iteraciones = 0;
+>         String aux;
+> 
+>         aux = String.valueOf(num);
+>         while (aux.length() != 1) {
+>             iteraciones++;
+>             num = Integer.parseInt(""+aux.charAt(0));
+>             for (int i = 1; i < aux.length(); i++) {
+>                 num *= Integer.parseInt(""+aux.charAt(i));
+>             }
+>             aux = String.valueOf(num);
+>         }
+>         return iteraciones;
+>     }
+> 
+> }
+> ```
+
+```java
+assertEquals(Persistencia.calcular(39), 3);
+assertEquals(Persistencia.calcular(931), 3);
+assertEquals(Persistencia.calcular(245), 2);
+```
+
+**Autores:** [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6), [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5) y [Patricia Díaz García](https://www.aceptaelreto.com/user/profile.php?id=7).
+**Revisores:** [Ferran Borrell Micola](https://www.aceptaelreto.com/user/profile.php?id=20), Cristina Gómez Alonso y Roger Meix Mañá.Ç
+**Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=182](https://www.aceptaelreto.com/problem/statement.php?id=182)
 

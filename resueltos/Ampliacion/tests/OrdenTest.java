@@ -13,7 +13,6 @@ public class OrdenTest {
         int [] numeros4 = {9, 9, 9, 9};
         assertEquals(Orden.comprobar(numeros4) , 0);
 
-        
     }
         
 }

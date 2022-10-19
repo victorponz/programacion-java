@@ -3,30 +3,34 @@ import java.util.Queue;
 import java.util.Stack;
 
 public class EvaluarExpresion {
+    private boolean esNumero(String num){
+        //Vamos a suponer que la expresión aritmética está bien formada
+        return Character.isDigit(num.charAt(0));
+    }
     public String pila(String expresionAritmetica) {
-        char[] expresion = expresionAritmetica.toCharArray();
+        String[] expresion = expresionAritmetica.split(" ");
         Stack<Integer> pila;
         int n1, n2 = 0;
 
         pila = new Stack<>();
 
         for (int i = 0; i < expresion.length; i++) {
-            if (Character.isDigit(expresion[i])) {
-                int num = Integer.parseInt("" + expresion[i]);
+            if (esNumero(expresion[i])) {
+                int num = Integer.parseInt(expresion[i]);
                 pila.push(num);
             } else {
                 switch (expresion[i]) {
-                    case '+':
+                    case "+":
                         n2 = pila.pop();
                         n1 = pila.pop();
                         pila.push(n1 + n2);
                         break;
-                    case '-':
+                    case "-":
                         n2 = pila.pop();
                         n1 = pila.pop();
                         pila.push(n1 - n2);
                         break;
-                    case '/':
+                    case "/":
                         try {
                             n2 = pila.pop();
                             n1 = pila.pop();
@@ -35,7 +39,7 @@ public class EvaluarExpresion {
                             return "ERROR";
                         }
                         break;
-                    case '*':
+                    case "*":
                         n2 = pila.pop();
                         n1 = pila.pop();
                         pila.push(n1 * n2);
@@ -49,28 +53,28 @@ public class EvaluarExpresion {
 
     public String cola(String expresionAritmetica) {
 
-        char[] expresion = expresionAritmetica.toCharArray();
+        String[] expresion = expresionAritmetica.split(" ");
         Queue<Integer> cola;
         int n1, n2 = 0;
         cola = new LinkedList<>();
 
         for (int i = 0; i < expresion.length; i++) {
-            if (Character.isDigit(expresion[i])) {
-                int num = Integer.parseInt("" + expresion[i]);
+            if (esNumero(expresion[i])) {
+                int num = Integer.parseInt(expresion[i]);
                 cola.add(num);
             } else {
                 switch (expresion[i]) {
-                    case '+':
+                    case "+":
                         n2 = cola.poll();
                         n1 = cola.poll();
                         cola.add(n1 + n2);
                         break;
-                    case '-':
+                    case "-":
                         n2 = cola.poll();
                         n1 = cola.poll();
                         cola.add(n1 - n2);
                         break;
-                    case '/':
+                    case "/":
                         try {
                             n2 = cola.poll();
                             n1 = cola.poll();
@@ -79,7 +83,7 @@ public class EvaluarExpresion {
                             return "ERROR";
                         }
                         break;
-                    case '*':
+                    case "*":
                         n2 = cola.poll();
                         n1 = cola.poll();
                         cola.add(n1 * n2);
