@@ -1206,3 +1206,44 @@ assertEquals(Persistencia.calcular(245), 2);
 **Revisores:** [Ferran Borrell Micola](https://www.aceptaelreto.com/user/profile.php?id=20), Cristina Gómez Alonso y Roger Meix Mañá.Ç
 **Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=182](https://www.aceptaelreto.com/problem/statement.php?id=182)
 
+## 21 Ordenación por el método de la burbuja
+
+Según la [Wikipedia](https://es.wikipedia.org/wiki/Ordenamiento_de_burbuja)
+El **ordenamiento de burbuja** (**Bubble Sort** en inglés) es un sencillo [algoritmo de ordenamiento](https://es.wikipedia.org/wiki/Algoritmo_de_ordenamiento). Funciona revisando cada elemento de la lista que va a ser ordenada con  el siguiente, intercambiándolos de posición si están en el orden  equivocado. Es necesario revisar varias veces toda la lista hasta que no se necesiten más intercambios, lo cual significa que la lista está  ordenada. Este [algoritmo](https://es.wikipedia.org/wiki/Algoritmo) obtiene su nombre de la forma con la que suben por la lista los  elementos durante los intercambios, como si fueran pequeñas "burbujas".  También es conocido como el **método del intercambio directo**. Dado  que solo usa comparaciones para operar elementos, se lo considera un  algoritmo de comparación, siendo uno de los más sencillos de  implementar.
+
+![](https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif)
+
+> -toogle-Piensa antes de ver la solución
+>
+> ```java
+> public class Burbuja {
+>        public static void ordenar(int[] numeros) {
+>            int aux;
+>            for (int i = 0; i < numeros.length; i++) {
+>                for (int j = 0; j < numeros.length - i - 1; j++) {
+>                    if (numeros[j] > numeros[j + 1]) {
+>                        aux = numeros[j];
+>                        numeros[j] = numeros[j + 1];
+>                        numeros[j + 1] = aux;
+>                    }
+>                }
+>            }
+>        }
+> }
+> ```
+
+```java
+import static org.junit.Assert.assertArrayEquals;
+import org.junit.Test;
+public class BurbujaTest {
+ 
+    @Test
+    public void test(){
+        int[] a1 = {3, 56, 4, 5, 8, 98, 45, 220, 1};
+        int[] a2 = {1, 3, 4, 5, 8, 45, 56, 98, 220};
+        Burbuja.ordenar(a1);
+        assertArrayEquals(a2, a1);
+    } 
+}
+```
+
