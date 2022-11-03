@@ -34,7 +34,7 @@ coches.get(0);
 Para conocer su tamaño, `size`
 
 ```java
-System.out.prinft("Existen % coches%n", coches.size());
+System.out.prinft("Existen %d coches%n", coches.size());
 ```
 
 Para eliminar el elemento iésimo, `remove`
@@ -213,11 +213,13 @@ public class PruebaHashMap {
 
 La interfaz `Map` deben implementar estas clases, luego si creamos un  objeto de la clase `HashMap` debemos hacerlo con la siguiente sintaxis:
 
+La clase `HashMap` debe implementar la interfaz `Map`, así que se declara como;
+
 ```java
 Map<String, String> mapa1 = new HashMap<String, String>();
 ```
 
-La clase `HashMap` utiliza datos genéricos tanto para la clave como  para el valor, en este ejemplo la clave y el valor son datos de tipo  **String**.
+La clase `HashMap` utiliza datos genéricos tanto para la clave como para el valor, en este ejemplo la clave y el valor son datos de tipo  **String**.
 
 Mediante el método `put` agregamos un elemento a la colección de tipo `HashMap`:
 
@@ -305,4 +307,16 @@ Declara un `HashMap` que almacene el país y la capital de varios países Europe
 > }
 > ```
 >
+
+
+
+https://javahungry.blogspot.com/2019/02/collection-programs-in-java-for-interview.html
+
+https://github.com/atanu20/javacollection/blob/master/ArrayListCode.java
+
+https://gyansetu-core-java-for-java.gitbook.io/project/untitled-1/working-with-the-collection-interface
+
+Streams
+
+https://gyansetu-core-java-for-java.gitbook.io/project/java-8/2-streams
 

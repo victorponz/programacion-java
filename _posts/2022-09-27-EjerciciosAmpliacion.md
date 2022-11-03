@@ -1244,6 +1244,107 @@ public class BurbujaTest {
         Burbuja.ordenar(a1);
         assertArrayEquals(a2, a1);
     } 
-}
+
 ```
 
+## 22 Reversible
+
+Se denomina *número reversible* a aquél que al ser sumado a sí mismo tras invertir sus dígitos da como resultado un número en el que  todos los dígitos son impares.
+
+Por ejemplo, el número `36` es *reversible* pues `36 + 63 = 99`, y los dos dígitos de `99` son impares. Fíjate que esto significa que también el número `63` es reversible. También lo son el `409` y el `904`.
+
+Para ser considerado número reversible, la cantidad de dígitos del  número y de su versión invertida debe ser el mismo. Por tanto, el número `1010` *no* es reversible, incluso aunque `1010 + 0101 = 1111`. No se considera válido porque `0101` es en realidad el número `101`, que tiene menos dígitos que `1010`.
+
+> -toogle-Piensa antes de ver la solución
+>
+> ```java
+> public class Reversible {
+>     public static boolean esReversible(int num) {
+>         int alReves =  Integer.parseInt(new StringBuilder().append((Integer.toString(num))).reverse().toString());
+>         //Si tienen distinto número de dígitos no continúo
+>         if (Integer.toString(num).length() != Integer.toString(alReves).length()){
+>             return false;
+>         }
+>         int suma = num + alReves;
+>         char[] digitos = Integer.toString(suma).toCharArray();
+>         for (int i = 0; i < digitos.length; i++) {
+>             if (Integer.parseInt(""+digitos[i]) % 2 == 0){
+>                 return false;
+>             }
+>         }
+>         return true;
+>     }
+> }
+> ```
+
+```java
+assertTrue("ERROR", Reversible.esReversible(63));
+assertTrue("ERROR", Reversible.esReversible(43));
+assertFalse("ERROR", Reversible.esReversible(1010));
+```
+
+**Créditos**
+**Autores:** [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6), [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5) y Patricia Díaz García.
+**Revisores:** [Ferran Borrell Micola](https://www.aceptaelreto.com/user/profile.php?id=20) y Cristina Gómez Alonso.
+**Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=193](https://www.aceptaelreto.com/problem/statement.php?id=193)
+
+## Números de Lychrel
+
+ Cuando se aburren, los aficionados a las matemáticas se dedican a jugar con los números. Eso les lleva, por ejemplo, a coger cualquier número, darle la vuelta y sumarlo a sí mismo, repitiendo el proceso una y otra vez hasta dar con un número capicúa. Por ejemplo, para el 91 llegamos a un capicúa en sólo dos pasos:    
+
+```
+91 + 19 = 110
+110 + 011 = 121  
+```
+
+Algunos números se resisten a alcanzar un capicúa. El 196 es el número más pequeño para el que no se ha llegado a ninguno, por más que se ha intentado. Los matemáticos no han podido demostrar que, efectivamente, no vaya a llegarse a uno. Mientras continúan buscando una demostración, los aficionados siguen sumando y      sumando con la esperanza de llegar a él. Los números con los que, se sospecha, no puede alcanzarse un capicúa se conocen como *números de Lychrel*. Curiosamente, algunos números capicúa parecen ser también números de Lychrel.    
+
+Se pide calcular en cuántas iteraciones hay que dar para llegar a un número capicúa. El programa debe devolver -1 si se llega en el proceso a alcanzar el número 1.000.000.000.
+
+> -toogle-Piensa antes de ver la solución 
+>
+> ```java
+> public class Lychrel {
+>     private static boolean esCapicua(int numero) {
+>         String num = Integer.toString(numero);
+>         int left = 0, right = num.length() - 1;
+>         while (left < right) {
+>             if (num.charAt(left) != num.charAt(right))
+>                 return false;
+>             left++; right--;
+>         }
+>         return true;
+>     }
+>     private static int reverse(int numero){
+>         return Integer.parseInt(new StringBuilder().append((Integer.toString(numero))).reverse().toString());
+>     }
+>     public static int iteraciones(int numero){
+>         boolean salir = false;
+>         int iteraciones = 0;
+>         int n2;
+>         boolean capicua = false;
+>         while (!salir && !capicua) {
+>             iteraciones++;
+>             n2 = reverse(numero);
+>             numero += n2;
+>             salir = numero > 1_000_000_000;
+>             if (!salir) {
+>                 capicua = esCapicua(numero);
+>             }
+>         }
+>         return (capicua ? iteraciones : -1);
+>     }
+> }
+> ```
+
+```java
+assertEquals(2,Lychrel.iteraciones(91));
+assertEquals(-1,Lychrel.iteraciones(196));
+assertEquals(-1,Lychrel.iteraciones(4994));
+assertEquals(4,Lychrel.iteraciones(5445));
+```
+
+**Créditos**
+**Autores:** [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6), [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5) y Patricia Díaz García.
+
+**Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=205](https://www.aceptaelreto.com/problem/statement.php?id=205)
