@@ -579,7 +579,6 @@ Al programa se le pasan 4 números de cartas y debe calcular la carta necesaria 
 >     public static int escalera(int c1, int c2, int c3, int c4){
 >         final int AS = 14;
 >         int [] ordenadas = {c1, c2, c3, c4};
->         int carta = 0;
 >         
 >         Arrays.sort(ordenadas);
 > 
@@ -587,9 +586,9 @@ Al programa se le pasan 4 números de cartas y debe calcular la carta necesaria 
 >         if (ordenadas[3] - ordenadas[0] == 3){
 >             //la más alta posible será añadiendo una al final, siempre que no sea ya un As
 >             if (ordenadas[3] != AS){
->                 carta = ordenadas[3] + 1;
+>                 return ordenadas[3] + 1;
 >             }else{
->                 carta = ordenadas[0] - 1;
+>                 return ordenadas[0] - 1;
 >             }
 >         }else if (ordenadas[3] - ordenadas[0] == 4){
 >             //Sólo se podrá hacer escalera si hay un hueco de sólo una carta
@@ -599,7 +598,7 @@ Al programa se le pasan 4 números de cartas y debe calcular la carta necesaria 
 >                 }
 >             }
 >         }
->         return carta;
+>         return 0;
 >     }
 >     public static void main(String[] args) {
 >         System.out.println(escalera(11, 12,13 ,14));
