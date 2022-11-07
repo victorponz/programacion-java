@@ -1287,7 +1287,7 @@ assertFalse("ERROR", Reversible.esReversible(1010));
 **Revisores:** [Ferran Borrell Micola](https://www.aceptaelreto.com/user/profile.php?id=20) y Cristina Gómez Alonso.
 **Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=193](https://www.aceptaelreto.com/problem/statement.php?id=193)
 
-## Números de Lychrel
+## 23 Números de Lychrel
 
  Cuando se aburren, los aficionados a las matemáticas se dedican a jugar con los números. Eso les lleva, por ejemplo, a coger cualquier número, darle la vuelta y sumarlo a sí mismo, repitiendo el proceso una y otra vez hasta dar con un número capicúa. Por ejemplo, para el 91 llegamos a un capicúa en sólo dos pasos:    
 
