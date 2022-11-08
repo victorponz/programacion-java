@@ -67,39 +67,36 @@ El número de la suerte de Isabel será el 3.
 > -toogle- Piensa antes de ver la solución
 >
 > ```java
-> public class LuckyNumber {
->     public static int luckyNumber(int aaaa, int mm, int dd){
->      
->         int cifra = aaaa + mm + dd;
->         int suma = 0;
-> 
->         // sumar los dígitos de la cifra resultante
->         for (int i = 1; i <= 4; i++) {
->             suma = suma + (cifra % 10);
->             cifra = cifra / 10;
->         }
-> 
->         if (cifra == 0 && suma > 9) {
->             // reducir lo dos digitos de la suma a uno solo
->             cifra = suma;
->             suma = cifra % 10;
->             cifra = cifra / 10;
->             suma = suma + cifra;
->         }
->        
->         return suma;
->     }
->     public static void main(String[] args) {
->         int aaaa, mm, dd;
-> 
->         aaaa = 1970;
->         mm = 7;
->         dd = 12;
-> 
->         System.out.println("Tu número de la suerte es: " + luckyNumber(aaaa, mm, dd));
->     }
-> 
-> }
+>public class LuckyNumber {
+>    public static int luckyNumber(int aaaa, int mm, int dd){
+>     
+>        String digitos = String.valueOf(aaaa) + String.valueOf(mm) + String.valueOf(dd);
+>        int luckyNumber = 0;
+>
+>        // sumar los dígitos de la cifra resultante
+>        for (int i = 0; i < digitos.length(); i++) {
+>            luckyNumber += Integer.parseInt("" + digitos.charAt(i));
+>        }
+>
+>        if (luckyNumber > 9) {
+>            // reducir los dos digitos de la suma a uno solo
+>            digitos = String.valueOf(luckyNumber);
+>            luckyNumber = Integer.parseInt("" + digitos.charAt(0)) + Integer.parseInt("" + digitos.charAt(1));
+>        }
+>
+>        return luckyNumber;
+>    }
+>    public static void main(String[] args) {
+>        int aaaa, mm, dd;
+>
+>        aaaa = 1971;
+>        mm = 9;
+>        dd = 3;
+>
+>        System.out.println("Tu número de la suerte es: " + luckyNumber(aaaa, mm, dd));
+>    }
+>
+>}
 > ```
 
 ## 3 Número Armstrong o narcisista
