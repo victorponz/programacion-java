@@ -294,47 +294,51 @@ El último dígito del código se utiliza para detección de errores, y se calcu
 > -toogle-Piensa antes de ver la solución
 >
 > ```java
-> public class CodigoBarras {
->        public boolean check(String codigo) {
->            int calculo, codigoControl, len, n;
-> 
->            len = codigo.length();
-> 
->            if (len < 14) {
->                calculo = 0;
->    
->             for (int i = len - 2; i >= 0; i--) {
->                    n = Integer.parseInt("" + codigo.charAt(i));
->                    if (i % 2 != 0) {
->                        calculo += n * 3;
->                    } else {
->                        calculo += n;
->                    }
+>public class CodigoBarras {
+>    public static boolean check(String codigo) {
+>        int calculo, codigoControl, len, n;
+>
+>        len = codigo.length();
+>        if (len < 14) {
+>            calculo = 0;
+>            for (int i = len - 2; i >= 0; i--) {
+>                n = Integer.parseInt("" + codigo.charAt(i));
+>                if (i % 2 != 0) {
+>                    calculo += n * 3;
+>                } else {
+>                    calculo += n;
 >                }
->    
->                codigoControl = Integer.parseInt("" + codigo.charAt(len - 1));
->    
->             if ((codigoControl + calculo) % 10 == 0) {
->                    return true;
->             } else {
->                    return false;
->                }
->    
+>            }
+>            codigoControl = Integer.parseInt("" + codigo.charAt(len - 1));
+>            if ((codigoControl + calculo) % 10 == 0) {
+>                return true;
 >            } else {
 >                return false;
 >            }
+>        } else {
+>            return false;
 >        }
 >    }
->    ```
-> 
-> 
+>}
+>``` 
 
 ```java
-assertEquals(codigoBarras.check("65839522"), true);
-assertEquals(codigoBarras.check("65839521"), false);
-assertEquals(codigoBarras.check("8414533043847"), true);
-assertEquals(codigoBarras.check("5029365779425"), true);
-assertEquals(codigoBarras.check("5129365779425"), false);
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class CodigoBarrasTest {
+
+    @Test
+    public void check() {
+        assertEquals(true, CodigoBarras.check("65839526"));
+        assertEquals(false, CodigoBarras.check("65839521"));
+        assertEquals(true, CodigoBarras.check("8414533043847"));
+        assertEquals(true, CodigoBarras.check("5029365779425"));
+        assertEquals(false, CodigoBarras.check("5129365779425"));
+
+    }
+}
 ```
 
 **Créditos**
