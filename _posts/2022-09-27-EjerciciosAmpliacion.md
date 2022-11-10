@@ -310,10 +310,7 @@ El último dígito del código se utiliza para detección de errores, y se calcu
 >                }
 >            }
 >            codigoControl = Integer.parseInt("" + codigo.charAt(len - 1));
->            if ((codigoControl + calculo) % 10 == 0) {
->                return true;
->            } else {
->                return false;
+>            return ((codigoControl + calculo) % 10 == 0);
 >            }
 >        } else {
 >            return false;
