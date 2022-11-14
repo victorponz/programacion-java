@@ -60,9 +60,292 @@ Collections.sort(coches);
 ...
 ```
 
+Vamos a ver unos cuantos ejemplos.
+
+```java
+// Java program to Demonstrate List Interface
+
+// Importing all utility classes
+import java.util.*;
+
+// Main class
+// ListDemo class
+class GFG {
+
+	// Main driver method
+	public static void main(String[] args)
+	{
+        //Crear un objeto de la interface List
+        //Implementado por la clase ArrayList
+		List<Integer> l1 = new ArrayList<Integer>();
+
+		// Añadir elementos
+		l1.add(0, 1);
+		l1.add(1, 2);
+
+		// Imprimir los elementos del array
+		System.out.println(l1);
+
+		List<Integer> l2 = new ArrayList<Integer>();
+
+		l2.add(1);
+		l2.add(2);
+		l2.add(3);
+
+        //Añadirá todos los elementos de l2 a partir del índice 1
+		l1.addAll(1, l2);
+
+		System.out.println(l1);
+
+		// Elimina el elemento 1 del array
+		l1.remove(1);
+
+		System.out.println(l1);
+
+		// Imprime el elemento en la posición 3 mediante get
+		System.out.println(l1.get(3));
+
+        //Reemplaza el elemento 0 por el número 5
+		l1.set(0, 5);
+
+		// Again printing the updated List 1
+		System.out.println(l1);
+	}
+}
+```
+
+**Salida**
+
+```
+[1, 2]
+[1, 1, 2, 3, 2]
+[1, 2, 3, 2]
+2
+[5, 2, 3, 2]
+```
+**Añadir elementos**
+```java
+// Java Program to Add Elements to a List
+
+// Importing all utility classes
+import java.util.*;
+
+// Main class
+class GFG {
+
+	// Main driver method
+	public static void main(String args[])
+	{
+		// Creating an object of List interface,
+		// implemented by ArrayList class
+		List<String> al = new ArrayList<>();
+
+		// Adding elements to object of List interface
+		// Custom elements
+		al.add("Geeks");
+		al.add("Geeks");
+		al.add(1, "For");
+
+		// Print all the elements inside the
+		// List interface object
+		System.out.println(al);
+	}
+}
+```
+**Salida**
+
+```
+[Geeks, For, Geeks]
+```
+**Actualizar elementos**
+
+```java
+// Java Program to Update Elements in a List
+
+// Importing utility classes
+import java.util.*;
+
+// Main class
+class GFG {
+
+	// Main driver method
+	public static void main(String args[])
+	{
+		// Creating an object of List interface
+		List<String> al = new ArrayList<>();
+
+		// Adding elements to object of List class
+		al.add("Geeks");
+		al.add("Geeks");
+		al.add(1, "Geeks");
+
+		// Display theinitial elements in List
+		System.out.println("Initial ArrayList " + al);
+
+		// Setting (updating) element at 1st index
+		// using set() method
+		al.set(1, "For");
+
+		// Print and display the updated List
+		System.out.println("Updated ArrayList " + al);
+	}
+}
+```
+
+```
+Initial ArrayList [Geeks, Geeks, Geeks]
+Updated ArrayList [Geeks, For, Geeks]
+```
+
+**Eliminar elementos**
+
+Para eliminar un elemento de una lista, podemos usar el método `remove()`. Este método está sobrecargado para realizar múltiples operaciones basadas en diferentes parámetros.
+
+```java
+// Java Program to Remove Elements from a List
+
+// Importing List and ArrayList classes
+// from java.util package
+import java.util.ArrayList;
+import java.util.List;
+
+// Main class
+class GFG {
+
+	// Main driver method
+	public static void main(String args[])
+	{
+
+		// Creating List class object
+		List<String> al = new ArrayList<>();
+
+		// Adding elements to the object
+		// Custom inputs
+		al.add("Geeks");
+		al.add("Geeks");
+
+		// Adding For at 1st indexes
+		al.add(1, "For");
+
+		// Print the initialArrayList
+		System.out.println("Initial ArrayList " + al);
+
+		// Now remove element from the above list
+		// present at 1st index
+		al.remove(1);
+
+		// Print the List after removal of element
+		System.out.println("After the Index Removal " + al);
+
+		// Now remove the current object from the updated
+		// List
+		al.remove("Geeks");
+
+		// Finally print the updated List now
+		System.out.println("After the Object Removal " + al);
+	}
+}
+```
+
+**Salida**
+
+```
+Initial ArrayList [Geeks, For, Geeks]
+After the Index Removal [Geeks, Geeks]
+After the Object Removal [Geeks]
+```
+
+**Iterar por una lista**
+
+```java
+// Java program to Iterate the Elements
+// in an ArrayList
+
+// Importing java utility classes
+import java.util.*;
+
+// Main class
+public class GFG {
+
+	// main driver method
+	public static void main(String args[])
+	{
+		// Creating an empty Arraylist of string type
+		List<String> al = new ArrayList<>();
+
+		// Adding elements to above object of ArrayList
+		al.add("Geeks");
+		al.add("Geeks");
+
+		// Adding element at specified position
+		// inside list object
+		al.add(1, "For");
+
+		// Using for loop for iteration
+		for (int i = 0; i < al.size(); i++) {
+
+			// Using get() method to
+			// access particular element
+			System.out.print(al.get(i) + " ");
+		}
+
+		// New line for better readability
+		System.out.println();
+
+		// Using for-each loop for iteration
+		for (String str : al)
+
+			// Printing all the elements
+			// which was inside object
+			System.out.print(str + " ");
+	}
+}
+```
+
+**Salida**
+
+```
+Geeks For Geeks 
+Geeks For Geeks 
+```
+
+| Método                                                       | Descripción                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [add(int index, Object element)](https://www.geeksforgeeks.org/java-util-arraylist-add-method-java/) | Este método se utiliza para insertar un elemento específico en un índice de posición específico en una lista. |
+| [add(Object o)](https://www.geeksforgeeks.org/java-util-arraylist-add-method-java/) | Este método se usa para agregar un elemento específico al final de una lista. |
+| [addAll(Collection C)](https://www.geeksforgeeks.org/java-util-arraylist-addall-method-java/) | Este método se usa para agregar todos los elementos de una colección específica al final de la lista mencionada. |
+| [addAll(int index, Collection C)](https://www.geeksforgeeks.org/java-util-arraylist-addall-method-java/) | Se utiliza para insertar todos los elementos que comienzan en la posición especificada de una colección específica en la lista mencionada. |
+| [clear()](https://www.geeksforgeeks.org/arraylist-clear-java-examples/) | Este método se utiliza para eliminar todos los elementos de cualquier lista. |
+| [contains(Object o)](https://www.geeksforgeeks.org/arraylist-contains-java/) | Devuelve verdadero si esta lista contiene el elemento especificado. |
+| [forEach(Consumer action)](https://www.geeksforgeeks.org/arraylist-foreach-method-in-java/) | Realiza la acción dada para cada elemento del iterable hasta que se hayan procesado todos los elementos o la acción genere una excepción. |
+| [get(int index)](https://www.geeksforgeeks.org/arraylist-get-method-java-examples/) | Devuelve el elemento en la posición especificada en esta lista. |
+| [indexOf(Object O)](https://www.geeksforgeeks.org/java-util-arraylist-indexof-java/) | Se devuelve el índice de la primera aparición de un elemento específico, o -1 en caso de que el elemento no esté en la lista. |
+| [isEmpty()](https://www.geeksforgeeks.org/arraylist-isempty-java-example/) | Devuelve verdadero si esta lista no contiene elementos.      |
+| [lastIndexOf(Object O)](https://www.geeksforgeeks.org/arraylist-lastindexof-java-example/) | Se devuelve el índice de la última aparición de un elemento específico o -1 en caso de que el elemento no esté en la lista. |
+| [listIterator()](https://www.geeksforgeeks.org/arraylist-listiterator-method-in-java-with-examples/) | Devuelve un iterador de lista sobre los elementos de esta lista (en la secuencia adecuada). |
+| [listIterator(int index)](https://www.geeksforgeeks.org/arraylist-listiterator-method-in-java-with-examples/) | Devuelve un iterador de lista sobre los elementos de esta lista (en la secuencia adecuada), comenzando en la posición especificada en la lista. |
+| [remove(int index)](https://www.geeksforgeeks.org/arraylist-linkedlist-remove-methods-java-examples/) | Elimina el elemento en la posición especificada en esta lista. |
+| [remove(Object o)](https://www.geeksforgeeks.org/arraylist-linkedlist-remove-methods-java-examples/) | Elimina la primera aparición del elemento especificado de esta lista, si está presente. |
+| [removeAll(Collection c)](https://www.geeksforgeeks.org/arraylist-removeall-method-in-java-with-examples/) | Elimina de esta lista todos sus elementos que están contenidos en la colección especificada. |
+| [removeIf(Predicate filter)](https://www.geeksforgeeks.org/arraylist-removeif-method-in-java/) | Elimina todos los elementos de esta colección que satisfacen el predicado dado. |
+| [removeRange(int fromIndex, int toIndex)](https://www.geeksforgeeks.org/arraylist-removerange-java-examples/) | Elimina de esta lista todos los elementos cuyo índice se encuentra entre `fromIndex`, inclusive, y `toIndex`, exclusivo. |
+| [retainAll(Collection c)](https://www.geeksforgeeks.org/arraylist-retainall-method-in-java/) | Conserva solo los elementos de esta lista que están contenidos en la colección especificada. |
+| [set(int index, E element)](https://www.geeksforgeeks.org/arraylist-set-method-in-java-with-examples/) | Reemplaza el elemento en la posición especificada en esta lista con el elemento especificado. |
+| [size()](https://www.geeksforgeeks.org/arraylist-size-method-in-java-with-examples/) | Devuelve el número de elementos de esta lista.               |
+| [subList(int fromIndex, int toIndex)](https://www.geeksforgeeks.org/arraylist-sublist-method-in-java-with-examples/) | Devuelve una vista de la parte de esta lista entre `fromIndex`, inclusive, y `toIndex`, exclusivo. |
+| [toArray()](https://www.geeksforgeeks.org/arraylist-array-conversion-java-toarray-methods/) | Este método se utiliza para devolver una matriz que contiene todos los elementos de la lista en el orden correcto. |
+| [toArray(Object O)](https://www.geeksforgeeks.org/arraylist-array-conversion-java-toarray-methods/) | También se usa para devolver una matriz que contiene todos los elementos de esta lista en el orden correcto, igual que el método anterior. |
+
+
+
+**Fuente**
+[https://www.geeksforgeeks.org/list-interface-java-examples/](https://www.geeksforgeeks.org/list-interface-java-examples/)
+
 ### Ejercicio `Coches`
 
-Realiza un programa que permita al usuario añadir Coches. Al final debe imprimirlos ordenados en líneas separadas
+Realiza un programa que permita al usuario añadir Coches mediante la consola. Si escribe una línea en blanco, se acaba de añadir coches.
+
+Al final debe imprimirlos ordenados en líneas separadas
 
 > -toogle-Piensa antes de mirar
 >
@@ -230,7 +513,7 @@ mapa1.put("azul", "blue");
 mapa1.put("blanco", "white");
 ```
 
-Para imprimir todos los valores del mapa lo recorremos mediante un `for`:
+Para imprimir todos los valores del mapa lo recorremos mediante un `for-each`:
 
 ```java
 for (String valor : mapa1.values())
@@ -244,7 +527,7 @@ for (String clave : mapa1.keySet())
     System.out.print(clave + "-");
 ```
 
-Para recuperar un valor para una determinada clave llamamos al método 'get' y le pasamos la clave a buscar, si dicha clave no existe en el  mapa se nos retorna el valor 'null':
+Para recuperar un valor para una determinada clave llamamos al método `get` y le pasamos la clave a buscar, si dicha clave no existe en el  mapa se nos retorna el valor `null`:
 
 ```java
 System.out.println("La traducción de 'rojo' es:" + mapa1.get("rojo"));
@@ -276,7 +559,7 @@ Para imprimir el mapa completo en la Consola podemos hacer uso del método `prin
 System.out.println(mapa1);
 ```
 
-Hemos utilizado la clase `HashMap` para resolver el problema. La clase  `TreeMap` es idéntica a `HashMap` con la salvedad que mantiene ordenado los  datos por la clave.
+Hemos utilizado la clase `HashMap` para resolver el problema. La clase  `TreeMap` es idéntica a `HashMap` con la salvedad que mantiene ordenado los datos por la clave.
 
 Finalmente la clase `LinkedHashMap` mantiene ordenado los elementos del mapa según el orden de inserción.
 
@@ -308,6 +591,224 @@ Declara un `HashMap` que almacene el país y la capital de varios países Europe
 > ```
 >
 
+## Pilas
+
+El marco de Java Collection proporciona una clase `Stack` que modela e implementa una estructura de datos de tipo pila. La clase se basa en el principio básico de último en entrar, primero en salir. 
+
+<img src="/programacion-java/assets/img/estructuras/stack.png" style="zoom:67%;" />
+
+El siguiente diagrama muestra la jerarquía de la clase Stack:
+
+<img src="/programacion-java/assets/img/estructuras/Selection_028.png" style="zoom: 67%;" />
+
+```java
+// Java code for stack implementation
+
+import java.io.*;
+import java.util.*;
+
+class Test
+{
+	// Pushing element on the top of the stack
+	static void stack_push(Stack<Integer> stack)
+	{
+		for(int i = 0; i < 5; i++)
+		{
+			stack.push(i);
+		}
+	}
+	
+	// Popping element from the top of the stack
+	static void stack_pop(Stack<Integer> stack)
+	{
+		System.out.println("Pop Operation:");
+
+		for(int i = 0; i < 5; i++)
+		{
+			Integer y = (Integer) stack.pop();
+			System.out.println(y);
+		}
+	}
+
+	// Displaying element on the top of the stack
+	static void stack_peek(Stack<Integer> stack)
+	{
+		Integer element = (Integer) stack.peek();
+		System.out.println("Element on stack top: " + element);
+	}
+	
+	// Searching element in the stack
+	static void stack_search(Stack<Integer> stack, int element)
+	{
+		Integer pos = (Integer) stack.search(element);
+
+		if(pos == -1)
+			System.out.println("Element not found");
+		else
+			System.out.println("Element is found at position: " + pos);
+	}
+
+
+	public static void main (String[] args)
+	{
+		Stack<Integer> stack = new Stack<Integer>();
+
+		stack_push(stack);
+		stack_pop(stack);
+		stack_push(stack);
+		stack_peek(stack);
+		stack_search(stack, 2);
+		stack_search(stack, 6);
+	}
+}
+```
+
+**Salida**
+
+```
+Pop Operation:
+4
+3
+2
+1
+0
+Element on stack top: 4
+Element is found at position: 3
+Element not found
+```
+
+**Añadir elementos**
+
+```java
+// Java program to add the
+// elements in the stack
+import java.io.*;
+import java.util.*;
+
+class StackDemo {
+	
+	// Main Method
+	public static void main(String[] args)
+	{
+
+		// Default initialization of Stack
+		Stack stack1 = new Stack();
+
+		// Initialization of Stack
+		// using Generics
+		Stack<String> stack2 = new Stack<String>();
+
+		// pushing the elements
+		stack1.push(4);
+		stack1.push("All");
+		stack1.push("Geeks");
+
+		stack2.push("Geeks");
+		stack2.push("For");
+		stack2.push("Geeks");
+
+		// Printing the Stack Elements
+		System.out.println(stack1);
+		System.out.println(stack2);
+	}
+}
+```
+
+```
+[4, All, Geeks]
+[Geeks, For, Geeks]
+```
+
+**Acceder a un elemento**
+
+```java
+// Java program to demonstrate the accessing
+// of the elements from the stack
+import java.util.*;
+import java.io.*;
+
+public class StackDemo {
+
+	// Main Method
+	public static void main(String args[])
+	{
+		// Creating an empty Stack
+		Stack<String> stack = new Stack<String>();
+
+		// Use push() to add elements into the Stack
+		stack.push("Welcome");
+		stack.push("To");
+		stack.push("Geeks");
+		stack.push("For");
+		stack.push("Geeks");
+
+		// Displaying the Stack
+		System.out.println("Initial Stack: " + stack);
+
+		// Fetching the element at the head of the Stack
+		System.out.println("The element at the top of the"
+						+ " stack is: " + stack.peek());
+
+		// Displaying the Stack after the Operation
+		System.out.println("Final Stack: " + stack);
+	}
+}
+```
+
+**Salida**
+
+```
+Initial Stack: [Welcome, To, Geeks, For, Geeks]
+The element at the top of the stack is: Geeks
+Final Stack: [Welcome, To, Geeks, For, Geeks]
+```
+
+**Eliminar elementos**
+
+```java
+// Java program to demonstrate the removing
+// of the elements from the stack
+import java.util.*;
+import java.io.*;
+
+public class StackDemo {
+	public static void main(String args[])
+	{
+		// Creating an empty Stack
+		Stack<Integer> stack = new Stack<Integer>();
+
+		// Use add() method to add elements
+		stack.push(10);
+		stack.push(15);
+		stack.push(30);
+		stack.push(20);
+		stack.push(5);
+
+		// Displaying the Stack
+		System.out.println("Initial Stack: " + stack);
+
+		// Removing elements using pop() method
+		System.out.println("Popped element: "
+						+ stack.pop());
+		System.out.println("Popped element: "
+						+ stack.pop());
+
+		// Displaying the Stack after pop operation
+		System.out.println("Stack after pop operation "
+						+ stack);
+	}
+}
+```
+
+```
+Initial Stack: [10, 15, 30, 20, 5]
+Popped element: 5
+Popped element: 20
+Stack after pop operation [10, 15, 30]
+```
+
+**Más información en** [https://www.geeksforgeeks.org/stack-class-in-java/](https://www.geeksforgeeks.org/stack-class-in-java/)
+
 
 
 https://javahungry.blogspot.com/2019/02/collection-programs-in-java-for-interview.html
@@ -316,7 +817,10 @@ https://github.com/atanu20/javacollection/blob/master/ArrayListCode.java
 
 https://gyansetu-core-java-for-java.gitbook.io/project/untitled-1/working-with-the-collection-interface
 
-Streams
+**Streams**
 
 https://gyansetu-core-java-for-java.gitbook.io/project/java-8/2-streams
 
+---
+
+[Content licensed under a CC Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
