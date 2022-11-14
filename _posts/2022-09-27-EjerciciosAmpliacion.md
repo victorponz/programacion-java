@@ -830,52 +830,7 @@ Se trata de implementar un programa que indique si una cadena está  correctamen
 **Autor:** [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5).
 **Revisor:** [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6).
 **Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=141](https://www.aceptaelreto.com/problem/statement.php?id=141)
-
-## 15 ¿Quién empieza?
-
-Los siete niños decidieron jugar al escondite, y se enfrentaron a la tarea de elegir quién era el que empezaba    buscando. Procedieron como siempre. Se colocaron en círculo y uno de ellos empezó a contar señalando con el dedo a cada uno y avanzando hacia la derecha, de forma que uno de cada tres niños se iban salvando de la pesada tarea de empezar buscando y salía del círculo. El último niño que quedó en el círculo fue el seleccionado para buscar.
-
-De forma más general, el proceso de selección es el siguiente: nse numeran a los N niños desde el 1 hasta el N, y se les coloca en círculo. Empezando por el niño número 1, se va eliminando a uno de cada 3, es decir, se elimina al número 3, al 6, al 9, etc. Cuando se llega al final del círculo se continúa contando desde el principio. Siguiendo con el ejemplo, si hay 10 niños, tras eliminar al 9, se salta al 10, se salta al 1, y se elimina al número 2.
-
-Crea un método al que se le pase como parámetro el número de niños y cuántos niños nos saltamos antes de sacar del círculo a uno de ellos y debe devolver el número de niño que empezará buscando en el juego.
-
-> -toogle-Piensa antes de ver la solución
->
-> ```java
-> import java.util.ArrayList;
-> 
-> public class QuienEmpieza {
->     public int jugar(int jugadores, int saltos){
->         int eliminar;
->         ArrayList<Integer> juego;
->         juego = new ArrayList<>();
-> 
->         for (int i = 1; i <= jugadores; i++) juego.add(i);
-> 
->         eliminar = 0;
->         while (juego.size() > 1) {
->             eliminar += saltos;
->             eliminar %= juego.size();
->             juego.remove(eliminar);
->         }
-> 
->         return juego.get(0);
->     }
-> }
-> ```
-
-```java
-assertEquals(quienEmpieza.jugar(4, 1), 1);
-assertEquals(quienEmpieza.jugar(7, 2), 4);
-assertEquals(quienEmpieza.jugar(10, 2), 4);
-```
-
-**Créditos**
-**Autor:** [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5).
-**Revisor:** [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6).
-**Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=142](https://www.aceptaelreto.com/problem/statement.php?id=142)
-
-## 16 Año 2013
+## 15 Año 2013
 
 Mary lleva muchos años redactando cartas para sus jefes. Cuando comenzó el año 2013, observó con fastidio que al poner la fecha se veía obligada a utilizar más teclas diferentes que otras veces. Empezó a hacer memoria y se dio cuenta de que, tras 25 años, el año 2013 era el primero que tenía sus cuatro dígitos diferentes. Desde 1988, todos los años habían tenido al menos un dígito repetido.    
 
@@ -933,7 +888,7 @@ assertEquals(anyo2013.primeroSerie(2025), 2020);
 **Revisores:** [Ferran Borrell Micola](https://www.aceptaelreto.com/user/profile.php?id=20), Cristina Gómez Alonso, Catalina Molano Alvarado y Roger Meix Mañá.
 **Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=174](https://www.aceptaelreto.com/problem/statement.php?id=174)
 
-## 17 Expresiones aritméticas
+## 16 Expresiones aritméticas
 
 Las expresiones aritméticas suelen escribirse utilizando lo que se conoce como notación *infija* en la que los operadores se colocan entre los operandos. Esta notación, intuitiva para los humanos, tiene el problema de obligarnos a poner  paréntesis en ciertas ocasiones para cambiar el orden de aplicación de  los operadores.
 
@@ -1068,7 +1023,7 @@ assertEquals(evaluarExpresion.cola("0 0 /"), "ERROR");
 **Revisor:** [Pedro Pablo Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=6).
 **Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=198](https://www.aceptaelreto.com/problem/statement.php?id=198)
 
-## 18 Números afortunados
+## 17 Números afortunados
 
 Dado un *N* ≥ 2, se llaman números afortunados a los que resultan de ejecutar el siguiente proceso: se comienza generando una lista que contiene los números desde 1 hasta N en este orden; se elimina de la lista un número de cada 2  (es decir, los números 1, 3, 5, etc.); de la lista final resultante se elimina un número de cada 3, etc. El proceso termina cuando se va a eliminar un número de cada *M* y el número de elementos que quedan es menor que *M*. Los números que queden en la lista en este momento son los afortunados.
 
@@ -1109,7 +1064,7 @@ assertEquals(Afortunados.calcular(30), "10 12 18 22 30 ");
 assertEquals(Afortunados.calcular(100), "30 34 42 48 58 60 78 82 ");
 ```
 
-## 19 Orden 
+## 18 Orden 
 
 Dado un array de 10 números enteros, la aplicación debe indicarnos si los números están ordenados de forma creciente, decreciente, o si están desordenados
 
@@ -1159,7 +1114,7 @@ int [] numeros4 = {9, 9, 9, 9};
 assertEquals(Orden.comprobar(numeros4) , 0);
 ```
 
-## 20 Persistencia multiplicativa
+## 19 Persistencia multiplicativa
 
 En 1973, el matemático inglés Neil Sloane definió, en una revista dedicada a las matemáticas recreativas, la      *persistencia multiplicativa* de los números. Consiste en el número de veces que hay que multiplicar los dígitos de un número (escrito en base 10) hasta llegar a un número de un único dígito.    
 
@@ -1203,7 +1158,7 @@ assertEquals(Persistencia.calcular(245), 2);
 **Revisores:** [Ferran Borrell Micola](https://www.aceptaelreto.com/user/profile.php?id=20), Cristina Gómez Alonso y Roger Meix Mañá.Ç
 **Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=182](https://www.aceptaelreto.com/problem/statement.php?id=182)
 
-## 21 Ordenación por el método de la burbuja
+## 20 Ordenación por el método de la burbuja
 
 Según la [Wikipedia](https://es.wikipedia.org/wiki/Ordenamiento_de_burbuja)
 El **ordenamiento de burbuja** (**Bubble Sort** en inglés) es un sencillo [algoritmo de ordenamiento](https://es.wikipedia.org/wiki/Algoritmo_de_ordenamiento). Funciona revisando cada elemento de la lista que va a ser ordenada con  el siguiente, intercambiándolos de posición si están en el orden  equivocado. Es necesario revisar varias veces toda la lista hasta que no se necesiten más intercambios, lo cual significa que la lista está  ordenada. Este [algoritmo](https://es.wikipedia.org/wiki/Algoritmo) obtiene su nombre de la forma con la que suben por la lista los  elementos durante los intercambios, como si fueran pequeñas "burbujas".  También es conocido como el **método del intercambio directo**. Dado  que solo usa comparaciones para operar elementos, se lo considera un  algoritmo de comparación, siendo uno de los más sencillos de  implementar.
@@ -1244,7 +1199,7 @@ public class BurbujaTest {
 
 ```
 
-## 22 Reversible
+## 21 Reversible
 
 Se denomina *número reversible* a aquél que al ser sumado a sí mismo tras invertir sus dígitos da como resultado un número en el que  todos los dígitos son impares.
 
@@ -1285,7 +1240,7 @@ assertFalse("ERROR", Reversible.esReversible(1010));
 **Revisores:** [Ferran Borrell Micola](https://www.aceptaelreto.com/user/profile.php?id=20) y Cristina Gómez Alonso.
 **Fuente:** [https://www.aceptaelreto.com/problem/statement.php?id=193](https://www.aceptaelreto.com/problem/statement.php?id=193)
 
-## 23 Números de Lychrel
+## 22 Números de Lychrel
 
  Cuando se aburren, los aficionados a las matemáticas se dedican a jugar con los números. Eso les lleva, por ejemplo, a coger cualquier número, darle la vuelta y sumarlo a sí mismo, repitiendo el proceso una y otra vez hasta dar con un número capicúa. Por ejemplo, para el 91 llegamos a un capicúa en sólo dos pasos:    
 
