@@ -408,7 +408,7 @@ Para resolverlo vamos a utilizar 6 métodos además del método `main`:
 >         }
 >         return total;
 >     }
->     public static int calcularAlumnosAlturainferior(ArrayList<Double> alturas, Double media){
+>     public static int calcularAlumnosAlturaInferior(ArrayList<Double> alturas, Double media){
 >         int total = 0;
 >         for (Double altura: alturas){
 >             if (altura < media)
@@ -419,7 +419,7 @@ Para resolverlo vamos a utilizar 6 métodos además del método `main`:
 >     public static void mostrarResultados(ArrayList<Double> alturas){
 >         Double media = calcularMedia(alturas);
 >         int superior = calcularAlumnosAlturaSuperior(alturas, media);
->         int inferior = calcularAlumnosAlturainferior(alturas, media);
+>         int inferior = calcularAlumnosAlturaInferior(alturas, media);
 >         System.out.println("Las alturas son las siguientes:");
 >         for(Double altura: alturas)
 >             System.out.print(altura + ", ");
@@ -563,7 +563,98 @@ Hemos utilizado la clase `HashMap` para resolver el problema. La clase  `TreeMap
 
 Finalmente la clase `LinkedHashMap` mantiene ordenado los elementos del mapa según el orden de inserción.
 
-### Ejercicio `PaisCapital`
+### Ejemplo devolver entradas únicas
+
+Se trata de encontrar los valores únicos de un array
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class Unicos {
+    public static void printUnique( String ... array) {
+		List<String> list = new ArrayList<String>(Arrays.asList(array));
+		Set<String> hashSet = new HashSet<String>(list);
+		System.out.println(hashSet);
+	}
+
+	public static void main(String[] args) {
+
+		printUnique("hola", "adios", "hola", "hola", "tres", "cuatro", "adios");
+		
+	}
+}
+```
+
+
+
+### Ejemplo encontrar duplicados
+
+Se trata de generar un `HashSet` con los elementos duplicados en un array:
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class HashSetExample {
+	public static void printDuplicates( String ... array) {
+		List<String> list = new ArrayList<String>(Arrays.asList(array));
+		Set<String> hashSet = new HashSet<String>(list);
+		
+		for (String s: hashSet) {
+			list.remove(s);
+		}
+		Set<String> duplicates = new HashSet<String>(list);
+		System.out.println(duplicates);
+	}
+
+	public static void main(String[] args) {
+			printDuplicates("hola", "adios", "hola", "hola", "tres", "cuatro", "adios");
+		
+	}
+}
+```
+
+### Ejemplo incrementar valores
+
+Se trata de devolver un `Set` de `Integers` incrementando el valor de cada uno de los valores de otro pasado como parámetro.
+
+```java
+import java.util.HashSet;
+
+public class Increment {
+    public static HashSet<Integer> increment( HashSet<Integer> set) {
+		HashSet<Integer> newSet = new HashSet<Integer>();
+	    for (Integer i: set)
+	         newSet.add(i+1);
+	    return newSet;
+	}
+
+	public static void main(String[] args) {
+		
+		HashSet<Integer> set = new HashSet<Integer>(); 
+		set.add(1);
+		set.add(4);
+		set.add(6);
+		set.add(8);
+		set.add(2);
+		System.out.println(set);
+		set = increment(set);
+	    System.out.println(set);
+		
+	}    
+}
+```
+
+
+
+### Ejercicio `PaisCapital.java`
 
 Declara un `HashMap` que almacene el país y la capital de varios países Europeos. Luego realiza un programa que pida un País al usuario y muestre su capital.
 
@@ -596,6 +687,8 @@ Declara un `HashMap` que almacene el país y la capital de varios países Europe
 El marco de Java Collection proporciona una clase `Stack` que modela e implementa una estructura de datos de tipo pila. La clase se basa en el principio básico de último en entrar, primero en salir. 
 
 <img src="/programacion-java/assets/img/estructuras/stack.png" style="zoom:67%;" />
+
+Stack es una estructura de datos lineal que sigue un orden particular en el que se realizan las operaciones. El orden puede ser LIFO (Last In First Out) o FILO (First In Last Out).
 
 El siguiente diagrama muestra la jerarquía de la clase Stack:
 
@@ -820,7 +913,3 @@ https://gyansetu-core-java-for-java.gitbook.io/project/untitled-1/working-with-t
 **Streams**
 
 https://gyansetu-core-java-for-java.gitbook.io/project/java-8/2-streams
-
----
-
-[Content licensed under a CC Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
