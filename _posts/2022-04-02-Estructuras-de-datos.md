@@ -444,6 +444,96 @@ Para resolverlo vamos a utilizar 6 métodos además del método `main`:
 > }
 > ```
 
+### Ejercicio Convertir a array
+
+Crea un programa para convertir un ArrayList en un array:
+
+> -toogle- Piensa antes de ver la solución
+>
+> ```java
+> import java.util.*;
+> 
+> public class ConvertArrayListToArray {
+>     public static void main(String args[]) {
+>       // Creating and initializing ArrayList
+>       ArrayList<String> fruits = new ArrayList<>();
+>       fruits.add("Apple");
+>       fruits.add("Banana");
+>       fruits.add("Mango");
+>       fruits.add("Pear");
+> 
+>       // ArrayList to String array conversion
+>       String[] str = new String[fruits.size()];
+>       for(int i=0; i < fruits.size(); i++) {
+>           str[i] = fruits.get(i);
+>       }
+>       
+>       // Print elements using for-each loop
+>       for(String s : str) {
+>         System.out.println(s);      
+>       }
+>     }
+> }
+> ```
+
+### Ejercicio existe
+
+Dado un ArrayList, haz un método para comprobar si un elemento existe en el ArrayList.
+
+> -toolgle- Piensa antes de mirar
+>
+> ```java
+> import java.util.*;
+> public class ArrayListContainsExample {
+>     public static boolean existe(ArrayList<Integer> l, int n){
+>         return l.contains(n);
+>     }
+>     public static void main(String args[]) {
+>         // initialize ArrayList  
+>         ArrayList<Integer> al = new ArrayList<Integer>();
+>         // add elements to ArrayList object
+>         al.add(3);
+>         al.add(17);
+>         al.add(6);
+>         al.add(9);
+>         al.add(7);
+> 
+>         if (al.contains(7)) {
+>             System.out.println("7 was found in the list");
+>         } else {
+>             System.out.println("7 was not found in the list");
+>         }        
+>     }
+> }
+> ```
+
+### Ejercicio AddAll
+
+Haz un programa que añada todos los elementos de una lista a otra
+
+> -toogle- Piensa antes de mirar
+>
+> ```java
+> import java.util.*;
+> public class AddAll {
+>     public static void main(String[] args) {
+>         List<String> l = new ArrayList<String>();
+>         l.add("uno");
+>         l.add("dos");
+>         l.add("tres");
+>         List<String> ll = new ArrayList<String>();
+>         ll.add("cuatro");
+>         ll.add("cinco");
+>         ll.add("seis");
+>         //Añadimos toda la lista l a la ll
+>         ll.addAll(l);
+>         System.out.println(ll);
+>     }
+> }
+> ```
+
+
+
 ## HashMap, TreeMap y LinkedHashMap
 
 Esta clases: `HashMap`, `TreeMap` y `LinkedHashMap` nos permite almacenar elementos asociando a cada clave un valor.
@@ -457,7 +547,7 @@ Algunos ejemplos donde podríamos usar un Mapa:
 
 **Ejemplo**
 
-> Almacenar un diccionario las palabras en castellano como 'clave' y las traducciones de las mismas en el 'valor'. Probar los métodos más  significativos de la clase `HashMap`.
+> Almacenar un diccionario las palabras en castellano como 'clave' y las traducciones de las mismas en el 'valor'. 
 
 ```java
 import java.util.HashMap;
@@ -563,6 +653,327 @@ Hemos utilizado la clase `HashMap` para resolver el problema. La clase  `TreeMap
 
 Finalmente la clase `LinkedHashMap` mantiene ordenado los elementos del mapa según el orden de inserción.
 
+
+### Ejercicio `PaisCapital.java`
+
+Declara un `HashMap` que almacene el país y la capital de varios países Europeos. Luego realiza un programa que pida un País al usuario y muestre su capital.
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.HashMap;
+> import java.util.Map;
+> 
+> public class PaisCapital {
+>     public static void main(String[] args) {
+>         String pais = "";
+>         Map<String, String> capitales = new HashMap<String, String>();
+>         capitales.put("España", "Madrid");
+>         capitales.put("Francia", "París");
+>         capitales.put("Inglaterra", "Londres");
+>         capitales.put("Italia", "Roma");
+>         do{
+>             pais = Utilidades.leerCadena("Introduzca un país (cadena vacía para acabar)");
+>             if (pais.length() != 0)
+>                 System.out.println(capitales.getOrDefault(pais, "No existe ese país en la base de datos"));
+>         }while (pais.length() != 0);
+>     }
+> }
+> ```
+>
+
+### Ejercicio Frecuencia
+
+Se trata de pedir por pantalla una serie de palabras y calcular la frecuencia de cada una de ellas, es decir, las veces que se repiten. Para finalizar el programa se debe introducir una línea en blanco
+
+> -toggle- Piensa antes de mirar
+>
+> ```java
+> import java.util.*;
+> 
+> public class Frequency {
+>     public static void main(String[] args) {
+>         Scanner input = new Scanner(System.in);
+>         Map<String, Integer> m = new HashMap<String, Integer>();
+>         String s;
+>         System.out.println("Write some words:");
+>         // Initialize frequency table
+>         do{
+>             s = input.nextLine();
+>             Integer freq = m.get(s);
+>             m.put(s, (freq == null) ? 1 : freq + 1);
+>         }while(!s.equals(""));
+> 
+>         System.out.println(m.size() + " distinct words:");
+>         System.out.println(m);
+>         input.close();
+>     }
+> }
+> ```
+
+### Ejercicio `Anagramas`
+
+Un anagrama es un grupo de palabras que contienen las mismas letras pero en diferente orden:
+
+Por ejemplo: alma, mala
+
+El ejercicio consiste en leer todas las líneas de un [fichero](/programacion-java/resueltos/collections/avanzados/files/spanish-dict.txt). Por cada palabra que encuentra crea una entrada en el mapa con la palabra *alfabetizada* con las letras en orden alfabético como clave. Siguiendo el ejemplo, `aalm`
+
+Y el valor crea un `ArrayList` con todas las palabras con las mismas letras.
+
+Es decir, la clave `aalm` tendrá una lista con dos valores: `alma` y `mala`. 
+
+Después se pide un número  (`minGroupSize`) que es el mínimo número de valores para que salga impreso por pantalla
+
+```java
+import java.io.*;
+import java.util.*;
+
+public class Anagrams {
+
+	public static void main(String[] args) throws IOException {
+		int minGroupSize = 5;
+
+        // Read words from file and put them 
+		 // into a simulated multimap
+        Map<String, List<String>> m = new 
+				HashMap<String, List<String>>();
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader("files/spanish-dict.txt"));
+            String word;
+            while ((word=reader.readLine())!=null) {
+                String alpha = alphabetize(word);
+                List<String> l = m.get(alpha);
+                if (l == null)
+                    m.put(alpha, l=new ArrayList<String>());
+                l.add(word);
+            }
+        } catch (IOException e) {
+            System.err.println(e);
+            System.exit(1);
+        } finally {
+        	reader.close();
+        }
+
+        // Print all permutation groups above size threshold
+        for (List<String> l : m.values())
+            if (l.size() >= minGroupSize)
+                System.out.println(l.size() + ": " + l);
+    }
+
+    private static String alphabetize(String s) {
+        char[] a = s.toCharArray();
+        Arrays.sort(a);
+        return new String(a);
+    }
+
+}
+```
+
+### Ejemplo CountCountries
+
+En el siguiente ejemplo partimos de un [fichero](/programacion-java/resueltos/collections/avanzados/files/Colfuturo-Seleccionados.csv) `csv` que almacena los datos de los alumnos, incluido el país de origen que se almacena en el campo 7 de dicho archivo.
+
+Se trata de contar cuántos alumnos pertenecen a cada país
+
+```java
+import java.io.*;
+import java.util.*;
+
+public class CountCountries {
+
+	/**
+	 * @param args
+	 * @throws IOException 
+	 */
+	public static void main(String[] args) throws IOException {
+		Map<String,Integer> map = new HashMap<String, Integer>();
+
+		BufferedReader reader = new BufferedReader(new FileReader("files/Colfuturo-Seleccionados.csv"));
+		String line;
+		String[] splittedLine;
+		
+		line = reader.readLine();
+		while ((line = reader.readLine())!=null) {
+			splittedLine = line.split(",");
+			//el 7º del csv guarda el país del alumno
+			Integer freq = map.get(splittedLine[6]);
+            //Aumentamos en uno la frecuencia
+			map.put(splittedLine[6],freq==null ? 1: freq+1);
+		}
+		reader.close();
+		for (String s: map.keySet()) {
+			System.out.println(s + " : " + map.get(s));
+		}
+	}
+}
+```
+
+### Ejercicio Apellidos.
+
+Tenemos un archivo con la frecuencia de los apellidos en España. Este [fichero](/programacion-java/resueltos/collections/avanzados/files/LastnameFrequencies.csv) es de tipo csv y almacena el Apellido y la frecuencia.
+
+Se trata de realizar un programa que pida por pantalla un apellido y muestre la frecuencia de éste. El programa finalizará cuando el usuario introduzca una línea vacía.
+
+> -toogle-Piensa antes de ver la solución
+>
+> ```java
+> import java.io.BufferedReader;
+> import java.io.FileReader;
+> import java.io.IOException;
+> import java.util.*;
+> 
+> 
+> public class LastNameFrequency {
+> 
+> 	private static Map<String,Integer> generate() throws IOException {
+> 		Map<String,Integer> map = new HashMap<String,Integer>();
+> 		BufferedReader reader = null;
+> 		
+> 		reader = new BufferedReader(new FileReader("files/LastnameFrequencies.csv"));
+> 		String line;
+> 		String[] elements;
+> 		while ((line = reader.readLine())!=null) {
+> 			elements = line.split(",");
+> 			if (elements.length==2) {
+> 				map.put(elements[0], 
+> 						Integer.parseInt(elements[1].replaceAll("\\.", "")));
+> 			}
+> 		}
+> 		reader.close();
+> 		
+> 		return map;
+> 	}
+> 	public static void main(String[] args) throws IOException  {
+> 		
+> 		Map<String,Integer> map  = generate();
+> 		// Read lastnames from keyboard
+> 		String lastname;
+> 		Scanner input = new Scanner(System.in);
+> 		do {
+> 			System.out.print("Enter lastname: ");
+> 			lastname = input.nextLine().toUpperCase();
+> 			if (!lastname.equals("")) {
+> 				if (map.get(lastname) == null) {
+> 					System.out.println("last name does not exist");
+> 				} else {
+> 					System.out.println("frequency = " + map.get(lastname));
+> 				}
+> 			}
+> 			
+> 		} while (!lastname.equals(""));
+> 		
+> 		input.close();
+> 
+> 	}
+> 
+> }
+> ```
+
+## HashSet
+
+Es una colección desordenada de objetos en la que no pueden existir duplicados.
+
+```java
+// Java program Illustrating Set Interface
+
+// Importing utility classes
+import java.util.*;
+
+// Main class
+public class HashSet1 {
+
+	// Main driver method
+	public static void main(String[] args)
+	{
+		// Demonstrating Set using HashSet
+		// Declaring object of type String
+		Set<String> hash_Set = new HashSet<String>();
+
+		// Adding elements to the Set
+		// using add() method
+		hash_Set.add("Geeks");
+		hash_Set.add("For");
+		hash_Set.add("Geeks");
+		hash_Set.add("Example");
+		hash_Set.add("Set");
+
+		// Printing elements of HashSet object
+		System.out.println(hash_Set);
+	}
+}
+
+```
+
+**Salida**
+
+```
+[Set, Example, Geeks, For]
+```
+
+Ejemplo de unión, intersección y diferencia de HashSet
+
+```java
+// Java Program Demonstrating Operations on the Set
+// such as Union, Intersection and Difference operations
+
+// Importing all utility classes
+import java.util.*;
+
+// Main class
+public class SetExample {
+
+	// Main driver method
+	public static void main(String args[])
+	{
+		// Creating an object of Set class
+		// Declaring object of Integer type
+		Set<Integer> a = new HashSet<Integer>();
+	
+		// Adding all elements to List
+		a.addAll(Arrays.asList(
+			new Integer[] { 1, 3, 2, 4, 8, 9, 0 }));
+	
+	// Again declaring object of Set class
+	// with reference to HashSet
+		Set<Integer> b = new HashSet<Integer>();
+		
+	b.addAll(Arrays.asList(
+			new Integer[] { 1, 3, 7, 5, 4, 0, 7, 5 }));
+
+		
+		// To find union
+		Set<Integer> union = new HashSet<Integer>(a);
+		union.addAll(b);
+		System.out.print("Union of the two Set");
+		System.out.println(union);
+
+		// To find intersection
+		Set<Integer> intersection = new HashSet<Integer>(a);
+		intersection.retainAll(b);
+		System.out.print("Intersection of the two Set");
+		System.out.println(intersection);
+
+		// To find the symmetric difference
+		Set<Integer> difference = new HashSet<Integer>(a);
+		difference.removeAll(b);
+		System.out.print("Difference of the two Set");
+		System.out.println(difference);
+	}
+}
+```
+
+**Salida**
+
+```
+Union of the two Set[0, 1, 2, 3, 4, 5, 7, 8, 9]
+Intersection of the two Set[0, 1, 3, 4]
+Difference of the two Set[2, 8, 9]
+```
+
+
+
 ### Ejemplo devolver entradas únicas
 
 Se trata de encontrar los valores únicos de un array
@@ -651,36 +1062,6 @@ public class Increment {
 	}    
 }
 ```
-
-
-
-### Ejercicio `PaisCapital.java`
-
-Declara un `HashMap` que almacene el país y la capital de varios países Europeos. Luego realiza un programa que pida un País al usuario y muestre su capital.
-
-> -toogle-Piensa antes de mirar
->
-> ```java
-> import java.util.HashMap;
-> import java.util.Map;
-> 
-> public class PaisCapital {
->     public static void main(String[] args) {
->         String pais = "";
->         Map<String, String> capitales = new HashMap<String, String>();
->         capitales.put("España", "Madrid");
->         capitales.put("Francia", "París");
->         capitales.put("Inglaterra", "Londres");
->         capitales.put("Italia", "Roma");
->         do{
->             pais = Utilidades.leerCadena("Introduzca un país (cadena vacía para acabar)");
->             if (pais.length() != 0)
->                 System.out.println(capitales.getOrDefault(pais, "No existe ese país en la base de datos"));
->         }while (pais.length() != 0);
->     }
-> }
-> ```
->
 
 ## Pilas
 
@@ -902,14 +1283,6 @@ Stack after pop operation [10, 15, 30]
 
 **Más información en** [https://www.geeksforgeeks.org/stack-class-in-java/](https://www.geeksforgeeks.org/stack-class-in-java/)
 
+[https://www.hackerrank.com/domains/java?filters%5Bsubdomains%5D%5B%5D=java-data-structure](https://www.hackerrank.com/domains/java?filters%5Bsubdomains%5D%5B%5D=java-data-structure)
 
 
-https://javahungry.blogspot.com/2019/02/collection-programs-in-java-for-interview.html
-
-https://github.com/atanu20/javacollection/blob/master/ArrayListCode.java
-
-https://gyansetu-core-java-for-java.gitbook.io/project/untitled-1/working-with-the-collection-interface
-
-**Streams**
-
-https://gyansetu-core-java-for-java.gitbook.io/project/java-8/2-streams
