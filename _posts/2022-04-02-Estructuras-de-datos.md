@@ -34,7 +34,7 @@ coches.get(0);
 Para conocer su tamaño, `size`
 
 ```java
-System.out.prinft("Existen %d coches%n", coches.size());
+System.out.printf("Existen %d coches%n", coches.size());
 ```
 
 Para eliminar el elemento iésimo, `remove`
