@@ -584,8 +584,6 @@ public class PruebaHashMap {
 }
 ```
 
-La interfaz `Map` deben implementar estas clases, luego si creamos un  objeto de la clase `HashMap` debemos hacerlo con la siguiente sintaxis:
-
 La clase `HashMap` debe implementar la interfaz `Map`, así que se declara como;
 
 ```java
