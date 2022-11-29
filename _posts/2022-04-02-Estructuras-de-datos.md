@@ -480,7 +480,7 @@ Crea un programa para convertir un ArrayList en un array:
 
 Dado un ArrayList, haz un método para comprobar si un elemento existe en el ArrayList.
 
-> -toggle- Piensa antes de mirar
+> -toogle- Piensa antes de mirar
 >
 > ```java
 > import java.util.*;
@@ -686,7 +686,7 @@ Declara un `HashMap` que almacene el país y la capital de varios países Europe
 
 Se trata de pedir por pantalla una serie de palabras y calcular la frecuencia de cada una de ellas, es decir, las veces que se repiten. Para finalizar el programa se debe introducir una línea en blanco
 
-> -toggle- Piensa antes de mirar
+> -toogle- Piensa antes de mirar
 >
 > ```java
 > import java.util.*;
