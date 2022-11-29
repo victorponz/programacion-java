@@ -480,7 +480,7 @@ Crea un programa para convertir un ArrayList en un array:
 
 Dado un ArrayList, haz un método para comprobar si un elemento existe en el ArrayList.
 
-> -toolgle- Piensa antes de mirar
+> -toggle- Piensa antes de mirar
 >
 > ```java
 > import java.util.*;
