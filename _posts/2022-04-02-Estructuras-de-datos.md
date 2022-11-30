@@ -478,7 +478,7 @@ Crea un programa para convertir un ArrayList en un array:
 
 ### Ejercicio existe
 
-Dado un ArrayList, haz un método para comprobar si un elemento existe en el ArrayList.
+Dado un `ArrayList`, haz un método para comprobar si un elemento existe en dicho `ArrayList`.
 
 > -toogle- Piensa antes de mirar
 >
@@ -532,7 +532,114 @@ Haz un programa que añada todos los elementos de una lista a otra
 > }
 > ```
 
+### Repartiendo regalos en tu calle
 
+ Papá Noel quiere repartir juguetes a todos los niños de la    mejor calle del mundo: la tuya. Para ello, consulta una lista de los portales de esa calle en los que debe dejar regalos.
+
+La forma en la que reparte los regalos es peculiar. Aterriza con su trineo en un portal determinado (que no tiene por qué ser uno en los que tiene que dar regalos), y luego sigue las siguientes reglas:
+
+- Reparte los regalos al portal que tiene más cerca de su posición actual.
+- La distancia entre dos portales es el valor absoluto de su resta. Es decir, la distancia entre el portal 10 y el portal 8 es 2 (10 − 8 = 2), lo mismo que la distancia entre el portal 8 y el portal 10 (valor absoluto de 8 − 10).
+- Si dos portales están a igual distancia, siempre va hacia el que tiene el número más grande.
+
+¿Cuál es el orden en el que visita los portales?
+
+La entrada constará de 2 parámetros: el número de portal en el que aterriza y una lista con todos los portales que ha de visitar.
+
+Por ejemplo, `0, 2, 4` Indica que aterriza en el portal 0 y tiene que repartir al 2 y al 4.
+
+Y la salida será
+
+```
+2, 4
+```
+
+`3, 2, 5, 1` cuya salida será 
+
+```
+2 1 5
+```
+
+y `3, 2, 4, 7` cuya salida será
+
+```
+4 2 7
+```
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> import java.util.ArrayList;
+> import java.util.List;
+> public class Portales {
+> 
+>     public static void main(String[] args) {
+> 
+>         System.out.println(repartir(0, 2, 4));
+>         System.out.println(repartir(3, 2, 5, 1));
+>         System.out.println(repartir(3, 2, 4, 7));
+>        
+>     }
+> 
+>     public static String repartir(int aterriza, Integer ... portales) {
+>         List<Integer> portals = new ArrayList<Integer>();
+>         String result = "";
+>         int  temp, index = -1;
+>         int actual = aterriza;
+>         int diff, min;
+>         
+>         for (int i = 0; i < portales.length; i++) {
+>             portals.add(portales[i]);
+>         }
+>         while (!portals.isEmpty()) {
+>             min = Integer.MAX_VALUE;
+>             temp = 0;
+>             for (int i = 0; i < portals.size(); i++) {
+>                 //Calcular el mínimo desde el actual
+>                 diff = Math.abs(portals.get(i) - actual);
+>                 if (diff <= min ){
+>                     min = diff;
+>                     temp = portals.get(i);
+>                     index = i;
+>                 }
+>             }
+>             result += temp + " ";
+>             portals.remove(index);
+>         }
+>         return result;
+>     }
+> }
+> ```
+>
+
+**Fuente**
+[https://www.aceptaelreto.com/problem/statement.php?id=367](https://www.aceptaelreto.com/problem/statement.php?id=367)
+
+### La mejor terminación
+
+​      En los sorteos de la lotería más mediáticos, como el del Gordo de Navidad o el del Niño, es habitual que los fetichistas  busquen números con algún tipo de significado extraño o que los matemáticos y estadísticos se entretengan informando sobre los números más habituales.    
+
+​      Esto último es interesante si queremos maximizar la probabilidad de ganar algo. Dado que los números que terminan con el mismo dígito que el del premio principal tienen un reintegro, una buena forma de intentar, al menos, no perder dinero es jugar un número con la terminación más habitual en el histórico de sorteos.    
+
+​      Siendo puristas, la probabilidad de que salga un número es independiente de lo que haya ocurrido en años anteriores. Pero es tan tentador ignorar esto que no puedes resistirte. 
+
+La entrada consistirá en un array con varios boletos de lotería y la salida será cuántas veces se repite una terminación (sólo el último dígito).
+
+Por ejemplo, `"00004", "03847", "39804"`
+
+```
+{4=2, 7=1}
+```
+
+O, `"58975", "25894", "52985", "98598"`
+
+```
+{4=1, 5=2, 8=1}
+```
+
+**Fuente**
+
+[https://www.aceptaelreto.com/problem/statement.php?id=387](https://www.aceptaelreto.com/problem/statement.php?id=387)
 
 ## HashMap, TreeMap y LinkedHashMap
 
@@ -680,7 +787,80 @@ Declara un `HashMap` que almacene el país y la capital de varios países Europe
 > ```
 >
 
-### Ejercicio Frecuencia
+### Ejercicio `Botín`
+
+Al-Colleja y sus secuaces tienen que repartir el botín de su  último golpe. No es una tarea fácil, porque todos quieren llevarse  lo máximo posible, y todos están armados… 
+
+Para no entrar en discusiones que terminen en tragedia,  Al-Colleja  ha ideado un sencillo método en el que, en lugar de  preocuparse de ser justos repartiendo en base a quién ha trabajado más en la  consecución del golpe, se lo deja prácticamente todo al azar.  Prefiere recibir menos beneficios pero mantener la  banda intacta.
+
+El procedimiento es sencillo. Coge todos los billetes  conseguidos y los pone en un montón tras barajarlos. Después se  coloca toda la banda en círculo y va dando un billete a cada uno,  hasta que quedan todos repartidos. Eso sí, el primero que recibe  billete es él, de esa forma se asegura de que si los billetes se  terminan a mitad de una vuelta, él siempre habrá recibido uno  adicional.
+
+El componente de azar aparece porque los billetes están descolocados, así que puede tocar en el reparto desde el mísero  billete de 10 hasta el deseado de 500...
+
+La entrada constará de 2 partes: la primera es el número e participantes en el golpe y la segunda un array con los billetes a repartir.
+
+Por ejemplo: `2, 10, 20, 50, 200, 500` que producirá como salida 
+
+```
+{0=10  50 500, 1=20  200}
+```
+
+O `3, 50, 20, 100, 200, 500, 10, 50`
+
+que resultará en
+
+```
+{0=50  200 50, 1=20  500, 2=100  10}
+```
+
+> -info-La función defínela así.
+>
+> ```java
+>  public static String repartir(int participantes, int ... billetes){
+> ```
+>
+> Y para llamarla, 
+>
+> ```java
+> repartir(2, 10, 20, 50, 200, 500)
+> ```
+>
+> Para imprimir el Map usa `toString`
+
+> -toogle- Piensa antes de mirar
+>
+> ```java
+> import java.util.HashMap;
+> import java.util.Map;
+> 
+> public class Botin {
+> 
+>     public static void main(String[] args) {
+>        System.out.println(repartir(2, 10, 20, 50, 200, 500));
+>        System.out.println(repartir(3, 50, 20, 100, 200, 500, 10, 50));
+>     }
+>     public static String repartir(int participantes, int ... billetes){
+> 
+>         Map<Integer, String> reparto = new HashMap<Integer, String>();
+>         for (int i = 0; i < billetes.length; i++) {
+>             String botin = reparto.get(i % participantes);
+>             if (botin ==  null){
+>                 reparto.put(i % participantes, billetes[i] + " ");
+>             }else{
+>                 reparto.put(i % participantes, botin + " " + billetes[i]);
+>             }
+>         }
+>         return reparto.toString();
+>     }
+> }
+> ```
+
+**Fuente**
+
+[https://www.aceptaelreto.com/problem/statement.php?id=238](https://www.aceptaelreto.com/problem/statement.php?id=238)
+
+
+### Ejercicio `Frequency`
 
 Se trata de pedir por pantalla una serie de palabras y calcular la frecuencia de cada una de ellas, es decir, las veces que se repiten. Para finalizar el programa se debe introducir una línea en blanco
 
@@ -723,92 +903,96 @@ Es decir, la clave `aalm` tendrá una lista con dos valores: `alma` y `mala`.
 
 Después se pide un número  (`minGroupSize`) que es el mínimo número de valores para que salga impreso por pantalla
 
-```java
-import java.io.*;
-import java.util.*;
+> -toogle- Piensa antes de mirar
+>
+> ```java
+> import java.io.*;
+> import java.util.*;
+> 
+> public class Anagrams {
+> 
+> 	public static void main(String[] args) throws IOException {
+> 		int minGroupSize = 5;
+> 
+>         // Read words from file and put them 
+> 		 // into a simulated multimap
+>         Map<String, List<String>> m = new 
+> 				HashMap<String, List<String>>();
+>         BufferedReader reader = null;
+>         try {
+>             reader = new BufferedReader(new FileReader("files/spanish-dict.txt"));
+>             String word;
+>             while ((word=reader.readLine())!=null) {
+>                 String alpha = alphabetize(word);
+>                 List<String> l = m.get(alpha);
+>                 if (l == null)
+>                     m.put(alpha, l=new ArrayList<String>());
+>                 l.add(word);
+>             }
+>         } catch (IOException e) {
+>             System.err.println(e);
+>             System.exit(1);
+>         } finally {
+>         	reader.close();
+>         }
+> 
+>         // Print all permutation groups above size threshold
+>         for (List<String> l : m.values())
+>             if (l.size() >= minGroupSize)
+>                 System.out.println(l.size() + ": " + l);
+>     }
+> 
+>     private static String alphabetize(String s) {
+>         char[] a = s.toCharArray();
+>         Arrays.sort(a);
+>         return new String(a);
+>     }
+> 
+> }
+> ```
 
-public class Anagrams {
-
-	public static void main(String[] args) throws IOException {
-		int minGroupSize = 5;
-
-        // Read words from file and put them 
-		 // into a simulated multimap
-        Map<String, List<String>> m = new 
-				HashMap<String, List<String>>();
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader("files/spanish-dict.txt"));
-            String word;
-            while ((word=reader.readLine())!=null) {
-                String alpha = alphabetize(word);
-                List<String> l = m.get(alpha);
-                if (l == null)
-                    m.put(alpha, l=new ArrayList<String>());
-                l.add(word);
-            }
-        } catch (IOException e) {
-            System.err.println(e);
-            System.exit(1);
-        } finally {
-        	reader.close();
-        }
-
-        // Print all permutation groups above size threshold
-        for (List<String> l : m.values())
-            if (l.size() >= minGroupSize)
-                System.out.println(l.size() + ": " + l);
-    }
-
-    private static String alphabetize(String s) {
-        char[] a = s.toCharArray();
-        Arrays.sort(a);
-        return new String(a);
-    }
-
-}
-```
-
-### Ejemplo CountCountries
+### Ejemplo `CountCountries`
 
 En el siguiente ejemplo partimos de un [fichero](/programacion-java/resueltos/collections/avanzados/files/Colfuturo-Seleccionados.csv) `csv` que almacena los datos de los alumnos, incluido el país de origen que se almacena en el campo 7 de dicho archivo.
 
 Se trata de contar cuántos alumnos pertenecen a cada país
 
-```java
-import java.io.*;
-import java.util.*;
+> -toogle- Piensa antes de mirar
+>
+> ```java
+> import java.io.*;
+> import java.util.*;
+> 
+> public class CountCountries {
+> 
+> 	/**
+> 	 * @param args
+> 	 * @throws IOException 
+> 	 */
+> 	public static void main(String[] args) throws IOException {
+> 		Map<String,Integer> map = new HashMap<String, Integer>();
+> 
+> 		BufferedReader reader = new BufferedReader(new FileReader("files/Colfuturo-Seleccionados.csv"));
+> 		String line;
+> 		String[] splittedLine;
+> 		
+> 		line = reader.readLine();
+> 		while ((line = reader.readLine())!=null) {
+> 			splittedLine = line.split(",");
+> 			//el 7º del csv guarda el país del alumno
+> 			Integer freq = map.get(splittedLine[6]);
+>             //Aumentamos en uno la frecuencia
+> 			map.put(splittedLine[6],freq==null ? 1: freq+1);
+> 		}
+> 		reader.close();
+> 		for (String s: map.keySet()) {
+> 			System.out.println(s + " : " + map.get(s));
+> 		}
+> 	}
+> }
+> ```
 
-public class CountCountries {
-
-	/**
-	 * @param args
-	 * @throws IOException 
-	 */
-	public static void main(String[] args) throws IOException {
-		Map<String,Integer> map = new HashMap<String, Integer>();
-
-		BufferedReader reader = new BufferedReader(new FileReader("files/Colfuturo-Seleccionados.csv"));
-		String line;
-		String[] splittedLine;
-		
-		line = reader.readLine();
-		while ((line = reader.readLine())!=null) {
-			splittedLine = line.split(",");
-			//el 7º del csv guarda el país del alumno
-			Integer freq = map.get(splittedLine[6]);
-            //Aumentamos en uno la frecuencia
-			map.put(splittedLine[6],freq==null ? 1: freq+1);
-		}
-		reader.close();
-		for (String s: map.keySet()) {
-			System.out.println(s + " : " + map.get(s));
-		}
-	}
-}
-```
-
-### Ejercicio Apellidos.
+### Ejercicio `LastNameFrequency`.
 
 Tenemos un archivo con la frecuencia de los apellidos en España. Este [fichero](/programacion-java/resueltos/collections/avanzados/files/LastnameFrequencies.csv) es de tipo csv y almacena el Apellido y la frecuencia.
 

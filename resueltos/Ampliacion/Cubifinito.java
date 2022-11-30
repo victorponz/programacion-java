@@ -1,5 +1,5 @@
 import java.util.Set;
-import java.util.TreeSet;
+import java.util.HashSet;
 
 public class Cubifinito {
 
@@ -7,8 +7,8 @@ public class Cubifinito {
         int  digito;
         String temp;
         int suma;
-        Set<Integer> set;
-        set = new TreeSet<>();
+        Set<Integer> set = new HashSet<>();
+        
         set.add(num);
 
         if (num == 1) 
