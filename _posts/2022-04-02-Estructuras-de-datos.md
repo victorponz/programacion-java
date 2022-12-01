@@ -908,7 +908,7 @@ Para leer un archivo línea a línea, usa el siguiente código:
 import java.io.*;
 import java.util.*;
 
-public class CountCountries {
+public class Anagramas {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("path-to-file"));
         String line;
