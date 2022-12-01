@@ -570,6 +570,8 @@ y `3, 2, 4, 7` cuya salida será
 >
 > ```java
 > import java.util.ArrayList;
+> import java.util.Arrays;
+> import java.util.Collections;
 > import java.util.List;
 > public class Portales {
 > 
@@ -582,15 +584,13 @@ y `3, 2, 4, 7` cuya salida será
 >     }
 > 
 >     public static String repartir(int aterriza, Integer ... portales) {
->         List<Integer> portals = new ArrayList<Integer>();
+>         List<Integer> portals = new ArrayList<>();
 >         String result = "";
 >         int  temp, index = -1;
 >         int actual = aterriza;
 >         int diff, min;
->         
->         for (int i = 0; i < portales.length; i++) {
->             portals.add(portales[i]);
->         }
+>         Arrays.sort(portales);
+>         Collections.addAll(portals, portales);
 >         while (!portals.isEmpty()) {
 >             min = Integer.MAX_VALUE;
 >             temp = 0;
@@ -603,11 +603,14 @@ y `3, 2, 4, 7` cuya salida será
 >                     index = i;
 >                 }
 >             }
->             result += temp + " ";
+>             actual = temp;
+>             result += actual + " ";
 >             portals.remove(index);
+> 
 >         }
 >         return result;
 >     }
+> 
 > }
 > ```
 >
