@@ -615,32 +615,6 @@ y `3, 2, 4, 7` cuya salida será
 **Fuente**
 [https://www.aceptaelreto.com/problem/statement.php?id=367](https://www.aceptaelreto.com/problem/statement.php?id=367)
 
-### La mejor terminación
-
-​      En los sorteos de la lotería más mediáticos, como el del Gordo de Navidad o el del Niño, es habitual que los fetichistas  busquen números con algún tipo de significado extraño o que los matemáticos y estadísticos se entretengan informando sobre los números más habituales.    
-
-​      Esto último es interesante si queremos maximizar la probabilidad de ganar algo. Dado que los números que terminan con el mismo dígito que el del premio principal tienen un reintegro, una buena forma de intentar, al menos, no perder dinero es jugar un número con la terminación más habitual en el histórico de sorteos.    
-
-​      Siendo puristas, la probabilidad de que salga un número es independiente de lo que haya ocurrido en años anteriores. Pero es tan tentador ignorar esto que no puedes resistirte. 
-
-La entrada consistirá en un array con varios boletos de lotería y la salida será cuántas veces se repite una terminación (sólo el último dígito).
-
-Por ejemplo, `"00004", "03847", "39804"`
-
-```
-{4=2, 7=1}
-```
-
-O, `"58975", "25894", "52985", "98598"`
-
-```
-{4=1, 5=2, 8=1}
-```
-
-**Fuente**
-
-[https://www.aceptaelreto.com/problem/statement.php?id=387](https://www.aceptaelreto.com/problem/statement.php?id=387)
-
 ## HashMap, TreeMap y LinkedHashMap
 
 Esta clases: `HashMap`, `TreeMap` y `LinkedHashMap` nos permite almacenar elementos asociando a cada clave un valor.
@@ -786,6 +760,62 @@ Declara un `HashMap` que almacene el país y la capital de varios países Europe
 > }
 > ```
 >
+
+### La mejor terminación
+
+​      En los sorteos de la lotería más mediáticos, como el del Gordo de Navidad o el del Niño, es habitual que los fetichistas  busquen números con algún tipo de significado extraño o que los matemáticos y estadísticos se entretengan informando sobre los números más habituales.    
+
+​      Esto último es interesante si queremos maximizar la probabilidad de ganar algo. Dado que los números que terminan con el mismo dígito que el del premio principal tienen un reintegro, una buena forma de intentar, al menos, no perder dinero es jugar un número con la terminación más habitual en el histórico de sorteos.    
+
+​      Siendo puristas, la probabilidad de que salga un número es independiente de lo que haya ocurrido en años anteriores. Pero es tan tentador ignorar esto que no puedes resistirte. 
+
+La entrada consistirá en un array con varios boletos de lotería y la salida será cuántas veces se repite una terminación (sólo el último dígito).
+
+Por ejemplo, `"00004", "03847", "39804"`
+
+```
+{4=2, 7=1}
+```
+
+O, `"58975", "25894", "52985", "98598"`
+
+```
+{4=1, 5=2, 8=1}
+```
+
+
+> -toogle-Piensa antes de mirar
+> ```java
+> import java.util.Map;
+> import java.util.HashMap;
+> 
+> public class Sorteo {
+>     public static void main(String[] args) {
+>         System.out.println(calcular("00004", "03847", "39804"));
+>        System.out.println(calcular("58975", "25894", "52985", "98598"));
+>     }
+>     public static String calcular(String ... boletos){
+> 
+>         Map<Integer,Integer> terminaciones = new HashMap<Integer,Integer>();
+>         int terminacion;
+>         Integer actual;
+>         for (String boleto : boletos) {
+>             terminacion = Integer.parseInt("" + boleto.charAt(boleto.length()-1));
+>             actual = terminaciones.get(terminacion);
+>             if (actual == null)
+>                 terminaciones.put(terminacion, 1);
+>             else
+>                 terminaciones.put(terminacion, ++actual);
+>         }
+>         
+>         return terminaciones.toString();      
+>     }
+> }
+```
+**Fuente**
+
+[https://www.aceptaelreto.com/problem/statement.php?id=387](https://www.aceptaelreto.com/problem/statement.php?id=387)
+
 
 ### Ejercicio `Botín`
 
