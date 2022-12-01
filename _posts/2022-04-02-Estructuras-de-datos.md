@@ -903,6 +903,25 @@ Es decir, la clave `aalm` tendrá una lista con dos valores: `alma` y `mala`.
 
 Después se pide un número  (`minGroupSize`) que es el mínimo número de valores para que salga impreso por pantalla
 
+Para leer un archivo línea a línea, usa el siguiente código:
+```java
+import java.io.*;
+import java.util.*;
+
+public class CountCountries {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader("path-to-file"));
+        String line;
+        while ((line = reader.readLine())!=null) {
+            //trabajamos con  line
+        }
+        reader.close();
+
+    }
+}
+
+```
+
 > -toogle- Piensa antes de mirar
 >
 > ```java
