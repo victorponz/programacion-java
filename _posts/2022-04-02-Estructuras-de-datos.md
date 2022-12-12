@@ -764,6 +764,22 @@ Declara un `HashMap` que almacene el país y la capital de varios países Europe
 > ```
 >
 
+## Teléfonos
+
+Queremos tener un guía de teléfonos que asocie un número de teléfono a un contacto. El programa debe pedir un contacto y mostrar su número asociado
+
+## Teléfonos II
+
+Se trata de implementar el ejercicio anterior pero un contacto puede tener más de un teléfono:
+
+> -toogle- Pista
+>
+> Utiliza un `ArrayList` como valor
+>
+> ```java
+> HashMap<String, ArrayList<String>> phoneNumbers = new HashMap<>();
+> ```
+
 ### La mejor terminación
 
 ​      En los sorteos de la lotería más mediáticos, como el del Gordo de Navidad o el del Niño, es habitual que los fetichistas  busquen números con algún tipo de significado extraño o que los matemáticos y estadísticos se entretengan informando sobre los números más habituales.    
@@ -793,27 +809,28 @@ O, `"58975", "25894", "52985", "98598"`
 > import java.util.HashMap;
 > 
 > public class Sorteo {
->     public static void main(String[] args) {
->         System.out.println(calcular("00004", "03847", "39804"));
->        System.out.println(calcular("58975", "25894", "52985", "98598"));
->     }
->     public static String calcular(String ... boletos){
+>  public static void main(String[] args) {
+>      System.out.println(calcular("00004", "03847", "39804"));
+>     System.out.println(calcular("58975", "25894", "52985", "98598"));
+>  }
+>  public static String calcular(String ... boletos){
 > 
->         Map<Integer,Integer> terminaciones = new HashMap<Integer,Integer>();
->         int terminacion;
->         Integer actual;
->         for (String boleto : boletos) {
->             terminacion = Integer.parseInt("" + boleto.charAt(boleto.length()-1));
->             actual = terminaciones.get(terminacion);
->             if (actual == null)
->                 terminaciones.put(terminacion, 1);
->             else
->                 terminaciones.replace(terminacion, ++actual);
->         }
->         
->         return terminaciones.toString();      
->     }
+>      Map<Integer,Integer> terminaciones = new HashMap<Integer,Integer>();
+>      int terminacion;
+>      Integer actual;
+>      for (String boleto : boletos) {
+>          terminacion = Integer.parseInt("" + boleto.charAt(boleto.length()-1));
+>          actual = terminaciones.get(terminacion);
+>          if (actual == null)
+>              terminaciones.put(terminacion, 1);
+>          else
+>              terminaciones.replace(terminacion, ++actual);
+>      }
+>      
+>      return terminaciones.toString();      
+>  }
 > }
+> ```
 ```
 **Fuente**
 
@@ -937,7 +954,7 @@ Es decir, la clave `aalm` tendrá una lista con dos valores: `alma` y `mala`.
 Después se pide un número  (`minGroupSize`) que es el mínimo número de valores para que salga impreso por pantalla
 
 Para leer un archivo línea a línea, usa el siguiente código:
-```java
+​```java
 import java.io.*;
 import java.util.*;
 
