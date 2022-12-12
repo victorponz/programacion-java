@@ -8,7 +8,7 @@ conToc: true
 permalink: poo-ejemplos
 ---
 
-## Práctica clases
+## Práctica de clases
 
 Vamos a crear un cuantas clases para practicar
 
@@ -190,6 +190,10 @@ Alice
 ```
 
 El método a ejecutar se elige en función del tipo real del objeto, lo que significa la clase cuyo constructor se llama cuando se crea el objeto. Si el método no tiene definición en esa clase, la versión del método se elige de la clase más cercana al tipo real en la jerarquía de herencia.
+
+> -info-**Polimorfismo**
+>
+> Independientemente del tipo de variable, el método que se ejecuta siempre se elige en función del tipo real del objeto. Los objetos son polimórficos, lo que significa que se pueden utilizar a través de muchos tipos de variables diferentes. El método ejecutado siempre se relaciona con el tipo real del objeto. Este fenómeno se llama polimorfismo.
 
 ## Point
 
