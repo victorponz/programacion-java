@@ -260,6 +260,11 @@ document.querySelectorAll('blockquote p.toogle').forEach(el => {
 	
 	const newNode = document.createElement("summary");
 	newNode.innerHTML = firstParagraf.innerText;
+	if (firstParagraf.innerText != "")
+		newNode.innerHTML = firstParagraf.innerText;
+	else{
+		newNode.innerHTML = firstParagraf.innerHTML;
+	}
 	el.parentElement.insertBefore(newNode, el.parentElement.firstChild);
 	el.parentElement.removeChild(firstParagraf);
 });
