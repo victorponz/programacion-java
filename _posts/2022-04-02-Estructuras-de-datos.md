@@ -808,7 +808,7 @@ O, `"58975", "25894", "52985", "98598"`
 >             if (actual == null)
 >                 terminaciones.put(terminacion, 1);
 >             else
->                 terminaciones.put(terminacion, ++actual);
+>                 terminaciones.replace(terminacion, ++actual);
 >         }
 >         
 >         return terminaciones.toString();      
