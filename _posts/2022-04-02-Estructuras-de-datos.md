@@ -809,31 +809,30 @@ O, `"58975", "25894", "52985", "98598"`
 > import java.util.HashMap;
 > 
 > public class Sorteo {
->  public static void main(String[] args) {
->      System.out.println(calcular("00004", "03847", "39804"));
->     System.out.println(calcular("58975", "25894", "52985", "98598"));
->  }
->  public static String calcular(String ... boletos){
+> public static void main(String[] args) {
+>   System.out.println(calcular("00004", "03847", "39804"));
+>  System.out.println(calcular("58975", "25894", "52985", "98598"));
+> }
+> public static String calcular(String ... boletos){
 > 
->      Map<Integer,Integer> terminaciones = new HashMap<Integer,Integer>();
->      int terminacion;
->      Integer actual;
->      for (String boleto : boletos) {
->          terminacion = Integer.parseInt("" + boleto.charAt(boleto.length()-1));
->          actual = terminaciones.get(terminacion);
->          if (actual == null)
->              terminaciones.put(terminacion, 1);
->          else
->              terminaciones.replace(terminacion, ++actual);
->      }
->      
->      return terminaciones.toString();      
->  }
+>   Map<Integer,Integer> terminaciones = new HashMap<Integer,Integer>();
+>   int terminacion;
+>   Integer actual;
+>   for (String boleto : boletos) {
+>       terminacion = Integer.parseInt("" + boleto.charAt(boleto.length()-1));
+>       actual = terminaciones.get(terminacion);
+>       if (actual == null)
+>           terminaciones.put(terminacion, 1);
+>       else
+>           terminaciones.replace(terminacion, ++actual);
+>   }
+>   
+>   return terminaciones.toString();      
+> }
 > }
 > ```
-```
-**Fuente**
 
+**Fuente**
 [https://www.aceptaelreto.com/problem/statement.php?id=387](https://www.aceptaelreto.com/problem/statement.php?id=387)
 
 
@@ -954,7 +953,7 @@ Es decir, la clave `aalm` tendrá una lista con dos valores: `alma` y `mala`.
 Después se pide un número  (`minGroupSize`) que es el mínimo número de valores para que salga impreso por pantalla
 
 Para leer un archivo línea a línea, usa el siguiente código:
-​```java
+```java
 import java.io.*;
 import java.util.*;
 
@@ -1141,7 +1140,7 @@ public class HashSet1 {
 		// Demonstrating Set using HashSet
 		// Declaring object of type String
 		Set<String> hash_Set = new HashSet<String>();
-
+	
 		// Adding elements to the Set
 		// using add() method
 		hash_Set.add("Geeks");
@@ -1149,7 +1148,7 @@ public class HashSet1 {
 		hash_Set.add("Geeks");
 		hash_Set.add("Example");
 		hash_Set.add("Set");
-
+	
 		// Printing elements of HashSet object
 		System.out.println(hash_Set);
 	}
@@ -1193,19 +1192,20 @@ public class SetExample {
 	b.addAll(Arrays.asList(
 			new Integer[] { 1, 3, 7, 5, 4, 0, 7, 5 }));
 
-		
+
+​		
 		// To find union
 		Set<Integer> union = new HashSet<Integer>(a);
 		union.addAll(b);
 		System.out.print("Union of the two Set");
 		System.out.println(union);
-
+	
 		// To find intersection
 		Set<Integer> intersection = new HashSet<Integer>(a);
 		intersection.retainAll(b);
 		System.out.print("Intersection of the two Set");
 		System.out.println(intersection);
-
+	
 		// To find the symmetric difference
 		Set<Integer> difference = new HashSet<Integer>(a);
 		difference.removeAll(b);
@@ -1228,7 +1228,6 @@ Difference of the two Set[2, 8, 9]
 ### Ejemplo devolver entradas únicas
 
 Se trata de encontrar los valores únicos de un array
-
 ```java
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1244,7 +1243,7 @@ public class Unicos {
 	}
 
 	public static void main(String[] args) {
-
+	
 		printUnique("hola", "adios", "hola", "hola", "tres", "cuatro", "adios");
 		
 	}
@@ -1275,7 +1274,7 @@ public class HashSetExample {
 		Set<String> duplicates = new HashSet<String>(list);
 		System.out.println(duplicates);
 	}
-
+	
 	public static void main(String[] args) {
 			printDuplicates("hola", "adios", "hola", "hola", "tres", "cuatro", "adios");
 		
@@ -1347,14 +1346,14 @@ class Test
 	static void stack_pop(Stack<Integer> stack)
 	{
 		System.out.println("Pop Operation:");
-
+	
 		for(int i = 0; i < 5; i++)
 		{
 			Integer y = (Integer) stack.pop();
 			System.out.println(y);
 		}
 	}
-
+	
 	// Displaying element on the top of the stack
 	static void stack_peek(Stack<Integer> stack)
 	{
@@ -1366,7 +1365,7 @@ class Test
 	static void stack_search(Stack<Integer> stack, int element)
 	{
 		Integer pos = (Integer) stack.search(element);
-
+	
 		if(pos == -1)
 			System.out.println("Element not found");
 		else
@@ -1377,7 +1376,7 @@ class Test
 	public static void main (String[] args)
 	{
 		Stack<Integer> stack = new Stack<Integer>();
-
+	
 		stack_push(stack);
 		stack_pop(stack);
 		stack_push(stack);
@@ -1415,23 +1414,23 @@ class StackDemo {
 	// Main Method
 	public static void main(String[] args)
 	{
-
+	
 		// Default initialization of Stack
 		Stack stack1 = new Stack();
-
+	
 		// Initialization of Stack
 		// using Generics
 		Stack<String> stack2 = new Stack<String>();
-
+	
 		// pushing the elements
 		stack1.push(4);
 		stack1.push("All");
 		stack1.push("Geeks");
-
+	
 		stack2.push("Geeks");
 		stack2.push("For");
 		stack2.push("Geeks");
-
+	
 		// Printing the Stack Elements
 		System.out.println(stack1);
 		System.out.println(stack2);
@@ -1459,21 +1458,21 @@ public class StackDemo {
 	{
 		// Creating an empty Stack
 		Stack<String> stack = new Stack<String>();
-
+	
 		// Use push() to add elements into the Stack
 		stack.push("Welcome");
 		stack.push("To");
 		stack.push("Geeks");
 		stack.push("For");
 		stack.push("Geeks");
-
+	
 		// Displaying the Stack
 		System.out.println("Initial Stack: " + stack);
-
+	
 		// Fetching the element at the head of the Stack
 		System.out.println("The element at the top of the"
 						+ " stack is: " + stack.peek());
-
+	
 		// Displaying the Stack after the Operation
 		System.out.println("Final Stack: " + stack);
 	}
@@ -1508,16 +1507,16 @@ public class StackDemo {
 		stack.push(30);
 		stack.push(20);
 		stack.push(5);
-
+	
 		// Displaying the Stack
 		System.out.println("Initial Stack: " + stack);
-
+	
 		// Removing elements using pop() method
 		System.out.println("Popped element: "
 						+ stack.pop());
 		System.out.println("Popped element: "
 						+ stack.pop());
-
+	
 		// Displaying the Stack after pop operation
 		System.out.println("Stack after pop operation "
 						+ stack);
