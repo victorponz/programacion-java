@@ -1532,6 +1532,28 @@ Popped element: 20
 Stack after pop operation [10, 15, 30]
 ```
 
+### Ejercicios
+
+Realiza los siguientes ejercicios:
+
+* [Paréntesis](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#14-par%C3%A9ntesis). 
+
+  > -toogle-Pista
+  >
+  > * Cuando encuentres un símbolo de apertura, añádelo a la pila
+  > * Cuando sea de cierre, saca uno de la pila y comprueba si es el correspondiente. En caso contrario está mal
+
+* [Expresiones aritméticas](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#16-expresiones-aritm%C3%A9ticas)
+
+  > -toogle-Pista
+  >
+  > * ve apilando los operandos
+  > * Cuando encuentres un operador, saca dos operandos y aplícale el operador
+
+
+
+
+
 **Más información en** [https://www.geeksforgeeks.org/stack-class-in-java/](https://www.geeksforgeeks.org/stack-class-in-java/)
 
 [https://www.hackerrank.com/domains/java?filters%5Bsubdomains%5D%5B%5D=java-data-structure](https://www.hackerrank.com/domains/java?filters%5Bsubdomains%5D%5B%5D=java-data-structure)
