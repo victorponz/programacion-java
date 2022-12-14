@@ -1,0 +1,114 @@
+#subject-container .subject-details{
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
+    color: var(--text-color);
+   }
+  #subject-container h1 {
+  width: 100%;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 80px;
+  color: var(--text-color);
+  }
+  #subject-container h2 {
+  width: 100%;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 24px;
+  color: var(--text-color);
+  margin-bottom: 24px;
+  margin-top: 24px;
+  }
+  #hero{
+    height: auto;
+    padding-top: 24px;
+  }
+  #menuContainer{
+    z-index: 100;
+    position: absolute;
+  }
+  
+  #write-wrapper{
+    margin-top: 80px;
+    background-color: var(--bg-primary);
+    color: var(--text-color);
+  }
+  #content p{
+    margin: revert;
+  }
+  body{
+    padding: 0;
+    padding-top:80px;
+    background-color: var(--bg-primary);
+  }
+  #write-wrapper{
+    box-shadow: var(--shadow);
+  }
+  #menu a{
+    color: var(--text-color);
+  }
+  a.nav-link{
+   color: var(--text-color);
+  }
+  .toggle-icons{
+    margin: 0;
+  }
+  .navbar {
+    background-color: transparent;
+  }
+  .navbar .container{
+    height: auto;
+  }
+  #menu{
+    font-size: 18px;
+    color: var(--text-color);
+    border-left: 5px solid var(--text-color);
+    padding-left: 30px;
+  }
+  .navbar .nav-menu{
+    background-color: transparent;
+  }
+  .navbar .nav-menu.active{
+    background-color: var(--bg-primary);
+  }
+  #write ul{
+    list-style: initial;
+    padding-left: 28px;
+  }
+  #subject-container .subject-details table{
+    color:unset;
+  }
+  [data-theme="dark"] table tr{
+    color: white;
+  }
+  [data-theme="dark"] table tr {
+  background-color: var(--bg-primary2);
+  color: var(--text-color-two);
+  }
+  [data-theme="dark"] table tr:nth-child(2n),  [data-theme="dark"] thead {
+  background-color: black;
+  color: var(--text-color);
+  }
+  [data-theme="dark"] table tr {
+  background-color: var(--bg-primary2);
+  color: var(--text-color);
+  }
+  [data-theme="dark"] .icon-blockquote{
+    background: white;
+    padding: 8px;
+    border-radius: 4px;
+}
+.top-hidden a.toogle, .top-hidden.indice a.toogle{
+    box-sizing: unset;
+  }
+  h1, h2, h3, h4, h5, h6{
+    border-bottom: 1px solid var(--bg-secondary);
+  }
+  h1.indice, h3.indice{
+    border: none;
+  }
+  .theme-switch{
+     margin-right: 50px;;
+  }
+  #back-to-top-link {
+    background-color: var(--bg-secondary);
+    color: var(--text-color-two);
+  }

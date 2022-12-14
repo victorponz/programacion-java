@@ -1,0 +1,45 @@
+---
+layout: default
+---
+{% if page.conToc %}
+<h1>{{ page.title }}</h1>
+{% endif %}
+        {% assign content = content | replace: '>-info-', ' class="info"><i class="fa fa-info icon-blockquote"></i> ' %}
+        {% assign content = content | replace: '>-hint-', ' class="hint"><i class="fa fa-lightbulb icon-blockquote"></i> ' %}
+        {% assign content = content | replace: '>-task-', ' class="task"><i class="fa fa-tasks icon-blockquote"></i> ' %}
+        {% assign content = content | replace: '>-reto-', ' class="reto"><i class="fa fa-graduation-cap icon-blockquote"></i> ' %}
+        {% assign content = content | replace: '>-warning-', ' class="warning"><i class="fa fa-exclamation icon-blockquote"></i> ' %}
+        {% assign content = content | replace: '>-alert-', ' class="alert"><i class="fa fa-bomb icon-blockquote"></i> ' %}
+        {% assign content = content | replace: '>-toogle-', ' class="toogle">' %}
+        <div>
+            {% if page.conToc %}
+                {% include toc.html html=content class="atypora-menu" id="menu"%}
+            {% endif %}
+            <div id="menuContainer">
+                {% if page.conToc %}
+                    {% include toc.html html=content class="typora-menu-hidden" id="menuFixed"%}
+                {% endif %}
+                <div class="top-hidden" id="topFixed">
+                    <a title='Mostrar/Ocultar menú' class="toogle expanded pull-left js-toolbar-action" aria-label="" href="#"><i class="fas fa-align-justify"></i></a>
+                </div>
+                <div class="top-hidden indice btn btn-sm btn-primary shadow p-2 px-3 popup-trigger"
+                    data-popup-trigger="one" id="indexFixed" style='cursor:pointer'>
+                    <a title='Índice' class="toogle expanded pull-left js-toolbar-action" aria-label="" onclick='return false'><i class="fas fa-list"></i></a>
+                </div>
+            </div>
+        </div>
+        <div id='content'>
+        {{ content }}
+        </div>
+<!-- body overlay -->
+<div class="body-blackout"></div>
+
+<!-- Modals Triggers -->
+
+<div 
+  class="popup-modal shadow" 
+  data-popup-modal="one">
+  <i class="fas fa-2x fa-times text-white bg-primary p-3 popup-modal__close"></i>
+  <iframe id="iframeIndice" scrolling="yes" frameborder="0" style="position: relative; height: 100%; width: 100%;" src='/programacion-java/index-popup.html'></iframe>
+ 
+</div>

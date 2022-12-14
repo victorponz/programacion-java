@@ -1,36 +1,106 @@
----
-layout: default
----
-{% if page.conToc %}
-<h1>{{ page.title }}</h1>
-{% endif %}
-        {% assign content = content | replace: '>-info-', ' class="info"><i class="fa fa-info icon-blockquote"></i> ' %}
-        {% assign content = content | replace: '>-hint-', ' class="hint"><i class="fa fa-lightbulb icon-blockquote"></i> ' %}
-        {% assign content = content | replace: '>-task-', ' class="task"><i class="fa fa-tasks icon-blockquote"></i> ' %}
-        {% assign content = content | replace: '>-reto-', ' class="reto"><i class="fa fa-graduation-cap icon-blockquote"></i> ' %}
-        {% assign content = content | replace: '>-warning-', ' class="warning"><i class="fa fa-exclamation icon-blockquote"></i> ' %}
-        {% assign content = content | replace: '>-alert-', ' class="alert"><i class="fa fa-bomb icon-blockquote"></i> ' %}
-        {% assign content = content | replace: '>-toogle-', ' class="toogle">' %}
-        <div>
-            {% if page.conToc %}
-                {% include toc.html html=content class="atypora-menu" id="menu"%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Primary Meta Tags -->
+    <title>{{ page.title }}</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link href="{{ site.baseurl }}/assets/css/syntax.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.13/css/all.css' integrity='sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp' crossorigin='anonymous'>
+    <link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/utilities.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/post.css" />
+
+  
+  
+   <style>
+    </style>
+
+   </head>
+  <body>
+    <header id="hero">
+      <!-- Navbar -->
+      <nav class="navbar">
+        <div class="container">
+          <!-- Logo -->
+          <h1 id="logo">
+          </h1>
+          <!-- Navbar links -->
+          <ul class="nav-menu">
+            <li><a class="nav-link  btn btn-primary" href="/">HOME</a></li>
+            <li><a class="nav-link  btn btn-primary" href="{{ site.baseurl }}/">INICIO</a></li>
+
+            <!-- Toggle switch -->
+            <div class="theme-switch">
+              <input type="checkbox" id="switch" />
+              <label class="toggle-icons" for="switch">
+                <img class="moon" src="{{ site.baseurl }}/assets/moon.svg" />
+                <img class="sun" src="{{ site.baseurl }}/assets/sun.svg" />
+              </label>
+            </div>
+            <!-- Hamburger menu -->
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    {% assign content = content | replace: '>-info-', ' class="info"><i class="fa fa-info icon-blockquote"></i> ' %}
+    {% assign content = content | replace: '>-hint-', ' class="hint"><i class="fa fa-lightbulb icon-blockquote"></i> ' %}
+    {% assign content = content | replace: '>-task-', ' class="task"><i class="fa fa-tasks icon-blockquote"></i> ' %}
+    {% assign content = content | replace: '>-reto-', ' class="reto"><i class="fa fa-graduation-cap icon-blockquote"></i> ' %}
+    {% assign content = content | replace: '>-warning-', ' class="warning"><i class="fa fa-exclamation icon-blockquote"></i> ' %}
+    {% assign content = content | replace: '>-alert-', ' class="alert"><i class="fa fa-bomb icon-blockquote"></i> ' %}
+    {% assign content = content | replace: '>-toogle-', ' class="toogle">' %}
+    <div>
+       
+        <div id="menuContainer">
+            {% if page.conToc %}                
+                {% include toc.html html=content class="typora-menu-hidden" id="menuFixed"%}
             {% endif %}
-            <div id="menuContainer">
-                {% if page.conToc %}
-                    {% include toc.html html=content class="typora-menu-hidden" id="menuFixed"%}
-                {% endif %}
-                <div class="top-hidden" id="topFixed">
-                    <a title='Mostrar/Ocultar menú' class="toogle expanded pull-left js-toolbar-action" aria-label="" href="#"><i class="fas fa-align-justify"></i></a>
-                </div>
-                <div class="top-hidden indice btn btn-sm btn-primary shadow p-2 px-3 popup-trigger"
-                    data-popup-trigger="one" id="indexFixed" style='cursor:pointer'>
-                    <a title='Índice' class="toogle expanded pull-left js-toolbar-action" aria-label="" onclick='return false'><i class="fas fa-list"></i></a>
-                </div>
+            <div class="top-hidden" id="topFixed">
+                <a title='Mostrar/Ocultar menú' class="toogle expanded pull-left js-toolbar-action" aria-label="" href="#"><i class="fas fa-align-justify"></i></a>
             </div>
         </div>
-        <div id='content'>
-        {{ content }}
+    </div>
+    <!-- Projects -->
+    <a class="github-fork-ribbon" href="https://github.com/{{ site.github_repo}}" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div id="write-wrapper">
+    <section id="projects" class="project-container container">
+      <div id="subject-container" style="width: 100%; padding-top:80px">
+         <div class="subject-details">
+          <div id="write">
+            <div style="height: 80px; border-left: 5px solid var(--text-color)"></div>
+            <h1 class="indice">{{ page.title }}</h1>
+          {% if page.conToc %}
+          <h3 class="indice">Índice</h3>
+          {% include toc.html html=content class="atypora-menu" id="menu"%}      
+          {% endif %}
+       
+          <div id='content'>
+           
+            {{ content }}
+          </div>
+         </div>
         </div>
+      </div>
+     </section>
+    </div>
 <!-- body overlay -->
 <div class="body-blackout"></div>
 
@@ -43,3 +113,47 @@ layout: default
   <iframe id="iframeIndice" scrolling="yes" frameborder="0" style="position: relative; height: 100%; width: 100%;" src='/programacion-java/index-popup.html'></iframe>
  
 </div>
+
+    <footer id="footer">
+      <div class="container">
+        <!-- Attribution -->
+        <div class="attribution">
+          <a rel="license" href="http://creativecoms.org/licenses/by-sa/4.0/">
+            <img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+          </a>
+          <br />Todo el material de esta web está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</a>.
+
+        </div>
+        <div class="attribution">
+          <a
+            href="https://github.com/CommunityPro/portfolio-html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://user-images.githubusercontent.com/62628408/157202263-9174da24-b19a-4017-9b7c-a1d26ae8f014.svg"
+              alt="attribution"
+              width="150px"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
+    <a href="#top" id='back-to-top-link'><i class='fa fa-angle-up'></i></a>
+  
+    <script src="{{ site.baseurl }}/assets/js/webfont.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/snap.svg-min.js"></script>   
+    <script src="{{ site.baseurl }}/assets/js/underscore-min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/sequence-diagram-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/raphael.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/flowchart-latest.js"></script>    
+    <script src="{{ site.baseurl }}/assets/js/main.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/script.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    {% include analytics.html %}
+  </body>
+</html>
+

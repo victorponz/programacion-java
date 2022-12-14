@@ -1,0 +1,36 @@
+#subject-container .subject-details{
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
+    color: var(--text-color);
+    border-left: 5px solid var(--text-color);
+    padding-left: 30px;
+
+  }
+  #subject-container h1 {
+  width: 100%;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 80px;
+  color: var(--text-color);
+  }
+  #subject-container h2 {
+  width: 100%;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 24px;
+  color: var(--text-color);
+  margin-bottom: 24px;
+  margin-top: 24px;
+  }
+  #subject-container ol li{
+    list-style-type: none;
+    padding: 4px;
+    padding-left: 24px;
+  }
+  .theme-switch{
+     margin-right: 50px;;
+  }
+  .navbar, .navbar .nav-menu{
+    background-color: transparent;
+  }
+  .navbar .nav-menu.active{
+    background-color: var(--bg-primary);
+  }

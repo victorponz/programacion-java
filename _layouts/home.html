@@ -5,42 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Primary Meta Tags -->
-    <title>Programación en JAVA - DAW</title>
+    <title>Programación en JAVA</title>
     <link
-      rel="stylesheet"	
+      rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/utilities.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/utilities.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/home.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
+
     <style>
-      #subject-container .subject-details{
-      font-family: 'EB Garamond', serif;
-      font-size: 18px;
-      color: var(--text-color);
-      border-left: 5px solid var(--text-color);
-      padding-left: 30px;
-
-    }
-    #subject-container h1 {
-    width: 100%;
-    text-align: center;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 30px;
-    color: var(--text-color);
-    }
-    #subject-container h2 {
-    width: 100%;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 24px;
-    color: var(--text-color);
-    }
-    #subject-container ol li{
-      list-style-type: none;
-    }
-
-
+    
     </style>
   </head>
   <body>
@@ -53,21 +31,13 @@
           </h1>
           <!-- Navbar links -->
           <ul class="nav-menu">
-            <li><a class="nav-link" href="/">INICIO</a></li>
-            <li>
-              <a
-                class="nav-link btn btn-primary"
-                href="https://github.com/victorponz/programacion-java"
-                >GitHub <i class="fas fa-arrow-right"></i
-              ></a>
-            </li>
-
+            <li><a class="nav-link  btn btn-primary" href="/">HOME</a></li>
             <!-- Toggle switch -->
             <div class="theme-switch">
               <input type="checkbox" id="switch" />
               <label class="toggle-icons" for="switch">
-                <img class="moon" src="/assets/moon.svg" />
-                <img class="sun" src="/assets/sun.svg" />
+                <img class="moon" src="{{ site.baseurl }}/assets/moon.svg" />
+                <img class="sun" src="{{ site.baseurl }}/assets/sun.svg" />
               </label>
             </div>
             <!-- Hamburger menu -->
@@ -81,32 +51,28 @@
       </nav>
     </header>
 
+    <a class="github-fork-ribbon" href="https://github.com/{{ site.github_repo}}" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+
     <!-- Projects -->
     <section id="projects" class="project-container container">
-      <div class="content-text">
-        <div id="card-container">
-          <div class="card-details">
-                <h1>PROGRAMACIÓN EN JAVA</h1>
-                <p class="information">
-                    Esta sección contiene todo el temario de la módulo de Programación del Ciclo Formativo Superior de Desarrollo de Aplicaciones web.
-                </p>
-            </div>
-            <div class="card-image">
-                <img src="/assets/logo-java.jpg" alt="">
-            </div>
-          </div>
-        <div class="division"></div>
-      </div>
-      <div id="subject-container" style="width: 100%">
-      {{ content }}
-     </div>
-    </section>
+      <div id="subject-container" style="width: 100%; padding-top:80px">
+         <div class="subject-details" style="height: 80px;;"></div>
+         <div style="margin-left:-10%">
+          <h5>Última actualización {{ site.time | date: "%-d-%-m-%Y"}}</h5>
+          <h1 class="titulo">PROGRAMACIÓN EN JAVA</h1>
+         <h4 class="subtitulo">Desarrollo del currículo del módulo de Programación del ciclo superior Desarrollo de Aplicaciones WEB</h1>
+         
+         </div>
+         <div class="subject-details">
+         {{ content }}
+         </div>
+     </section>
 
     <footer id="footer">
       <div class="container">
         <!-- Attribution -->
         <div class="attribution">
-          <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+          <a rel="license" href="http://creativecoms.org/licenses/by-sa/4.0/">
             <img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
           </a>
           <br />Todo el material de esta web está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</a>.
@@ -127,6 +93,7 @@
         </div>
       </div>
     </footer>
-    <script src="js/script.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/script.js"></script>
   </body>
 </html>
+

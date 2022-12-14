@@ -97,12 +97,12 @@ window.addEventListener('scroll', function(e) {
     if (!isAnyPartOfElementInViewport(menu)){
         addClass(menuFixed, "show");
         addClass(topFixed, "show");
-        addClass(indexFixed, "show");
+        //addClass(indexFixed, "show");
         backToTop.style.display = 'inline';
     }else{
         removeClass(menuFixed, "show");
         removeClass(topFixed, "show");
-        removeClass(indexFixed, "show");
+        //removeClass(indexFixed, "show");
         backToTop.style.display = 'none';
     }
 
@@ -165,32 +165,33 @@ function showMenu() {
       x.className = "topnav";
     }
   }
-const modalTriggers = document.querySelectorAll('.popup-trigger')
-const modalCloseTrigger = document.querySelector('.popup-modal__close')
-const bodyBlackout = document.querySelector('.body-blackout')
-const iframeIndice = document.querySelector('#iframeIndice');
+//const modalTriggers = document.querySelectorAll('.popup-trigger')
+//const modalCloseTrigger = document.querySelector('.popup-modal__close')
+//const bodyBlackout = document.querySelector('.body-blackout')
+//const iframeIndice = document.querySelector('#iframeIndice');
 
-modalTriggers.forEach(trigger => {
-  trigger.addEventListener('click', () => {
-    const { popupTrigger } = trigger.dataset
-    const popupModal = document.querySelector(`[data-popup-modal="${popupTrigger}"]`)
-    iframeIndice.classList.add('is--visible')
-    popupModal.classList.add('is--visible')
-    bodyBlackout.classList.add('is-blacked-out')
+//Eliminamos la ventana de índice
+// modalTriggers.forEach(trigger => {
+//   trigger.addEventListener('click', () => {
+//     const { popupTrigger } = trigger.dataset
+//     const popupModal = document.querySelector(`[data-popup-modal="${popupTrigger}"]`)
+//     iframeIndice.classList.add('is--visible')
+//     popupModal.classList.add('is--visible')
+//     bodyBlackout.classList.add('is-blacked-out')
     
-    popupModal.querySelector('.popup-modal__close').addEventListener('click', () => {
-       popupModal.classList.remove('is--visible')
-       bodyBlackout.classList.remove('is-blacked-out')
-       iframeIndice.classList.remove('is--visible')
-    })
+//     popupModal.querySelector('.popup-modal__close').addEventListener('click', () => {
+//        popupModal.classList.remove('is--visible')
+//        bodyBlackout.classList.remove('is-blacked-out')
+//        iframeIndice.classList.remove('is--visible')
+//     })
     
-    bodyBlackout.addEventListener('click', () => {
-      // TODO: Turn into a function to close modal
-      popupModal.classList.remove('is--visible')
-      bodyBlackout.classList.remove('is-blacked-out')
-    })
-  })
-})
+//     bodyBlackout.addEventListener('click', () => {
+//       // TODO: Turn into a function to close modal
+//       popupModal.classList.remove('is--visible')
+//       bodyBlackout.classList.remove('is-blacked-out')
+//     })
+//   })
+// })
 
 document.querySelectorAll('div.highlighter-rouge').forEach(el => {
     const newNode = document.createElement("div");
