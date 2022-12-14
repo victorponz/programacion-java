@@ -20,13 +20,7 @@
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css" />
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/utilities.css" />
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/post.css" />
-
-  
-  
-   <style>
-    </style>
-
-   </head>
+ </head>
   <body>
     <header id="hero">
       <!-- Navbar -->
@@ -39,7 +33,13 @@
           <ul class="nav-menu">
             <li><a class="nav-link  btn btn-primary" href="/">HOME</a></li>
             <li><a class="nav-link  btn btn-primary" href="{{ site.baseurl }}/">INICIO</a></li>
-
+            <li>
+              <a
+                class="nav-link btn btn-primary"
+                href="https://github.com/{{ site.github_repo}}"
+                >GitHub <i class="fas fa-arrow-right"></i
+              ></a>
+            </li>
             <!-- Toggle switch -->
             <div class="theme-switch">
               <input type="checkbox" id="switch" />
@@ -77,9 +77,6 @@
             </div>
         </div>
     </div>
-    <!-- Projects -->
-    <a class="github-fork-ribbon" href="https://github.com/{{ site.github_repo}}" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
-
     <div id="write-wrapper">
     <section id="projects" class="project-container container">
       <div id="subject-container" style="width: 100%; padding-top:80px">
