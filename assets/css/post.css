@@ -43,7 +43,7 @@
     box-shadow: var(--shadow);
   }
   #menu a{
-    color: var(--text-color);
+    color: #000000;
   }
   a.nav-link{
    color: var(--text-color);
