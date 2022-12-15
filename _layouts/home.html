@@ -12,6 +12,9 @@
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
+        <script>
+	  document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") ?  localStorage.getItem("theme") : "");
+    </script>
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css" />
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/utilities.css" />
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/home.css" />

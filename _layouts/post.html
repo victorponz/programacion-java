@@ -12,6 +12,9 @@
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
+    <script>
+	  document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") ?  localStorage.getItem("theme") : "");
+    </script>
     <link href="{{ site.baseurl }}/assets/css/syntax.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.13/css/all.css' integrity='sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp' crossorigin='anonymous'>
