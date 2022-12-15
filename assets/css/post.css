@@ -1,6 +1,6 @@
 #subject-container .subject-details{
     font-family: 'EB Garamond', serif;
-    font-size: 18px;
+    font-size: 20px;
     color: var(--text-color);
    }
   #subject-container h1 {
@@ -58,7 +58,7 @@
     height: auto;
   }
   #menu{
-    font-size: 18px;
+    font-size: 20px;
     color: var(--text-color);
     border-left: 5px solid var(--text-color);
     padding-left: 30px;
@@ -106,7 +106,7 @@
     border: none;
   }
   .theme-switch{
-     margin-right: 50px;;
+     margin-right: 70px;
   }
   #back-to-top-link {
     background-color: var(--bg-secondary);
@@ -117,3 +117,8 @@
 	left:-62px;
 }
    
+[data-theme="dark"] code.highlighter-rouge {
+	background-color: var(--bg-secondary);
+	color: var(--bg-primary);
+}
+
