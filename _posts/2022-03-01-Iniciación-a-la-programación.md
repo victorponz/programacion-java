@@ -442,7 +442,3 @@ A pesar de que todavía no conocéis ninguna de las instrucciones de Java ni su 
 
 > -reto-**Reto 2**: modificad el código fuente para que el programa muestre por pantalla Adiós, mundo!
 
-------
-
-[IES El Caminàs](http://www.ieselcaminas.org/)
-![Logo](/programacion-java/assets/img/ini-prog/logo_lletres.png)

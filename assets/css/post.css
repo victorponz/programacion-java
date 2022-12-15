@@ -43,10 +43,10 @@
     box-shadow: var(--shadow);
   }
   #menu a{
-    color: #000000;
+    color: var(--text-color);
   }
   a.nav-link{
-   color: var(--text-color);
+   color: #000000;
   }
   .toggle-icons{
     margin: 0;
@@ -112,3 +112,8 @@
     background-color: var(--bg-secondary);
     color: var(--text-color-two);
   }
+  
+[data-theme="dark"] .icon-blockquote{
+	left:-62px;
+}
+   
