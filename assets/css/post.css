@@ -19,7 +19,6 @@
   #subject-container h2 {
   width: 100%;
   font-family: 'Bebas Neue', cursive;
-  font-size: 24px;
   color: var(--text-color);
   margin-bottom: 24px;
   margin-top: 24px;
@@ -127,5 +126,12 @@
 [data-theme="dark"] code.highlighter-rouge {
 	background-color: var(--bg-secondary);
 	color: var(--bg-primary);
+}
+#menuContainer code.highlighter-rouge{
+  color: var(--text-color);
+}
+
+[data-theme="dark"] #menuContainer code.highlighter-rouge{
+  color: var(--text-color-two);
 }
 

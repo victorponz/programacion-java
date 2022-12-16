@@ -384,10 +384,6 @@ video {
 .PageNavigation a, #menu a{
   font-size:inherit;
 }
-#menuContainer code.highlighter-rouge{
-  background-color: transparent;
-}
-
 textarea,
 input[type="text"] {
 	width: 100%;
