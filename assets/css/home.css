@@ -10,7 +10,13 @@
   width: 100%;
   font-family: 'Bebas Neue', cursive;
   font-size: 80px;
-  color: var(--text-color);
+  color: var(--primary-color);
+  text-shadow:
+  0px 0px 0 black,
+  -2px -2px 0 black,  
+  2px -2px 0 black,
+  -2px 2px 0 black,
+   2px 2px 0 black;
   }
   #subject-container h2 {
   width: 100%;
