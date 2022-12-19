@@ -135,3 +135,6 @@
   color: var(--text-color-two);
 }
 
+a {
+  text-decoration: none;
+}
