@@ -1549,7 +1549,7 @@ Realiza los siguientes ejercicios:
   > * ve apilando los operandos
   > * Cuando encuentres un operador, saca dos operandos y aplícale el operador
 
-
+* [Trim](https://www.aceptaelreto.com/problem/statement.php?id=449)
 
 
 
