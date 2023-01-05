@@ -2,15 +2,11 @@
 typora-copy-images-to: ../assets/img/strings/
 typora-root-url: ../../
 layout: post
-title: Strings II
+title: Funciones de cadenas II
 categories: strings
 conToc: true
 permalink: strings-II
 ---
-
-
-# Funciones de cadenas (String)
-
 En todos estos programas usaremos las funciones definidas en la clase `Utilidades`
 
 <script src="https://gist.github.com/victorponz/93c93fb7f8d88171b4792d78b8b03259.js"></script>
@@ -369,8 +365,7 @@ Diseña un programa que ayude al creador de pasatiempos. Recibirá una cadena y 
 > }
 > ```
 
-## 20 Suma binaria `SumarBinario.java` (avanzado)
-
+## 20 Suma binaria `SumarBinario.java`
 Haz un programa que lea dos cadenas que representen a sendos números binarios. A continuación, el programa mostrará el número binario que resulta de sumar ambos (y que será otra cadena\). Si, por ejemplo, el usuario introduce las cadenas '100' y '111', el programa mostrará como resultado la cadena '1011'
 
 > -toogle-Piensa antes de mirar
@@ -447,7 +442,7 @@ Haz un programa que lea dos cadenas que representen a sendos números binarios. 
 > }
 > ```
 
-## 21 Encriptar `Encriptar.java` (avanzado)
+## 21 Encriptar `Encriptar.java`
 
 Una de las técnicas de criptografía más rudimentarias consiste en sustituir cada uno de los caracteres por otro situado _n_ posiciones más a la derecha del abecedario. Si _n = 2_, sustituiremos la "a" por la "c", la "b" por la "d", y así sucesivamente. El problema que aparece con las últimas _n_ letras del alfabeto tiene fácil solución: en el ejemplo, la letra "y" se sustituye se sustituye por la "a" y la "z" por la "b". La sustitución debe aplicarse a las letras minúsculas y mayúsculas y a los dígitos. Las letras no deben incluir caracteres no ingleses \(es decir sin "ñ, ç" ni acentos\)  
 Diseña un programa que lea un texto y el valor n y muestre el texto criptografiado.  
@@ -487,7 +482,7 @@ Diseña un programa que lea un texto y el valor n y muestre el texto criptografi
 > }
 > ```
 
-## 22 Desencriptar `Desencriptar.java ` (avanzado)
+## 22 Desencriptar `Desencriptar.java`
 
 Diseña un programa que lea un texto criptografiado siguiendo la técnica expuesta en el ejercicio anterior y el valor n utilizado para encriptar y que muestre el texto descodificado.  
 

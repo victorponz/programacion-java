@@ -2,15 +2,11 @@
 typora-copy-images-to: ../assets/img/ficheros/
 typora-root-url: ../../
 layout: post
-title: Ficheros
+title:  Gestión del sistema de ficheros
 categories: ficheros
 conToc: true
-permalink: ficheros
+permalink: gestion-de-ficheros
 ---
-
-
-# Gestión del sistema de ficheros
-
 El objetivo de este  tema es sencillamente llegar a los archivos, pero no a su contenido, que se verá en el próximo tema.
 
 Sólo llegaremos a "ver" el archivo, con su ruta. De hecho la manera de llegar a un directorio y un archivo será idéntica. Y del archivo o directorio podremos llegar a ver y también modificar las características externas: nombre, tamaño, fecha de última modificación, permisos, ...

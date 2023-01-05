@@ -8,7 +8,6 @@ conToc: true
 permalink: variables-en-java
 ---
 
-## Introducción
 
 Esta parte describe cómo escribir declaraciones usando variables, que almacenan valores como números y palabras, y operadores, que son símbolos que realizan un cálculo. 
 
@@ -328,7 +327,7 @@ Los nombres están en todas partes en el software. Nombramos nuestras variables,
 
 ### Usar nombres que revelen la intención.
 
-> Los  nombres de las variables deben in en camelCase, pero la primera letra siempre en minúsculas. De esta forma las distinguimos de los nombre de las Clases que se escriben en CamelCase.
+>-info- Los  nombres de las variables deben in en lowerCamelCase, es decir, la primera letra SIEMPRE en minúsculas. De esta forma las distinguimos de los nombre de las Clases que se escriben en CamelCase.
 
 Todos los nombres deben ser intencionados y descriptivos. Evita abreviaciones, prefijos, usar secuencias de números en variables y las palabras redundantes (the-, a-, -object, -info, -data). Usa nombres que se puedan buscar (evita variables a, e, l… usar i, j, k solo para bucles cuyo contexto sea muy acotado).
 
@@ -572,13 +571,13 @@ Las reglas que determinan en qué orden se evalúan las operaciones.
 **composición**:
 La capacidad de combinar expresiones simples y declaraciones en compuesto expresiones y declaraciones
 
-------
 
-Basado en los siguientes documentos  
+-----
+Basado en los siguientes materiales:
 
-* http://www.cs.joensuu.fi/~saja/var_roles/stud_vers/stud_Java_eng.html 
+* [Roles de las variables](http://saja.kapsi.fi/var_roles/)
 
-* [Think java](http://greenteapress.com/wp/think-java/).  
+* [Think java](http://greenteapress.com/wp/think-java/).
 
   
 

@@ -8,8 +8,6 @@ conToc: true
 permalink: value-methods
 ---
 
-# Value methods
-
 Algunos de los métodos que hemos usado, como los métodos matemáticos, devuelven valores. Pero todos los métodos que hemos escrito en el capítulo anterior han sido nulos \(`void`\); es decir, no producen valores de retorno. En este capítulo, escribiremos métodos que devuelven valores, llamados _value methods_.
 
 Cuando invocamos a un método nulo, la invocación generalmente se realiza en una sola línea.  
@@ -467,7 +465,7 @@ Sugerencia: Una definición recursiva de esta operación es
 
 **7** `Primos.java` Crea un programa que muestre en pantalla todos los números primos entre 3 y 100, usando la función creada en el ejercicio anterior. Puedes llamar a la función creada en el ejercicio anterior de la siguiente forma: `Primo.esPrimo(numero);`
 
-# Adaptado del siguiente material
-
-[http://greenteapress.com/wp/think-java/](http://greenteapress.com/wp/think-java/) Version 6 by Allen Downey and Chris Mayfield
+-----
+Adaptado del siguiente material
+* [Think java](http://greenteapress.com/wp/think-java/).
 

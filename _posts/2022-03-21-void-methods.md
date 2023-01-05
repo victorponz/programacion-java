@@ -7,9 +7,6 @@ categories: metodos
 conToc: true
 permalink: void-methods
 ---
-
-# 1 Void methods
-
 Hasta ahora solo hemos escrito programas cortos que tienen una sola clase y un solo método \(main\). En este capítulo, mostraremos cómo organizar programas más largos en múltiples métodos y clases. También presentaremos la clase `Math` que proporciona métodos para operaciones matemáticas comunes.
 
 ## 1.1 Métodos matemáticos
@@ -352,7 +349,8 @@ Al igual que con los diagramas de estado, los diagramas de pila muestran variabl
 
 **5**. `MayorDeTres.java` Escribe un programa que pida tres números e imprima el mayor de los tres
 
-# Adaptado del siguiente material
-http://greenteapress.com/wp/think-java/ Version 6 by Allen Downey and Chris Mayfield
+-----
+Adaptado del siguiente material
+* [Think java](http://greenteapress.com/wp/think-java/).
 
 

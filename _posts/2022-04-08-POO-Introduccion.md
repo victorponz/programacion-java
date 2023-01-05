@@ -632,12 +632,13 @@ Supongamos una clase `Bebe` que almacena información de niños recién nacidos.
 
 Es decir, los parámetros del constructor **deben** incluir todos aquellos **necesarios** en el momento de la creación. Después hemos de pensar qué otros atributos queremos incluir como no necesarios.
 
-**Traducido de**
+----
+Adaptado de los siguientes materiales
 
-[https://math.hws.edu/javanotes/](https://math.hws.edu/javanotes/)
+* [https://math.hws.edu/javanotes/](https://math.hws.edu/javanotes/)
 
-https://github.com/ram8647/javajavajava
+* [https://github.com/ram8647/javajavajava](https://github.com/ram8647/javajavajava)
 
-https://computing.southern.edu/halterman/OOPJ/
+* [https://computing.southern.edu/halterman/OOPJ/](https://computing.southern.edu/halterman/OOPJ/)
 
-[https://cnx.org/contents/QCsgrcAf@37.6:3F9DBM-W@21/](https://cnx.org/contents/QCsgrcAf@37.6:3F9DBM-W@21/)
+* [https://cnx.org/contents/QCsgrcAf@37.6:3F9DBM-W@21/](https://cnx.org/contents/QCsgrcAf@37.6:3F9DBM-W@21/)

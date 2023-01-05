@@ -4,12 +4,9 @@ typora-root-url: ../../
 layout: post
 title: Iteradores
 categories: varios
-conToc: true
+conToc: false
 permalink: iteradores
 ---
-
-# Iteradores
-
 Para recorrer `ArrayList` hemos estando usando `for-each`.
 
 Por ejemplo, en la clase `GestorPersonas`:

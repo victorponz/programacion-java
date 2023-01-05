@@ -968,9 +968,9 @@ Vemos que las instrucciones comentadas darían error por los siguientes motivos:
 
 En el desarrollo de aplicaciones en Java es necesario tener especial cuidado en utilizar nombres que sean únicos y así poder asegurar su reutilización en una gran organización y, más aún, en cualquier lugar del mundo. Esto puede ser una tarea difícil en una gran organización y absolutamente imposible en la comunidad de Internet. Por eso se propone que toda organización utilice el nombre de su dominio, invertido, como prefijo para todas las clases. Es decir, los paquetes de clases desarrollados el IES El Caminàs, que tiene el dominio "ieselcaminas.org", podrían empezar por "org.ieselcaminas".
 
-https://avansti.github.io/TI1.1-OGP0-OGP1-Lesmateriaal/subjects/object-oriented-programming/
+----
+Adaptado de los siguientes materiales
 
-
-
-https://www3.ntu.edu.sg/home/ehchua/programming/java/J3b_OOPInheritancePolymorphism.html
+* [https://avansti.github.io/TI1.1-OGP0-OGP1-Lesmateriaal/subjects/object-oriented-programming/](https://avansti.github.io/TI1.1-OGP0-OGP1-Lesmateriaal/subjects/object-oriented-programming/)
+* [https://www3.ntu.edu.sg/home/ehchua/programming/java/J3b_OOPInheritancePolymorphism.html](https://www3.ntu.edu.sg/home/ehchua/programming/java/J3b_OOPInheritancePolymorphism.html)
 

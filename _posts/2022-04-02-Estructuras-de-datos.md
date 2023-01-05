@@ -912,7 +912,16 @@ que resultará en
 ### Ejercicio `Frequency`
 
 Se trata de pedir por pantalla una serie de palabras y calcular la frecuencia de cada una de ellas, es decir, las veces que se repiten. Para finalizar el programa se debe introducir una línea en blanco
-
+Por ejemplo:
+```
+uno dos dos tres tres tres
+```
+Daría como resultado:
+```
+uno - 1
+dos - 2
+tres - 3
+```
 > -toogle- Piensa antes de mirar
 >
 > ```java
@@ -1551,10 +1560,10 @@ Realiza los siguientes ejercicios:
 
 * [Trim](https://www.aceptaelreto.com/problem/statement.php?id=449)
 
+-----
+Adaptado del siguiente material
 
-
-**Más información en** [https://www.geeksforgeeks.org/stack-class-in-java/](https://www.geeksforgeeks.org/stack-class-in-java/)
-
-[https://www.hackerrank.com/domains/java?filters%5Bsubdomains%5D%5B%5D=java-data-structure](https://www.hackerrank.com/domains/java?filters%5Bsubdomains%5D%5B%5D=java-data-structure)
+* [https://www.geeksforgeeks.org/stack-class-in-java/](https://www.geeksforgeeks.org/stack-class-in-java/)
+* [https://www.hackerrank.com/domains/java?filters%5Bsubdomains%5D%5B%5D=java-data-structure](https://www.hackerrank.com/domains/java?filters%5Bsubdomains%5D%5B%5D=java-data-structure)
 
 

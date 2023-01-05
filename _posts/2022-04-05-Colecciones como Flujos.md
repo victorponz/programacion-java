@@ -145,7 +145,7 @@ int suma = numeros.stream()
 
 Hay que usar `mapToInt(Integer::valueOf)` (la verdad es que no entiendo el motivo de usar este método, pero alguno tendrá :))
 
-## Funciones *labmda*
+## Funciones *lambda*
 
 Si os habéis fijado hemos usado una notación nueva en el método `.filter(numero -> numero > 0)`
 
@@ -252,8 +252,9 @@ Cuya salida es:
 ```
 [14, 12]
 ```
+----
+Adaptado del siguiente material
 
+* [https://java-programming.mooc.fi/part-10/1-handling-collections-as-streams](https://java-programming.mooc.fi/part-10/1-handling-collections-as-streams) 
 
-
-Traducido del [original](https://java-programming.mooc.fi/part-10/1-handling-collections-as-streams) 
 

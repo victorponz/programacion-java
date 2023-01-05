@@ -5,10 +5,8 @@ layout: post
 title: Gestión del contenido de los ficheros
 categories: ficheros
 conToc: true
-permalink: gestion-ficheros
+permalink: gestion-contenido-ficheros
 ---
-# Gestión del contenido de ficheros
-
 ## Objetivos
 
 El objetivo de este tema será acceder al contenido de los ficheros, bien para leer únicamente o bien para guardar información de forma permanente.

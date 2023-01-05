@@ -172,6 +172,7 @@ body {
   margin: auto;
   display: block;
   max-width: 100%; 
+  background-color: #fff;
 }
 
 .highlight{
@@ -619,6 +620,8 @@ ul.doc-info {
   background: #eee;
   margin-bottom: 2rem;
   padding: .5rem 1rem;
+  margin-top:8px;
+  padding-top:8px;
 }
 
 .highlighter-rouge{
