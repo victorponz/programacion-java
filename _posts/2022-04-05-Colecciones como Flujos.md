@@ -1,4 +1,5 @@
 ---
+
 typora-copy-images-to: ../assets/img/estructuras/
 typora-root-url: ../../
 layout: post
@@ -252,6 +253,213 @@ Cuya salida es:
 ```
 [14, 12]
 ```
+El método de `reduce` es útil cuando deseas combinar elementos de flujo en alguna otra forma. Los parámetros aceptados por el método tienen el siguiente formato: `reduce(*estadoinicial*, (*anterior*, *objeto*) -> *acciones sobre el objeto*)`.
+
+Como ejemplo, puedes calcular la suma de una lista de enteros utilizando el método de reducción de la siguiente manera.
+
+```java
+ArrayList<Integer> values = new ArrayList<>();
+values.add(7);
+values.add(3);
+values.add(2);
+values.add(1);
+
+int sum = values.stream()
+    .reduce(0, (previousSum, value) -> previousSum + value);
+System.out.println(sum);
+```
+
+Cuya salida es:
+
+```
+13
+```
+
+De la misma manera, podemos formar una cadena combinada separada por filas a partir de una lista de cadenas.
+
+```java
+ArrayList<String> words = new ArrayList<>();
+words.add("First");
+words.add("Second");
+words.add("Third");
+words.add("Fourth");
+
+String combined = words.stream()
+    .reduce("", (previousString, word) -> previousString + word + "\n");
+System.out.println(combined);
+```
+
+Cuya salida es:
+
+```
+First
+Second
+Third
+Fourth
+```
+
+### Operaciones intermedias
+
+Las operaciones de flujo intermedio son métodos que devuelven un flujo. Dado que el valor devuelto es un flujo, podemos llamar secuencialmente a las operaciones intermedias. Las operaciones intermedias típicas incluyen convertir un valor de una forma a otra utilizando `map` y su forma más específica `mapToInt` utilizada para convertir una secuencia en una secuencia de enteros. Otros incluyen filtrar valores con `filter`, identificar valores únicos con `distinct` y organizar valores con `sorted` (si es posible).
+
+Veamos estos métodos en acción a través de algunos problemas. Digamos que tenemos la siguiente clase `Person`.
+
+```java
+public class Person {
+    private String firstName;
+    private String lastName;
+    private int birthYear;
+
+    public Person(String firstName, String lastName, int birthYear) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthYear = birthYear;
+    }
+
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public int getBirthYear() {
+        return this.birthYear;
+    }
+}
+```
+
+**Problema 1** Recibes una lista de Personas. Imprime cuántas son las personas que nacieron antes de 1970:
+
+```java
+// suppose we have a list of persons
+// ArrayList<Person> persons = new ArrayList<>();
+long count = persons.stream()
+    .filter(person -> person.getBirthYear() < 1970)
+    .count();
+System.out.println("Count: " + count);
+```
+**Problema 2**  Recibes una lista de Personas. Imprime cuántas personas tienen un primer apellido que empiece por **A** 
+
+> -toogle-Piensa antes de mirar 
+>
+> ```java
+> // suppose we have a list of persons
+> // ArrayList<Person> persons = new ArrayList<>();
+> long count = persons.stream()
+>     .filter(person -> person.getFirstName().startsWith("A"))
+>     .count();
+> System.out.println("Count: " + count);
+> ```
+
+**Problema 3** Recibes una lista de Personas. Imprime los nombres que son únicos en orden alfabético
+
+> -toogle-Piensa antes de mirar
+>
+> ```java
+> // suppose we have a list of persons
+> // ArrayList<Person> persons = new ArrayList<>();
+> persons.stream()
+>     .map(person -> person.getFirstName())
+>     .distinct()
+>     .sorted()
+>     .forEach(name -> System.out.println(name));
+> ```
+
+**Ejercicio 1** Escribe un programa que lea la entrada del usuario como cadenas. Cuando el usuario ingresa una cadena vacía (solo presiona `enter`), la lectura de entrada se detendrá y el programa imprimirá todas las entradas del usuario mediante el uso de `streams`
+
+**Ejercicio 2** Escribe un programa que lea la entrada del usuario. Cuando el usuario da un número negativo como entrada, la lectura de entrada se detendrá. Después de esto, imprime todos los números que el usuario ha dado como entrada que están entre 1 y 5 con el uso de `streams`
+
+**Ejercicio 3** Crea un programa que vaya leyendo la entrada desde el teclado y cree objetos de la clase `Person`
+
+Para finalizar se introducirá una cadena vacía. Ahora imprime los `lastNames` únicos en orden alfabético.
+
+## Objetos y Streams
+
+El manejo de objetos usando métodos de `stream` es natural.  Las clases `Person` y `Book` se proporcionan a continuación.
+
+```java
+public class Person {
+    private String name;
+    private int birthYear;
+
+    public Person(String name, int birthYear) {
+        this.name = name;
+        this.birthYear = birthYear;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getBirthYear() {
+        return this.birthYear;
+    }
+
+    public String toString() {
+        return this.name + " (" + this.birthYear + ")";
+    }
+}
+```
+
+```java
+public class Book {
+    private Person author;
+    private String name;
+    private int pages;
+
+    public Book(Person author, String name, int pages) {
+        this.author = author;
+        this.name = name;
+        this.pages = pages;
+    }
+
+    public Person getAuthor() {
+        return this.author;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPages() {
+        return this.pages;
+    }
+}
+```
+
+Digamos que tenemos una lista de libros. El cálculo del promedio de los años de nacimiento de los autores se puede hacer usando métodos de flujo de una manera que se sienta natural. Primero, convertimos el `stream` de libros en un `stream` de personas, y luego convertimos el `stream` de personas en una `stream` de años de nacimiento. Finalmente, le pedimos al `stream` (entero) un promedio.
+
+```java
+// let's assume that we have a list of books
+// List<Book> books = new ArrayList<>();
+double average = books.stream()
+    .map(book -> book.getAuthor())
+    .mapToInt(author -> author.getBirthYear())
+    .average()
+    .getAsDouble();
+
+System.out.println("Average of the authors' birth years: " + average);
+
+// the mapping of a book to an author could also be done with a single map call
+// double average = books.stream()
+//     .mapToInt(book -> book.getAuthor().getBirthYear())
+//     ...
+```
+
+De manera similar, los nombres de los autores de libros con la palabra "Potter" en sus títulos se muestran de la siguiente manera.
+
+```java
+// let's assume that we have a list of books
+// List<Book> books = new ArrayList<>();
+
+books.stream()
+    .filter(book -> book.getName().contains("Potter"))
+    .map(book -> book.getAuthor())
+    .forEach(author -> System.out.println(author));
+```
+
 ----
 Adaptado del siguiente material
 
