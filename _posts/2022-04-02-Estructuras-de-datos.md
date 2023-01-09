@@ -968,14 +968,12 @@ import java.util.*;
 
 public class Anagramas {
     public static void main(String[] args) throws IOException {
-        Scanner s = new Scanner(new File("path-to-file"));
-        String line;
-        while (s.hasNextLine()) {
-            line = s.nextLine();
-            //trabajamos con  line
-
-        }
-        s.close();
+        BufferedReader reader = new BufferedReader(new FileReader("path-to-file"));
+	    String line;
+	    while ((line = reader.readLine())!=null) {
+	        //Trabajar con line
+	    }
+	    reader.close();
     }
 }
 ```
