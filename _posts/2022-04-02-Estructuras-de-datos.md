@@ -1272,7 +1272,7 @@ import java.util.Set;
 
 public class HashSetExample {
 	public static void printDuplicates( String ... array) {
-		List<String> list = Arrays.asList(array);
+		List<String> list = new ArrayList<String>(Arrays.asList(array));
 		Set<String> hashSet = new HashSet<String>(list);
 		
 		for (String s: hashSet) {
