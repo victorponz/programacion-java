@@ -968,16 +968,16 @@ import java.util.*;
 
 public class Anagramas {
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("path-to-file"));
+        Scanner s = new Scanner(new File("path-to-file"));
         String line;
-        while ((line = reader.readLine())!=null) {
+        while (s.hasNextLine()) {
+            line = s.nextLine();
             //trabajamos con  line
-        }
-        reader.close();
 
+        }
+        s.close();
     }
 }
-
 ```
 
 > -toogle- Piensa antes de mirar
