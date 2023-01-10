@@ -1556,8 +1556,8 @@ Realiza los siguientes ejercicios:
   > * ve apilando los operandos
   > * Cuando encuentres un operador, saca dos operandos y aplícale el operador
 
-* [Trim](https://www.aceptaelreto.com/problem/statement.php?id=449)
 * [Las crecidas del Nilo](https://www.aceptaelreto.com/problem/statement.php?id=662&cat=154)
+
 -----
 Adaptado del siguiente material
 
