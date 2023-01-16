@@ -286,7 +286,9 @@ D (2000)
 C (2001)
 ```
 
+## Ejercicios
 
+(Los tesoros de Tutankamón)[https://www.aceptaelreto.com/problem/statement.php?id=661&cat=154]
 
 ----
 Adaptado del siguiente material
