@@ -246,7 +246,7 @@ public class Film {
 }
 ```
 
-La clase `Comparator` proporciona dos métodos esenciales para ordenar: `compare` y `thenCompare`. Al método de comparación se le pasa primero el valor que se va a comparar, y`thenCompare` se le pasa el siguiente valor que se va a comparar. El método `thenCompare` se puede utilizar muchas veces mediante métodos de encadenamiento, lo que permite utilizar valores prácticamente ilimitados para la comparación.
+La clase `Comparator` proporciona dos métodos esenciales para ordenar: `comparing` y `thenComparing`. Al método de comparación se le pasa primero el valor que se va a comparar, y `thenComparing` se le pasa el siguiente valor que se va a comparar. El método `thenComparing` se puede utilizar muchas veces mediante métodos de encadenamiento, lo que permite utilizar valores prácticamente ilimitados para la comparación.
 
 En el siguiente ejemplo, imprimimos películas por año y título en orden.
 
