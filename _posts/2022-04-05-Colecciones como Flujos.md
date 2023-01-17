@@ -21,6 +21,8 @@ Con flujos, el programador define una secuencia de eventos que se ejecuta para c
 
 Comencemos a comprender el uso de flujos a través de un ejemplo concreto. Considera el siguiente problema:
 
+>-task-**Ejercicio**
+>
 > Escribe un programa que a partir de un `ArrayList` con  números en formato de cadena imprima el número de enteros positivos divisibles por tres y el promedio de todos los valores.
 
 Vamos a implemertarlo de la manera tradicional:
@@ -330,17 +332,20 @@ public class Person {
 }
 ```
 
-**Problema 1** Recibes una lista de Personas. Imprime cuántas son las personas que nacieron antes de 1970:
+>-task-**Problema 1** 
+> Recibes una lista de Personas. Imprime cuántas son las personas que nacieron antes de 1970:
+>
+>```java
+>// suppose we have a list of persons
+>// ArrayList<Person> persons = new ArrayList<>();
+>long count = persons.stream()
+>    .filter(person -> person.getBirthYear() < 1970)
+>    .count();
+>System.out.println("Count: " + count);
+>```
 
-```java
-// suppose we have a list of persons
-// ArrayList<Person> persons = new ArrayList<>();
-long count = persons.stream()
-    .filter(person -> person.getBirthYear() < 1970)
-    .count();
-System.out.println("Count: " + count);
-```
-**Problema 2**  Recibes una lista de Personas. Imprime cuántas personas tienen un primer apellido que empiece por **A** 
+>-task-**Problema 2**  
+> Recibes una lista de Personas. Imprime cuántas personas tienen un primer apellido que empiece por **A** 
 
 > -toogle-Piensa antes de mirar 
 >
@@ -353,7 +358,8 @@ System.out.println("Count: " + count);
 > System.out.println("Count: " + count);
 > ```
 
-**Problema 3** Recibes una lista de Personas. Imprime los nombres que son únicos en orden alfabético
+>-task-**Problema 3**
+> Recibes una lista de Personas. Imprime los nombres que son únicos en orden alfabético
 
 > -toogle-Piensa antes de mirar
 >
@@ -367,13 +373,16 @@ System.out.println("Count: " + count);
 >     .forEach(name -> System.out.println(name));
 > ```
 
-**Ejercicio 1** Escribe un programa que lea la entrada del usuario como cadenas. Cuando el usuario ingresa una cadena vacía (solo presiona `enter`), la lectura de entrada se detendrá y el programa imprimirá todas las entradas del usuario mediante el uso de `streams`
-
-**Ejercicio 2** Escribe un programa que lea la entrada del usuario. Cuando el usuario da un número negativo como entrada, la lectura de entrada se detendrá. Después de esto, imprime todos los números que el usuario ha dado como entrada que están entre 1 y 5 con el uso de `streams`
-
-**Ejercicio 3** Crea un programa que vaya leyendo la entrada desde el teclado y cree objetos de la clase `Person`
-
-Para finalizar se introducirá una cadena vacía. Ahora imprime los `lastNames` únicos en orden alfabético.
+>-task-**Ejercicio 1** 
+> Escribe un programa que lea la entrada del usuario como cadenas. Cuando el usuario ingresa una cadena vacía (solo presiona `enter`), la lectura de entrada se detendrá y el programa imprimirá todas las entradas del usuario mediante el uso de `streams`
+>
+> **Ejercicio 2** 
+> Escribe un programa que lea la entrada del usuario. Cuando el usuario da un número negativo como entrada, la lectura de entrada se detendrá. Después de esto, imprime todos los números que el usuario ha dado como entrada que están entre 1 y 5 con el uso de `streams`
+>
+> **Ejercicio 3** 
+> Crea un programa que vaya leyendo la entrada desde el teclado y cree objetos de la clase `Person`
+> 
+> Para finalizar se introducirá una cadena vacía. Ahora imprime los `lastNames` únicos en orden alfabético.
 
 ## Objetos y Streams
 
