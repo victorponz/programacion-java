@@ -101,9 +101,9 @@ ada (184)
 matti (187)
 ```
 
-**Ejercicio**
-
-Se te proporciona la clase `Human`. Un ser humano tiene un nombre e información sobre salario. Implementa la interfaz `Comparable` de tal manera que el método `compareTo` clasifique a los humanos según el salario del más grande al más pequeño.
+>-task-**Ejercicio**
+>
+>Se te proporciona la clase `Human`. Un ser humano tiene un nombre e información sobre salario. Implementa la interfaz `Comparable` de tal manera que el método `compareTo` clasifique a los humanos según el salario del más grande al más pequeño.
 
 ## Método de ordenación como una expresión lambda
 
@@ -206,15 +206,15 @@ Irma Wyman
 Mary Coombs
 ```
 
-**Ejercicio**
-
-El siguiente [archivo](/programacion-java/assets/illiterate.csv) muestra la población analfabeta mundial en el formato:
-
-```
-"ILLPOP_AG15T24","Youth illiterate population, 15-24 years, both sexes (number)","40550","Small Island Developing States","2016","2016",1192378,,
-```
-
-Se trata de realizar un programa que lea este archivo y que luego muestre la información en pantalla por orden ascendente del total de personas analfabetas (en el ejemplo, 1192378)
+>-task-**Ejercicio**
+> 
+>El siguiente [archivo](/programacion-java/assets/illiterate.csv) muestra la población analfabeta mundial en el formato:
+>
+>```
+>"ILLPOP_AG15T24","Youth illiterate population, 15-24 years, both sexes (number)","40550","Small Island Developing States","2016","2016",1192378,,
+>```
+>
+>Se trata de realizar un programa que lea este archivo y que luego muestre la información en pantalla por orden ascendente del total de personas analfabetas (en el ejemplo, 1192378)
 
 ## Clase Comparator
 
@@ -286,11 +286,15 @@ D (2000)
 C (2001)
 ```
 
-## Ejercicios
-[Felipe y sus tareas](https://www.aceptaelreto.com/problem/statement.php?id=579)
-[La justicia de la lotería](https://www.aceptaelreto.com/problem/statement.php?id=378)
-[Los niños buenos](https://www.aceptaelreto.com/problem/statement.php?id=366)
-[Los tesoros de Tutankamón](https://www.aceptaelreto.com/problem/statement.php?id=661&cat=154)
+>-task-**Ejercicios**
+>
+>[Felipe y sus tareas](https://www.aceptaelreto.com/problem/statement.php?id=579)
+>
+>[La justicia de la lotería](https://www.aceptaelreto.com/problem/statement.php?id=378)
+>
+>[Los niños buenos](https://www.aceptaelreto.com/problem/statement.php?id=366)
+>
+>[Los tesoros de Tutankamón](https://www.aceptaelreto.com/problem/statement.php?id=661&cat=154)
 
 ----
 Adaptado del siguiente material
