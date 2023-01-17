@@ -287,7 +287,9 @@ C (2001)
 ```
 
 ## Ejercicios
-
+[Felipe y sus tareas](https://www.aceptaelreto.com/problem/statement.php?id=579)
+[La justicia de la lotería](https://www.aceptaelreto.com/problem/statement.php?id=378)
+[Los niños buenos](https://www.aceptaelreto.com/problem/statement.php?id=366)
 [Los tesoros de Tutankamón](https://www.aceptaelreto.com/problem/statement.php?id=661&cat=154)
 
 ----
