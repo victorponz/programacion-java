@@ -51,12 +51,12 @@ html {
 /* Reset default styling */
 * {
   margin: 0;
-  padding: 0;
+  apadding: 0;
   box-sizing: border-box;
 }
 
 ul {
-  list-style: none;
+  alist-style: none;
 }
 
 
@@ -92,6 +92,7 @@ body {
   display: flex;
   align-items: center;
   background: var(--bg-primary);
+  list-style:none;
 }
 
 .navbar .nav-link {

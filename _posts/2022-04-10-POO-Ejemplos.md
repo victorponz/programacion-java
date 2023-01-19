@@ -2,10 +2,10 @@
 typora-copy-images-to: ../assets/img/poo/
 typora-root-url: ../../
 layout: post
-title: Ejemplos POO
+title: Ejercicios POO
 categories: poo
 conToc: true
-permalink: poo-ejemplos
+permalink: poo-ejercicios
 ---
 
 ## Práctica de clases
@@ -17,6 +17,7 @@ Cree las siguientes tres clases:
 * Clase `A`. La clase no debe tener variables de objeto ni debe especificar un constructor para ella. Solo tiene el método `public void a()`, que imprime una cadena "A".
 * Clase `B`. La clase no debe tener variables de objeto ni debe especificar un constructor para ella. Solo tiene el método `public void b()`, que imprime una cadena "B".
 * Clase `C`. La clase no debe tener variables de objeto ni debe especificar un constructor para ella. Solo tiene el método `public void c()`, que imprime una cadena "C".
+
 
 ```java
 A a = new A();
@@ -481,5 +482,9 @@ System.out.println(engine.getManufacturer());
 combustion
 volkswagen
 ```
+---
+Adaptado del siguiente material
 
-[https://java-programming.mooc.fi/part-9/1-inheritance](https://java-programming.mooc.fi/part-9/1-inheritance)
+* [http://greenteapress.com/wp/think-java/](http://greenteapress.com/wp/think-java/) Version 6 by Allen Downey and Chris Mayfield
+
+* [https://java-programming.mooc.fi/part-9/1-inheritance](https://java-programming.mooc.fi/part-9/1-inheritance)
