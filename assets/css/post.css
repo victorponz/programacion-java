@@ -1,6 +1,6 @@
 #subject-container .subject-details{
-    font-family: 'EB Garamond', serif;
-    font-size: 20px;
+    afont-family: 'EB Garamond', serif;
+    afont-size: 20px;
     color: var(--text-color);
    }
   #subject-container h1 {
