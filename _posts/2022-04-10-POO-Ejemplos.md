@@ -8,54 +8,9 @@ conToc: true
 permalink: poo-ejercicios
 ---
 
-## Práctica de clases
-
-Vamos a crear un cuantas clases para practicar
-
-Cree las siguientes tres clases:
-
-* Clase `A`. La clase no debe tener variables de objeto ni debe especificar un constructor para ella. Solo tiene el método `public void a()`, que imprime una cadena "A".
-* Clase `B`. La clase no debe tener variables de objeto ni debe especificar un constructor para ella. Solo tiene el método `public void b()`, que imprime una cadena "B".
-* Clase `C`. La clase no debe tener variables de objeto ni debe especificar un constructor para ella. Solo tiene el método `public void c()`, que imprime una cadena "C".
-
-
-```java
-A a = new A();
-B b = new B();
-C c = new C();
-
-a.a();
-b.b();
-c.c();
-```
-
-```
-A
-B
-C
-```
-
-### Herencia
-
-Modifique las clases para que la clase `B` herede la clase `A` y la clase `C` herede la clase `B`. En otras palabras, la clase `A` será una superclase para la clase `B` y la clase `B` será una superclase para la clase `C`.
-
-```java
-C c = new C();
-
-c.a();
-c.b();
-c.c()
-```
-
-```
-A
-B
-C
-```
-
 ## Person
 
-Crea una clase Persona, que debe comportarse de la siguiente manera:
+Crea una clase `Person`, que debe comportarse de la siguiente manera:
 
 ```java
 Person ada = new Person("Ada Lovelace", "24 Maddox St. London W1S 2QN");
@@ -70,6 +25,152 @@ Ada Lovelace
 Javier García
   Calle Mayor 15 12002 Castellón
 ```
+
+Esta clase sólo tiene dos campos o atributos: `name` y `address`
+
+Es por ello que debemos crear dos variables con el modificador `private` para que no se pueda acceder a ellas desde fuera de la clase.
+
+```java
+public class Person{
+	private String name;
+	private String address;
+}
+```
+
+Ahora nos hemos de plantear qué datos son obligatorios para crear un objeto `Person`. Como mínimo se debe proporcionar el `name` al crear una instancia de la misma. Es por ello que creamos un constructor que tiene como parámetro `name`
+
+```java
+Person(String name){
+    this.name = name;
+} 
+```
+
+En este código se introduce la palabra reservada `this` que hace referencia a la propia clase. Es decir `this.name` se refiere a la variable `name` de la clase.
+
+Si el atributo `address` no se informa en el constructor, debe haber un `setter` que nos permita fijar el dato:
+
+```java
+public void setAddress(String address){
+    this.address = address;
+}
+```
+
+Nos podemos plantear si es conveniente crear un constructor para los dos parámetros. De esta forma sería más fácil *instanciar* objetos de la clase:
+
+```java
+Person(String name, String address){
+    this.name = name;
+    this.address = address;
+}
+```
+
+Para cada uno de los atributos de la clase, hemos de crear su correspondiente `getter`
+
+```java
+public String getName() {
+    return name;
+}
+public String getAddress() {
+    return address;
+}
+```
+
+También queremos que los objetos de clase `Person` se impriman de una forma determinada:
+
+```
+Ada Lovelace
+  24 Maddox St. London W1S 2QN
+```
+
+Para lograrlo, hemos de sobrescribir (ya lo veremos más adelante) el método `toString` que pertenece a la clase `Object` de la que todas las clases java heredan por defecto. 
+
+```java
+@Override
+public String toString(){
+    return this.name + "\n\t" + this.address;
+}
+```
+
+Vamos a crear una clase para crear varias instancias de `Person` 
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Person ada = new Person("Ada Lovelace", "24 Maddox St. London W1S 2QN");
+        Person javier = new Person("Javier García");
+        javier.setAddress("Calle Mayor 15 12002 Castellón");
+        System.out.println(ada);
+        System.out.println(javier);
+    }
+}
+```
+
+> -task-**Ejercicio** Crea una clase que modele los distintos ordenadores de una tienda de informática. Piensa qué atributos, qué constructores debes crear y qué setters y getters.
+>
+> Luego crea una clase para crear varias instancias de la clase
+
+> -task-**Ejercicio** Crea una clase que represente a un aparato de aire acondicionado. Este aparato tiene un nombre, y una temperatura máxima y mínima. Además tiene dos botones para subir y bajar el aire de grado en grado pero sin pasar nunca de los límites
+
+> -task-**Ejercicio** Crea una clase llamada Cuenta que tendrá los siguientes atributos: titular y cantidad
+> (puede tener decimales).
+>
+> El titular será obligatorio y la cantidad es opcional. Crea dos constructores que cumplan lo
+> anterior.
+>
+> Crea sus métodos `getter`, `setter` y `toString`.
+>
+> Tendrá dos métodos especiales:
+>
+> * `ingresar(double cantidad)`: se ingresa una cantidad a la cuenta, si la cantidad introducida
+>   es negativa, no se hará nada.
+> * `retirar(double cantidad)`: se retira una cantidad a la cuenta, si restando la cantidad actual
+>   a la que nos pasan es negativa, la cantidad de la cuenta pasa a ser 0.
+
+## Métodos privados
+
+Vamos a modificar la clase `Person` para añadirle un atributo `dni`. Ya sabéis que la letra del DNI se calcula mediante un algoritmo.
+
+Debes crear un `setter` llamado `setDNI(String dni)` que a su vez llamará a un método privado que compruebe si el DNI es correcto y en otro caso que lance la excepción 
+
+```java
+throw new IllegalArgumentException("El DNI no es correcto ");
+```
+
+Por ejemplo:
+
+```java
+private boolean comprobarDNI(String DNI){
+    //Realiza el algoritmo
+    
+    if (está mal)
+        throw new IllegalArgumentException("El DNI no es correcto ");
+    else
+        return  true;
+}
+```
+
+Los atributos se hacen privados para que no se puedan crear objetos con datos que no sean correctos. Por ejemplo, podemos también comprobar que el nombre no sea `null` 
+
+En principio todos los métodos que no sean getters o setters deben ser privados.
+
+> -task-Tenemos un [archivo](/programacion-java/assets/dataset_bvmc_20220325.zip) con un catálogo de libros que contienen datos de la Biblioteca Nacional
+>
+> Debes crear una clase `Libro`  y luego popularla a partir de dicho archivo csv. Ya hemos hecho algún ejercicio parecido.
+>
+> Pero en este caso hay un problema, y es que algunas de las líneas están mal formadas y salta una excepción `ArrayIndexOutOfBoundsException`. Para que no se rompa el código hemos de `capturarla`
+>
+> ```java
+> while ((l = f.readLine()) != null){
+>     datos = l.split(",");
+>     try {
+>         b.add(new Book(datos[5], datos[7]));
+>     }catch (ArrayIndexOutOfBoundsException e){
+>         System.out.println(Arrays.toString(datos));
+>     }
+> }
+> ```
+>
+> Después has de hacer un método en un clase `main` que, dado un autor por teclado, imprima los datos de los libros de dicho autor.
 
 ## Student
 
