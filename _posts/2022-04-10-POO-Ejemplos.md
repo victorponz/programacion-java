@@ -26,7 +26,7 @@ Javier García
   Calle Mayor 15 12002 Castellón
 ```
 
-Esta clase sólo tiene dos campos o atributos: `name` y `address`
+Esta clase sólo tiene dos **campos o atributos**: `name` y `address`
 
 Es por ello que debemos crear dos variables con el modificador `private` para que no se pueda acceder a ellas desde fuera de la clase.
 
@@ -40,7 +40,7 @@ public class Person{
 Ahora nos hemos de plantear qué datos son obligatorios para crear un objeto `Person`. Como mínimo se debe proporcionar el `name` al crear una instancia de la misma. Es por ello que creamos un constructor que tiene como parámetro `name`
 
 ```java
-Person(String name){
+public Person(String name){
     this.name = name;
 } 
 ```
@@ -54,6 +54,8 @@ public void setAddress(String address){
     this.address = address;
 }
 ```
+
+Por el contrario, el atributo `name` de una persona vamos a suponer que no se puede cambiar. En este caso no habría `setter`
 
 Nos podemos plantear si es conveniente crear un constructor para los dos parámetros. De esta forma sería más fácil *instanciar* objetos de la clase:
 
@@ -109,7 +111,7 @@ public class Main {
 >
 > Luego crea una clase para crear varias instancias de la clase
 
-> -task-**Ejercicio** Crea una clase que represente a un aparato de aire acondicionado. Este aparato tiene un nombre, y una temperatura máxima y mínima. Además tiene dos botones para subir y bajar el aire de grado en grado pero sin pasar nunca de los límites
+> -task-**Ejercicio** Crea una clase que represente a un aparato de aire acondicionado. Este aparato tiene un nombre, y una temperatura máxima y mínima. Además tiene dos botones para subir y bajar el aire de grado en grado pero sin sobrepasar nunca de los límites
 
 > -task-**Ejercicio** Crea una clase llamada Cuenta que tendrá los siguientes atributos: titular y cantidad
 > (puede tener decimales).
@@ -157,20 +159,21 @@ En principio todos los métodos que no sean getters o setters deben ser privados
 >
 > Debes crear una clase `Libro`  y luego popularla a partir de dicho archivo csv. Ya hemos hecho algún ejercicio parecido.
 >
-> Pero en este caso hay un problema, y es que algunas de las líneas están mal formadas y salta una excepción `ArrayIndexOutOfBoundsException`. Para que no se rompa el código hemos de `capturarla`
+> Pero en este caso hay un problema, y es que algunas de las líneas están mal formadas y salta una excepción `ArrayIndexOutOfBoundsException`. Para que no se rompa el código hemos de *capturarla*
 >
 > ```java
 > while ((l = f.readLine()) != null){
->     datos = l.split(",");
->     try {
->         b.add(new Book(datos[5], datos[7]));
->     }catch (ArrayIndexOutOfBoundsException e){
->         System.out.println(Arrays.toString(datos));
->     }
+>  datos = l.split(",");
+>  try {
+>      b.add(new Book(datos[5], datos[7]));
+>  }catch (ArrayIndexOutOfBoundsException e){
+>      System.out.println(Arrays.toString(datos));
+>  }
 > }
 > ```
 >
 > Después has de hacer un método en un clase `main` que, dado un autor por teclado, imprima los datos de los libros de dicho autor.
+>
 
 ## Student
 
@@ -247,7 +250,7 @@ Ollie
   Study credits 25
 ```
 
-El tipo real de un objeto dicta qué método se ejecuta
+El tipo real de un objeto dicta qué método se ejecuta.
 
 El tipo de un objeto decide cuáles son los métodos proporcionados por el objeto. Por ejemplo, implementamos la clase `Student` anteriormente. Si se almacena una referencia a un objeto de tipo `Student` en una variable de tipo `Person`, solo estarán disponibles los métodos definidos en la clase `Person`(y su superclase e interfaces):
 
@@ -296,6 +299,26 @@ El método a ejecutar se elige en función del tipo real del objeto, lo que sign
 > -info-**Polimorfismo**
 >
 > Independientemente del tipo de variable, el método que se ejecuta siempre se elige en función del tipo real del objeto. Los objetos son polimórficos, lo que significa que se pueden utilizar a través de muchos tipos de variables diferentes. El método ejecutado siempre se relaciona con el tipo real del objeto. Este fenómeno se llama polimorfismo.
+
+## Laboratorio
+
+Vamos a crear una clase `Lab` que implemente un laboratorio. Éste tiene un nombre, un taller una capacidad máxima, la hora y día en que se imparte, un profesor que lo imparte y una lista de estudiantes que asisten.
+
+> -task-Diseña la clase. Piensa en los atributos, constructores y setters y getters necesarios. Luego crea una clase llamada `MainLab` donde crees varias instancias de la clase `Lab`
+
+## Máquina expendedora
+
+Vamos a implementar un máquina expendedora de tiques. Los tiques tienen un precio. La máquina tiene un cajón que recoge los importes de los tiques.
+
+El cliente va introduciendo dinero y si pulsa el botón *Sacar tique* se le expenderá el tique siempre que haya introducido una cantidad igual o mayor que el importe. Este método debe imprimir el tique y devolver en un `String` la cantidad de billetes y monedas mínimas para dicha devolución:
+
+Por ejemplo, si el tique vale 1,20 € y el usuario introduce 5€, le debe devolver 3 monedas de 1€,  2 de 0,25€ y 1 de 0,05€.
+
+Si no hay suficiente dinero en el cajón, le debe decir `Introduzca el importe exacto`
+
+> -task-Implementa la clase `MaquinaExpendora` Piensa en los contructores, setters y getters necesarios
+
+
 
 ## Point
 
