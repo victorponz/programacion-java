@@ -128,6 +128,30 @@ public class Main {
 > * `retirar(double cantidad)`: se retira una cantidad a la cuenta, si restando la cantidad actual
 >   a la que nos pasan es negativa, la cantidad de la cuenta pasa a ser 0.
 
+> -task-**Ejercicio** Crea una clase llamada `Autor` con los campos Nombre y Fecha de nacimiento.  Crea la entidad Temas con un atributo para el nombre del tema
+>
+> Después crea una clase `Libro` con los campos Título, Autor y Páginas. Además tendrá una lista para poder almacenar los temas de los que trata el libro.
+>
+> Por último crea una clase `MainLibro` en la que deberás crear varios autores, temas y libros
+
+> -task-**Ejercicio** Crea las clases necesarias para poder representar el siguiente diagrama entidad-relación
+>
+> ![image-20230130190129052](/programacion-java/assets/img/poo/image-20230130190129052.png)
+
+> -task-**Ejercicio** Crea las clases necesarias para poder representar el siguiente diagrama entidad-relación
+>
+> ![image-20230130190242249](/programacion-java/assets/img/poo/image-20230130190242249.png)
+
+> -task-**Ejercicio** Crea las clases necesarias para poder representar el siguiente diagrama entidad-relación
+>
+> ![image-20230130190323980](/programacion-java/assets/img/poo/image-20230130190323980.png)
+
+>-task-**Ejercicio** Crea las clases necesarias para poder representar el siguiente diagrama entidad-relación
+>
+>![image-20230130190423703](/programacion-java/assets/img/poo/image-20230130190423703.png)
+
+
+
 ## Métodos privados
 
 Vamos a modificar la clase `Person` para añadirle un atributo `dni`. Ya sabéis que la letra del DNI se calcula mediante un algoritmo.
