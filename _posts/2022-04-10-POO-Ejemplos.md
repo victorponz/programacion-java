@@ -42,7 +42,7 @@ Ahora nos hemos de plantear qué datos son obligatorios para crear un objeto `Pe
 ```java
 public Person(String name){
     this.name = name;
-} 
+}
 ```
 
 En este código se introduce la palabra reservada `this` que hace referencia a la propia clase. Es decir `this.name` se refiere a la variable `name` de la clase.
@@ -84,7 +84,7 @@ Ada Lovelace
   24 Maddox St. London W1S 2QN
 ```
 
-Para lograrlo, hemos de sobrescribir (ya lo veremos más adelante) el método `toString` que pertenece a la clase `Object` de la que todas las clases java heredan por defecto. 
+Para lograrlo, hemos de sobrescribir (ya lo veremos más adelante) el método `toString` que pertenece a la clase `Object` de la que todas las clases java heredan por defecto.
 
 ```java
 @Override
@@ -93,7 +93,7 @@ public String toString(){
 }
 ```
 
-Vamos a crear una clase para crear varias instancias de `Person` 
+Vamos a crear una clase para crear varias instancias de `Person`
 
 ```java
 public class Main {
@@ -106,6 +106,7 @@ public class Main {
     }
 }
 ```
+>-info-En todas las clases implementa el método toString()
 
 > -task-**Ejercicio** Crea una clase que modele los distintos ordenadores de una tienda de informática. Piensa qué atributos, qué constructores debes crear y qué setters y getters.
 >
@@ -156,7 +157,7 @@ public class Main {
 
 Vamos a modificar la clase `Person` para añadirle un atributo `dni`. Ya sabéis que la letra del DNI se calcula mediante un algoritmo.
 
-Debes crear un `setter` llamado `setDNI(String dni)` que a su vez llamará a un método privado que compruebe si el DNI es correcto y en otro caso que lance la excepción 
+Debes crear un `setter` llamado `setDNI(String dni)` que a su vez llamará a un método privado que compruebe si el DNI es correcto y en otro caso que lance la excepción
 
 ```java
 throw new IllegalArgumentException("El DNI no es correcto ");
@@ -167,7 +168,7 @@ Por ejemplo:
 ```java
 private boolean comprobarDNI(String DNI){
     //Realiza el algoritmo
-    
+
     if (está mal)
         throw new IllegalArgumentException("El DNI no es correcto ");
     else
@@ -175,7 +176,7 @@ private boolean comprobarDNI(String DNI){
 }
 ```
 
-Los atributos se hacen privados para que no se puedan crear objetos con datos que no sean correctos. Por ejemplo, podemos también comprobar que el nombre no sea `null` 
+Los atributos se hacen privados para que no se puedan crear objetos con datos que no sean correctos. Por ejemplo, podemos también comprobar que el nombre no sea `null`
 
 En principio todos los métodos que no sean getters o setters deben ser privados.
 
@@ -401,7 +402,7 @@ public class ColorPoint extends Point {
 >
 > ```java
 > public class MiClase {
-> 
+>
 >     public String ToString() {
 >         return "Hola, esta es MiClase";
 >     }
