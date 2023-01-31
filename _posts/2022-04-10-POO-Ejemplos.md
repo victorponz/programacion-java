@@ -339,8 +339,9 @@ Vamos a implementar un máquina expendedora de tiques. Los tiques tienen un prec
 El cliente va introduciendo dinero y si pulsa el botón *Sacar tique* se le expenderá el tique siempre que haya introducido una cantidad igual o mayor que el importe. Este método debe imprimir el tique y devolver en un `String` la cantidad de billetes y monedas mínimas para dicha devolución:
 
 Por ejemplo, si el tique vale 1,20 € y el usuario introduce 5€, le debe devolver 3 monedas de 1€,  2 de 0,25€ y 1 de 0,05€.
+Además ingresará en el cajón el importe del tique.
 
-Si no hay suficiente dinero en el cajón, le debe decir `Introduzca el importe exacto`
+Si no hay suficiente dinero en el cajón, le debe decir `Introduzca el importe exacto`.
 
 > -task-Implementa la clase `MaquinaExpendora` Piensa en los contructores, setters y getters necesarios
 
