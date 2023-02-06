@@ -142,10 +142,6 @@ public class Main {
 >
 > ![image-20230130190242249](/programacion-java/assets/img/poo/image-20230130190242249.png)
 
-> -task-**Ejercicio** Crea las clases necesarias para poder representar el siguiente diagrama entidad-relación
->
-> ![image-20230130190323980](/programacion-java/assets/img/poo/image-20230130190323980.png)
-
 >-task-**Ejercicio** Crea las clases necesarias para poder representar el siguiente diagrama entidad-relación
 >
 >![image-20230130190423703](/programacion-java/assets/img/poo/image-20230130190423703.png)
