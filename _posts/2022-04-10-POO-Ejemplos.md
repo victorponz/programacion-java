@@ -42,7 +42,7 @@ Ahora nos hemos de plantear qué datos son obligatorios para crear un objeto `Pe
 ```java
 public Person(String name){
     this.name = name;
-} 
+}
 ```
 
 En este código se introduce la palabra reservada `this` que hace referencia a la propia clase. Es decir `this.name` se refiere a la variable `name` de la clase.
@@ -84,7 +84,7 @@ Ada Lovelace
   24 Maddox St. London W1S 2QN
 ```
 
-Para lograrlo, hemos de sobrescribir (ya lo veremos más adelante) el método `toString` que pertenece a la clase `Object` de la que todas las clases java heredan por defecto. 
+Para lograrlo, hemos de sobrescribir (ya lo veremos más adelante) el método `toString` que pertenece a la clase `Object` de la que todas las clases java heredan por defecto.
 
 ```java
 @Override
@@ -93,7 +93,7 @@ public String toString(){
 }
 ```
 
-Vamos a crear una clase para crear varias instancias de `Person` 
+Vamos a crear una clase para crear varias instancias de `Person`
 
 ```java
 public class Main {
@@ -106,6 +106,8 @@ public class Main {
     }
 }
 ```
+>-info-En todas las clases implementa el método toString()
+>-info-En todos los ejercicios crea una clas Main y modela varios objetos. Después imprímelos.
 
 > -task-**Ejercicio** Crea una clase que modele los distintos ordenadores de una tienda de informática. Piensa qué atributos, qué constructores debes crear y qué setters y getters.
 >
@@ -128,7 +130,7 @@ public class Main {
 > * `retirar(double cantidad)`: se retira una cantidad a la cuenta, si restando la cantidad actual
 >   a la que nos pasan es negativa, la cantidad de la cuenta pasa a ser 0.
 
-> -task-**Ejercicio** Crea una clase llamada `Autor` con los campos Nombre y Fecha de nacimiento.  Crea la entidad Temas con un atributo para el nombre del tema
+> -task-**Ejercicio** Crea una clase llamada `Autor` con los campos Nombre y Fecha de nacimiento.  Crea la entidad `Tema` con un atributo para el nombre del tema
 >
 > Después crea una clase `Libro` con los campos Título, Autor y Páginas. Además tendrá una lista para poder almacenar los temas de los que trata el libro.
 >
@@ -152,7 +154,7 @@ public class Main {
 
 Vamos a modificar la clase `Person` para añadirle un atributo `dni`. Ya sabéis que la letra del DNI se calcula mediante un algoritmo.
 
-Debes crear un `setter` llamado `setDNI(String dni)` que a su vez llamará a un método privado que compruebe si el DNI es correcto y en otro caso que lance la excepción 
+Debes crear un `setter` llamado `setDNI(String dni)` que a su vez llamará a un método privado que compruebe si el DNI es correcto y en otro caso que lance la excepción
 
 ```java
 throw new IllegalArgumentException("El DNI no es correcto ");
@@ -163,7 +165,7 @@ Por ejemplo:
 ```java
 private boolean comprobarDNI(String DNI){
     //Realiza el algoritmo
-    
+
     if (está mal)
         throw new IllegalArgumentException("El DNI no es correcto ");
     else
@@ -171,7 +173,7 @@ private boolean comprobarDNI(String DNI){
 }
 ```
 
-Los atributos se hacen privados para que no se puedan crear objetos con datos que no sean correctos. Por ejemplo, podemos también comprobar que el nombre no sea `null` 
+Los atributos se hacen privados para que no se puedan crear objetos con datos que no sean correctos. Por ejemplo, podemos también comprobar que el nombre no sea `null`
 
 En principio todos los métodos que no sean getters o setters deben ser privados.
 
@@ -333,8 +335,9 @@ Vamos a implementar un máquina expendedora de tiques. Los tiques tienen un prec
 El cliente va introduciendo dinero y si pulsa el botón *Sacar tique* se le expenderá el tique siempre que haya introducido una cantidad igual o mayor que el importe. Este método debe imprimir el tique y devolver en un `String` la cantidad de billetes y monedas mínimas para dicha devolución:
 
 Por ejemplo, si el tique vale 1,20 € y el usuario introduce 5€, le debe devolver 3 monedas de 1€,  2 de 0,25€ y 1 de 0,05€.
+Además ingresará en el cajón el importe del tique.
 
-Si no hay suficiente dinero en el cajón, le debe decir `Introduzca el importe exacto`
+Si no hay suficiente dinero en el cajón, le debe decir `Introduzca el importe exacto`.
 
 > -task-Implementa la clase `MaquinaExpendora` Piensa en los contructores, setters y getters necesarios
 
@@ -397,7 +400,7 @@ public class ColorPoint extends Point {
 >
 > ```java
 > public class MiClase {
-> 
+>
 >     public String ToString() {
 >         return "Hola, esta es MiClase";
 >     }
