@@ -185,17 +185,22 @@ En principio todos los métodos que no sean getters o setters deben ser privados
 >
 > ```java
 > while ((l = f.readLine()) != null){
->  datos = l.split(",");
->  try {
->      b.add(new Book(datos[5], datos[7]));
->  }catch (ArrayIndexOutOfBoundsException e){
->      System.out.println(Arrays.toString(datos));
->  }
+>      datos = l.split(",");
+>      try {
+>            b.add(new Book(datos[5], datos[7]));
+>      }catch (ArrayIndexOutOfBoundsException e){
+>            System.out.println(Arrays.toString(datos));
+>      }
 > }
 > ```
 >
 > Después has de hacer un método en un clase `main` que, dado un autor por teclado, imprima los datos de los libros de dicho autor.
 >
+
+> -task-**Ejercicio** Crea un proyecto en IntelliJ llamado Juego que contiene dos clases llamadas: Dado y `JuegodeDados`. La clase `Dado` tendrá un atributo que será el valor del dado y 3 métodos, el primero obtendrá el valor de una tirada del dado, el segundo imprimirá el valor de esa tirada y el tercero retorna el valor de la tirada.
+> La clase `JuegodeDados` tendrá tres métodos, el primero definirá tres dados para hacer una partida, el segundo hará la tirada de los tres dados y dirá si el usuario ha ganado o ha perdido (se considera que ha ganado si el valor de la tirada de los tres dados es el mismo, ejemplo: 3 - 3 - 3). El tercer método será `main` que llamará a los otros dos métodos para realizar una partida de dados.
+
+
 
 ## Student
 
