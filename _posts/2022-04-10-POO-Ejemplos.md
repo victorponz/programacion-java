@@ -337,7 +337,7 @@ El método a ejecutar se elige en función del tipo real del objeto, lo que sign
 
 ## Laboratorio
 
-Vamos a crear una clase `Lab` que implemente un laboratorio. Éste tiene un nombre, un taller una capacidad máxima, la hora y día en que se imparte, un profesor que lo imparte y una lista de estudiantes que asisten.
+Vamos a crear una clase `Lab` que implemente un laboratorio. Éste tiene un nombre, un taller, una capacidad máxima, la hora y día en que se imparte, un profesor que lo imparte y una lista de estudiantes que asisten.
 
 > -task-Diseña la clase. Piensa en los atributos, constructores y setters y getters necesarios. Luego crea una clase llamada `MainLab` donde crees varias instancias de la clase `Lab`
 
