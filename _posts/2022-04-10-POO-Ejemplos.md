@@ -207,7 +207,7 @@ En principio todos los métodos que no sean getters o setters deben ser privados
 >    1-1-1
 >    Lo conseguiste a la tirada 5
 > ```
-
+> -alert-Como el ḿetodo `main` tiene el modificador `static` todos los métodos y propiedades que uses también lo deben ser
 
 
 ## Student
