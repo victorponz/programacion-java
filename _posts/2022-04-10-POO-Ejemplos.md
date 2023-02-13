@@ -344,9 +344,27 @@ Además ingresará en el cajón el importe del tique.
 
 Si no hay suficiente dinero en el cajón, le debe decir `Introduzca el importe exacto`.
 
-> -task-Implementa la clase `MaquinaExpendora` Piensa en los contructores, setters y getters necesarios
+> -task-Implementa la clase `MaquinaExpendora` Piensa en los constructores, setters y getters necesarios
 
+## Sistema de subastas
 
+Se pretende modelar un sistema de subastas que funciona de la siguiente manera:
+
+La casa de subastas planifica la subasta en un día en concreto de una serie de artículos organizados en lotes. 
+
+De cada artículo se debe almacenar su `nombre` y el `precio`. Del lote se desea conocer su número y el precio de salida.
+
+Llegado el día de la subasta los pujadores (Nombre) realizan pujas de dinero sobre cada uno de los lotes. Cuando se finaliza la subasta, el lote se adjudica al pujador con la puja más alta.
+
+El sistema debe:
+
+* poder generar una o más subastas
+* añadir lotes de artículos a las subastas
+* gestionar las pujas y los pujadores
+* cerrar la subasta
+* imprimir una relación de los lotes que se han adjudicado a los pujadores una vez cerrada la subasta. Si algún lote no tuviese puja, se debe imprimir "No adjudicado"
+
+>-task-Implementa este sistema de subastas. Piensa en los constructores, setters y getters necesarios
 
 ## Point
 
