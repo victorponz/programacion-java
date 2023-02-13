@@ -352,7 +352,7 @@ Además ingresará en el cajón el importe del tique.
 
 Si no hay suficiente dinero en el cajón, le debe decir `Introduzca el importe exacto`.
 
-> -task-Implementa la clase `MaquinaExpendora` Piensa en los contructores, setters y getters necesarios
+> -task-Implementa la clase `MaquinaExpendora` Piensa en los constructores, setters y getters necesarios
 
 
 
