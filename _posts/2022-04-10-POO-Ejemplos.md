@@ -197,9 +197,17 @@ En principio todos los métodos que no sean getters o setters deben ser privados
 > Después has de hacer un método en un clase `main` que, dado un autor por teclado, imprima los datos de los libros de dicho autor.
 >
 
-> -task-**Ejercicio** Crea un proyecto en IntelliJ llamado Juego que contiene dos clases llamadas: Dado y `JuegodeDados`. La clase `Dado` tendrá un atributo que será el valor del dado y 3 métodos, el primero obtendrá el valor de una tirada del dado, el segundo imprimirá el valor de esa tirada y el tercero retorna el valor de la tirada.
+> -task-**Ejercicio** Crea un proyecto en IntelliJ llamado Juego que contiene dos clases llamadas: `Dado` y `JuegodeDados`. La clase `Dado` tendrá un atributo que será el valor del dado y 3 métodos, el primero obtendrá el valor de una tirada del dado, el segundo imprimirá el valor de esa tirada y el tercero retorna el valor de la tirada.
 > La clase `JuegodeDados` tendrá tres métodos, el primero definirá tres dados para hacer una partida, el segundo hará la tirada de los tres dados y dirá si el usuario ha ganado o ha perdido (se considera que ha ganado si el valor de la tirada de los tres dados es el mismo, ejemplo: 3 - 3 - 3). El tercer método será `main` que llamará a los otros dos métodos para realizar una partida de dados.
-
+> ```
+>    2-1-5
+>    2-3-3
+>    2-3-5
+>    6-6-3
+>    1-1-1
+>    Lo conseguiste a la tirada 5
+> ```
+> Como el ḿetodo `main` tiene el modificador `static` todos los métodos y propiedades que uses también lo deben ser
 
 
 ## Student
@@ -329,7 +337,7 @@ El método a ejecutar se elige en función del tipo real del objeto, lo que sign
 
 ## Laboratorio
 
-Vamos a crear una clase `Lab` que implemente un laboratorio. Éste tiene un nombre, un taller una capacidad máxima, la hora y día en que se imparte, un profesor que lo imparte y una lista de estudiantes que asisten.
+Vamos a crear una clase `Lab` que implemente un laboratorio. Éste tiene un nombre, un taller, una capacidad máxima, la hora y día en que se imparte, un profesor que lo imparte y una lista de estudiantes que asisten.
 
 > -task-Diseña la clase. Piensa en los atributos, constructores y setters y getters necesarios. Luego crea una clase llamada `MainLab` donde crees varias instancias de la clase `Lab`
 
@@ -339,7 +347,7 @@ Vamos a implementar un máquina expendedora de tiques. Los tiques tienen un prec
 
 El cliente va introduciendo dinero y si pulsa el botón *Sacar tique* se le expenderá el tique siempre que haya introducido una cantidad igual o mayor que el importe. Este método debe imprimir el tique y devolver en un `String` la cantidad de billetes y monedas mínimas para dicha devolución:
 
-Por ejemplo, si el tique vale 1,20 € y el usuario introduce 5€, le debe devolver 3 monedas de 1€,  2 de 0,25€ y 1 de 0,05€.
+Por ejemplo, si el tique vale 1,20 € y el usuario introduce 5€, le debe devolver 3 monedas de 1€,  1 de 0,50€ y 1 de 0,05€.
 Además ingresará en el cajón el importe del tique.
 
 Si no hay suficiente dinero en el cajón, le debe decir `Introduzca el importe exacto`.
