@@ -7,7 +7,7 @@ categories: poo
 conToc: true
 permalink: poo-ejercicios
 ---
-
+ En todos los ejerc
 ## Person
 
 Crea una clase `Person`, que debe comportarse de la siguiente manera:
@@ -107,7 +107,7 @@ public class Main {
 }
 ```
 >-info-En todas las clases implementa el método toString()
->-info-En todos los ejercicios crea una clas Main y modela varios objetos. Después imprímelos.
+>En todos los ejercicios crea una clase `Main` y modela varios objetos. Después imprímelos.
 
 > -task-**Ejercicio** Crea una clase que modele los distintos ordenadores de una tienda de informática. Piensa qué atributos, qué constructores debes crear y qué setters y getters.
 >
@@ -358,7 +358,7 @@ Si no hay suficiente dinero en el cajón, le debe decir `Introduzca el importe e
 
 Se pretende modelar un sistema de subastas que funciona de la siguiente manera:
 
-La casa de subastas planifica la subasta en un día en concreto de una serie de artículos organizados en lotes. 
+La casa de subastas planifica la subasta en un día en concreto de una serie de artículos organizados en lotes.
 
 De cada artículo se debe almacenar su `nombre` y el `precio`. Del lote se desea conocer su número y el precio de salida.
 
