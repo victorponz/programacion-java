@@ -107,8 +107,8 @@ En este caso es necesaria una clase nueva que tenga un atributo para cada una de
 
 ```mermaid
 erDiagram
-    LIBRO ||--o{ PUBLICA : escribe
-    AUTOR ||--o{ PUBLICA : es-escrito
+    LIBRO ||--o{ PUBLICA : es-escrito
+    AUTOR ||--o{ PUBLICA : escribe
     PUBLICA {
     	date fecha
     }
