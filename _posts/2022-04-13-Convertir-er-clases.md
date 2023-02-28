@@ -51,7 +51,7 @@ Otro ejemplo sería la relación entre `Coche` y `Motor` en la que ambas entidad
 
 ## Relaciones 1:N
 
-En este caso crearemos un atributo en la parte 1 y una lista en la parte N
+En este caso crearemos un atributo en la parte N y una lista en la parte 1
 
 Por ejemplo:
 
