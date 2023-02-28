@@ -59,11 +59,10 @@ Por ejemplo:
 erDiagram
 	EDITORIAL ||..|{ LIBRO : edita 
 ```
-
+Si empezamos por la clase `Editorial` todavía no existe la entidad `Libro`.
 ```java
 public class Editorial{
     private String nombre;
-    private Set<Libro> libros;
 	//Se omite el constructor, getters y setters
 }
 ```
@@ -72,9 +71,36 @@ public class Editorial{
 public class Libro{
     private String titulo;
     private Editorial editorial;
-	//Se omite el constructor, getters y setters
+	
+	public Libro(String titulo, Editorial editorial){
+        this.titulo = titulo;
+        this.editorial = editorial;
+    }
+    //Se omiten getters y setters
 }
 ```
+
+Ahora ya podemos finalizar la clase `Editorial` con la lista de libros y creamos un método para poder añadir un libro a la lista.
+
+```java
+public class Editorial{
+    private String nombre;
+    private Set<Libro> libros;
+    
+    public Editorial(String nombre){
+        this.nombre = nombre;
+        this.libros = new HashSet<>();
+    }
+    
+    public void addLibro(Libro libro){
+        this.libros.add(libro);
+    }
+	//Se omiten getters y setters
+    
+}
+```
+
+
 
 ## Relaciones N:M sin atributos
 
