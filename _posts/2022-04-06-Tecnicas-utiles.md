@@ -154,7 +154,7 @@ The string contained none of the three alternatives
 
 Puedes usar paréntesis para determinar qué parte de una expresión regular se ve afectada por las reglas dentro de los paréntesis. Digamos que queremos permitir las cadenas `00000` y `00001`. Podemos hacerlo colocando una barra vertical entre ellas de esta manera `00000|00001`. Los paréntesis nos permiten limitar la opción a una parte específica de la cadena. La expresión `0000(0|1)` especifica las cadenas `00000` y `00001`.
 
-De manera similar, la expresión regular car(|s|) define las formas singular (car) y plural (cars) de la palabra car.
+De manera similar, la expresión regular `car(|s|)` define las formas singular (car) y plural (cars) de la palabra car.
 
 ### Cuantificadores
 
