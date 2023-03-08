@@ -1,0 +1,36 @@
+public class DatabaseConnection
+{
+    private static DatabaseConnection dbInstance; // Variable para almacenar la única instancia de la clase
+    private static java.sql.Connection con;
+   
+    private DatabaseConnection() {
+      // El Constructor es privado!!
+    }
+
+    public static DatabaseConnection getInstance(){
+        //Si no hay ninguna instancia...
+        if(dbInstance==null){
+          	//Creo la única instancia de esta clase
+            dbInstance= new DatabaseConnection();
+        }
+        return dbInstance;
+    }
+
+    public  java.sql.Connection getConnection(){
+		//Si no existe la conexión, la crea
+        if(con==null){
+            try {
+              	//Otra forma de contectarse sin Properties
+                String host = "jdbc:mysql://localhost:3306/network";
+                String username = "root";
+                String password = "sa";
+                con = java.sql.DriverManager.getConnection( host, username, password );
+                System.out.println("Conexion realizada");
+            } catch (java.sql.SQLException ex) {
+                System.out.println("Se ha producido un error al conectar: " + ex.getMessage());
+            }
+        }
+
+        return con;
+    }
+}

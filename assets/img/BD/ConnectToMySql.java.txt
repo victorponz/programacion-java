@@ -1,0 +1,22 @@
+import java.sql.*;
+public class ConnectToMySql {
+  public static void main(String[] av) {
+    try {
+      // Dependiendo de a qué tipo de SGBD queramos conectar cargaremos un controlador u otro
+      // Intentar cargar el driver de MySQL
+      Class<?> c = Class.forName("com.mysql.jdbc.Driver");
+      System.out.println("Cargado " + c.getName());
+      String host = "jdbc:mysql://localhost:3306/network";
+      String username = "root";
+      String password = "sa";
+      Connection con = DriverManager.getConnection(host, username, password);
+      System.out.println("Conexión completada");
+      con.close();
+    } catch (ClassNotFoundException cnfe) {
+      System.out.println(cnfe.getMessage());
+	} catch (SQLException ex) {
+      System.out.println("Se ha producido un error al conectar: " + ex.getMessage());
+    }
+
+  }
+}
