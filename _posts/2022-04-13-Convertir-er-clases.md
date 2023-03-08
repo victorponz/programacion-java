@@ -115,7 +115,17 @@ erDiagram
 public class Libro{
     private String titulo;
     private Set<Autor> autores;
-	//Se omite el constructor, getters y setters
+    
+    public Libro(String titulo){
+        this.titulo = titulo;
+        this.autores = new HashSet<>();
+    }
+	//Se omiten getters y setters
+    
+    //Creamos un setter que nos permita añadir un autor a la lista
+    public void addAutor(Autor autor){
+        this.autores.add(autor);
+    }
 }
 ```
 
@@ -123,7 +133,17 @@ public class Libro{
 public class Autor{
     private String nombre;
     private Set<Libro> libros;
-    //Se omite el constructor, getters y setters
+    
+    public Autor(String nombre){
+        this.nombre = nombre;
+        this.libros = new HashSet<>();
+    }
+	//Se omiten getters y setters
+    
+    //Creamos un setter que nos permita añadir un libro a la lista
+    public void addLibro(Libro libro){
+        this.libros.add(libro);
+    }
 }
 ```
 
@@ -152,7 +172,9 @@ En este caso crearemos una nueva clase con referencias a `Libro` y a `Autor`
  }
 ```
 
----
+Además, en cada parte de la relación crearemos un `Set` para mantener la lista de los libros publicados por un autor y la lista de los autores de un libro.
+
+
 
 **Adaptado en parte de:**
 
