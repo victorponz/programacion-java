@@ -1,5 +1,5 @@
 ---
-typora-copy-images-to: ./programacion-java/assets/img/formato/
+typora-copy-images-to: ../assets/img/formato/
 typora-root-url: ../../
 layout: post
 title: Ficheros con formato
@@ -926,8 +926,7 @@ Como ejemplo real, un WebService de Google Maps nos proporciona información de 
                "types" : [ "postal_code" ]
             },
             {
-               "long_name" : "Castell		prueba();
-ón de la Plana",
+               "long_name" : "Castellón de la Plana",
                "short_name" : "Castellón de la Plana",
                "types" : [ "locality", "political" ]
             },
@@ -993,8 +992,6 @@ A partir de la raíz (que ahora sí es un objeto), tenemos dos miembros: ***Resu
 }
 ```
 
-
-
 El formato json es muy utilizado en API's. La mayoría de webs ofrecen servicios REST para consultar sus bases de datos en este formato. 
 
 https://www.sitepoint.com/10-example-json-files/
@@ -1003,7 +1000,17 @@ https://www.sitepoint.com/10-example-json-files/
 
 [Gson](https://github.com/google/gson) es una biblioteca de código abierto para el lenguaje de  programación Java que permite la **serialización** y **deserialización** entre  objetos Java y su representación en notación `JSON`.
 
-Para empezar a trabajar con esta librería es necesario descargar el [jar](https://repo1.maven.org/maven2/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar) apropiado y después añadir una ***User Library*** en Eclipse, tal y como hicimos para **Hibernate**.
+Para usar esta librería en IntelliJ, debemos importarla desde `File->Project Structure` y buscar la librería
+
+![image-20230322181049739](/programacion-java/assets/img/formato/image-20230322181049739.png)
+
+Pulsar el botón `+` 
+
+![image-20230322181147488](/programacion-java/assets/img/formato/image-20230322181147488.png) 
+
+Y buscar la librería `com.google.code.gson`
+
+![image-20230322181529804](/programacion-java/assets/img/formato/image-20230322181529804.png)
 
 #### 5.2.1 Deserializando JSON a un objeto Properties
 
@@ -1096,7 +1103,7 @@ La única diferencia es que ahora el segundo parámetro del método `fromJSON` n
 
 ![1526286312556](/programacion-java/assets/img/formato/1526286312556.png)
 
-### 5.2.6 Serializando una lista de objetos
+#### 5.2.6 Serializando una lista de objetos
 
 En este caso, hemos de abrir un archivo para escritura con `FileWriter` y pasárselo como argumento al método `toJson()`
 
@@ -1204,13 +1211,355 @@ El siguiente json es sólo una de los valores devueltos por esta api.
          "place_id" : "ChIJM6FxFAoAoBIRJoJc_bBHm-c",
          "types" : [ "street_address" ]
       },
-       ....
+      {
+         "address_components" : [
+            {
+               "long_name" : "12004",
+               "short_name" : "12004",
+               "types" : [ "postal_code" ]
+            },
+            {
+               "long_name" : "Castellón de la Plana",
+               "short_name" : "Castellón de la Plana",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Castellón",
+               "short_name" : "Castellón",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Comunidad Valenciana",
+               "short_name" : "Comunidad Valenciana",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "España",
+               "short_name" : "ES",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "12004 Castellón de la Plana, Castellón, España",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 40.06441350000001,
+                  "lng" : 0.0199294
+               },
+               "southwest" : {
+                  "lat" : 39.9876763,
+                  "lng" : -0.0908162
+               }
+            },
+            "location" : {
+               "lat" : 40.0120227,
+               "lng" : -0.0279867
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.06441350000001,
+                  "lng" : 0.0199294
+               },
+               "southwest" : {
+                  "lat" : 39.9876763,
+                  "lng" : -0.0908162
+               }
+            }
+         },
+         "place_id" : "ChIJRxeTAgn_Xw0REF0TPnKvAhw",
+         "types" : [ "postal_code" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Castellón de la Plana",
+               "short_name" : "Castellón de la Plana",
+               "types" : [ "administrative_area_level_4", "political" ]
+            },
+            {
+               "long_name" : "Plana Alta",
+               "short_name" : "Plana Alta",
+               "types" : [ "administrative_area_level_3", "political" ]
+            },
+            {
+               "long_name" : "Castellón",
+               "short_name" : "Castellón",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Comunidad Valenciana",
+               "short_name" : "Comunidad Valenciana",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "España",
+               "short_name" : "ES",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Castellón de la Plana, Castellón, España",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 40.06441350000001,
+                  "lng" : 0.6912275999999999
+               },
+               "southwest" : {
+                  "lat" : 39.8501212,
+                  "lng" : -0.1644067
+               }
+            },
+            "location" : {
+               "lat" : 40.0017505,
+               "lng" : -0.05599390000000001
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.06441350000001,
+                  "lng" : 0.6912275999999999
+               },
+               "southwest" : {
+                  "lat" : 39.8501212,
+                  "lng" : -0.1644067
+               }
+            }
+         },
+         "place_id" : "ChIJ34vk7yj-Xw0RXqONjd-SdlM",
+         "types" : [ "administrative_area_level_4", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Plana Alta",
+               "short_name" : "Plana Alta",
+               "types" : [ "administrative_area_level_3", "political" ]
+            },
+            {
+               "long_name" : "Castellón",
+               "short_name" : "Castellón",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Comunidad Valenciana",
+               "short_name" : "Comunidad Valenciana",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "España",
+               "short_name" : "ES",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Plana Alta, Castellón, España",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 40.4182745,
+                  "lng" : 0.6887496
+               },
+               "southwest" : {
+                  "lat" : 39.8933317,
+                  "lng" : -0.1659079
+               }
+            },
+            "location" : {
+               "lat" : 40.2271003,
+               "lng" : 0.0746767
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.4182745,
+                  "lng" : 0.6887496
+               },
+               "southwest" : {
+                  "lat" : 39.8933317,
+                  "lng" : -0.1659079
+               }
+            }
+         },
+         "place_id" : "ChIJHWyn-ncXoBIRxF_Aq-DRWQg",
+         "types" : [ "administrative_area_level_3", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Castellón",
+               "short_name" : "Castellón",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Comunidad Valenciana",
+               "short_name" : "Comunidad Valenciana",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "España",
+               "short_name" : "ES",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Castellón, España",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 40.7886312,
+                  "lng" : 0.6912275999999999
+               },
+               "southwest" : {
+                  "lat" : 39.7146978,
+                  "lng" : -0.8462968
+               }
+            },
+            "location" : {
+               "lat" : 40.1451772,
+               "lng" : -0.1494988
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.7886312,
+                  "lng" : 0.6912275999999999
+               },
+               "southwest" : {
+                  "lat" : 39.7146978,
+                  "lng" : -0.8462968
+               }
+            }
+         },
+         "place_id" : "ChIJd-4zz4vzXw0R8Mkh126vAgM",
+         "types" : [ "administrative_area_level_2", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Comunidad Valenciana",
+               "short_name" : "Comunidad Valenciana",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "España",
+               "short_name" : "ES",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Comunidad Valenciana, España",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 40.7886312,
+                  "lng" : 0.6912275999999999
+               },
+               "southwest" : {
+                  "lat" : 37.8438987,
+                  "lng" : -1.5289447
+               }
+            },
+            "location" : {
+               "lat" : 39.4840108,
+               "lng" : -0.7532808999999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.7886312,
+                  "lng" : 0.6912275999999999
+               },
+               "southwest" : {
+                  "lat" : 37.8438987,
+                  "lng" : -1.5289447
+               }
+            }
+         },
+         "place_id" : "ChIJDTGOzUD8XQ0RXQsxGLjLQF8",
+         "types" : [ "administrative_area_level_1", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "España",
+               "short_name" : "ES",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "España",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 43.8504,
+                  "lng" : 4.6362
+               },
+               "southwest" : {
+                  "lat" : 27.4985,
+                  "lng" : -18.2648001
+               }
+            },
+            "location" : {
+               "lat" : 40.46366700000001,
+               "lng" : -3.74922
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 45.244,
+                  "lng" : 5.098
+               },
+               "southwest" : {
+                  "lat" : 35.17300000000001,
+                  "lng" : -12.524
+               }
+            }
+         },
+         "place_id" : "ChIJi7xhMnjjQgwR7KNoB5Qs7KY",
+         "types" : [ "country", "political" ]
+      }
+   ],
+   "status" : "OK"
+}s
 ```
+
+Si vemos el archivo json con el navegador
+
+![image-20230322183647068](/programacion-java/assets/img/formato/image-20230322183647068.png)
+
+Vemos que cada resultado tiene los siguientes campos:
+
+* `address_components` que a su vez es una lista de objetos
+* `formated_address` es un `String`
+* `geometry` es un objeto que a su vez contiene otro objeto para representar la (Latitud, Longitud)
+* `place_id` es un `String`
+* `types` es otra  lista de `String`
+
+La clase `AddressComponent` queda así:
+
+```java
+static class AddressComponent {
+    String long_name, short_name;
+    List<String> types;
+}
+```
+
+Y la clase `Geometry`, así:
+
+```java
+ static class Geometry {
+     LatLng location;
+     String location_type;
+
+     static class LatLng {
+         double lat, lng;
+     }
+ }
+```
+
+> -alert-No vamos a mapear todos los datos de la estructura `json`
 
 El primer paso es crear una clase que represente esta estructura, donde los resultados se mapean en una lista.
 
 ```java
-package tema3.json;
+package googlemaps;
 
 import java.util.List;
 
@@ -1222,7 +1571,6 @@ public class GeoResponse {
         List<AddressComponent> address_components;
         String formatted_address;
         Geometry geometry;
-        boolean partial_match;
         String place_id;
         List<String> types;
 
@@ -1232,14 +1580,8 @@ public class GeoResponse {
         }
 
         static class Geometry {
-            Rect bounds;
             LatLng location;
             String location_type;
-            Rect viewport;
-
-            static class Rect {
-                LatLng northeast, southwest;
-            }
 
             static class LatLng {
                 double lat, lng;
@@ -1252,12 +1594,9 @@ public class GeoResponse {
 Una vez tenemos la clase para mapear los objetos json, el código para procesarla es igual de sencillo que para la clase Empleado:
 
 ```java
-package tema3.json;
+package googlemaps;
 import com.google.gson.*;
 import java.io.IOException;
-
-
-import tema3.json.GeoResponse;
 import java.io.InputStream;
 import java.io.BufferedReader;
 
@@ -1266,24 +1605,80 @@ import java.io.InputStreamReader;
 
 public class LeerGmaps {
 
-	public static void main (String[] args)  throws IOException{
-		final Gson gson = new Gson();
-		final InputStream f = new FileInputStream("./archivos/gmaps.json");
-		final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(f));
-		GeoResponse g = gson.fromJson(bufferedReader, GeoResponse.class);
-		for (GeoResponse.Result r: g.results ) {
-			System.out.println(r.formatted_address);
-		}
-		bufferedReader.close();
-
-	}
+    public static void main (String[] args)  throws IOException{
+        final Gson gson = new Gson();
+        final InputStream f = new FileInputStream("src/main/resources/gmaps.json");
+        final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(f));
+        GeoResponse g = gson.fromJson(bufferedReader, GeoResponse.class);
+        for (GeoResponse.Result r: g.results ) {
+            System.out.println(r.formatted_address);
+            System.out.println("\tLatitud: " + r.geometry.location.lat + " Longitud: " + r.geometry.location.lng);
+        }
+        bufferedReader.close();
+    }
 }
 ```
 
+> -task-Aquí encontrarás la información en formato JSON de la especie pokémon `Aegislash`
+>
+> A partir de este fichero, debes generar la siguiente salida:
+>
+> ```
+> Base happiness: 50
+> Capture rate: 45
+> Color: brown
+> Evolves from: doublade
+> Names: 
+> 	ギルガルド
+> 	Gillgard
+> 	킬가르도
+> 	堅盾劍怪
+> 	Exagide
+> 	Durengard
+> 	Aegislash
+> 	Aegislash
+> 	Aegislash
+> 	ギルガルド
+> 	坚盾剑怪
+> ```
 
+**Reto 1**
+
+> -reto-En este reto deberás obtener la información directamente del api de [pokémon](https://pokeapi.co/) (sin guardarla en disco)
+>
+> Por ejemplo para el pokémon ditto la url es [https://pokeapi.co/api/v2/pokemon/ditto](https://pokeapi.co/api/v2/pokemon/ditto)
+>
+> Después debes imprimir la siguiente información del pokémon
+>
+> ```
+> Nombre: ditto
+> Altura: 3
+> Peso: 40
+> Habilidades:
+> 	limber
+> 	imposter
+> Versiones
+> 	red
+> 	blue
+> 	yellow
+> 	...
+> ```
+
+**Reto 2**
+
+> -reto- Crea una aplicación que le pida al usuario el nombre de un pokémon. Después imprime la misma información del reto anterior. Si no existe dicho pokémon se debe informar a usuario. El programa finaliza cuando el usuario introduce una cadena vacía
+
+**Reto 3**
+
+> -reto- Hay muchas api's el mercado, pero la mayoría necesitan de un `api key` para funcionar y tienen limitación de peticioes.
+>
+> He encontrado esta [https://animechan.vercel.app/](https://animechan.vercel.app/) que es de anime. Juega un poco con ella y crea un programa parecido a los anteriores
+
+> -info-Puedes encontrar más api's púlbicas en [https://github.com/public-apis/public-apis](https://github.com/public-apis/public-apis)
 
 ***Fuentes***
 
 https://www.adictosaltrabajo.com/tutoriales/gson-java-json/
 
 https://codereview.stackexchange.com/questions/117787/google-maps-coordinations-json-to-object
+
