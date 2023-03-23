@@ -1670,7 +1670,7 @@ public class LeerGmaps {
 
 **Reto 3**
 
-> -reto- Hay muchas apis el mercado, pero la mayoría necesitan de un `api key` o usar 'OAuth 2.0' para funcionar y tienen limitación de peticiones.
+> -reto- Hay muchas apis el mercado, pero la mayoría necesitan de un `api key` o usar `OAuth 2.0` para funcionar y tienen limitación de peticiones.
 >
 > He encontrado esta [https://animechan.vercel.app/](https://animechan.vercel.app/) que es de anime. Juega un poco con ella y crea un programa parecido a los anteriores
 
