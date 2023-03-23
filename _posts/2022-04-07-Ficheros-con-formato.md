@@ -1,3 +1,4 @@
+---
 typora-copy-images-to: ../assets/img/formato/
 typora-root-url: ../../
 layout: post
@@ -87,7 +88,7 @@ En ambos casos, el segundo parámetro indicará el modo:
 
 * "**r**" indica sólo lectura
 
-* "**rw**" indica lectura escritura 
+* "**rw**" indica lectura escritura
 
 A pesar de ser una clase completamente diferente de la jerarquía de `InputStream`-`OutpuStream` (o `Read`-`Writer`) implementa métodos que se llaman exactamente igual que los de aquellas clases, lo que hace mucho más cómoda la utilización. Los métodos más importantes son:
 
@@ -171,7 +172,7 @@ Todas las clases equivalentes a los tipos básicos ya implementan Serializable. 
 
 En caso de que la clase del objeto que se intente serializar, o las de alguno de los objetos que contenga, no implementaron la interfaz `Serializable`, se lanzaría una excepción de tipo `NotSerializableException`, impidiendo el almacenamiento.
 
-Los **Streams** `ObjectInputStream` y `ObjectOutputStream` son decoradores que añaden a cualquier otro `Stream` la capacidad de serializar cualquier objeto `Serializable`. El stream de salida dispondrá del método `writeObject `y el stream de entrada, el método de lectura `readObject`. 
+Los **Streams** `ObjectInputStream` y `ObjectOutputStream` son decoradores que añaden a cualquier otro `Stream` la capacidad de serializar cualquier objeto `Serializable`. El stream de salida dispondrá del método `writeObject `y el stream de entrada, el método de lectura `readObject`.
 
 El método `readObject` sólo permite recuperar instancias que sean de la misma clase que la que se guardó. En caso contrario, se lanzaría una excepción de tipo `ClassCastException`. Además, es necesario que la aplicación disponga del código compilado de la clase; de no ser así, la excepción lanzada sería `ClassNotFoundException`.
 
@@ -190,7 +191,7 @@ public class Empleado implements Serializable {
   /**
 	 * Versión 1. serialVersionUID sirve para asegurarnos que serializamos/deserializamos
 	 * objetos de la misma versión (puede que entre versiones haya cambiado la signatura de la
-	 * clase y nos dé errores. Cuando cambia la signatura se debe modificar este valor 
+	 * clase y nos dé errores. Cuando cambia la signatura se debe modificar este valor
 	 */
 	private static final long serialVersionUID = 1L;
 	private int num=0;
@@ -258,7 +259,7 @@ Para comprobar cómo funciona `serialVersionUID`, vamos a añadir un campo más 
 public class Empleado implements Serializable {
 
   /**
-	 * Versión 2. Hemos cambiado la clase añadiendo un nuevo campo y por eso le ponemos versión 2 
+	 * Versión 2. Hemos cambiado la clase añadiendo un nuevo campo y por eso le ponemos versión 2
 	 */
 	private static final long serialVersionUID = 2L;
 	private int num=0;
@@ -375,7 +376,7 @@ Los analizadores jerárquicos guardan todos los datos del documento XML en  memo
 
 El formato de la estructura donde se guarda la información en memoria ha  sido especificado por el organismo internacional W3C (World Wide Web  Consortium) y se conoce como **DOM** (**Document Object Model**). Es una estructura que **HTML** y **javascript** han popularizado mucho y se trata  de una especificación que Java materializa en forma de interfaces. La principal se denomina `Document` y representa todo un documento `XML`. Al tratarse de una interfaz, puede ser implementada por varias clases.
 
-El estándar W3C define la clase `DocumentBuilder` (constructor de documentos) para poder crear estructuras DOM a partir de un XML. Esta clase `DocumentBuilder` es una clase abstracta, y para que se pueda  adaptar a las diferentes plataformas, puede necesitar fuentes de datos o requerimientos diversos. Recuerda que las clases abstractas no se pueden instanciar de forma directa. Por este motivo, el consorcio W3 especifica también la clase `DocumentBuilderFactory`, es decir, el fabricante de `DocumentBuilder`. 
+El estándar W3C define la clase `DocumentBuilder` (constructor de documentos) para poder crear estructuras DOM a partir de un XML. Esta clase `DocumentBuilder` es una clase abstracta, y para que se pueda  adaptar a las diferentes plataformas, puede necesitar fuentes de datos o requerimientos diversos. Recuerda que las clases abstractas no se pueden instanciar de forma directa. Por este motivo, el consorcio W3 especifica también la clase `DocumentBuilderFactory`, es decir, el fabricante de `DocumentBuilder`.
 
 Las librerías desde donde importaremos las clases comentadas son:
 
@@ -451,7 +452,7 @@ import org.w3c.dom.Document;
     Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse("./archivos/coches.xml");
 ```
 
-Pero, ¿y si el proceso que necesitamos es el inverso? Es decir, y si lo que queremos es guardar una estructura **DOM** en un fichero `XML`? 
+Pero, ¿y si el proceso que necesitamos es el inverso? Es decir, y si lo que queremos es guardar una estructura **DOM** en un fichero `XML`?
 
 En este caso lo que tendremos que hacer será construir un documento vacío, ir poniendo los elementos y atributos (con sus valores) de alguna manera, y posteriormente guardarlo en un archivo. Dejamos para un poco más adelante como ir construyendo los nodos del documento y centrémonos en el hecho de crear el documento vacío y guardarlo en un archivo. Podemos construir un documento nuevo a partir del `DocumentBuilder`, utilizando el método `newDocument()`:
 
@@ -495,7 +496,7 @@ La estructura **DOM** toma la forma de un árbol, donde cada parte del `XML` se 
 
 * El contenido de una etiqueta de tipo texto, será un nodo de tipo `TextElement`
 
-* Los atributos serán nodos de tipo `Attribute`. 
+* Los atributos serán nodos de tipo `Attribute`.
 
 Cada nodo específico dispone de métodos para acceder a sus datos concretos (nombre, valor, nodos hijos, nodo padre, etc.). Es decir, que el nodo sirve para situarse en una determinada posición (elemento, atributo, elemento de texto, ...). Tendrá unos métodos, sobre todo para navegar, aunque también algunos para sacar el contenido. `Element` es un clase derivada de `Node` (por tanto hereda todos sus métodos), y  proporciona algunas cosas más, sobre todo para acceder cómodamente a sus partes. Miremos los métodos más importantes, tanto de `Node` como de `Element` y `Document`.
 
@@ -541,7 +542,7 @@ Veremos más claro si representamos los retorno de carro en el mismo documento:
 	<tr>¶
 		<td> </td>¶
 		<td> </td>¶
-	</tr>¶ 
+	</tr>¶
 </table>
 ```
 
@@ -563,7 +564,7 @@ La ausencia de retornos de carro en el archivo implica también la ausencia de n
 <aaa>
 	<bbb>
 		texto de la etiqueta bbb
-	</bbb> 
+	</bbb>
 </aaa>
 ```
 
@@ -605,9 +606,9 @@ import org.xml.sax.SAXException;
 public class LeerXML2 {
 
 	public static void main(String[] args)
-			throws ParserConfigurationException, 
-					FileNotFoundException, 
-					IOException, 
+			throws ParserConfigurationException,
+					FileNotFoundException,
+					IOException,
 					SAXException {
 		Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse("./archivos/coches.xml");
 		Element root = doc.getDocumentElement(); // apuntarà al elemento raíz
@@ -651,9 +652,9 @@ En el ejemplo:
 
 * En ***matricula*** en vez de coger toda la lista de hijos, sólo hemos tomado el primero, y por lo tanto es más rápido.
 
-* Y para ***motor*** utilizamos el método `getTextContent`, que coge el contenido de texto del elemento y de todos sus descendientes. Como es un nodo de texto ya sabemos a priori que nos irá bien, y por lo tanto es la forma más rápida. 
+* Y para ***motor*** utilizamos el método `getTextContent`, que coge el contenido de texto del elemento y de todos sus descendientes. Como es un nodo de texto ya sabemos a priori que nos irá bien, y por lo tanto es la forma más rápida.
 
-  
+
 
 El atributo ***combustible*** del elemento ***motor*** lo hemos sacado de 2 maneras:*
 
@@ -679,7 +680,7 @@ Combustible: diesel
 Combustible: diesel
 
 
-  
+
     ford
     focus
     duratorc 1.4
@@ -691,8 +692,8 @@ Combustible: diesel
     llantas
     11325.jpg
     11326.jpg
-  
-  
+
+
     ford
     focus
     duratorc 2.0
@@ -761,13 +762,13 @@ En el archivo `XML` generado, observarás que no hay retornos de carro, todo est
 
 Con `JSON` podremos representar:
 
-* **Valores**, de tipo carácter (entre comillas dobles), numérico (sin comillas), booleano (true o false) o null. 
+* **Valores**, de tipo carácter (entre comillas dobles), numérico (sin comillas), booleano (true o false) o null.
 
 * **Parejas clave valor**, es decir un nombre simbólico acompañado de un valor asociado . Se representan así: `"nombre": valor`
 
-* **Objetos**, que es una colección de miembros, cada uno de los cuales puede ser una pareja clave valor, u otros objetos (incluso arrays): se representan entre llaves, y con los elementos separados por comas: `{"nombre1": " valor1 "," nombre2 ": valor2, valor 3, ...}` 
+* **Objetos**, que es una colección de miembros, cada uno de los cuales puede ser una pareja clave valor, u otros objetos (incluso arrays): se representan entre llaves, y con los elementos separados por comas: `{"nombre1": " valor1 "," nombre2 ": valor2, valor 3, ...}`
 
-* **Arrays**, que son listas de elementos con la misma estructura. Cada elemento puede ser un valor, una pareja clave valor, un objeto o un array. 
+* **Arrays**, que son listas de elementos con la misma estructura. Cada elemento puede ser un valor, una pareja clave valor, un objeto o un array.
 
 Veamos alguno ejemplos:
 
@@ -991,7 +992,7 @@ A partir de la raíz (que ahora sí es un objeto), tenemos dos miembros: ***Resu
 }
 ```
 
-El formato json es muy utilizado en API's. La mayoría de webs ofrecen servicios REST para consultar sus bases de datos en este formato. 
+El formato json es muy utilizado en API's. La mayoría de webs ofrecen servicios REST para consultar sus bases de datos en este formato.
 
 https://www.sitepoint.com/10-example-json-files/
 
@@ -1003,9 +1004,9 @@ Para usar esta librería en IntelliJ, debemos importarla desde `File->Project St
 
 ![image-20230322181049739](/programacion-java/assets/img/formato/image-20230322181049739.png)
 
-Pulsar el botón `+` 
+Pulsar el botón `+`
 
-![image-20230322181147488](/programacion-java/assets/img/formato/image-20230322181147488.png) 
+![image-20230322181147488](/programacion-java/assets/img/formato/image-20230322181147488.png)
 
 Y buscar la librería `com.google.code.gson`
 
@@ -1013,14 +1014,14 @@ Y buscar la librería `com.google.code.gson`
 
 #### 5.2.1 Deserializando JSON a un objeto Properties
 
-En este primer ejemplo vamos a ver cómo deserializar nuestro objeto `JSON` en un objeto `Properties` (Java). Nuestro objeto `JSON` es el  siguiente: 
+En este primer ejemplo vamos a ver cómo deserializar nuestro objeto `JSON` en un objeto `Properties` (Java). Nuestro objeto `JSON` es el  siguiente:
 
 ```json
  {
-  "num":1, 
-  "nombre": "Andreu", 
-  "departamento": 10, 
-  "edad": 32, 
+  "num":1,
+  "nombre": "Andreu",
+  "departamento": 10,
+  "edad": 32,
   "sueldo": 1000.0
  }
 ```
@@ -1094,7 +1095,7 @@ Por ejemplo, partiendo del siguiente json.
 ```java
 [
 	{ "num":1, "nombre": "Andreu", "departamento": 10, "edad": 32, "sueldo": 1000.0},
-	{ "num":2, "nombre": "Bernat", "departamento": 20, "edad": 28, "sueldo": 1200.0} 
+	{ "num":2, "nombre": "Bernat", "departamento": 20, "edad": 28, "sueldo": 1200.0}
 ]
 ```
 
@@ -1130,11 +1131,11 @@ public class EscribirEnFicheroJSON {
 		final Type tipoListaEmpleados = new TypeToken<List<Empleado>>(){}.getType();
 		final List<Empleado> empleados = gson.fromJson(empleadosJSON, tipoListaEmpleados);
 		final Writer w_json = new FileWriter("./archivos/empleadosdos.json");
-		
+
 		final String representacionJSON = gson.toJson(empleados);
-		
+
 		w_json.write(representacionJSON);
-		
+
 		w_json.close();
 	}
 }
@@ -1627,7 +1628,7 @@ public class LeerGmaps {
 > Capture rate: 45
 > Color: brown
 > Evolves from: doublade
-> Names: 
+> Names:
 > 	ギルガルド
 > 	Gillgard
 > 	킬가르도
@@ -1680,4 +1681,3 @@ public class LeerGmaps {
 [https://www.adictosaltrabajo.com/tutoriales/gson-java-json/](https://www.adictosaltrabajo.com/tutoriales/gson-java-json/)
 
 [https://codereview.stackexchange.com/questions/117787/google-maps-coordinations-json-to-object](https://codereview.stackexchange.com/questions/117787/google-maps-coordinations-json-to-object)
-
