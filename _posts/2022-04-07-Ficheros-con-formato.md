@@ -1,4 +1,3 @@
----
 typora-copy-images-to: ../assets/img/formato/
 typora-root-url: ../../
 layout: post
@@ -1619,7 +1618,7 @@ public class LeerGmaps {
 }
 ```
 
-> -task-Aquí encontrarás la información en formato JSON de la especie pokémon `Aegislash`
+> -task-[Aquí](/programacion-java/assets/specie.json) encontrarás la información en formato JSON de la especie pokémon `Aegislash`
 >
 > A partir de este fichero, debes generar la siguiente salida:
 >
@@ -1670,15 +1669,15 @@ public class LeerGmaps {
 
 **Reto 3**
 
-> -reto- Hay muchas api's el mercado, pero la mayoría necesitan de un `api key` para funcionar y tienen limitación de peticioes.
+> -reto- Hay muchas apis el mercado, pero la mayoría necesitan de un `api key` o usar 'OAuth 2.0' para funcionar y tienen limitación de peticiones.
 >
 > He encontrado esta [https://animechan.vercel.app/](https://animechan.vercel.app/) que es de anime. Juega un poco con ella y crea un programa parecido a los anteriores
 
-> -info-Puedes encontrar más api's púlbicas en [https://github.com/public-apis/public-apis](https://github.com/public-apis/public-apis)
+> -info-Puedes encontrar más apis públicas en [https://github.com/public-apis/public-apis](https://github.com/public-apis/public-apis)
 
 ***Fuentes***
 
-https://www.adictosaltrabajo.com/tutoriales/gson-java-json/
+[https://www.adictosaltrabajo.com/tutoriales/gson-java-json/](https://www.adictosaltrabajo.com/tutoriales/gson-java-json/)
 
-https://codereview.stackexchange.com/questions/117787/google-maps-coordinations-json-to-object
+[https://codereview.stackexchange.com/questions/117787/google-maps-coordinations-json-to-object](https://codereview.stackexchange.com/questions/117787/google-maps-coordinations-json-to-object)
 
