@@ -128,6 +128,23 @@ Y ya tenemos instalada la librería.
 
 ![1557848175572](/programacion-java/assets/img/BD/1557848175572.png)
 
+###  Instalar driver en IntelliJ
+
+En el caso de IntelliJ lo instalaremos como una dependencia el archivo `pom.xml` que se encuentra en raíz del proyecto, donde añadimos las siguientes líneas:
+```xml
+<dependencies>
+	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>8.0.32</version>
+	</dependency>
+</dependencies>
+```
+
+Después pulsamos botón derecho sobre el archivo `pom.xml` y elegimos `maven -> Reload project`
+
+
 ### Instalar driver en BlueJ
 
 En el caso de **BlueJ**, se añaden las librerías desde *Herramientas -> Preferencias -> Librerías*
