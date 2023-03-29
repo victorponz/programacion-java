@@ -170,6 +170,17 @@ Así que elegimos el jar desde Build Path -> Libraries -> Add External JARs.
 
 Finalmente pulsamos Apply and Close.
 
+En IntelliJ procedemos de la misma manera que hicimos para instalar el driver de MySql.
+
+```xml
+<!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
+<dependency>
+    <groupId>org.xerial</groupId>
+    <artifactId>sqlite-jdbc</artifactId>
+    <version>3.40.0.0</version>
+</dependency>
+```
+
 Y ahora modificamos `DatabaseConnection`
 
 ```java
