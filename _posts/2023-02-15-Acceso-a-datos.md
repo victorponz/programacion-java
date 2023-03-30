@@ -31,7 +31,7 @@ Aunque se trata de sentencias muy dispares, desde el punto de vista de la comuni
 2. Ejecución de una sentencia SQL pasada por parámetro al método `executeUpdate`.
 3. Cierre del objeto `Statement` instanciado.
 
-Miremos este ejemplo, en el que vamos a crear una tabla muy sencilla en la Base de Datos MySql/network 
+Miremos este ejemplo, en el que vamos a crear una tabla muy sencilla en la Base de Datos MySql/network
 
 > **Nota** En este enlace tenéis la clase [DatabaseConnection](https://gist.github.com/victorponz/34e36ad0ff5585d91952e0edeb23fa49)
 
@@ -98,7 +98,7 @@ Como se puede observar, hemos de construir la cadena sql concatenado datos, alte
 
 ## Sentencias predefinidas
 
-Para solucionar el problema de crear sentencias sql complejas, se utiliza `PreparedStatement`. 
+Para solucionar el problema de crear sentencias sql complejas, se utiliza `PreparedStatement`.
 
 JDBC dispone de un objeto derivado del `Statement` que se llama `PreparedStatement`,  al que se le pasa la sentencia SQL en el momento de crearlo, no en el momento de ejecutar la sentencia (como pasaba con `Statement`). Y además esta sentencia puede admitir parámetros, lo que nos puede ir muy bien en determinadas ocasiones.
 
@@ -121,7 +121,7 @@ Este es el mismo método para insertar un usuario pero usando `PreparedStatement
 
 ![1558006558042](/programacion-java/assets/img/datos/1558006558042.png)
 
-Fijaos que ahora, además, la sentencia sql es mucho más fácil de escribir. 
+Fijaos que ahora, además, la sentencia sql es mucho más fácil de escribir.
 
 ## Trabajar con Sqlite
 
@@ -160,7 +160,7 @@ Y ahora podemos crear las tablas mediante Scrapbook
 
 <script src="https://gist.github.com/victorponz/a8cc553b166f9d903ce3ddedc8536ae9.js"></script>
 
-Y vamos a añadir el jar que hemos descargado al Build path. 
+Y vamos a añadir el jar que hemos descargado al Build path.
 
 > Nota. No sé por qué motivo pero no funciona si lo hago igual que para MySql
 
@@ -228,7 +228,7 @@ String host = "jdbc:sqlite:./bd/empleados.bd";
 con = java.sql.DriverManager.getConnection( host);
 ```
 
-#### Crear tabla 
+#### Crear tabla
 
 Creamos una clase `CreateTable` para poder crear la tabla:
 
@@ -260,3 +260,5 @@ Ahora modificamos los datos. Simplemente aumentamos el sueldo un 5% y modificamo
 
 ![1558290448718](/programacion-java/assets/img/datos/1558290448718.png)
 
+## Ejercicio
+>-task-Crea una aplicación que nos permita gestionar usuarios mediante un menú. Se debe poder listar, añadir y borrar.
