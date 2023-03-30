@@ -286,7 +286,7 @@ public class DatabaseConnection
         return dbInstance;
     }
 
-    public  java.sql.Connection getConnection(){
+    public static java.sql.Connection getConnection(){
 
         if(con==null){
             try {

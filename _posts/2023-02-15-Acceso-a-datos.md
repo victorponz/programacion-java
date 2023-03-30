@@ -184,7 +184,7 @@ En IntelliJ procedemos de la misma manera que hicimos para instalar el driver de
 Y ahora modificamos `DatabaseConnection`
 
 ```java
- String host = "jdbc:sqlite:./bd/network.bd";
+ String host = "jdbc:sqlite:src/main/resources/network";
  con = java.sql.DriverManager.getConnection( host);
 ```
 
