@@ -53,7 +53,6 @@ public class UsuarioService
         System.out.println("Usuario insertado");
         st.close();
     }
-
     public static Usuario mapeoBDToUsuario(int id, String nombre, String apellidos){
         return new Usuario(id, nombre, apellidos);
     }

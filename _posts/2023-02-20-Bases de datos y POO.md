@@ -12,7 +12,7 @@ En este tema vamos a aprender a añadir a un proyecto orientado a objetos la per
 
 Partimos de una aplicación en la que los usuarios pueden escribir Posts y comentar Post hechos por otros usuarios. Por lo que existen tres entidades: Usuarios, Posts y Comentarios. En la siguiente imagen se muestran estas entidades representadas en una base de datos.
 
-![1522912364266](programacion-java/assets/img/poo-tablas/1522912364266.png)
+![1522912364266](/programacion-java/assets/img/poo-tablas/1522912364266.png)
 
 ## Clase Usuario
 
@@ -72,7 +72,7 @@ public class Usuario
 }
 ```
 
-![1522913290308](programacion-java/assets/img/poo-tablas/1522913290308.png)
+![1522913290308](/programacion-java/assets/img/poo-tablas/1522913290308.png)
 
 Usaremos para conectarnos a la base de datos un patrón **singleton** para compartir la conexión con todos los objetos de nuestra aplicación.
 
@@ -129,7 +129,7 @@ public class DatabaseConnection
 
 
 
-![1522913318953](programacion-java/assets/img/poo-tablas/1522913318953.png)
+![1522913318953](/programacion-java/assets/img/poo-tablas/1522913318953.png)
 
 ## Clase UsuarioService
 
