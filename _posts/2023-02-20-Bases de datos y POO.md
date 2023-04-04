@@ -406,7 +406,7 @@ public static HashSet<Usuario> getAllUsers() throws SQLException {
 
 Como se puede comprobar, es muy sencillo crear métodos que nos devuelvan `Usuarios` que cumplan cierto criterio, simplemente añadiendo una cláusula `WHERE`
 
->-info-Esta forma de trabajar con bases de datos donde tenemos un clase POJO (en esta caso, `Usuario`), y otra clase `UsuarioRepository` que centraliza el trabajo para convertir objetos en tablas y viceversa se denomina "**Repository Pattern**" . 
+>-info-Esta forma de trabajar con bases de datos donde tenemos un clase POJO (en este caso, `Usuario`), y otra clase `UsuarioRepository` que centraliza el trabajo para convertir objetos en tablas y viceversa se denomina "**Repository Pattern**" . 
 >Nosotros estamos implementando una versión sencilla de este patrón. El original está basado en Interfaces y clases abstractas
 
 ```java
