@@ -135,7 +135,7 @@ public class DatabaseConnection
 
 ![image-20230404081604932](/programacion-java/assets/img/poo-tablas/image-20230404081604932.png)
 
-Una vez creada la clase `Usuario`, creamos una clase de ayuda que nos permitirá realizar la transformación entre los objetos y la base de datos. El cometido de esta clase es transformar los registros de la base de datos en objetos de clase `Usuario` y viceversa. De esta forma, intentamos corregir el  **desfase objeto-relacional**. La clase `Usuario` es una clase típica de POO con campos, setters y getters y es en la clase `UsuarioRepositorio` donde se realiza el mapeo objeto-relacional. Todos los métodos de esta clase son estáticos. Además, para que no se pueda instanciar, hacemos el constructor privado. Esta clase es 'estática' porque no es realmente un objeto sino una clase de ayuda para realizar el mapeo y para devolver objetos de tipo `Usuario`. Más adelante veremos, mediante persistencia, que existen métodos que nos permiten solucionar de una forma más cómoda este desfase.
+Una vez creada la clase `Usuario`, creamos una clase de ayuda que nos permitirá realizar la transformación entre los objetos y la base de datos. El cometido de esta clase es transformar los registros de la base de datos en objetos de clase `Usuario` y viceversa. De esta forma, intentamos corregir el  **desfase objeto-relacional**. La clase `Usuario` es una clase típica de POO con campos, setters y getters y es en la clase `UsuarioService` donde se realiza el mapeo objeto-relacional. Todos los métodos de esta clase son estáticos. Además, para que no se pueda instanciar, hacemos el constructor privado. Esta clase es 'estática' porque no es realmente un objeto sino una clase de ayuda para realizar el mapeo y para devolver objetos de tipo `Usuario`. Más adelante veremos, mediante persistencia, que existen métodos que nos permiten solucionar de una forma más cómoda este desfase.
 
 En un primer paso, sólo vamos a implementar la inserción de datos (convertir objetos en registros) y la recuperación de un Usuario de la base de datos (convertir registros en objetos). De esta forma, ya podemos insertar y recuperar un Usuario.
 
@@ -407,7 +407,7 @@ public static HashSet<Usuario> getAllUsers() throws SQLException {
 Como se puede comprobar, es muy sencillo crear métodos que nos devuelvan `Usuarios` que cumplan cierto criterio, simplemente añadiendo una cláusula `WHERE`
 
 >-info-Esta forma de trabajar con bases de datos donde tenemos un clase POJO (en esta caso, `Usuario`, y otra clase `UsuarioRepository` que centraliza el trabajo para convertir objetos en tablas y viceversa se denomina "**Repository Pattern**" . 
->Nosotros vamos a implementar una versión sencilla de este patrón. El original está basado en Interfaces y clases abstractas
+>Nosotros estamos implementando una versión sencilla de este patrón. El original está basado en Interfaces y clases abstractas
 
 ```java
 public static void main(String[] args) throws SQLException{
