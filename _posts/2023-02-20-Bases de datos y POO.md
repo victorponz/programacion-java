@@ -406,7 +406,12 @@ public static HashSet<Usuario> getAllUsers() throws SQLException {
 
 Como se puede comprobar, es muy sencillo crear métodos que nos devuelvan `Usuarios` que cumplan cierto criterio, simplemente añadiendo una cláusula `WHERE`
 
->-info-Esta forma de trabajar con bases de datos donde tenemos un clase POJO (en este caso, `Usuario`), y otra clase `UsuarioRepository` que centraliza el trabajo para convertir objetos en tablas y viceversa se denomina "**Repository Pattern**" . 
+>-info-Esta forma de trabajar con bases de datos donde tenemos un clase POJO (en este caso, `Usuario`), y otra clase `UsuarioRepository` que centraliza el trabajo para crear consultas que devuelvan objetos se denomina "**Repository Pattern**" . 
+>
+>> Según la documentación de [Android](https://developer.android.com/codelabs/basic-android-kotlin-training-repository-pattern?hl=es-419#0)
+>>
+>> The repository pattern is **a design pattern that isolates the data layer from the rest of the app**. The data layer refers to the part of your app, separate from the UI,  that handles the app's data and business logic, exposing consistent APIs for the rest of your app to access this data.
+>
 >Nosotros estamos implementando una versión sencilla de este patrón. El original está basado en Interfaces y clases abstractas
 
 ```java
