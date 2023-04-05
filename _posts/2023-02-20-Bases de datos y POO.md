@@ -79,7 +79,7 @@ Usaremos para conectarnos a la base de datos un patrón **singleton** para compa
 ```java
 /**
  * @see <a href="https://stackoverflow.com/questions/6567839/if-i-use-a-singleton-class-for-a-database-connection-can-one-user-close-the-con">Stackoverflow Singleton</a>
- * Patron Singleton
+ * Patrón Singleton
  * ================
  * Este patrón de diseño está diseñado para restringir la creación de objetos pertenecientes a una clase. Su intención consiste en garantizar que
  * una clase sólo tenga una instancia y proporcionar un punto de acceso global a ella.
