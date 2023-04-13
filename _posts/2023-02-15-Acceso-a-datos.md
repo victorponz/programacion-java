@@ -261,4 +261,4 @@ Ahora modificamos los datos. Simplemente aumentamos el sueldo un 5% y modificamo
 ![1558290448718](/programacion-java/assets/img/datos/1558290448718.png)
 
 ## Ejercicio
->-task-Crea una aplicación que nos permita gestionar usuarios mediante un menú. Se debe poder listar, añadir y borrar.
+>-task-Crea una aplicación que nos permita gestionar la base de datos network. Debe tener un menú desde el que se puedan gestionar (Create, Read, Update, Delete) usuarios, posts y comentarios
