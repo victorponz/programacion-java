@@ -237,7 +237,7 @@ public class UserRepositoryImpl implements IRepository<User> {
 
     }
 
-    public void deleteById(int id) throws SQLException {
+    public void delete(User user) throws SQLException {
       
     }
 }
