@@ -379,6 +379,9 @@ Y por último, borramos un objeto de su correspondiente usuario en la base de da
 > * tenemos la interfaz `IRepository`
 > * tenemos n clases `POJO`
 > * por cada clase `POJO` creamos una clase `nombreDeClaseRepositoryImpl` que implemente la interfaz `IRepository`
+> * También creamos la clase `nombreDeClaseController` que se va a encargar de gestionar el interfaz de usuario
+
+
 
 ## UserController
 
@@ -458,5 +461,91 @@ En los métodos `addUser`, `updateUser` y `deleteUser` se piden datos por pantal
 
 > -reto-Crea las clases necesarias para poder trabajar con la entidad `Post`. Como ayuda, ten en cuenta que esta entidad tiene un objeto de la clase `User` que deberás recuperar mediante `new UserRepositoryImpl().findById(rs.getInt("userId"))`
 >
+> Lo más complicado será la parte `N` en `User` ya que debe tener un método que fije los `Post` de dicho usuario.
+>
+> En principio sería tan fácil como hacer en `bdToEntity`
+>
+> ```java
+>  user.setPosts(findByUser(user));
+> ```
+>
+> Pero esto provoca un error en tiempo de ejecución `StackOverflow` debido a que entra en un bucle infinito ya que el método `bdToEntity` llama a `findByUser` que a su vez llama a `bdToEntity` y así hasta el infinito.
+>
+> La solución es guardar los elementos en caché: cada vez que convierto una entidad a objeto lo guardo en esta caché. Cuando debo recuperar alguna entidad primero miro en caché y devuelvo la entidad o realizo una consulta y un mapeo si no existe la entidad.
+>
+> Creamos dos variables de instancia:
+>
+> ```java
+> private Set<Post> postsCached = new HashSet<>();
+> private Set<User> usersCached = new HashSet<>();
+> ```
+>
+> Creamos dos métodos para comprobar si está en caché:
+>
+> ```java
+> private Post getCached(int id){
+>     for (Post post : postsCached){
+>         if (post.getId() == id) return post;
+>  }
+>     return null;
+>    }
+> private User getUserCached(int i){
+>  for(User user : usersCached){
+>         if (user.getId() == i) return user;
+>     }
+>     return null;
+>    }
+>    ```
 > 
+> Que usamos en `bdToEntity`
+>
+> ```java
+>public Post bdToEntity(ResultSet rs) throws SQLException {
+>  User user =  getUserCached(rs.getInt("userId"));
+>  if (user == null ){
+>         user = new UserRepositoryImpl().findById(rs.getInt("userId"));
+>         usersCached.add(user);
+>         user.setPosts(findByUser(user));
+>     }
+>     Post p = new Post(rs.getInt("id"),
+>             rs.getString("text"),
+>             rs.getInt("likes"),
+>             rs.getDate("date"),
+>             user
+>     );
+>     postsCached.add(p);
+>     return p;
+>    }
+>    ```
+> 
+> Ahora cuando vamos a hacer una consulta a la base de datos, primero comprobamos que no esté en caché. Por ejemplo:
+>
+> ```java
+>public Post findById(int id) throws SQLException {
+>  Post post = getCached(id);
+>  if (post != null) {
+>         return post;
+>     }
+>     PreparedStatement st = con.prepareStatement("SELECT * FROM posts WHERE id = ? ");
+>     st.setInt(1, id);
+>    
+>     ResultSet rs = st.executeQuery();
+> 
+>     //Si la consulta devuelve algún resultado ...
+>     if (rs.next()){
+>         // ... lo mapeamos a un objeto Post
+>         post = bdToEntity(rs);
+>     }
+>     //Devolvemos el Post ya mapeado
+>     return post;
+>    }
+>    ```
+
+> -warning-No creáis que en la práctica se hace así. Para eso están los frameworks que nos facilitan mucho la vida y ellos mismos ya tratan todo el tema de cachés, repositorios, CRUD, etc
+>
+> Por ejemplo, podemos utilizar Hibernate o Spring 
+
+## Comments
+
+> -reto-Ahora ya puedes implementar la gestión del los comentarios.
 

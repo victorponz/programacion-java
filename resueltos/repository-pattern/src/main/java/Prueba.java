@@ -8,15 +8,19 @@ public class Prueba {
         User u = userRepository.findById(3);
         Post post = new Post("texto", u);
         //postRepository.save(post);
-        List<Post> posts = postRepository.findAll();
-        for (Post p : posts){
-            postRepository.delete(p);
-            System.out.println(p);
-        }
-       //postRepository.delete(post);
-        posts = postRepository.findAll();
+        /*List<Post> posts = postRepository.findAll();
         for (Post p : posts){
             System.out.println(p);
+            System.out.println(p.getUser().getPosts());
+        }*/
+        List<User> allUsers = userRepository.findAll();
+        for (User user : allUsers){
+            for (Post p : postRepository.findByUser(user)){
+                System.out.println(user.getId());
+                System.out.println(p);
+
+            }
         }
+
     }
 }

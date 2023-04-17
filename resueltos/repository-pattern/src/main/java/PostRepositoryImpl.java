@@ -3,10 +3,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class PostRepositoryImpl implements IRepository<Post> {
-    private List<Post> entities = new ArrayList<>();
+    private Set<Post> postsCached = new HashSet<>();
+    private Set<User> usersCached = new HashSet<>();
     private java.sql.Connection con;
     public PostRepositoryImpl(){
         this.con = SocialNetworkService.getConnection();
@@ -19,11 +22,20 @@ public class PostRepositoryImpl implements IRepository<Post> {
      * @throws SQLException
      */
     public Post bdToEntity(ResultSet rs) throws SQLException {
-        return new Post(rs.getInt("id"),
+        User user =  getUserCached(rs.getInt("userId"));
+        if (user == null ){
+            user = new UserRepositoryImpl().findById(rs.getInt("userId"));
+            usersCached.add(user);
+            user.setPosts(findByUser(user));
+        }
+        Post p = new Post(rs.getInt("id"),
                 rs.getString("text"),
                 rs.getInt("likes"),
                 rs.getDate("date"),
-                new UserRepositoryImpl().findById(rs.getInt("userId")));
+                user
+        );
+        postsCached.add(p);
+        return p;
     }
 
     /**
@@ -40,10 +52,50 @@ public class PostRepositoryImpl implements IRepository<Post> {
         ResultSet rs = st.executeQuery("SELECT * FROM posts ORDER BY date DESC");
 
         while(rs.next()){
-            //Mapeamos el registro de la BD en un User
-            Post post =  bdToEntity(rs);
-            //Añadir el User al conjunto de users
+            //Mapeamos el registro de la BD en un post
+            Post post = getCached(rs.getInt(1));
+            if (post == null) {
+                post = bdToEntity(rs);
+                //Añadir el User al conjunto de posts
+                posts.add(post);
+            }
+        }
+        return posts;
+    }
+    private Post getCached(int id){
+        for (Post post : postsCached){
+            if (post.getId() == id) return post;
+        }
+        return null;
+    }
+    private User getUserCached(int i){
+        for(User user : usersCached){
+            if (user.getId() == i) return user;
+        }
+        return null;
+    }
+    /**
+     * Consulta todos los registros de la tabla posts
+     * @return Una lista de objetos Post
+     * @throws SQLException
+     */
+    public List<Post> findByUser(User user) throws SQLException {
+
+        List<Post> posts = new ArrayList<>();
+
+        PreparedStatement st = this.con.prepareStatement("SELECT * FROM posts WHERE userId = ? ORDER BY date DESC");
+        st.setInt(1, user.getId());
+
+        ResultSet rs = st.executeQuery();
+
+        while(rs.next()){
+            Post post = getCached(rs.getInt(1));
+            if (post == null) {
+                post = bdToEntity(rs);
+            }
+            //Añadir el Post al conjunto de posts
             posts.add(post);
+
         }
         return posts;
     }
@@ -55,18 +107,22 @@ public class PostRepositoryImpl implements IRepository<Post> {
      * @throws SQLException
      */
     public Post findById(int id) throws SQLException {
+        Post post = getCached(id);
+        if (post != null) {
+            return post;
+        }
         PreparedStatement st = con.prepareStatement("SELECT * FROM posts WHERE id = ? ");
         st.setInt(1, id);
 
         ResultSet rs = st.executeQuery();
-        Post p = null;
+
         //Si la consulta devuelve algún resultado ...
         if (rs.next()){
-            // ... lo mapeamos a un objeto Usuario
-            p = bdToEntity(rs);
+            // ... lo mapeamos a un objeto Post
+            post = bdToEntity(rs);
         }
         //Devolvemos el Post ya mapeado
-        return p;
+        return post;
     }
     /**
      * Guarda el post Post en la base de datos, insertando si id es distinto de -1 o actualizando aquél
