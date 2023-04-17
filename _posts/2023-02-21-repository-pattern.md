@@ -8,6 +8,8 @@ conToc: true
 permalink: repository-patern
 ---
 
+> -info-Descarga la base de datos desde [aquí](/programacion-java/assets/network)
+
 En este tema vamos a aprender a añadir a un proyecto orientado a objetos la persistencia en base de datos, sin usar ninguna tecnología como Hibernate (que lo veremos posteriormente).
 
 Partimos de una aplicación en la que los usuarios pueden escribir Posts y comentar Post hechos por otros usuarios. Por lo que existen tres entidades: Users, Posts y Comments. En la siguiente imagen se muestran estas entidades representadas en una base de datos.
@@ -451,3 +453,4 @@ public class UserController {
 ```
 
 En los métodos `addUser`, `updateUser` y `deleteUser` se piden datos por pantalla y se llama al método del repositorio correspondiente: ` userRepository.save` o `userRepository.delete`
+
