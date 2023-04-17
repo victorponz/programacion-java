@@ -452,5 +452,5 @@ public class UserController {
 }
 ```
 
-En los métodos `addUser`, `updateUser` y `deleteUser` se piden datos por pantalla y se llama al método del repositorio correspondiente: ` userRepository.save` o `userRepository.delete`
+En los métodos `addUser`, `updateUser` y `deleteUser` se piden datos por pantalla y se llama al método del repositorio correspondiente: `userRepository.save` o `userRepository.delete`
 
