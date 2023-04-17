@@ -456,4 +456,7 @@ En los métodos `addUser`, `updateUser` y `deleteUser` se piden datos por pantal
 
 ## Posts
 
-Vamos a proceder a crear la entidad `Post`, y las clases `PostRepository` y `PostController`
+> -reto-Crea las clases necesarias para poder trabajar con la entidad `Post`. Como ayuda, ten en cuenta que esta entidad tiene un objeto de la clase `User` que deberás recuperar mediante `new UserRepositoryImpl().findById(rs.getInt("userId"))`
+>
+> 
+
