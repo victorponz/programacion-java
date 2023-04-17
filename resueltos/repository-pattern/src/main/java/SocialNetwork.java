@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -13,7 +12,6 @@ public class SocialNetwork {
             while(!salir) {
                 printMenu();
                 opcion = selectedOption();
-
                 switch (opcion) {
                     case 0:
                         salir = true;
@@ -26,20 +24,24 @@ public class SocialNetwork {
                         break;
                     case 4: UserController.deleteUser();
                         break;
-                    case 5: //searchUser();
+                    case 5: UserController.findByName();
                 }
                 if (opcion != 0){
                     System.out.println("Press enter to continue");
                     sc.nextLine();
                 }
 
-                System.out.print("\033[H\033[2J");
-                System.out.flush();
+                clearTerminal();
             }
 
         }catch (Exception sqle){
             System.out.println(sqle.getMessage());
         }
+    }
+
+    private static void clearTerminal() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
     private static void printBanner(){
