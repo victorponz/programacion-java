@@ -372,7 +372,7 @@ public void delete(User user) throws SQLException {
 
 Y por último, borramos un objeto de su correspondiente usuario en la base de datos.
 
-> -alert-Estos serían los componentes necesarios para implementar el patrón repositorio. 
+> -warning-Estos serían los componentes necesarios para implementar el patrón repositorio. 
 >
 > Resumiendo:
 >
