@@ -9,27 +9,29 @@ import java.util.Set;
 
 public class PostRepositoryImpl implements IRepository<Post> {
     private static Set<Post> postsCached = new HashSet<>();
-    private static Set<User> usersCached = new HashSet<>();
     private java.sql.Connection con;
     public PostRepositoryImpl(){
         this.con = SocialNetworkService.getConnection();
     }
 
     /**
-     * Se encarga de mapear um registro de la base de datos para converirlo en un objeto Post
+     * Se encarga de mapear um registro de la base de datos para convertirlo en un objeto Post
      * @param rs
      * @return Un objeto Post
      * @throws SQLException
      */
     public Post bdToEntity(ResultSet rs) throws SQLException {
-        User user = new UserRepositoryImpl().findById(rs.getInt("userId"));
-        Post p = new Post(rs.getInt("id"),
-                rs.getString("text"),
-                rs.getInt("likes"),
-                rs.getDate("date"),
-                user
-        );
-        postsCached.add(p);
+        Post p = getCached(rs.getInt("id"));
+        if (p == null) {
+            User user = new UserRepositoryImpl().findById(rs.getInt("userId"));
+            p = new Post(rs.getInt("id"),
+                    rs.getString("text"),
+                    rs.getInt("likes"),
+                    rs.getDate("date"),
+                    user
+            );
+            postsCached.add(p);
+        }
         return p;
     }
 
@@ -51,7 +53,7 @@ public class PostRepositoryImpl implements IRepository<Post> {
             Post post = getCached(rs.getInt(1));
             if (post == null) {
                 post = bdToEntity(rs);
-                //Añadir el User al conjunto de posts
+                //Añadir el Post al conjunto de posts
                 posts.add(post);
             }
         }
@@ -65,7 +67,8 @@ public class PostRepositoryImpl implements IRepository<Post> {
     }
 
     /**
-     * Consulta todos los registros de la tabla posts
+     * Consulta todos los registros de la tabla posts para un usuario concreto
+     * @param user El usuario a consultar
      * @return Una lista de objetos Post
      * @throws SQLException
      */

@@ -16,7 +16,7 @@ public class SocialNetwork {
                     case 0:
                         salir = true;
                         break ;
-                    case 1: UserController.prinAllUsers();
+                    case 1: UserController.printAllUsers();
                         break;
                     case 2: UserController.addUser();
                         break;
@@ -27,6 +27,7 @@ public class SocialNetwork {
                     case 5: UserController.findByName();
                 }
                 if (opcion != 0){
+                    sc.nextLine();
                     System.out.println("Press enter to continue");
                     sc.nextLine();
                 }

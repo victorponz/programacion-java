@@ -472,9 +472,9 @@ En los métodos `addUser`, `updateUser` y `deleteUser` se piden datos por pantal
 >
 > Pero esto provoca un error en tiempo de ejecución `StackOverflow` debido a que entra en un bucle infinito ya que el método `bdToEntity` llama a `findByUser` que a su vez llama a `bdToEntity` y así hasta el infinito.
 >
-> La solución es guardar los elementos en caché: cada vez que convierto una entidad a objeto lo guardo en esta caché. Cuando debo recuperar alguna entidad primero miro en caché y devuelvo la entidad o realizo una consulta y un mapeo si no existe la entidad.
+> La solución es guardar los elementos en caché: cada vez que convierto una entidad a objeto la guardo en esta caché. Cuando debo mapear algún registro primero miro en caché y devuelvo la entidad o mapeo si no existe la entidad.
 >
-> Creamos una variable de instancia en cada Repositorio
+> Creamos una variable de instancia en cada Repositorio. Por ejemplo para UserRepositoryImpl
 >
 > ```java
 > private Set<User> usersCached = new HashSet<>();

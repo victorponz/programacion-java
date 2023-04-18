@@ -8,7 +8,7 @@ public class UserController {
      * Imprime por pantalla todos los usuarios
      * @throws SQLException
      */
-    public static void prinAllUsers() throws SQLException {
+    public static void printAllUsers() throws SQLException {
         System.out.println(AnsiColor.RED.getCode());
         UserRepositoryImpl userRepository = new UserRepositoryImpl();
         List<User> users = userRepository.findAll();
@@ -54,7 +54,7 @@ public class UserController {
      */
     public static void modifyUser() throws SQLException{
         UserRepositoryImpl userRepository = new UserRepositoryImpl();
-        prinAllUsers();
+        printAllUsers();
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter User id to modify: ");
         int userId = sc.nextInt();
@@ -72,7 +72,7 @@ public class UserController {
      */
     public static void deleteUser() throws SQLException{
         UserRepositoryImpl userRepository = new UserRepositoryImpl();
-        prinAllUsers();
+        printAllUsers();
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter user id to delete: ");
         User user = userRepository.findById(sc.nextInt());

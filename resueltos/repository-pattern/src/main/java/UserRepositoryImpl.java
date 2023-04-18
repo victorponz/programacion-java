@@ -68,7 +68,7 @@ public class UserRepositoryImpl implements IRepository<User> {
         }
         return null;
     }
-public User findById(int id) throws SQLException {
+    public User findById(int id) throws SQLException {
         PreparedStatement st = con.prepareStatement("SELECT * FROM users WHERE id = ? ");
         st.setInt(1, id);
 
