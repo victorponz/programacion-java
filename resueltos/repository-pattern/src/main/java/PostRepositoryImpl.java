@@ -50,12 +50,10 @@ public class PostRepositoryImpl implements IRepository<Post> {
 
         while(rs.next()){
             //Mapeamos el registro de la BD en un post
-            Post post = getCached(rs.getInt(1));
-            if (post == null) {
-                post = bdToEntity(rs);
-                //Añadir el Post al conjunto de posts
-                posts.add(post);
-            }
+            Post post = bdToEntity(rs);
+            //Añadir el Post al conjunto de posts
+            posts.add(post);
+
         }
         return posts;
     }
@@ -82,10 +80,7 @@ public class PostRepositoryImpl implements IRepository<Post> {
         ResultSet rs = st.executeQuery();
 
         while(rs.next()){
-            Post post = getCached(rs.getInt(1));
-            if (post == null) {
-                post = bdToEntity(rs);
-            }
+            Post post = bdToEntity(rs);
             //Añadir el Post al conjunto de posts
             posts.add(post);
 
