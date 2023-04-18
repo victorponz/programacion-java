@@ -22,6 +22,7 @@ public class User
         this.id = id;
         this.name = name;
         this.lastName = lastName;
+        this.posts = new ArrayList<>();
     }
     public User(String name, String lastName)
     {

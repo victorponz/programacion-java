@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Set;
 
 public class PostRepositoryImpl implements IRepository<Post> {
-    private Set<Post> postsCached = new HashSet<>();
-    private Set<User> usersCached = new HashSet<>();
+    private static Set<Post> postsCached = new HashSet<>();
+    private static Set<User> usersCached = new HashSet<>();
     private java.sql.Connection con;
     public PostRepositoryImpl(){
         this.con = SocialNetworkService.getConnection();
@@ -22,12 +22,7 @@ public class PostRepositoryImpl implements IRepository<Post> {
      * @throws SQLException
      */
     public Post bdToEntity(ResultSet rs) throws SQLException {
-        User user =  getUserCached(rs.getInt("userId"));
-        if (user == null ){
-            user = new UserRepositoryImpl().findById(rs.getInt("userId"));
-            usersCached.add(user);
-            user.setPosts(findByUser(user));
-        }
+        User user = new UserRepositoryImpl().findById(rs.getInt("userId"));
         Post p = new Post(rs.getInt("id"),
                 rs.getString("text"),
                 rs.getInt("likes"),
@@ -68,12 +63,7 @@ public class PostRepositoryImpl implements IRepository<Post> {
         }
         return null;
     }
-    private User getUserCached(int i){
-        for(User user : usersCached){
-            if (user.getId() == i) return user;
-        }
-        return null;
-    }
+
     /**
      * Consulta todos los registros de la tabla posts
      * @return Una lista de objetos Post

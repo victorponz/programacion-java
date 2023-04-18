@@ -3,11 +3,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class UserRepositoryImpl implements IRepository<User> {
     private List<User> entities = new ArrayList<>();
     private java.sql.Connection con;
+
+    private static Set<User> usersCached = new HashSet<>();
+
     public UserRepositoryImpl(){
         this.con = SocialNetworkService.getConnection();
     }
@@ -19,7 +24,14 @@ public class UserRepositoryImpl implements IRepository<User> {
      * @throws SQLException
      */
     public User bdToEntity(ResultSet rs) throws SQLException {
-        return new User(rs.getInt("id"), rs.getString("name"), rs.getString("lastName"));
+        User user = getUserCached(rs.getInt("id"));
+        if (user == null) {
+            user = new User(rs.getInt("id"), rs.getString("name"), rs.getString("lastName"));
+            usersCached.add(user);
+            PostRepositoryImpl repository = new PostRepositoryImpl();
+            user.setPosts(repository.findByUser(user));
+        }
+        return user;
     }
 
     /**
@@ -50,6 +62,12 @@ public class UserRepositoryImpl implements IRepository<User> {
      * @return El objeto User o null si no existe
      * @throws SQLException
      */
+    private User getUserCached(int id){
+        for(User user : usersCached){
+            if (user.getId() == id) return user;
+        }
+        return null;
+    }
 public User findById(int id) throws SQLException {
         PreparedStatement st = con.prepareStatement("SELECT * FROM users WHERE id = ? ");
         st.setInt(1, id);

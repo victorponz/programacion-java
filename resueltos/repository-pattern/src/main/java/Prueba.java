@@ -15,7 +15,7 @@ public class Prueba {
         }*/
         List<User> allUsers = userRepository.findAll();
         for (User user : allUsers){
-            for (Post p : postRepository.findByUser(user)){
+            for (Post p : user.getPosts()){
                 System.out.println(user.getId());
                 System.out.println(p);
 
