@@ -507,9 +507,9 @@ En los métodos `addUser`, `updateUser` y `deleteUser` se piden datos por pantal
 > ```
 >
 
-> -warning-No creáis que en la práctica es tan complicado. Para eso están los frameworks ORM (Object Relational Mapping) que nos facilitan mucho la vida y ellos mismos ya tratan todo el tema de cachés, repositorios, CRUD, etc. Este apartado es simplemente para creéis desde cero un mini frameqwork.
+> -warning-No creáis que en la práctica es tan complicado. Para eso están los frameworks ORM (Object Relational Mapping) que nos facilitan mucho la vida y ellos mismos ya tratan todo el tema de cachés, repositorios, CRUD, etc. Este apartado es simplemente para creéis desde cero un mini framework.
 >
-> Seguramente en la empresa utilizaréis Hibernate, Doctrine
+> Seguramente en la empresa utilizaréis Hibernate, Spring Boot, Doctrine, ...
 
 ## Comments
 
