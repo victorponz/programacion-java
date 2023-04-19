@@ -42,10 +42,11 @@ public class JpaApplication implements CommandLineRunner{
 		System.out.println("--------------------------------");
 		System.out.println(customer);
 		customer.setFirstName("Pedro");
+		repository.save(customer);
 		System.out.println("Customer modified");
 		System.out.println(customer);
 		System.out.println("");
-
+		repository.delete(customer);
 		// fetch customers by last name
 		System.out.println("Customer found with findByLastName('Imedio'):");
 		System.out.println("--------------------------------------------");
