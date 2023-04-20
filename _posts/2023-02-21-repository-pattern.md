@@ -5,7 +5,7 @@ layout: post
 title: Repository Pattern
 categories: bd
 conToc: true
-permalink: repository-patern
+permalink: repository-pattern
 ---
 
 > -info-Descarga la base de datos desde [aquí](/programacion-java/assets/network)
