@@ -1,9 +1,9 @@
 package org.ieselcaminas.jpa;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -14,10 +14,14 @@ public class Customer {
   private String firstName;
   private String lastName;
 
+  @OneToMany(mappedBy = "customer",  fetch=FetchType.EAGER)
+  private List<Note> notes;
+
   protected Customer() {}
   public Customer(String firstName, String lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
+    this.notes = new ArrayList<>();
   }
   public Long getId() {
     return id;
@@ -36,6 +40,13 @@ public class Customer {
     this.lastName = lastName;
   }
 
+  public List<Note> getNotes(){
+    return this.notes;
+  }
+
+  public void addNote(Note note){
+    this.notes.add(note);
+  }
   @Override
   public String toString() {
     return String.format(

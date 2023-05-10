@@ -4,12 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import java.util.Optional;
 
 @SpringBootApplication
 public class JpaApplication implements CommandLineRunner{
 	@Autowired
 	private CustomerRepository repository;
+	@Autowired
+	private NoteRepository noteRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(JpaApplication.class, args);
@@ -42,11 +43,20 @@ public class JpaApplication implements CommandLineRunner{
 		System.out.println("--------------------------------");
 		System.out.println(customer);
 		customer.setFirstName("Pedro");
-		repository.save(customer);
+
 		System.out.println("Customer modified");
+		Note n = new Note(customer, "Esto es una nota");
+		customer.addNote(n);
+		repository.save(customer);
+		//n.setCustomer(customer);
+		noteRepository.save(n);
+
 		System.out.println(customer);
-		System.out.println("");
-		repository.delete(customer);
+
+		System.out.println(n.getCustomer().getFirstName());
+		customer.getNotes().forEach(System.out::println);
+		System.out.println(customer.getNotes().size());
+		//repository.delete(customer);
 		// fetch customers by last name
 		System.out.println("Customer found with findByLastName('Imedio'):");
 		System.out.println("--------------------------------------------");

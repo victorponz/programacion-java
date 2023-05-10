@@ -181,7 +181,7 @@ public class User
 
 ## UserRepositoryImpl
 
-Esta clase va a ser la que realice el *mapeo* entre la base de datos y los objetos de mi modelo de datos de tal forma que va a corregir el llamado **desfase objeto-relacional**. Básicamente consiste en convertir los registros de la base de datos en objetos y almacenar en la base de datos los objetos de mi modelo.
+Esta clase va a ser la que realice el *mapeo* entre la base de datos y los objetos del modelo de datos de tal forma que va a corregir el llamado **desfase objeto-relacional**. Básicamente consiste en convertir los registros de la base de datos en objetos y almacenar en la base de datos los objetos de mi modelo.
 
 ```java
 import java.sql.PreparedStatement;
@@ -192,7 +192,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepositoryImpl implements IRepository<User> {
-    private List<User> entities = new ArrayList<>();
     private java.sql.Connection con;
     public UserRepositoryImpl(){
         this.con = SocialNetworkService.getConnection();
@@ -272,7 +271,6 @@ Y la salida:
 ```
 ID: 4 Name: Janet Lastname: Espinosa
 ID: 6 Name: Maria Lastname: Gallardo
-ID: 7 Name: Maria Lastname: Gallardo
 ID: 3 Name: Andrés Lastname: García
 ID: 8 Name: Alberto Lastname: Gracia
 ID: 14 Name: Juan Lastname: Imedio
@@ -385,7 +383,7 @@ Y por último, borramos un objeto de su correspondiente usuario en la base de da
 
 ## UserController
 
-Por último vamos a implementar una clase llamada `UserController` que nos va a servir como User Interface UI para nuestra aplicación. Esta clase ya no forma parte del patrón repositorio y pasaría a forma parte más bien del patrón [Model View Controller](https://www.freecodecamp.org/news/the-model-view-controller-pattern-mvc-architecture-and-frameworks-explained/) (MVC) pues ésta encarga de la parte Controller (y en este caso, también View)
+Por último vamos a implementar una clase llamada `UserController` que nos va a servir como User Interface UI para nuestra aplicación. Esta clase ya no forma parte del patrón repositorio y pasaría a forma parte más bien del patrón [Model View Controller](https://www.freecodecamp.org/news/the-model-view-controller-pattern-mvc-architecture-and-frameworks-explained/) (MVC) pues esta clase se encarga de la parte Controller (y en este caso, también View)
 
 ```java
 import java.sql.SQLException;
@@ -507,7 +505,7 @@ En los métodos `addUser`, `updateUser` y `deleteUser` se piden datos por pantal
 > ```
 >
 
-> -warning-No creáis que en la práctica es tan complicado. Para eso están los frameworks ORM (Object Relational Mapping) que nos facilitan mucho la vida y ellos mismos ya tratan todo el tema de cachés, repositorios, CRUD, etc. Este apartado es simplemente para creéis desde cero un mini framework.
+> -alert-No creáis que en la práctica es tan complicado. Para eso están los frameworks ORM (Object Relational Mapping) que nos facilitan mucho la vida y ellos mismos ya tratan todo el tema de cachés, repositorios, CRUD, etc. Este apartado es simplemente para quw creéis desde cero un mini framework.
 >
 > Seguramente en la empresa utilizaréis Hibernate, Spring Boot, Doctrine, ...
 
