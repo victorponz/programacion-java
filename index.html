@@ -66,7 +66,14 @@ title: Apuntes Programación en JAVA
 	{% endif %}
 	{% endfor %}
 	</ol>
-
+  <h2>Tema 9 - Programación gráfica</h2>
+	<ol class='portada'> 
+	{% for post in site.posts reversed %}
+	{% if post.categories contains "swing" %}
+	<li><h4><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></h4></li>
+	{% endif %}
+	{% endfor %}
+	</ol>
   <h2>Varios</h2>
 	<ol class='portada'> 
 	{% for post in site.posts reversed %}
