@@ -357,7 +357,7 @@ La forma más sencilla es aplicar un filtro por extensión. Por ejemplo, sólo q
 
  Pero esto no nos asegura que el usuario seleccione un archivo con extensión txt
 
-<video src='assets/img/swing/filtro.m4v' controls='controls' />
+<video src='assets/img/swing/filtro.m4v' controls='controls' ></video>
 
 Así que hay que asegurarse también que el archivo seleccionado mediante `getSelectedFile()` tenga la extensión **.txt**
 
