@@ -217,20 +217,22 @@ En este código hemos introducido muchos conceptos:
 > public class Ejemplo6 {
 > 	public static void main(String argv[]) {
 > 		int radio;
+> 		double area;
+> 		double perimetro;
 > 
 > 		System.out.println("Introduce el radio:");
 > 
 > 		//1- Leer un carácter como int desde el teclado
 > 		Scanner miScanner = new Scanner(System.in);
 > 		radio = miScanner.nextInt();
->         	miScanner.close();
+> 		miScanner.close();
 >         
->         //2. Cálculos
-> 		float area =  Math.PI * radio * radio;
->         	float perimetro = 2 * Math.PI * radio;
+>       //2. Cálculos
+> 		area =  Math.PI * radio * radio;
+> 		perimetro = 2 * Math.PI * radio;
 > 		
->         // 3 Imprimimos
->            System.out.printf("El área de la circunferencia es: %f %n", area);
+>       // 3 Imprimimos
+>       System.out.printf("El área de la circunferencia es: %f %n", area);
 > 		System.out.printf("El perímetro de la circunferencia es: %f %n",perimetro);
 > 	}
 > }
