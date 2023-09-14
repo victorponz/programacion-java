@@ -658,7 +658,7 @@ En este programa sólo nos hemos de *acordar* de un dato: la nota. Dependiendo d
 > case 2:
 > case 3:
 > 	System.out.println("Entre uno y tres");
-> 	break:
+> 	break;
 > case 4:
 > 	....
 > ```
