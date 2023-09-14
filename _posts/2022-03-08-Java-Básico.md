@@ -725,7 +725,7 @@ En este caso nos hemos de *acordar* de tres cosas:
 
 * Dos números (por ejemplo, de tipo `int`)
 
-* Una operación (en este caso usaremos el tipo `string`). Para leer un dato de tipo `String` usamos el método `inputValue.next()` 
+* Una operación (en este caso usaremos el tipo `String`). Para leer un dato de tipo `String` usamos el método `inputValue.next()` 
 
   > -hint-Aquí va el código para la operación `+`
   >
