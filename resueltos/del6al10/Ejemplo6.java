@@ -1,5 +1,3 @@
-package del6al10;
-
 import java.util.Scanner;
 
 //Un programa que pida el radio de una circunferencia y muestre su área y su perímetro

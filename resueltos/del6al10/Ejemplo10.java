@@ -15,10 +15,12 @@ public class Ejemplo10 {
 		numero = miScanner.nextInt();
 		
 		//Si las condiciones son mutuamente excluyentes, se usa if .. else
-		if (numero >= 0) {
+		if (numero > 0) {
 			System.out.println("El número es positivo");
-		} else {
+		} else if (numero < 0) {
 			System.out.println("El número es negativo");
+		} else {
+    		System.out.println("El número es CERO");
 		}
 		
 		miScanner.close();
