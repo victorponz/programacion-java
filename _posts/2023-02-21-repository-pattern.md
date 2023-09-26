@@ -104,7 +104,7 @@ Fijaos en la notación `<T>`. Esto indica que vamos a usar tipos genéricos. Pue
 
 * `findAll()` va a recuperar datos de la base de datos y va a crear una lista de objetos `T`, donde `T`será usuario, post o comentario.
 * `findById(int id)` va a recuperar el objeto `T` con dicho `id`
-* `save(T entity)` va a guardar en objeto `T` en la base de datos
+* `save(T entity)` va a guardar el objeto `T` en la base de datos
 * `deleteById(User user)` va a borrar el objeto `user` en la base de datos
 * `bdToEntity(Resulset s)` va a encargarse de convertir un registro de la base de datos en una clase de tipo `T`, por ejemplo un usuario, un post o un comentario.
 
@@ -505,7 +505,7 @@ En los métodos `addUser`, `updateUser` y `deleteUser` se piden datos por pantal
 > ```
 >
 
-> -alert-No creáis que en la práctica es tan complicado. Para eso están los frameworks ORM (Object Relational Mapping) que nos facilitan mucho la vida y ellos mismos ya tratan todo el tema de cachés, repositorios, CRUD, etc. Este apartado es simplemente para quw creéis desde cero un mini framework.
+> -alert-No creáis que en la práctica es tan complicado. Para eso están los frameworks ORM (Object Relational Mapping) que nos facilitan mucho la vida y ellos mismos ya tratan todo el tema de cachés, repositorios, CRUD, etc. Este apartado es simplemente para que creéis desde cero un mini framework.
 >
 > Seguramente en la empresa utilizaréis Hibernate, Spring Boot, Doctrine, ...
 
