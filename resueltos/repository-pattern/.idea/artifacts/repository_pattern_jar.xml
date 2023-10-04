@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="repository-pattern:jar">
-    <output-path>$PROJECT_DIR$/</output-path>
-    <root id="archive" name="repository-pattern.jar">
-      <element id="module-output" name="repository-pattern" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/xerial/sqlite-jdbc/3.40.0.0/sqlite-jdbc-3.40.0.0.jar" path-in-jar="/" />
-    </root>
-  </artifact>
-</component>
