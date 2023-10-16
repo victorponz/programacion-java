@@ -1516,8 +1516,8 @@ Por ejemplo, para saber si 13 es un número primo basta dividirlo por 3, y 5. Pa
 > 		}else{
 > 			//Sólo lo dividimos por los impares, hasta la mitad del número
 > 		    for(int i=3; i <= (numero / 2); i+=2) {
-> 				//Si el resto de la multiplicación es 0 es divisible
-> 		        if(numero %i ==0){ 
+> 				//Si el resto de la división es 0 es divisible y por tanto NO es primo
+> 		        if(numero %i == 0){ 
 > 		        	esPrimo = false;
 > 					//Una vez sabemos que no es primo ya podemos salir del bucle
 > 		        	break;
