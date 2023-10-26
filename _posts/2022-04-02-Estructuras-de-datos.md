@@ -953,7 +953,7 @@ Un anagrama es un grupo de palabras que contienen las mismas letras pero en dife
 
 Por ejemplo: alma, mala
 
-El ejercicio consiste en leer todas las líneas de un [fichero](/programacion-java/resueltos/collections/avanzados/files/spanish-dict.txt). Por cada palabra que encuentra crea una entrada en el mapa con la palabra *alfabetizada* con las letras en orden alfabético como clave. Siguiendo el ejemplo, `aalm`
+El ejercicio consiste en leer todas las líneas de un [fichero](/programacion-java/assets/files/collections/spanish-dict.txt). Por cada palabra que encuentra crea una entrada en el mapa con la palabra *alfabetizada* con las letras en orden alfabético como clave. Siguiendo el ejemplo, `aalm`
 
 Y el valor crea un `ArrayList` con todas las palabras con las mismas letras.
 
@@ -1028,7 +1028,7 @@ public class Anagramas {
 
 ### Ejemplo `CountCountries`
 
-En el siguiente ejemplo partimos de un [fichero](/programacion-java/resueltos/collections/avanzados/files/Colfuturo-Seleccionados.csv) `csv` que almacena los datos de los alumnos, incluido el país de origen que se almacena en el campo 7 de dicho archivo.
+En el siguiente ejemplo partimos de un [fichero](/programacion-java/assets/files/collections/Colfuturo-Seleccionados.csv) `csv` que almacena los datos de los alumnos, incluido el país de origen que se almacena en el campo 7 de dicho archivo.
 
 Se trata de contar cuántos alumnos pertenecen a cada país
 
@@ -1069,7 +1069,7 @@ Se trata de contar cuántos alumnos pertenecen a cada país
 
 ### Ejercicio `LastNameFrequency`.
 
-Tenemos un archivo con la frecuencia de los apellidos en España. Este [fichero](/programacion-java/resueltos/collections/avanzados/files/LastnameFrequencies.csv) es de tipo csv y almacena el Apellido y la frecuencia.
+Tenemos un archivo con la frecuencia de los apellidos en España. Este [fichero](/programacion-java/assets/files/collections/LastnameFrequencies.csv) es de tipo csv y almacena el Apellido y la frecuencia.
 
 Se trata de realizar un programa que pida por pantalla un apellido y muestre la frecuencia de éste. El programa finalizará cuando el usuario introduzca una línea vacía.
 
@@ -1560,6 +1560,9 @@ Realiza los siguientes ejercicios:
 Adaptado del siguiente material
 
 * [https://www.geeksforgeeks.org/stack-class-in-java/](https://www.geeksforgeeks.org/stack-class-in-java/)
+
 * [https://www.hackerrank.com/domains/java?filters%5Bsubdomains%5D%5B%5D=java-data-structure](https://www.hackerrank.com/domains/java?filters%5Bsubdomains%5D%5B%5D=java-data-structure)
+
+  
 
 
