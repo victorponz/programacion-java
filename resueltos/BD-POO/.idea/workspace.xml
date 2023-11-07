@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6b71789a-fdbb-4fc7-aa89-0ee7e644b55f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../repository-pattern/repository-pattern.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../repository-pattern/repository-pattern.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../repository-pattern/src/main/java/AnsiColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../repository-pattern/src/main/java/AnsiColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../repository-pattern/src/main/java/SocialNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/../repository-pattern/src/main/java/SocialNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../repository-pattern/src/main/java/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../repository-pattern/src/main/java/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../repository-pattern/src/main/java/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../repository-pattern/src/main/java/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../repository-pattern/src/main/java/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../repository-pattern/src/main/java/UserRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../repository-pattern/src/main/resources/network" beforeDir="false" afterPath="$PROJECT_DIR$/../repository-pattern/src/main/resources/network" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2NudDo9qi1OUP4fKRvh8rAFN7wd" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6b71789a-fdbb-4fc7-aa89-0ee7e644b55f" name="Changes" comment="" />
+      <created>1680517785991</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680517785991</updated>
+    </task>
+    <servers />
+  </component>
+</project>

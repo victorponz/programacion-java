@@ -18,18 +18,18 @@ title: Apuntes Programación en JAVA
 	{% endif %}
 	{% endfor %}
 	</ol>
-  <h2>Tema 3 - Cadenas</h2>
+    <h2>Tema 3 - Arrays</h2>
 	<ol class='portada'> 
 	{% for post in site.posts reversed %}
-	{% if post.categories contains "strings" %}
+	{% if post.categories contains "arrays" %}
 	<li><h4><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></h4></li>
 	{% endif %}
 	{% endfor %}
 	</ol>
-  <h2>Tema 4 - Arrays</h2>
+  <h2>Tema 4 - Cadenas</h2>
 	<ol class='portada'> 
 	{% for post in site.posts reversed %}
-	{% if post.categories contains "arrays" %}
+	{% if post.categories contains "strings" %}
 	<li><h4><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></h4></li>
 	{% endif %}
 	{% endfor %}
