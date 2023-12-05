@@ -347,30 +347,6 @@ Realiza un programa que permita al usuario añadir Coches mediante la consola. S
 
 Al final debe imprimirlos ordenados en líneas separadas
 
-> -toogle-Piensa antes de mirar
->
-> ```java
-> import java.util.ArrayList;
-> import java.util.Collections;
-> public class Coches {
->     public static void main(String[] args) {
->         ArrayList<String> coches = new ArrayList<String>(); 
->         String coche;
->         do{
->             coche = Utilidades.leerCadena("Introduzca un coche (cadena vacía para acabar)");
->             if (coche.length() != 0)
->                 coches.add(coche);
->         }while (coche.length() != 0);
-> 
->         Collections.sort(coches);
-> 
->         for (String cocheActual: coches){
->             System.out.println(cocheActual);
->         }
->     }
-> }
-> ```
-
 ### Ejercicio `Altura`
 
 Programa Java que pida por teclado las alturas de N alumnos de una clase y las guarde en un `ArrayList` de tipo **Double**. 
@@ -385,70 +361,13 @@ Para resolverlo vamos a utilizar 6 métodos además del método `main`:
 * Método `calcularAlumnosAlturaInferior`: devuelve el número de alumnos con una altura inferior a la media
 * Método `mostrarResultados()`: muestra por pantalla todas las alturas y calcula y muestra el número de alumnos con altura superior e inferior a la media. Recibe como parámetros el `ArrayList` con las alturas de todos los alumnos y la media calculada anteriormente.
 
-> -toogle-Piensa antes de mirar
->
-> ```java
-> import java.util.ArrayList;
-> public class Altura {
->     public static int numeroAlumnos(){
->         return Utilidades.leerEntero("Cuántos alumnos? ");
->     }
->     public static double calcularMedia(ArrayList<Double> alturas){
->         Double suma = 0D;
->         for (Double altura: alturas){
->             suma+= altura;
->         }
->         return suma / alturas.size();
->     }
->     public static int calcularAlumnosAlturaSuperior(ArrayList<Double> alturas, Double media){
->         int total = 0;
->         for (Double altura: alturas){
->             if (altura > media)
->                 total++;
->         }
->         return total;
->     }
->     public static int calcularAlumnosAlturaInferior(ArrayList<Double> alturas, Double media){
->         int total = 0;
->         for (Double altura: alturas){
->             if (altura < media)
->                 total++;
->         }
->         return total;
->     }   
->     public static void mostrarResultados(ArrayList<Double> alturas){
->         Double media = calcularMedia(alturas);
->         int superior = calcularAlumnosAlturaSuperior(alturas, media);
->         int inferior = calcularAlumnosAlturaInferior(alturas, media);
->         System.out.println("Las alturas son las siguientes:");
->         for(Double altura: alturas)
->             System.out.print(altura + ", ");
->         System.out.println("");
->         System.out.printf("La altura media es %f%n", media);
->         System.out.printf("El número de alummos con una altura superior es %d%n", superior);
->         System.out.printf("El número de alummos con una altura inferior es %d%n", inferior);
->     }
->     public static ArrayList<Double> leerAlturas(int numAlumnos){
->         ArrayList<Double> alturas = new ArrayList<Double>(); 
->         System.out.printf("Introduzca las %d alturas", numAlumnos);
->         for (int i = 1; i <= numAlumnos; i++){
->             alturas.add(Utilidades.leerDoble(""));
->         }
->         return alturas;
->     }
->     public static void main(String[] args) {
->         int numAlumnos = numeroAlumnos();
->         ArrayList<Double> alturas = leerAlturas(numAlumnos);
->         mostrarResultados(alturas);
->     }
-> }
-> ```
+
 
 ### Ejercicio Convertir a array
 
 Crea un programa para convertir un ArrayList en un array:
 
-> -toogle- Piensa antes de ver la solución
+> -toogle- Piensa antes de mirar
 >
 > ```java
 > import java.util.*;
@@ -565,55 +484,6 @@ y `3, 2, 4, 7` cuya salida será
 ```
 4 2 7
 ```
-
-> -toogle-Piensa antes de mirar
->
-> ```java
-> import java.util.ArrayList;
-> import java.util.Arrays;
-> import java.util.Collections;
-> import java.util.List;
-> public class Portales {
-> 
->     public static void main(String[] args) {
-> 
->         System.out.println(repartir(0, 2, 4));
->         System.out.println(repartir(3, 2, 5, 1));
->         System.out.println(repartir(3, 2, 4, 7));
->        
->     }
-> 
->     public static String repartir(int aterriza, Integer ... portales) {
->         List<Integer> portals = new ArrayList<>();
->         String result = "";
->         int  temp, index = -1;
->         int actual = aterriza;
->         int diff, min;
->         Arrays.sort(portales);
->         Collections.addAll(portals, portales);
->         while (!portals.isEmpty()) {
->             min = Integer.MAX_VALUE;
->             temp = 0;
->             for (int i = 0; i < portals.size(); i++) {
->                 //Calcular el mínimo desde el actual
->                 diff = Math.abs(portals.get(i) - actual);
->                 if (diff <= min ){
->                     min = diff;
->                     temp = portals.get(i);
->                     index = i;
->                 }
->             }
->             actual = temp;
->             result += actual + " ";
->             portals.remove(index);
-> 
->         }
->         return result;
->     }
-> 
-> }
-> ```
->
 
 **Fuente**
 [https://www.aceptaelreto.com/problem/statement.php?id=367](https://www.aceptaelreto.com/problem/statement.php?id=367)
@@ -740,30 +610,6 @@ Finalmente la clase `LinkedHashMap` mantiene ordenado los elementos del mapa seg
 
 Declara un `HashMap` que almacene el país y la capital de varios países Europeos. Luego realiza un programa que pida un País al usuario y muestre su capital.
 
-> -toogle-Piensa antes de mirar
->
-> ```java
-> import java.util.HashMap;
-> import java.util.Map;
-> 
-> public class PaisCapital {
->     public static void main(String[] args) {
->         String pais = "";
->         Map<String, String> capitales = new HashMap<String, String>();
->         capitales.put("España", "Madrid");
->         capitales.put("Francia", "París");
->         capitales.put("Inglaterra", "Londres");
->         capitales.put("Italia", "Roma");
->         do{
->             pais = Utilidades.leerCadena("Introduzca un país (cadena vacía para acabar)");
->             if (pais.length() != 0)
->                 System.out.println(capitales.getOrDefault(pais, "No existe ese país en la base de datos"));
->         }while (pais.length() != 0);
->     }
-> }
-> ```
->
-
 ## Teléfonos
 
 Queremos tener un guía de teléfonos que asocie un número de teléfono a un contacto. El programa debe pedir un contacto y mostrar su número asociado
@@ -801,36 +647,6 @@ O, `"58975", "25894", "52985", "98598"`
 ```
 {4=1, 5=2, 8=1}
 ```
-
-
-> -toogle-Piensa antes de mirar
-> ```java
-> import java.util.Map;
-> import java.util.HashMap;
-> 
-> public class Sorteo {
-> public static void main(String[] args) {
->   System.out.println(calcular("00004", "03847", "39804"));
->  System.out.println(calcular("58975", "25894", "52985", "98598"));
-> }
-> public static String calcular(String ... boletos){
-> 
->   Map<Integer,Integer> terminaciones = new HashMap<Integer,Integer>();
->   int terminacion;
->   Integer actual;
->   for (String boleto : boletos) {
->       terminacion = Integer.parseInt("" + boleto.charAt(boleto.length()-1));
->       actual = terminaciones.get(terminacion);
->       if (actual == null)
->           terminaciones.put(terminacion, 1);
->       else
->           terminaciones.replace(terminacion, ++actual);
->   }
->   
->   return terminaciones.toString();      
-> }
-> }
-> ```
 
 **Fuente**
 [https://www.aceptaelreto.com/problem/statement.php?id=387](https://www.aceptaelreto.com/problem/statement.php?id=387)
@@ -876,34 +692,6 @@ que resultará en
 >
 > Para imprimir el Map usa `toString`
 
-> -toogle- Piensa antes de mirar
->
-> ```java
-> import java.util.HashMap;
-> import java.util.Map;
-> 
-> public class Botin {
-> 
->     public static void main(String[] args) {
->        System.out.println(repartir(2, 10, 20, 50, 200, 500));
->        System.out.println(repartir(3, 50, 20, 100, 200, 500, 10, 50));
->     }
->     public static String repartir(int participantes, int ... billetes){
-> 
->         Map<Integer, String> reparto = new HashMap<Integer, String>();
->         for (int i = 0; i < billetes.length; i++) {
->             String botin = reparto.get(i % participantes);
->             if (botin ==  null){
->                 reparto.put(i % participantes, billetes[i] + " ");
->             }else{
->                 reparto.put(i % participantes, botin + " " + billetes[i]);
->             }
->         }
->         return reparto.toString();
->     }
-> }
-> ```
-
 **Fuente**
 
 [https://www.aceptaelreto.com/problem/statement.php?id=238](https://www.aceptaelreto.com/problem/statement.php?id=238)
@@ -913,6 +701,7 @@ que resultará en
 
 Se trata de pedir por pantalla una serie de palabras y calcular la frecuencia de cada una de ellas, es decir, las veces que se repiten. Para finalizar el programa se debe introducir una línea en blanco
 Por ejemplo:
+
 ```
 uno dos dos tres tres tres
 ```
@@ -922,31 +711,6 @@ uno - 1
 dos - 2
 tres - 3
 ```
-> -toogle- Piensa antes de mirar
->
-> ```java
-> import java.util.*;
-> 
-> public class Frequency {
->     public static void main(String[] args) {
->         Scanner input = new Scanner(System.in);
->         Map<String, Integer> m = new HashMap<String, Integer>();
->         String s;
->         System.out.println("Write some words:");
->         // Initialize frequency table
->         do{
->             s = input.nextLine();
->             Integer freq = m.get(s);
->             m.put(s, (freq == null) ? 1 : freq + 1);
->         }while(!s.equals(""));
-> 
->         System.out.println(m.size() + " distinct words:");
->         System.out.println(m);
->         input.close();
->     }
-> }
-> ```
-
 ### Ejercicio `Anagramas`
 
 Un anagrama es un grupo de palabras que contienen las mismas letras pero en diferente orden:
@@ -978,155 +742,19 @@ public class Anagramas {
 }
 ```
 
-> -toogle- Piensa antes de mirar
->
-> ```java
-> import java.io.*;
-> import java.util.*;
-> 
-> public class Anagrams {
-> 
-> 	public static void main(String[] args) throws IOException {
-> 		int minGroupSize = 5;
-> 
->         // Read words from file and put them 
-> 		 // into a simulated multimap
->         Map<String, List<String>> m = new 
-> 				HashMap<String, List<String>>();
->         BufferedReader reader = null;
->         try {
->             reader = new BufferedReader(new FileReader("files/spanish-dict.txt"));
->             String word;
->             while ((word=reader.readLine())!=null) {
->                 String alpha = alphabetize(word);
->                 List<String> l = m.get(alpha);
->                 if (l == null)
->                     m.put(alpha, l=new ArrayList<String>());
->                 l.add(word);
->             }
->         } catch (IOException e) {
->             System.err.println(e);
->             System.exit(1);
->         } finally {
->         	reader.close();
->         }
-> 
->         // Print all permutation groups above size threshold
->         for (List<String> l : m.values())
->             if (l.size() >= minGroupSize)
->                 System.out.println(l.size() + ": " + l);
->     }
-> 
->     private static String alphabetize(String s) {
->         char[] a = s.toCharArray();
->         Arrays.sort(a);
->         return new String(a);
->     }
-> 
-> }
-> ```
-
 ### Ejemplo `CountCountries`
 
-En el siguiente ejemplo partimos de un [fichero](/programacion-java/assets/files/collections/Colfuturo-Seleccionados.csv) `csv` que almacena los datos de los alumnos, incluido el país de origen que se almacena en el campo 7 de dicho archivo.
+En el siguiente ejercicio partimos de un [fichero](/programacion-java/assets/files/collections/Colfuturo-Seleccionados.csv) `csv` que almacena los datos de los alumnos, incluido el país de origen que se almacena en el campo 7 de dicho archivo.
 
 Se trata de contar cuántos alumnos pertenecen a cada país
 
-> -toogle- Piensa antes de mirar
->
-> ```java
-> import java.io.*;
-> import java.util.*;
-> 
-> public class CountCountries {
-> 
-> 	/**
-> 	 * @param args
-> 	 * @throws IOException 
-> 	 */
-> 	public static void main(String[] args) throws IOException {
-> 		Map<String,Integer> map = new HashMap<String, Integer>();
-> 
-> 		BufferedReader reader = new BufferedReader(new FileReader("files/Colfuturo-Seleccionados.csv"));
-> 		String line;
-> 		String[] splittedLine;
-> 		
-> 		line = reader.readLine();
-> 		while ((line = reader.readLine())!=null) {
-> 			splittedLine = line.split(",");
-> 			//el 7º del csv guarda el país del alumno
-> 			Integer freq = map.get(splittedLine[6]);
->             //Aumentamos en uno la frecuencia
-> 			map.put(splittedLine[6],freq==null ? 1: freq+1);
-> 		}
-> 		reader.close();
-> 		for (String s: map.keySet()) {
-> 			System.out.println(s + " : " + map.get(s));
-> 		}
-> 	}
-> }
-> ```
+> -hint- Acuérdate que en algún ejercicio hemos *dividido* un array en palabras
 
 ### Ejercicio `LastNameFrequency`.
 
 Tenemos un archivo con la frecuencia de los apellidos en España. Este [fichero](/programacion-java/assets/files/collections/LastnameFrequencies.csv) es de tipo csv y almacena el Apellido y la frecuencia.
 
 Se trata de realizar un programa que pida por pantalla un apellido y muestre la frecuencia de éste. El programa finalizará cuando el usuario introduzca una línea vacía.
-
-> -toogle-Piensa antes de ver la solución
->
-> ```java
-> import java.io.BufferedReader;
-> import java.io.FileReader;
-> import java.io.IOException;
-> import java.util.*;
-> 
-> 
-> public class LastNameFrequency {
-> 
-> 	private static Map<String,Integer> generate() throws IOException {
-> 		Map<String,Integer> map = new HashMap<String,Integer>();
-> 		BufferedReader reader = null;
-> 		
-> 		reader = new BufferedReader(new FileReader("files/LastnameFrequencies.csv"));
-> 		String line;
-> 		String[] elements;
-> 		while ((line = reader.readLine())!=null) {
-> 			elements = line.split(",");
-> 			if (elements.length==2) {
-> 				map.put(elements[0], 
-> 						Integer.parseInt(elements[1].replaceAll("\\.", "")));
-> 			}
-> 		}
-> 		reader.close();
-> 		
-> 		return map;
-> 	}
-> 	public static void main(String[] args) throws IOException  {
-> 		
-> 		Map<String,Integer> map  = generate();
-> 		// Read lastnames from keyboard
-> 		String lastname;
-> 		Scanner input = new Scanner(System.in);
-> 		do {
-> 			System.out.print("Enter lastname: ");
-> 			lastname = input.nextLine().toUpperCase();
-> 			if (!lastname.equals("")) {
-> 				if (map.get(lastname) == null) {
-> 					System.out.println("last name does not exist");
-> 				} else {
-> 					System.out.println("frequency = " + map.get(lastname));
-> 				}
-> 			}
-> 			
-> 		} while (!lastname.equals(""));
-> 		
-> 		input.close();
-> 
-> 	}
-> 
-> }
-> ```
 
 ## HashSet
 
@@ -1230,8 +858,6 @@ Intersection of the two Set[0, 1, 3, 4]
 Difference of the two Set[2, 8, 9]
 ```
 
-
-
 ### Ejemplo devolver entradas únicas
 
 Se trata de encontrar los valores únicos de un array
@@ -1256,8 +882,6 @@ public class Unicos {
 	}
 }
 ```
-
-
 
 ### Ejemplo encontrar duplicados
 
