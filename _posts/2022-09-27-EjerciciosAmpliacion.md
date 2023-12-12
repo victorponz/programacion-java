@@ -1073,10 +1073,10 @@ Dado un *N* ≥ 2, se llaman números afortunados a los que resultan de ejecutar
 >    
 
 ```java
-assertEquals(Afortunados.calcular(3), "2 ");
-assertEquals(Afortunados.calcular(10), "4 6 10 ");
-assertEquals(Afortunados.calcular(30), "10 12 18 22 30 ");
-assertEquals(Afortunados.calcular(100), "30 34 42 48 58 60 78 82 ");
+assertEquals("2", Afortunados.calcular(3).trim());
+assertEquals("4 6 10", Afortunados.calcular(10).trim());
+assertEquals("10 12 18 22 30", Afortunados.calcular(30).trim());
+assertEquals("30 34 42 48 58 60 78 82", Afortunados.calcular(100).trim());    
 ```
 
 ## 18 Orden 

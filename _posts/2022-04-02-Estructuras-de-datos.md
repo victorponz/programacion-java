@@ -341,13 +341,13 @@ Geeks For Geeks
 **Fuente**
 [https://www.geeksforgeeks.org/list-interface-java-examples/](https://www.geeksforgeeks.org/list-interface-java-examples/)
 
-### Ejercicio `Coches`
+### Ejercicio `Coches` (F)
 
 Realiza un programa que permita al usuario añadir Coches mediante la consola. Si escribe una línea en blanco, se acaba de añadir coches.
 
 Al final debe imprimirlos ordenados en líneas separadas
 
-### Ejercicio `Altura`
+### Ejercicio `Altura` (M)
 
 Programa Java que pida por teclado las alturas de N alumnos de una clase y las guarde en un `ArrayList` de tipo **Double**. 
 
@@ -363,7 +363,7 @@ Para resolverlo vamos a utilizar 6 métodos además del método `main`:
 
 
 
-### Ejercicio Convertir a array
+### Ejercicio Convertir a array (F)
 
 Crea un programa para convertir un ArrayList en un array:
 
@@ -395,7 +395,7 @@ Crea un programa para convertir un ArrayList en un array:
 > }
 > ```
 
-### Ejercicio existe
+### Ejercicio existe (F)
 
 Dado un `ArrayList`, haz un método para comprobar si un elemento existe en dicho `ArrayList`.
 
@@ -426,7 +426,7 @@ Dado un `ArrayList`, haz un método para comprobar si un elemento existe en dich
 > }
 > ```
 
-### Ejercicio AddAll
+### Ejercicio AddAll (F)
 
 Haz un programa que añada todos los elementos de una lista a otra
 
@@ -451,7 +451,7 @@ Haz un programa que añada todos los elementos de una lista a otra
 > }
 > ```
 
-### Repartiendo regalos en tu calle
+### Repartiendo regalos en tu calle (D)
 
  Papá Noel quiere repartir juguetes a todos los niños de la    mejor calle del mundo: la tuya. Para ello, consulta una lista de los portales de esa calle en los que debe dejar regalos.
 
@@ -606,27 +606,49 @@ Hemos utilizado la clase `HashMap` para resolver el problema. La clase  `TreeMap
 Finalmente la clase `LinkedHashMap` mantiene ordenado los elementos del mapa según el orden de inserción.
 
 
-### Ejercicio `PaisCapital.java`
+### Ejercicio `PaisCapital.java` (F)
 
 Declara un `HashMap` que almacene el país y la capital de varios países Europeos. Luego realiza un programa que pida un País al usuario y muestre su capital.
 
-## Teléfonos
+## Teléfonos (F)
 
 Queremos tener un guía de teléfonos que asocie un número de teléfono a un contacto. El programa debe pedir un contacto y mostrar su número asociado
 
-## Teléfonos II
+## Teléfonos II (F)
 
 Se trata de implementar el ejercicio anterior pero un contacto puede tener más de un teléfono:
 
 > -toogle- Pista
 >
-> Utiliza un `ArrayList` como valor
+> Utiliza un `ArrayList` como valor para poder almacenar más de un teléfono
 >
 > ```java
-> HashMap<String, ArrayList<String>> phoneNumbers = new HashMap<>();
+> HashMap<String, ArrayList<String>> agenda = new HashMap<>();
+> 
 > ```
+>
+> Ahora para añadir los teléfonos de Pepe
+>
+> ```java
+> ArrayList<String> telefonos = new ArrayList<>();
+> telefonos.add("667761");
+> telefonos.add("+0034 44001");
+> agenda.put("Pepe", telefonos);
+> // Para empezar a dar de alta los números del siguiente contacto es necesario usar 
+> // new ArrayList<>() pues de lo contrario la lista sería compartida por todos!
+> telefonos = new ArrayList<>();
+> telefonos.add("94884");
+> telefonos.add("34535");
+> agenda.put("Juan", telefonos);
+> ```
+>
+> Para comprobar que debemos usar `new ArrayList<>();` comenta dicha línea e inspecciona el valor de los teléfonos de Pepe o Juan. Comprobarás que los dos tienen los mismos teléfonos
+>
+> ![image-20231212083247483](/programacion-java/assets/img/estructuras/image-20231212083247483.png)
 
-### La mejor terminación
+
+
+### La mejor terminación (M)
 
 ​      En los sorteos de la lotería más mediáticos, como el del Gordo de Navidad o el del Niño, es habitual que los fetichistas  busquen números con algún tipo de significado extraño o que los matemáticos y estadísticos se entretengan informando sobre los números más habituales.    
 
@@ -652,7 +674,7 @@ O, `"58975", "25894", "52985", "98598"`
 [https://www.aceptaelreto.com/problem/statement.php?id=387](https://www.aceptaelreto.com/problem/statement.php?id=387)
 
 
-### Ejercicio `Botín`
+### Ejercicio `Botín` (M)
 
 Al-Colleja y sus secuaces tienen que repartir el botín de su  último golpe. No es una tarea fácil, porque todos quieren llevarse  lo máximo posible, y todos están armados… 
 
@@ -692,12 +714,18 @@ que resultará en
 >
 > Para imprimir el Map usa `toString`
 
+> -toogle-Pista
+>
+> La única dificultad de este ejercicio es hacer que la ronda de reparto sea circular. Es decir, que cuando llegue al último comience por el primero.
+>
+> Acuérdate de cómo hicimos el ejercicio del DNI
+
 **Fuente**
 
 [https://www.aceptaelreto.com/problem/statement.php?id=238](https://www.aceptaelreto.com/problem/statement.php?id=238)
 
 
-### Ejercicio `Frequency`
+### Ejercicio `Frequency` (F)
 
 Se trata de pedir por pantalla una serie de palabras y calcular la frecuencia de cada una de ellas, es decir, las veces que se repiten. Para finalizar el programa se debe introducir una línea en blanco
 Por ejemplo:
@@ -711,7 +739,7 @@ uno - 1
 dos - 2
 tres - 3
 ```
-### Ejercicio `Anagramas`
+### Ejercicio `Anagramas` (M)
 
 Un anagrama es un grupo de palabras que contienen las mismas letras pero en diferente orden:
 
@@ -742,7 +770,7 @@ public class Anagramas {
 }
 ```
 
-### Ejemplo `CountCountries`
+### Ejemplo `CountCountries` (M)
 
 En el siguiente ejercicio partimos de un [fichero](/programacion-java/assets/files/collections/Colfuturo-Seleccionados.csv) `csv` que almacena los datos de los alumnos, incluido el país de origen que se almacena en el campo 7 de dicho archivo.
 
@@ -750,7 +778,7 @@ Se trata de contar cuántos alumnos pertenecen a cada país
 
 > -hint- Acuérdate que en algún ejercicio hemos *dividido* un array en palabras
 
-### Ejercicio `LastNameFrequency`.
+### Ejercicio `LastNameFrequency`. (M)
 
 Tenemos un archivo con la frecuencia de los apellidos en España. Este [fichero](/programacion-java/assets/files/collections/LastnameFrequencies.csv) es de tipo csv y almacena el Apellido y la frecuencia.
 
@@ -1166,14 +1194,14 @@ Stack after pop operation [10, 15, 30]
 
 Realiza los siguientes ejercicios:
 
-* [Paréntesis](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#14-par%C3%A9ntesis). 
+* [Paréntesis](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#14-par%C3%A9ntesis). **(M)**
 
   > -toogle-Pista
   >
   > * Cuando encuentres un símbolo de apertura, añádelo a la pila
   > * Cuando sea de cierre, saca uno de la pila y comprueba si es el correspondiente. En caso contrario está mal
 
-* [Expresiones aritméticas](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#16-expresiones-aritm%C3%A9ticas)
+* [Expresiones aritméticas](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#16-expresiones-aritm%C3%A9ticas) **(D)**
 
   > -toogle-Pista
   >
