@@ -146,7 +146,7 @@ int suma = numeros.stream()
 	.sum();
 ```
 
-Hay que usar `mapToInt(Integer::valueOf)` (la verdad es que no entiendo el motivo de usar este método, pero alguno tendrá :))
+Hay que usar `mapToInt(Integer::valueOf)` 
 
 ## Funciones *lambda*
 
@@ -237,11 +237,12 @@ Puedes usar el método `collect` para recopilar valores de flujo en otra colecci
 
 ```java
 List<Integer> list = new ArrayList<>();
-        list.add(3);
-        list.add(7);
-        list.add(4);
-        list.add(2);
-        list.add(6);
+list.add(3);
+list.add(7);
+list.add(4);
+list.add(2);
+list.add(6);
+
 List<Integer> values = list.stream()
 	.filter(value -> value > 5)
 	.map(value -> value * 2)
@@ -333,55 +334,37 @@ public class Person {
 ```
 
 >-task-**Problema 1** 
-> Recibes una lista de Personas. Imprime cuántas son las personas que nacieron antes de 1970:
+>Recibes una lista de Personas. Imprime cuántas son las personas que nacieron antes de 1970:
 >
 >```java
->// suppose we have a list of persons
->// ArrayList<Person> persons = new ArrayList<>();
->long count = persons.stream()
->    .filter(person -> person.getBirthYear() < 1970)
->    .count();
->System.out.println("Count: " + count);
+>ArrayList<Person> personsas = new ArrayList<>();
+>Person persona = new Person("Pepe", "García", 1968);
+>personas.add(persona);
+>persona = new Person("María", "García", 1998);
+>personas.add(persona);
+>persona = new Person("Juan", "Martínez", 1968);
+>
+>long count = personss.stream()
+>.filter(person -> person.getBirthYear() < 1970)
+>.count();
+>System.out.println("Count: " + count); //El resultado es 2
 >```
 
->-task-**Problema 2**  
+>-task-**Ejercicio 2**  
 > Recibes una lista de Personas. Imprime cuántas personas tienen un primer apellido que empiece por **A** 
 
-> -toogle-Piensa antes de mirar 
->
-> ```java
-> // suppose we have a list of persons
-> // ArrayList<Person> persons = new ArrayList<>();
-> long count = persons.stream()
->     .filter(person -> person.getFirstName().startsWith("A"))
->     .count();
-> System.out.println("Count: " + count);
-> ```
-
->-task-**Problema 3**
+>-task-**Ejercicio 3**
 > Recibes una lista de Personas. Imprime los nombres que son únicos en orden alfabético
 
-> -toogle-Piensa antes de mirar
->
-> ```java
-> // suppose we have a list of persons
-> // ArrayList<Person> persons = new ArrayList<>();
-> persons.stream()
->     .map(person -> person.getFirstName())
->     .distinct()
->     .sorted()
->     .forEach(name -> System.out.println(name));
-> ```
+> -task-**Ejercicio 4** 
+>Escribe un programa que lea la entrada del usuario como cadenas. Cuando el usuario ingresa una cadena vacía (solo presiona `enter`), la lectura de entrada se detendrá y el programa imprimirá todas las entradas del usuario mediante el uso de `streams`
 
->-task-**Ejercicio 1** 
-> Escribe un programa que lea la entrada del usuario como cadenas. Cuando el usuario ingresa una cadena vacía (solo presiona `enter`), la lectura de entrada se detendrá y el programa imprimirá todas las entradas del usuario mediante el uso de `streams`
->
-> **Ejercicio 2** 
+>-task-**Ejercicio 5** 
 > Escribe un programa que lea la entrada del usuario. Cuando el usuario da un número negativo como entrada, la lectura de entrada se detendrá. Después de esto, imprime todos los números que el usuario ha dado como entrada que están entre 1 y 5 con el uso de `streams`
 >
-> **Ejercicio 3** 
+> -task-**Ejercicio 6** 
 > Crea un programa que vaya leyendo la entrada desde el teclado y cree objetos de la clase `Person`
-> 
+>
 > Para finalizar se introducirá una cadena vacía. Ahora imprime los `lastNames` únicos en orden alfabético.
 
 ## Objetos y Streams
