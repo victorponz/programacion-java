@@ -74,7 +74,7 @@ members.add(new Member("ada", 184));
 members.stream().forEach(System.out::println);
 System.out.println();
 // sorting the stream that is to be printed using the sorted method
-members.stream().sorted().forEach(System.out::);
+members.stream().sorted().forEach(System.out::println);
 members.stream().forEach(System.out::println);
 // sorting a list with the sort-method of the Collections class
 Collections.sort(members);
