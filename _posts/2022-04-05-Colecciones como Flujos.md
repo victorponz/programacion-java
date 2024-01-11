@@ -1,5 +1,4 @@
 ---
-
 typora-copy-images-to: ../assets/img/estructuras/
 typora-root-url: ../../
 layout: post
@@ -11,7 +10,7 @@ permalink: streams
 
 ## Flujos (Streams)
 
-En esta parte del curso, presentamos el manejo de colecciones con flujos. Aprenderás a crear una flujo a partir de una colección, filtrar los valores de una flujo, transformar los valores de una flujo y recopilar valores de una flujo en otra colección. Presentamos el concepto **expresión lambda** y aprenderás a usarlo en tus programas. También aprenderás cómo ordenar objetos utilizando la interfaz `Comparable` de Java y algunas otras técnicas útiles como expresiones regulares, tipo enumeración y los iteradores.
+En esta parte del curso, presentamos el manejo de colecciones con flujos. Aprenderás a crear una flujo a partir de una colección, filtrar los valores de una flujo, transformar los valores de una flujo y recopilar valores de una flujo en otra colección. Presentamos el concepto **expresión lambda** y aprenderás a usarlo en tus programas. También aprenderás cómo ordenar objetos utilizando la interfaz `Comparable` de Java.
 
 Conozcamos las colecciones, como las listas, como flujos de valores. 
 
@@ -23,7 +22,7 @@ Comencemos a comprender el uso de flujos a través de un ejemplo concreto. Consi
 
 >-task-**Ejercicio**
 >
-> Escribe un programa que a partir de un `ArrayList` con  números en formato de cadena imprima el número de enteros positivos divisibles por tres y el promedio de todos los valores.
+> Escribe un programa que a partir de un `ArrayList` con números en formato de cadena imprima el número de enteros positivos divisibles por tres y el promedio de todos los valores.
 
 Vamos a implemertarlo de la manera tradicional:
 
@@ -53,7 +52,7 @@ public class Statistics{
 
 Es decir, hacemos un bucle por cada elemento. 
 
-Esta es la forma usando `Stream`
+Esta es la forma usando `Streams`
 
 ```java
 import java.util.ArrayList;
@@ -337,16 +336,19 @@ public class Person {
 >Recibes una lista de Personas. Imprime cuántas son las personas que nacieron antes de 1970:
 >
 >```java
->ArrayList<Person> personsas = new ArrayList<>();
+>ArrayList<Person> personas = new ArrayList<>();
 >Person persona = new Person("Pepe", "García", 1968);
 >personas.add(persona);
+>
 >persona = new Person("María", "García", 1998);
 >personas.add(persona);
->persona = new Person("Juan", "Martínez", 1968);
 >
->long count = personss.stream()
->.filter(person -> person.getBirthYear() < 1970)
->.count();
+>persona = new Person("Juan", "Martínez", 1968);
+>personas.add(persona);
+>
+>long count = personas.stream()
+>    .filter(person -> person.getBirthYear() < 1970)
+>    .count();
 >System.out.println("Count: " + count); //El resultado es 2
 >```
 
@@ -357,15 +359,10 @@ public class Person {
 > Recibes una lista de Personas. Imprime los nombres que son únicos en orden alfabético
 
 > -task-**Ejercicio 4** 
->Escribe un programa que lea la entrada del usuario como cadenas. Cuando el usuario ingresa una cadena vacía (solo presiona `enter`), la lectura de entrada se detendrá y el programa imprimirá todas las entradas del usuario mediante el uso de `streams`
+> Escribe un programa que lea la entrada del usuario como cadenas. Cuando el usuario ingresa una cadena vacía (solo presiona `enter`), la lectura de entrada se detendrá y el programa imprimirá todas las entradas del usuario mediante el uso de `streams`
 
 >-task-**Ejercicio 5** 
 > Escribe un programa que lea la entrada del usuario. Cuando el usuario da un número negativo como entrada, la lectura de entrada se detendrá. Después de esto, imprime todos los números que el usuario ha dado como entrada que están entre 1 y 5 con el uso de `streams`
->
-> -task-**Ejercicio 6** 
-> Crea un programa que vaya leyendo la entrada desde el teclado y cree objetos de la clase `Person`
->
-> Para finalizar se introducirá una cadena vacía. Ahora imprime los `lastNames` únicos en orden alfabético.
 
 ## Objetos y Streams
 
@@ -424,7 +421,7 @@ public class Book {
 Digamos que tenemos una lista de libros. El cálculo del promedio de los años de nacimiento de los autores se puede hacer usando métodos de flujo de una manera que se sienta natural. Primero, convertimos el `stream` de libros en un `stream` de personas, y luego convertimos el `stream` de personas en una `stream` de años de nacimiento. Finalmente, le pedimos al `stream` (entero) un promedio.
 
 ```java
-// let's assume that we have a list of books
+// Supongamos que tenemos una lista de libros
 // List<Book> books = new ArrayList<>();
 double average = books.stream()
     .map(book -> book.getAuthor())
