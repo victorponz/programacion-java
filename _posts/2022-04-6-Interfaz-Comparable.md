@@ -66,19 +66,19 @@ Si un programador quiere organizar la lista original, se debe usar el método de
 Clasificar a los miembros del club es sencillo ahora.
 
 ```java
-List<Member> member = new ArrayList<>();
-member.add(new Member("mikael", 182));
-member.add(new Member("matti", 187));
-member.add(new Member("ada", 184));
+List<Member> members = new ArrayList<>();
+members.add(new Member("mikael", 182));
+members.add(new Member("matti", 187));
+members.add(new Member("ada", 184));
 
-member.stream().forEach(m -> System.out.println(m));
+members.stream().forEach(System.out::println);
 System.out.println();
 // sorting the stream that is to be printed using the sorted method
-member.stream().sorted().forEach(m -> System.out.println(m));
-member.stream().forEach(m -> System.out.println(m));
+members.stream().sorted().forEach(System.out::);
+members.stream().forEach(System.out::println);
 // sorting a list with the sort-method of the Collections class
-Collections.sort(member);
-member.stream().forEach(m -> System.out.println(m));
+Collections.sort(members);
+members.stream().forEach(System.out::println);
 ```
 
 Cuya salida es:
@@ -142,7 +142,7 @@ persons.add(new Person("Mary Coombs", 1929));
 
 Queremos ordenar la lista sin tener que implementar la interfaz `Comparable`.
 
-Tanto el método `sort` de la clase `Collections` como el método `sorted` del `stream` aceptan una expresión lambda como parámetro que define los criterios de clasificación. Más específicamente, ambos métodos se pueden proporcionar con un objeto que implementa la interfaz Comparator, que define el orden deseado: la expresión lambda se usa para crear este objeto.
+Tanto el método `sort` de la clase `Collections` como el método `sorted` del `stream` aceptan una expresión lambda como parámetro que define los criterios de clasificación. Más específicamente, ambos métodos se pueden proporcionar con un objeto que implementa la interfaz `Comparator`, que define el orden deseado: la expresión lambda se usa para crear este objeto.
 
 ```java
 ArrayList<Person> persons = new ArrayList<>();
@@ -211,7 +211,8 @@ Mary Coombs
 >El siguiente [archivo](/programacion-java/assets/illiterate.csv) muestra la población analfabeta mundial en el formato:
 >
 >```
->"ILLPOP_AG15T24","Youth illiterate population, 15-24 years, both sexes (number)","40550","Small Island Developing States","2016","2016",1192378,,
+>"ILLPOP_AG15T24","Youth illiterate population, 15-24 years, both sexes
+ (number)","40550","Small Island Developing States","2016","2016",1192378,,
 >```
 >
 >Se trata de realizar un programa que lea este archivo y que luego muestre la información en pantalla por orden ascendente del total de personas analfabetas (en el ejemplo, 1192378)
