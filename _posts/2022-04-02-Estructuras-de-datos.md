@@ -1201,7 +1201,7 @@ Realiza los siguientes ejercicios:
   > * Cuando encuentres un símbolo de apertura, añádelo a la pila
   > * Cuando sea de cierre, saca uno de la pila y comprueba si es el correspondiente. En caso contrario está mal
 
-* [Expresiones aritméticas](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#16-expresiones-aritm%C3%A9ticas) **(D)**
+* [Expresiones aritméticas](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#16-expresiones-aritm%C3%A9ticas) **(M)**
 
   > -toogle-Pista
   >
