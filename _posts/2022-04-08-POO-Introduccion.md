@@ -225,7 +225,7 @@ public String getTitle() {
 
 que devuelve el valor del `title`. Por convención, el nombre de un método de acceso para una variable se obtiene poniendo en mayúscula el nombre de la variable y agregando "**get**" delante del nombre. Entonces, para el título de la variable, obtenemos un método de acceso llamado "get" + "Title", o `getTitle()`. Debido a esta convención de nomenclatura, los métodos de acceso se conocen más a menudo como métodos **getters**. Un método getter proporciona "acceso de lectura" a una variable. (A veces, para las variables booleanas, se usa "is" en lugar de "get". Por ejemplo, un getter para una variable miembro booleana llamada **done** podría llamarse `isDone()`).
 
-También es posible que desee permitir el "**acceso de escritura**" a una variable privada. Es decir, es posible que desee hacer posible que otras clases especifiquen un nuevo valor para la variable. Esto se hace con un método **setter** o **mutador**. El nombre de un método setter debe consistir en "set" seguido de una copia en mayúscula del nombre de la variable, y suele tener un parámetro con el mismo tipo que la variable. Se podría escribir un método setter para el título de la variable.
+También es posible que desee permitir el "**acceso de escritura**" a una variable privada. Es decir, es posible que desee hacer posible que otras clases especifiquen un nuevo valor para la variable. Esto se hace con un método **setter** o **mutador**. El nombre de un método setter suele consistir en "set" seguido de una copia en mayúscula del nombre de la variable, y suele tener un parámetro con el mismo tipo que la variable. Se podría escribir un método setter para el título de la variable.
 
 ```java
 public void setTitle( String newTitle ) {
@@ -625,12 +625,6 @@ public class Student {
 ```
 
 Dado que `nextUniqueID` es una variable estática, la inicialización `nextUniqueID = 0` se realiza solo una vez, cuando la clase se carga por primera vez. Cada vez que se construye un objeto `Student` y el constructor dice `nextUniqueID++;`, siempre es la misma variable miembro estática la que se incrementa. Cuando se crea el primer objeto `Student`, `nextUniqueID` se convierte en 1. Cuando se crea el segundo objeto, `nextUniqueID` se convierte en 2. Después del tercer objeto, se convierte en 3. Y así sucesivamente. El constructor almacena el nuevo valor de `nextUniqueID` en la variable `ID` del objeto que se está creando. Por supuesto, `ID` es una variable de instancia, por lo que cada objeto tiene su propia variable de `ID` individual. La clase está construida para que cada estudiante obtenga automáticamente un valor diferente para su variable `ID`. Además, la variable `ID` es privada, por lo que no hay forma de manipular esta variable después de que se haya creado el objeto. Tiene la garantía, solo por la forma en que está diseñada la clase, de que cada objeto de estudiante tendrá su propio número de identificación único y permanente. Lo cual es genial si lo piensas.
-
-### ¿Qué parámetros *debe* tener un constructor?
-
-Supongamos una clase `Bebe` que almacena información de niños recién nacidos. Estos bebés tienen, un sexo, un nombre, un color de pelo, un peso, una talla. ¿Pero qué parámetros debe tener el constructor? Si lo pensamos detenidamente todos, excepto el nombre -tal vez los padres todavía duden-, son atributos que tiene el bebé nada más nacer por lo que el constructor **debe** incluir todos estos parámetros. Tal vez haya otro constructor para un bebé del que los padres ya han decidido qué nombre ponerle antes de nacer. Pero para aquellos que todavía no lo saben, debe existir un setter para fijar el nombre.
-
-Es decir, los parámetros del constructor **deben** incluir todos aquellos **necesarios** en el momento de la creación. Después hemos de pensar qué otros atributos queremos incluir como no necesarios.
 
 ----
 Adaptado de los siguientes materiales
