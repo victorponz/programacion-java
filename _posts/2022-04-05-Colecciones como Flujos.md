@@ -70,7 +70,7 @@ public class StatisticsStreams {
         long cuantos = numeros.stream()
                 //convertimos a Int 
                 .mapToInt(s -> Integer.valueOf(s))
-                //filtramos los que sean múltiplo de 3
+                //filtramos los que sean múltiplos de 3
                 .filter(number -> number % 3 == 0)
                 //y los contamos
                 .count();
@@ -352,16 +352,16 @@ public class Person {
 >System.out.println("Count: " + count); //El resultado es 2
 >```
 
->-task-**Ejercicio 2**  
+>-task-**Ejercicio 2 (F)**  
 > Recibes una lista de Personas. Imprime cuántas personas tienen un primer apellido que empiece por **A** 
 
->-task-**Ejercicio 3**
+>-task-**Ejercicio 3 (F)**
 > Recibes una lista de Personas. Imprime los nombres que son únicos en orden alfabético
 
-> -task-**Ejercicio 4** 
+> -task-**Ejercicio 4 No hacer** 
 > Escribe un programa que lea la entrada del usuario como cadenas. Cuando el usuario ingresa una cadena vacía (solo presiona `enter`), la lectura de entrada se detendrá y el programa imprimirá todas las entradas del usuario mediante el uso de `streams`
 
->-task-**Ejercicio 5** 
+>-task-**Ejercicio 5 (F)**  
 > Escribe un programa que lea la entrada del usuario. Cuando el usuario da un número negativo como entrada, la lectura de entrada se detendrá. Después de esto, imprime todos los números que el usuario ha dado como entrada que están entre 1 y 5 con el uso de `streams`
 
 ## Objetos y Streams
@@ -424,8 +424,11 @@ Digamos que tenemos una lista de libros. El cálculo del promedio de los años d
 // Supongamos que tenemos una lista de libros
 // List<Book> books = new ArrayList<>();
 double average = books.stream()
+    //Queremos trabajar con el Autor
     .map(book -> book.getAuthor())
+    //Y de él, en año de nacimiento
     .mapToInt(author -> author.getBirthYear())
+    //Sacar la media
     .average()
     .getAsDouble();
 
