@@ -101,7 +101,7 @@ ada (184)
 matti (187)
 ```
 
->-task-**Ejercicio**
+>-task-**Ejercicio (F)** 
 >
 >Se te proporciona la clase `Human`. Un ser humano tiene un nombre e información sobre salario. Implementa la interfaz `Comparable` de tal manera que el método `compareTo` clasifique a los humanos según el salario del más grande al más pequeño.
 
@@ -206,7 +206,7 @@ Irma Wyman
 Mary Coombs
 ```
 
->-task-**Ejercicio**
+>-task-**Ejercicio (M)**
 > 
 >El siguiente [archivo](/programacion-java/assets/illiterate.csv) muestra la población analfabeta mundial en el formato:
 >
@@ -289,13 +289,13 @@ C (2001)
 
 >-task-**Ejercicios**
 >
->[Felipe y sus tareas](https://www.aceptaelreto.com/problem/statement.php?id=579)
+>[Felipe y sus tareas](https://www.aceptaelreto.com/problem/statement.php?id=579) **(F)**
 >
->[La justicia de la lotería](https://www.aceptaelreto.com/problem/statement.php?id=378)
+>[La justicia de la lotería](https://www.aceptaelreto.com/problem/statement.php?id=378) **(M)**
 >
->[Los niños buenos](https://www.aceptaelreto.com/problem/statement.php?id=366)
+>[Los niños buenos](https://www.aceptaelreto.com/problem/statement.php?id=366) **(F)**
 >
->[Los tesoros de Tutankamón](https://www.aceptaelreto.com/problem/statement.php?id=661&cat=154)
+>[Los tesoros de Tutankamón](https://www.aceptaelreto.com/problem/statement.php?id=661&cat=154) **(F)**
 
 ----
 Adaptado del siguiente material
