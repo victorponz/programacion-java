@@ -228,10 +228,9 @@ public class Persona {
     String getNombre() { return nombre; }
     short getEdad() { return edad; }
 
-    void visualizar() {
-        System.out.println("Dni...........:" + dni);
-        System.out.println("Nombre...........:" + nombre);
-        System.out.println("Edad..........:" + edad);
+    @Override
+    public String toString() {
+        return "Dni:" + dni + "\nNombre:" + nombre + "\nEdad:" + edad;
     }
 
     public static void main(String args[]) {
@@ -241,12 +240,12 @@ public class Persona {
         p1.setNombre("Pepe Gotera");
         p1.setEdad(30);
         System.out.println("Visualización de persona p1:");
-        p1.visualizar();
+        System.out.println(p1);
         System.out.println("El dni de p1 es " + p1.getDni());
         System.out.println("El nombre de p1 es " + p1.getNombre());
         System.out.println("La edad de p1 es " + p1.getEdad());
         System.out.println("Visualización de persona p2:");
-        p2.visualizar();
+        System.out.println(p2);
     }
 }
 ```
@@ -255,16 +254,16 @@ La ejecución de este programa produce la siguiente salida:
 
 ```
 Visualización de persona p1:
-Dni...........:34748804J
-Nombre...........:Pepe Gotera
-Edad..........:33
+Dni:34748804J
+Nombre:Pepe Gotera
+Edad:33
 El dni de p1 es 34748804J
 El nombre de p1 es Pepe Gotera
 La edad de p1 es 33
 Visualización de persona p2:
-Dni...........:null
-Nombre...........:null
-Edad..........:0
+Dni:null
+Nombre:null
+Edad:0
 ```
 
 ###  Modificadores dentro de una clase
