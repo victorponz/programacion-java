@@ -14,19 +14,19 @@ Por supuesto, en su mayor parte, experimentará "componentes de software general
 
 ## Algunas clases integradas
 
-Aunque el enfoque de la programación orientada a objetos generalmente se encuentra en el diseño e implementación de nuevas clases, es importante no olvidar que los diseñadores de Java ya han proporcionado una gran cantidad de clases reutilizables. Algunas de estas clases están destinadas a ampliarse para producir nuevas clases, mientras que otras se pueden utilizar directamente para crear objetos útiles. Un verdadero dominio de Java requiere estar familiarizado con una gran cantidad de clases integradas, algo que requiere mucho tiempo y experiencia para desarrollarse. Tomemos un momento para ver algunas clases integradas que pueden resultarle útiles.
+Aunque el enfoque de la programación orientada a objetos generalmente se encuentra en el diseño e implementación de nuevas clases, es importante no olvidar que los diseñadores de Java ya han proporcionado una gran cantidad de **clases reutilizables**. Algunas de estas clases están destinadas a ampliarse para producir nuevas clases, mientras que otras se pueden utilizar directamente para crear objetos útiles. Un verdadero dominio de Java requiere estar familiarizado con una gran cantidad de clases integradas, algo que requiere mucho tiempo y experiencia para desarrollarse. Tomemos un momento para ver algunas clases integradas que pueden resultarle útiles.
 
-Se puede construir una cadena a partir de piezas más pequeñas usando el operador +, pero esto no siempre es eficiente. Si `str` es una cadena y `ch` es un carácter, al ejecutar el comando `str = str + ch;` implica crear una cadena completamente nueva que es una copia de `str`, con el valor de `ch` agregado al final. Copiar la cadena lleva algún tiempo. Construir una cadena larga letra por letra requeriría una sorprendente cantidad de procesamiento. La clase `StringBuilder` permite ser eficiente en la construcción de una cadena larga a partir de varias piezas más pequeñas. Para hacer esto, debe crear un objeto que pertenezca a la clase `StringBuilder`. Por ejemplo:
-
-```java
-StringBuilder builder = new StringBuilder();
-```
-
-(Esta declaración declara el `StringBuilder` y lo inicializa para hacer referencia a un objeto `StringBuilder` recién creado. La combinación de declaración con inicialización funciona para objetos igual que para tipos primitivos).
+> -info- Se puede construir una cadena a partir de piezas más pequeñas usando el operador +, pero esto no siempre es eficiente. Si `str` es una cadena y `ch` es un carácter, al ejecutar el comando `str = str + ch;` implica crear una cadena completamente nueva que es una copia de `str`, con el valor de `ch` agregado al final. Copiar la cadena lleva algún tiempo. Construir una cadena larga letra por letra requeriría una sorprendente cantidad de procesamiento. La clase `StringBuilder` permite ser eficiente en la construcción de una cadena larga a partir de varias piezas más pequeñas. Para hacer esto, debe crear un objeto que pertenezca a la clase `StringBuilder`. Por ejemplo:
+>
+> ```java
+> StringBuilder builder = new StringBuilder();
+> ```
+>
+> (Esta declaración declara el `StringBuilder` y lo inicializa para hacer referencia a un objeto `StringBuilder` recién creado. La combinación de declaración con inicialización funciona para objetos igual que para tipos primitivos).
 
 Al igual que un `String`, un `StringBuilder` contiene una secuencia de caracteres. Sin embargo, es posible agregar nuevos caracteres al final de un `StringBuilder` sin hacer copias continuas de los datos que ya contiene. Si `x` es un valor de cualquier tipo y el constructor es la variable definida anteriormente, entonces el comando `builder.append(x)` agregará `x`, convertida en una representación de cadena, al final de los datos que ya estaban en el constructor. Esto se puede hacer de manera más eficiente que copiar los datos cada vez que se agrega algo. Se puede construir una cadena larga en un `StringBuilder` usando una secuencia de comandos `append()`. Cuando la cadena esté completa, la función `builder.toString()` devolverá una copia de la cadena en el constructor como un valor ordinario de tipo `String`. La clase `StringBuilder` está en el paquete estándar `java.lang`, por lo que puedes usar su nombre simple sin importarlo.
 
-En el paquete `java.util` se recopilan varias clases útiles. Por ejemplo, este paquete contiene clases para trabajar con colecciones de objetos. Estudiaremos extensamente tales clases de colección más adelante. Y ya hemos encontrado `java.util.Scanner`. Otra clase en este paquete, `java.util.Date`, se usa para representar tiempos. Cuando un objeto `Date` se construye sin parámetros, el resultado representa la fecha y la hora actuales, por lo que una forma fácil de mostrar esta información es:
+En el paquete `java.util` se recopilan varias clases útiles. Por ejemplo, este paquete contiene clases para trabajar con colecciones de objetos. Ya hemos usado varias clases para tratar con colecciones. Y ya hemos usado `java.util.Scanner`. Otra clase en este paquete, `java.util.Date`, se usa para representar tiempos. Cuando un objeto `Date` se construye sin parámetros, el resultado representa la fecha y la hora actuales, por lo que una forma fácil de mostrar esta información es:
 
 ```java
 System.out.println( new Date() );
@@ -177,7 +177,7 @@ Ya estamos en condiciones de diseñar la primera clase y realizar un pequeño pr
 
 Supongamos que se quiere diseñar una clase para gestionar personas, para las que interesa gestionar su dni, nombre y edad.
 
-Tomamos las primeras decisiones de diseño y decidimos que **dni** y `nombre` deben ser objetos `String` y que **edad** debe ser un `short`. Respecto a los métodos, en un principio se nos ocurre desarrollar los métodos correspondientes a las operaciones accesoras y, quizás, un método `visualizar()` para mostrar todo el contenido de una persona.
+Tomamos las primeras decisiones de diseño y decidimos que **dni** y `nombre` deben ser objetos `String` y que **edad** debe ser un `short`. Respecto a los métodos, en un principio se nos ocurre desarrollar los métodos correspondientes a las operaciones **getters** y **setters** y sobreescribir el método `toString` de la clase `Object` para mostrar todo el contenido de una persona.
 
 ```java
 public class Persona {
@@ -271,9 +271,9 @@ Edad:0
 A la hora de definir atributos o métodos en una clase, es posible indicar un **modificador de acceso**. Veamos con más detalle cuáles están en la sintaxis de Java.
 
 El modificador de acceso puede tomar cuatro valores:
-* `Public`, que da acceso a todo el mundo.
-* `Private`, que prohíbe el acceso a todos menos por los métodos de la propia clase.
-* `Protected`, que se comporta como `public` para las clases derivadas de la clase y como `private` para el resto de clases.
+* `public`, que da acceso a todo el mundo.
+* `private`, que prohíbe el acceso a todos menos por los métodos de la propia clase.
+* `protected`, que se comporta como `public` para las clases derivadas de la clase y como `private` para el resto de clases.
 * Sin modificador, que se comporta como `public` para las clases del mismo paquete y como `private` para el resto de clases.
 
 Dada la clase `Persona`, si desarrollamos un programa que instancie objetos de la clase, ¿tenemos acceso directo a los datos **dni**, **nombre** y **edad**? Consideramos el siguiente programa en el que se crean objetos de la clase `Persona`.
@@ -525,8 +525,6 @@ public class Circle {
 }
 ```
 
-
-
 ## Elementos estáticos de una clase
 
 > -info-Los datos miembro estático, al ser comunes para todos los objetos de la clase, también se llaman variables clase.
@@ -567,7 +565,7 @@ Algunos elementos de una clase pueden declararse como “**estáticos**”. Para
 
     * Se llaman utilizando la sintaxis `NombreClase.nombreMétodo()`. El lenguaje Java permite llamarles por el nombre de un objeto de la clase, pero no es lógico.
    
-    * En su código **no se puede** utilizar la palabra reservada this, `puesto` que la ejecución no se efectúa sobre ningún objeto en concreto de la clase.
+    * En su código **no se puede** utilizar la palabra reservada `this`, puesto que la ejecución no se efectúa sobre ningún objeto en concreto de la clase.
    
     * En su código sólo se puede acceder a sus propios argumentos y los datos `static` de la clase.
 
@@ -678,19 +676,18 @@ En el diseño de una clase se tiene acceso a todas las clases del mismo paquete,
   ```java
   import <nombrePaquete>.<NombreClase>;
   ```
+  Es factible cargar todas las clases de un paquete con una única sentencia utilizando un asterisco:
 
-Es factible cargar todas las clases de un paquete con una única sentencia utilizando un asterisco:
+  ```java
+  import <nombrePaquete>.*;
+  ```
 
-```java
-import <nombrePaquete>.*;
-```
+  Las sentencias `import` en un archivo fuente deben preceder a todas las declaraciones de clases incorporadas en el archivo.
 
-Las sentencias `import` en un archivo fuente deben preceder a todas las declaraciones de clases incorporadas en el archivo.
+  Así pues, si tenemos una clase `C` en un paquete `xxx.yyy.zzz` y debemos utilizarla en otra clase, tenemos dos opciones:
 
-Así pues, si tenemos una clase `C` en un paquete `xxx.yyy.zzz` y debemos utilizarla en otra clase, tenemos dos opciones:
-
-* Escribir `xxx.yyy.zzz.C` cada vez que debamos referirnos a la clase `C`.
-* Utilizar la sentencia `import xxx.yyy.zzz.C` antes de ninguna declaración de clase y utilizar directamente el nombre `C` para referirnos a la clase.
+  * Escribir `xxx.yyy.zzz.C` cada vez que debamos referirnos a la clase `C`.
+  * Utilizar la sentencia `import xxx.yyy.zzz.C` antes de ninguna declaración de clase y utilizar directamente el nombre `C` para referirnos a la clase.
 
 ### Ejemplo de definición
 
