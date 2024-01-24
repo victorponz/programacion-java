@@ -7,7 +7,7 @@ categories: poo
 conToc: true
 permalink: poo-ejercicios
 ---
- En todos los ejerc
+
 ## Person
 
 Crea una clase `Person`, que debe comportarse de la siguiente manera:
