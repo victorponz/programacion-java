@@ -109,13 +109,12 @@ public class Main {
 >-info-En todas las clases implementa el método toString()
 >En todos los ejercicios crea una clase `Main` y modela varios objetos. Después imprímelos.
 
-> -task-**Ejercicio** Crea una clase que modele los distintos ordenadores de una tienda de informática. Piensa qué atributos, qué constructores debes crear y qué setters y getters.
+> -task-**Ejercicio 1** Crea una clase que modele los distintos ordenadores de una tienda de informática. Piensa qué atributos, qué constructores debes crear y qué setters y getters.
 >
-> Luego crea una clase para crear varias instancias de la clase
 
-> -task-**Ejercicio** Crea una clase que represente a un aparato de aire acondicionado. Este aparato tiene un nombre, y una temperatura máxima y mínima. Además tiene dos botones para subir y bajar el aire de grado en grado pero sin sobrepasar nunca de los límites
+> -task-**Ejercicio 2** Crea una clase que represente a un aparato de aire acondicionado. Este aparato tiene un nombre, y una temperatura máxima y mínima. Además tiene dos botones para subir y bajar el aire de grado en grado pero sin sobrepasar nunca de los límites
 
-> -task-**Ejercicio** Crea una clase llamada Cuenta que tendrá los siguientes atributos: titular y cantidad
+> -task-**Ejercicio 3** Crea una clase llamada Cuenta que tendrá los siguientes atributos: titular y cantidad
 > (puede tener decimales).
 >
 > El titular será obligatorio y la cantidad es opcional. Crea dos constructores que cumplan lo
@@ -130,21 +129,21 @@ public class Main {
 > * `retirar(double cantidad)`: se retira una cantidad a la cuenta, si restando la cantidad actual
 >   a la que nos pasan es negativa, la cantidad de la cuenta pasa a ser 0.
 
-> -task-**Ejercicio** Crea una clase llamada `Autor` con los campos Nombre y Fecha de nacimiento.  Crea la entidad `Tema` con un atributo para el nombre del tema
+> -task-**Ejercicio 4** Crea una clase llamada `Autor` con los campos Nombre y Fecha de nacimiento.  Crea la entidad `Tema` con un atributo para el nombre del tema
 >
 > Después crea una clase `Libro` con los campos Título, Autor y Páginas. Además tendrá una lista para poder almacenar los temas de los que trata el libro.
 >
 > Por último crea una clase `MainLibro` en la que deberás crear varios autores, temas y libros
 
-> -task-**Ejercicio** Crea las clases necesarias para poder representar el siguiente diagrama entidad-relación
+> -task-**Ejercicio 5** Crea las clases necesarias para poder representar el siguiente diagrama entidad-relación
 >
 > ![image-20230130190129052](/programacion-java/assets/img/poo/image-20230130190129052.png)
 
-> -task-**Ejercicio** Crea las clases necesarias para poder representar el siguiente diagrama entidad-relación
+> -task-**Ejercicio 6** Crea las clases necesarias para poder representar el siguiente diagrama entidad-relación
 >
 > ![image-20230130190242249](/programacion-java/assets/img/poo/image-20230130190242249.png)
 
->-task-**Ejercicio** Crea las clases necesarias para poder representar el siguiente diagrama entidad-relación
+>-task-**Ejercicio 7** Crea las clases necesarias para poder representar el siguiente diagrama entidad-relación
 >
 >![image-20230130190423703](/programacion-java/assets/img/poo/image-20230130190423703.png)
 
@@ -197,7 +196,7 @@ En principio todos los métodos que no sean getters o setters deben ser privados
 > Después has de hacer un método en un clase `main` que, dado un autor por teclado, imprima los datos de los libros de dicho autor.
 >
 
-> -task-**Ejercicio** Crea un proyecto en IntelliJ llamado Juego que contiene dos clases llamadas: `Dado` y `JuegodeDados`. La clase `Dado` tendrá un atributo que será el valor del dado y 3 métodos, el primero obtendrá el valor de una tirada del dado, el segundo imprimirá el valor de esa tirada y el tercero retorna el valor de la tirada.
+> -task-**Ejercicio 8** Crea un proyecto en IntelliJ llamado Juego que contiene dos clases llamadas: `Dado` y `JuegodeDados`. La clase `Dado` tendrá un atributo que será el valor del dado y 3 métodos, el primero obtendrá el valor de una tirada del dado, el segundo imprimirá el valor de esa tirada y el tercero retorna el valor de la tirada.
 > La clase `JuegodeDados` tendrá tres métodos, el primero definirá tres dados para hacer una partida, el segundo hará la tirada de los tres dados y dirá si el usuario ha ganado o ha perdido (se considera que ha ganado si el valor de la tirada de los tres dados es el mismo, ejemplo: 3 - 3 - 3). El tercer método será `main` que llamará a los otros dos métodos para realizar una partida de dados.
 > ```
 >    2-1-5
