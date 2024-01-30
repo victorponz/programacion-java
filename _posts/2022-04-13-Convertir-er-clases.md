@@ -164,7 +164,7 @@ erDiagram
 En este caso crearemos una nueva clase con referencias a `Libro` y a `Autor`
 
 ```java
- public class publica{
+ public class Publica{
  	private Autor autor;
     private Libro libro;
     private String fecha;
