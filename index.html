@@ -50,18 +50,18 @@ title: Apuntes Programación en JAVA
 	{% endif %}
 	{% endfor %}
 	</ol>
-  <h2>Tema 7 - Ficheros</h2>
+  <h2>Tema 7 - Bases de datos</h2>
 	<ol class='portada'> 
 	{% for post in site.posts reversed %}
-	{% if post.categories contains "ficheros" %}
+	{% if post.categories contains "bd" %}
 	<li><h4><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></h4></li>
 	{% endif %}
 	{% endfor %}
 	</ol>
-  <h2>Tema 8 - Bases de datos</h2>
+<h2>Tema 8 - Ficheros</h2>
 	<ol class='portada'> 
 	{% for post in site.posts reversed %}
-	{% if post.categories contains "bd" %}
+	{% if post.categories contains "ficheros" %}
 	<li><h4><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></h4></li>
 	{% endif %}
 	{% endfor %}
