@@ -174,7 +174,18 @@ En este caso crearemos una nueva clase con referencias a `Libro` y a `Autor`
 
 Además, en cada parte de la relación crearemos un `Set` para mantener la lista de los libros publicados por un autor y la lista de los autores de un libro.
 
+```java
+public class Libro{
+	//...
+    private Set<autor> autores;
+}
+```
 
+```java
+public class Autor{
+    private Set<Libro> libros;
+}
+```
 
 **Adaptado en parte de:**
 
