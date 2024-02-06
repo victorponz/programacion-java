@@ -92,6 +92,7 @@ public class Editorial{
         this.libros = new HashSet<>();
     }
     
+    //Además del setter por defecto, creamos otro para poder añadir un Libro
     public void addLibro(Libro libro){
         this.libros.add(libro);
     }
@@ -178,12 +179,22 @@ Además, en cada parte de la relación crearemos un `Set` para mantener la lista
 public class Libro{
 	//...
     private Set<autor> autores;
+    
+    //Creamos un setter para poder añadir un autor
+    public void addAutor(Autor autor){
+        this.autores.add(autor);
+    }
 }
 ```
 
 ```java
 public class Autor{
     private Set<Libro> libros;
+       
+    //Creamos un setter para poder añadir un autor
+    public void addLibro(Libro libro){
+        this.libros.add(libro);
+    }
 }
 ```
 
