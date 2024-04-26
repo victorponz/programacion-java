@@ -1145,6 +1145,8 @@ public class EscribirEnFicheroJSON {
 
 Gson es una librería para serializar y deserializar objetos. Por tanto, para poder realizar esta transformación hemos de tener implementadas las clases presentes en el fichero json. Vamos a ver un ejemplo más complejo, procesando la respuesta `json` devuelta desde el api de [Google Maps](https://maps.googleapis.com/maps/api/geocode/json?latlng=40,0).
 
+> -alert-Lo más sencillo para crear la clase que mapea los datos devueltos es pasarle a ChatGPT la cadena JSON y pedirle que te la convierta a una clase Gson. No siempre acierta a la primera pero ya tienes trabajo tedioso hecho
+
 Os dejo un ejemplo de este [json](/programacion-java/assets/img/formato/gmaps.json) devuelto.
 
 El siguiente json es sólo una de los valores devueltos por esta api.
@@ -1667,12 +1669,6 @@ public class LeerGmaps {
 **Reto 2**
 
 > -reto- Crea una aplicación que le pida al usuario el nombre de un pokémon. Después imprime la misma información del reto anterior. Si no existe dicho pokémon se debe informar a usuario. El programa finaliza cuando el usuario introduce una cadena vacía
-
-**Reto 3**
-
-> -reto- Hay muchas apis el mercado, pero la mayoría necesitan de un `api key` o usar `OAuth 2.0` para funcionar y tienen limitación de peticiones.
->
-> He encontrado esta [https://animechan.vercel.app/](https://animechan.vercel.app/) que es de anime. Juega un poco con ella y crea un programa parecido a los anteriores
 
 > -info-Puedes encontrar más apis públicas en [https://github.com/public-apis/public-apis](https://github.com/public-apis/public-apis)
 
