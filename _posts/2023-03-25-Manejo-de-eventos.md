@@ -554,7 +554,7 @@ public class EjemploItemListener extends JFrame implements ItemListener {
 
 ```
 
-Fijaos que cuando tenemos el mismo manejador para varios componentes, usamos el método `e.getSource() `para saber qué componente ha provocado el evento.
+Fijaos que cuando tenemos el mismo manejador para varios componentes, usamos el método `e.getSource()` para saber qué componente ha provocado el evento.
 
 ## Ejemplos
-En el siguiente [archivo](assets/Eventos-Swing.zip) teneis más ejemplos de componentes y eventos.
+En el siguiente [archivo](assets/Eventos-Swing.zip) tenéis más ejemplos de componentes y eventos.
