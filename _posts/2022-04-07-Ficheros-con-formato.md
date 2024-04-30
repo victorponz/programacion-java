@@ -854,7 +854,7 @@ Y ahora uno más completo con la misma estructura que el archivo `XML` que habí
    }
 ```
 
-Como ejemplo real, un WebService de Google Maps nos proporciona información de los sitios que encuentra cerca, entre otras cosas la dirección, de unas coordenadas que le pasamos (en el ejemplo 40, 0). Por ejemplo, https://maps.googleapis.com/maps/api/geocode/json?latlng=40,0 devuelve lo siguiente:
+Como ejemplo real, un WebService de Google Maps nos proporciona información de los sitios que encuentra cerca, entre otras cosas la dirección, de unas coordenadas que le pasamos (en el ejemplo 40, 0). Por ejemplo, [https://maps.googleapis.com/maps/api/geocode/json?latlng=40,0](https://maps.googleapis.com/maps/api/geocode/json?latlng=40,0) devuelve lo siguiente:
 
 ```json
 {
@@ -983,7 +983,7 @@ Como ejemplo real, un WebService de Google Maps nos proporciona información de 
 
 ```
 
-A partir de la raíz (que ahora sí es un objeto), tenemos dos miembros: ***Results*** y ***status***. ***Results*** es un array (un elemento por cada "sitio" encontrado), donde cada elemento, además de información diversa, tiene un miembro que es una pareja clave-valor que nos puede interesar: ***formatted_address***. El otro miembro, ***status***, nos dice cómo ha ido. Cuando no encuentra nada nos lo indica así (https://maps.googleapis.com/maps/api/geocode/json?latlng=40,1 que está dentro del mar):
+A partir de la raíz (que ahora sí es un objeto), tenemos dos miembros: ***Results*** y ***status***. ***Results*** es un array (un elemento por cada "sitio" encontrado), donde cada elemento, además de información diversa, tiene un miembro que es una pareja clave-valor que nos puede interesar: ***formatted_address***. El otro miembro, ***status***, nos dice cómo ha ido. Cuando no encuentra nada nos lo indica así ([https://maps.googleapis.com/maps/api/geocode/json?latlng=40,1](https://maps.googleapis.com/maps/api/geocode/json?latlng=40,1) que está dentro del mar):
 
 ```json
 {
@@ -994,7 +994,7 @@ A partir de la raíz (que ahora sí es un objeto), tenemos dos miembros: ***Resu
 
 El formato json es muy utilizado en API's. La mayoría de webs ofrecen servicios REST para consultar sus bases de datos en este formato.
 
-https://www.sitepoint.com/10-example-json-files/
+[https://www.sitepoint.com/10-example-json-files/](https://www.sitepoint.com/10-example-json-files/)
 
 ### 5.2 Gson
 
