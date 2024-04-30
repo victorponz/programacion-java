@@ -620,7 +620,7 @@ FileReader f_ent = new FileReader("./archivos/f3.txt");
 
 Vamos a hacer otra versión del mismo programa. Aparte de no especificar la codificación del archivo de entrada, utilizaremos los decoradores `BufferedReader` y `PrintWriter` para poder ir cómodamente línea a línea.
 
-![1525708855881](/programacion-java/assets/img/gestion/525708855881.png)
+![1525708855881](/programacion-java/assets/img/gestion/1525708855881.png)
 
 
 
