@@ -1670,7 +1670,8 @@ public class LeerGmaps {
 > -reto- Crea una aplicación que le pida al usuario el nombre de un pokémon. Después imprime la misma información del reto anterior. Si no existe dicho pokémon se debe informar a usuario. El programa finaliza cuando el usuario introduce una cadena vacía
 
 **Reto 3**
-> -reto- Elige una api de las que se listan en este [listado de apis](https://github.com/public-apis/public-apis). Elige una cuyo método `Auth` sea **apiKey** o **No**. En el caso de que elijas una de tipo **apiKey** deberás registrarte en la web para que te den un `client_api` y un `client_secret`. Después realiza una petición a la api y, con los datos devueltos, debes generar un archivo `html` válido con la información devuelta
+> -reto- Elige una api de las que se listan en este [listado de apis](https://github.com/public-apis/public-apis). Elige una cuyo método `Auth` sea **apiKey** o **No**. En el caso de que elijas una de tipo **apiKey** deberás registrarte en la web para que te den un `client_api` y un `client_secret`. 
+> Ahora debes conocer el formato de llamada a la api para realizar una petición a la misma. Con los datos devueltos, debes generar un archivo `html` válido con la información devuelta
 > Para conseguir el token usa este código
 > ```java
 >    private static String getToken() throws IOException {
@@ -1706,7 +1707,8 @@ public class LeerGmaps {
 >        URL url = new URL("https://api.spotify.com/v1/search?q=" + nombreAlbum + "&type=album&limit=1&offset=0");
 >        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 >        conn.setRequestProperty("Accept", "application/json");
->        conn.setRequestProperty("Authorization","Bearer " + AppService.getToken());
+>        //Sólo en el caso que la autorización sea de tipo apiKey
+>        conn.setRequestProperty("Authorization","Bearer " + getToken());
 >        conn.setRequestMethod("GET");
 >
 >        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
