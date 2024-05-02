@@ -1671,7 +1671,8 @@ public class LeerGmaps {
 
 **Reto 3**
 > -reto- Elige una api de las que se listan en este [listado de apis](https://github.com/public-apis/public-apis). Elige una cuyo método `Auth` sea **apiKey** o **No**. En el caso de que elijas una de tipo **apiKey** deberás registrarte en la web para que te den un `client_api` y un `client_secret`. 
-> Ahora debes conocer el formato de llamada a la api para realizar una petición a la misma. Con los datos devueltos, debes generar un archivo `html` válido con la información devuelta
+> Ahora debes conocer el formato de llamada a la api para realizar una petición a la misma. Con los datos devueltos, debes generar un archivo `html` válido con la información devuelta.
+>
 > Para conseguir el token usa este código
 > ```java
 >    private static String getToken() throws IOException {
