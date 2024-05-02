@@ -1670,7 +1670,7 @@ public class LeerGmaps {
 > -reto- Crea una aplicación que le pida al usuario el nombre de un pokémon. Después imprime la misma información del reto anterior. Si no existe dicho pokémon se debe informar a usuario. El programa finaliza cuando el usuario introduce una cadena vacía
 
 **Reto 3**
-> -reto- Elige una api de las que se listan en este [listado de apis](https://github.com/public-apis/public-apis). Elige una cuyo método sea **Auth** o **No**. En el caso de que elijas una de tipo **Auth** deberás registrarte en la web para que te den un `client_api` y un `client_secret`. Después realiza una petición a la api y, con los datos devueltos, debes generar un archivo `html` válido con la información devuelta
+> -reto- Elige una api de las que se listan en este [listado de apis](https://github.com/public-apis/public-apis). Elige una cuyo método `Auth` sea **apiKey** o **No**. En el caso de que elijas una de tipo **apiKey** deberás registrarte en la web para que te den un `client_api` y un `client_secret`. Después realiza una petición a la api y, con los datos devueltos, debes generar un archivo `html` válido con la información devuelta
 > Para conseguir el token usa este código
 > ```java
 >    private static String getToken() throws IOException {
@@ -1698,7 +1698,30 @@ public class LeerGmaps {
 >       //Quitar carácter " del principio y del final
 >        return token.substring(1, token.length()-1);
 >    }
-> ```    
+> ``` 
+> En el siguiente código tienes un ejemplo de petición a la api de Spotify con el apiKey
+> ```java
+> private void setAlbum(String nombreAlbum) throws IOException{
+>        final Gson gson = new Gson();
+>        URL url = new URL("https://api.spotify.com/v1/search?q=" + nombreAlbum + "&type=album&limit=1&offset=0");
+>        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+>        conn.setRequestProperty("Accept", "application/json");
+>        conn.setRequestProperty("Authorization","Bearer " + AppService.getToken());
+>        conn.setRequestMethod("GET");
+>
+>        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+>        //La clase SpotifyResponse es la que realiza el mapeo
+>        SpotifyResponse g = gson.fromJson(in, SpotifyResponse.class);
+>        Album album = null;
+>        if (!g.albums.items.isEmpty()){
+>            album = new Album(g.albums.items.get(0).artists.get(0).name,
+>                    g.albums.items.get(0).name,
+>                    g.albums.items.get(0).release_date, g.albums.items.get(0).images);
+>         }
+>        in.close();
+>        return album;
+>    }
+> ```   
 > También puedes usar este código para que el usuario introduzca el dato para buscar en la api
 > ```java
 >     //Reemplazar blancos por +
