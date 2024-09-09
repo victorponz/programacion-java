@@ -1,2 +1,3 @@
-public class IArea {
+public interface IArea {
+    int area();
 }
