@@ -455,6 +455,7 @@ Escribe un programa que pida al usuario 10 números y que muestre cuántos son p
 Escribe un programa que pida al usuario n números y que muestre cuántos son positivos \(para acabar el programa, el usuario debe introducir el número 0)
 
 > -info-Como de entrada no sabemos cuántas veces se va a hacer el bucle, usamos un `do ... while`
+
 ## 24 Nota media (M)
 
 Diseña un algoritmo que lea un conjunto de notas del teclado hasta que se introduzca  -1 y muestre la nota media y si había un 10 o no.
