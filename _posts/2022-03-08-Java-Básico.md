@@ -29,7 +29,9 @@ Os dejo un [vídeo](https://www.youtube.com/watch?v=bq6nJRJq27A) donde se explic
 
 > -info-[Tipos de datos en java](https://www.campusmvp.es/recursos/post/variables-y-tipos-de-datos-en-java-tipos-simples-clases-y-tipos-envoltorio-o-wrapper.aspx)
 
-## 3 Un programa que calcula y muestra el área de un cuadrado de lado 5
+## 3 Un programa que calcula y muestra el área de un cuadrado de lado 5 (F) 
+
+<span style='color:green'>(ra1.a)</span>
 
 ```flow
 st=>start: Start:
@@ -80,6 +82,8 @@ En este código hemos introducido muchos conceptos:
 
 ## 4 Un programa que calcula y muestra el área de un cuadrado cuyo lado se introduce por pantalla (F)
 
+ <span style='color:green'>(ra1.a, ra5.a, ra5.c)</span>
+
 ![](/programacion-java/assets/img/java-basico//ej3.png)
 
 
@@ -106,11 +110,15 @@ En este código hemos introducido muchos conceptos:
 
 ## 5 Un programa que lea dos números enteros y muestre el resultado de sumarlos, restarlos, multiplicarlos y dividirlos (F)
 
+ <span style='color:green'>(ra1.a, ra5.a)</span>
+
 > -info-[Operadores en Java](https://www.w3schools.com/java/java_operators.asp)
 
 ![](/programacion-java/assets/img/java-basico//ej4-prop.png)
 
 ## 6 Un programa que pida el radio de una circunferencia y muestre su área y su perímetro (F)
+
+<span style='color:green'>(ra1.a, ra1.f, ra5.a)</span>
 
 ![](/programacion-java/assets/img/java-basico//ej5-prop.png)
 
@@ -123,6 +131,8 @@ En este código hemos introducido muchos conceptos:
 > [http://lineadecodigo.com/java/constantes-en-java/](http://lineadecodigo.com/java/constantes-en-java/)
 
 ## 7 Un programa que pida el precio real de un producto, el precio rebajado y muestre el descuento realizado (M)
+
+ <span style='color:green'>(ra1.a, ra1.c, ra.5a)</span>
 
 ![](/programacion-java/assets/img/java-basico//ej6b.png)
 
@@ -145,6 +155,8 @@ public static void main(String[] args) {
 
 ## 8 Realiza un programa que pida la edad al usuario y muestre un mensaje si es mayor de **edad** (F)
 
+<span style='color:green'>(ra1.a, ra1.c, ra3.a, ra3.e)</span>
+
 ![](/programacion-java/assets/img/java-basico//ej8.png)
 
 
@@ -165,14 +177,27 @@ public static void main(String[] args) {
  ```
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8t5-D5dZu5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## 9 Igual que el anterior pero que también muestre un mensaje si es menor de edad (F)
+## 9 Igual que el anterior pero que también muestre un mensaje si es menor de edad (F) 
+
+<span style='color:green'>(ra1.a, ra1.c, ra3.a, ra3.e)</span>
 
 ![](/programacion-java/assets/img/java-basico//ej9.png)
 
-## 10 Diseña un algoritmo que lea un valor y muestre si es positivo o negativo \(0 es positivo\) (F)
+## 10 Diseña un algoritmo que lea un valor y muestre si es positivo o negativo \(0 es positivo\) (F) 
+
+<span style='color:green'>(ra1.a, ra1.c, ra3.a, ra3.e)</span>
+
 ## 11 Diseña un algoritmo que lea dos valores y los muestre en orden ascendente. (M)
+
+<span style='color:green'>(ra1.a, ra1.c, ra3.a, ra3.e)</span>
+
 ## 12 Diseña un algoritmo que lea dos valores y muestre el más grande de ellos. (F)
+
+ <span style='color:green'>(ra1.a, ra1.c, ra3.a, ra3.e)</span>
+
 ## 13 Realiza un programa que lea dos valores y los orden ascendente o descendentemente según elija el usuario. (M)
+
+ <span style='color:green'>(ra1.a, ra1.c, ra3.a, ra3.e)</span>
 
 En este caso necesitamos *acordarnos* de tres cosas:
 
@@ -205,6 +230,8 @@ if (time < 10) {
 > -info-Más info en [https://www.w3schools.com/java/java_conditions.asp](https://www.w3schools.com/java/java_conditions.asp)
 
 ## 14 Diseña un algoritmo que lea un valor numérico entero correspondiente a la nota de un examen y muestre su valor en letra: (M)
+
+<span style='color:green'>(ra1.a, ra1.c, ra3.a, ra3.e)</span>
 
 de 0 a 3 Muy Deficiente.
 
@@ -274,6 +301,8 @@ Os dejo un vídeo del canal de [Píldoras Informáticas](https://www.youtube.com
 
 ## 15 Realiza un programa que lea un número entero del 1 al 10 y que muestre su valor en letra. (F)
 
+<span style='color:green'>(ra1.a, ra1.c, ra3.a, ra3.e)</span>
+
 En este programa sólo nos hemos de *acordar* de un dato: la nota. Dependiendo de la nota imprimiremos una cadena u otra. Como hay 10 opciones mutuamente excluyentes es más sencillo usar un `switch` que un conjunto de `if-else if-...` 
 
 > -alert-**Cuidado**
@@ -296,7 +325,9 @@ En este programa sólo nos hemos de *acordar* de un dato: la nota. Dependiendo d
 > 	....
 > ```
 
-## 16 Realiza un programa que lea dos números enteros y dependiendo de la operación que indique el usuario \(+, -, \* , /\) muestre el resultado (M)
+## 16 Realiza un programa que lea dos números enteros y dependiendo de la operación que indique el usuario \(+, -, \* , /\) muestre el resultado (M) 
+
+<span style='color:green'>(ra1.a, ra1.c, ra3.a, ra3.e)</span>
 
 En este caso nos hemos de *acordar* de tres cosas:
 
@@ -322,6 +353,8 @@ Como la operación a realizar es **mutuamente excluyente** usaremos un bloque `i
 
 ## 17 Realiza un programa que pida al usuario un mes e imprima el número de días que tiene. (F)
 
+<span style='color:green'>(ra1.a, ra1.c, ra3.a, ra3.e)</span>
+
 En este caso es más sencillo usar un bloque `switch`, por ejemplo:
 
 ```java
@@ -337,8 +370,13 @@ switch (mes){
 
 Y, de momento, vamos a suponer que no hay años bisiestos!
 ## 18 Diseña un algoritmo que recibe horas, minutos y segundos y muestra horas, minutos y segundos resultantes de la adición de un segundo. (M)
+
+ <span style='color:green'>(ra1.a, ra1.c, ra3.a, ra3.e)</span>
+
 Este problema parece trivial, ¿no?. Cojo una horas, minutos, segundos y el sumo 1. Y si resulta que ahora tengo 60 segundos? ¿Y si ahora tengo 60 minutos? Ya no parece tan simple. Pero seguro que en tu cabeza lo ves claro. El problema es que todavía no tienes práctica en traducir tus pensamientos a código. Poco a poco. Al memos haz el algoritmo para sumar un minuto si los segundos suman 60 ahora.
-## 19 Diseña un algoritmo que calcule el salario neto de un trabajador en función del número de horas de trabajo y los impuestos según las siguientes reglas: (D)
+## 19 Diseña un algoritmo que calcule el salario neto de un trabajador en función del número de horas de trabajo y los impuestos según las siguientes reglas: (D) 
+
+<span style='color:green'>(ra1.a, ra1.c, ra1.d, ra1.e, ra1.g, ra3.a, ra3.e)</span>
 
 * Las primeras 35 horas se pagan al precio normal por hora
 * Las horas que exceden esas 35 horas se pagan 1,5 veces el precio normal.
@@ -369,8 +407,13 @@ Datos resultantes:
 > Ahora calcula el salario bruto. Una vez funcione, calcula el salario neto. Y, por último, los impuestos
 
 ## 20 Precio final (M)
-Un cierto comercio hace un descuento dependiendo del precio de cada producto. Si el precio es inferior a 6 euros no hay descuento. Si es mayor o igual a 6 euros  y menos de60 €, se aplica un 5% de descuento, y si es mayor o igual a 60 € se aplica  un 10% de descuento. Diseña el algoritmo para calcular el precio final.
+
+<span style='color:green'>(ra1.a, ra1.c, ra1.d, ra1.e, ra1.g, ra3.a, ra3.e)</span>
+
+Un cierto comercio hace un descuento dependiendo del precio de cada producto. Si el precio es inferior a 6 euros no hay descuento. Si es mayor o igual a 6 euros  y menos de 60 €, se aplica un 5% de descuento, y si es mayor o igual a 60 € se aplica  un 10% de descuento. Diseña el algoritmo para calcular el precio final.
 ## 21 Año bisiesto (D)
+
+<span style='color:green'>(ra1.a, ra1.c, ra1.d, ra1.e, ra1.g, ra3.a, ra3.e)</span>
 
 Diseña un algoritmo que lea un año como dato de entrada y que muestre si es un año bisiesto o no. Todos los múltiplos de 400 o los que son múltiples de 4 pero no de 100 son bisiestos.
 
@@ -442,6 +485,8 @@ Os dejo el vídeo de [Píldoras Informáticas](https://www.youtube.com/watch?v=H
 
 ## 22 Números positivos (M)
 
+<span style='color:green'>(ra1.a, ra1.c, ra1.d, ra1.e, ra1.g, ra3.a, ra3.b, ra3.e)</span>
+
 Escribe un programa que pida al usuario 10 números y que muestre cuántos son positivos.
 
 > -info-En este caso como sabemos cuántas veces lo hacemos (10) usamos un bucle `for`
@@ -452,11 +497,15 @@ Escribe un programa que pida al usuario 10 números y que muestre cuántos son p
 
 ## 23 Números positivos II (M)
 
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e)</span>
+
 Escribe un programa que pida al usuario n números y que muestre cuántos son positivos \(para acabar el programa, el usuario debe introducir el número 0)
 
 > -info-Como de entrada no sabemos cuántas veces se va a hacer el bucle, usamos un `do ... while`
 
-## 24 Nota media (M)
+## 24 Nota media (M) 
+
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e, ra3.f)</span>
 
 Diseña un algoritmo que lea un conjunto de notas del teclado hasta que se introduzca  -1 y muestre la nota media y si había un 10 o no.
 
@@ -468,11 +517,15 @@ Diseña un algoritmo que lea un conjunto de notas del teclado hasta que se intro
 
 ## 25 Factorial (D)
 
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e, ra3.f)</span>
+
 Diseña un programa que calcule el factorial de un número
 
 > -info-En este caso usamos un bucle `for` porque conocemos de antemano cuántas veces se debe realizar el algoritmo: el número que introduzca el usuario
 
 ## 26 Tabla de multiplicar (M)
+
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e, ra3.f)</span>
 
 Escribe un programa que lea un número y escriba su tabla de multiplicación
 
@@ -493,6 +546,8 @@ Escribe un programa que lea un número y escriba su tabla de multiplicación
 
 ## 27 Impresión de números I (M)
 
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e, ra3.f)</span>
+
 Diseña un algoritmo que lea un número ***n*** e imprima esto:  
 
 ```
@@ -505,6 +560,8 @@ Diseña un algoritmo que lea un número ***n*** e imprima esto:
 
 ## 28 Números primos (D)
 
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e, ra3.f)</span>
+
 Escribe un programa que muestre si un número es primo o no.  
 
 Los números primos tienen la siguiente característica: un número primo es solamente divisible por sí mismo y por la unidad, por tanto, un número primo no puede ser par excepto el 2. 
@@ -516,18 +573,26 @@ Por ejemplo, para saber si 13 es un número primo basta dividirlo por 3, y 5. Pa
 
 ## 29 Números primos II (D)
 
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e, ra3.f)</span>
+
 Realiza un programa que imprima todos los números primos entre 3 y 100.
 
 Este caso es una unión del algoritmo anterior pero repetido un número determinado de veces. Por tanto, usamos un bucle `for` 
 ## 30 Palíndromo (D)
 
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e, ra3.f)</span>
+
 Realiza un programa que averigüe si una palabra o frase es palíndroma. Para averiguar el número de caracteres de una cadena se usa el método `length()` y para acceder al carácter iésimo usa la función `chartAt()`
 
-## 31 Divisores (M)
+## 31 Divisores (M) 
+
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e, ra3.f)</span>
 
 Realiza un programa que pida un número natural y escriba sus divisores
 
-## 32 Fibonacci (M)
+## 32 Fibonacci (M) 
+
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e, ra3.f)</span>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Pp6D-xhJr4A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -535,28 +600,39 @@ Realiza un programa que pida un número natural y escriba sus divisores
 
 Diseña un programa que muestre los primeros 40 términos de la serie de [Fibonacci](https://es.wikipedia.org/wiki/Sucesión_de_Fibonacci)
 
-
 ## 33 Número Áureo (M)
+
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e, ra3.f)</span>
 
 Modifica el programa anterior para que muestre la relación \(división\) entre el valor n y el \(n - 1\) de la serie de Fibonacci (40 veces). Esta es una manera de obtener una aproximación al [Número Áureo](https://es.wikipedia.org/wiki/Número_áureo).
 
 ## 34 Sumas sucesivas (M) 
 
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e, ra3.f)</span>
+
 Realiza un programa que calcule la multiplicación de dos números usando el método de las sumas sucesivas
 
 ## 35 Restas sucesivas (M)
+
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e, ra3.f)</span>
 
 Realiza un programa que calcule el resto de una división usando el método de las restas sucesivas.
 
 ## 36 Decimal a binario (D)
 
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e, ra3.f)</span>
+
 Realiza un programa que lea un número entero decimal (máximo 255) e imprima su valor en binario
 
 ## 37 Binario a decimal (D)
 
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e, ra3.f)</span>
+
 Realiza un programa que lea una cadena de números binarios y calcule su valor en decimal
 
 ## 38 Juego Adivina un número  (D)
+
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e, ra3.f)</span>
 
 Diseña un algoritmo para jugar a "adivinar un número". El algoritmo generará un número _aleatorio_ entre 1 y 100, que llamaremos el número secreto, y le pedirá al jugador que introduzca un número hasta que gane o un -1 para rendirse:
 
