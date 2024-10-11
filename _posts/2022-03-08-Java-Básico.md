@@ -497,7 +497,7 @@ Escribe un programa que pida al usuario 10 números y que muestre cuántos son p
 
 ## 23 Números positivos II (M)
 
-<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e)</span>
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.b, ra3.e)</span>
 
 Escribe un programa que pida al usuario n números y que muestre cuántos son positivos \(para acabar el programa, el usuario debe introducir el número 0)
 
@@ -505,7 +505,7 @@ Escribe un programa que pida al usuario n números y que muestre cuántos son po
 
 ## 24 Nota media (M) 
 
-<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e, ra3.f)</span>
+<span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.e, ra3.b, ra3.f)</span>
 
 Diseña un algoritmo que lea un conjunto de notas del teclado hasta que se introduzca  -1 y muestre la nota media y si había un 10 o no.
 
