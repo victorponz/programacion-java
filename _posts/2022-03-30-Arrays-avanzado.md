@@ -12,26 +12,39 @@ permalink: arrays-avanzado
 
 <script src="https://gist.github.com/victorponz/93c93fb7f8d88171b4792d78b8b03259.js"></script>
 
-## 1 Eliminar
+## `Duplicados.java`
 
-Escribid un programa Java para eliminar de un array un elemento específico (índice) introducido por el usuario  (moviéndolo al final del mismo). Si el índice es mayor que el tamaño del array, debe volver a pedírselo.
-
-## 2 Duplicados
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
 
 Escribid un programa Java para encontrar los valores duplicados de un array de valores enteros.
 
-## 3 Comunes
+## `Comunes.java`
+
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
 
 Escribid un programa Java para encontrar los elementos comunes entre dos arrays de enteros.
 
-## 4 Suma igual
+## `SumaIgual.java`
+
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
 
 Escribid un programa Java para encontrar todos los pares de elementos en un array cuya suma es igual a un número especificado por el usuario.
 
-## 5 Iguales 
+## `Iguales.java` 
+
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
 
 Escribir un programa Java para probar la igualdad de dos vectores \(en este caso, como será difícil que os dé dos veces el mismo array, igualad el segundo al primero, para probarlo. Esto se hace mediante el método `clone()` del array\).
-## 6 Mover ceros
+
+## `Eliminar.java` (D)
+
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
+
+Escribid un programa Java para eliminar de un array un elemento específico (índice) introducido por el usuario  (moviéndolo al final del mismo). Si el índice es mayor que el tamaño del array, debe volver a pedírselo.
+
+## `MoverCeros.java`
+
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
 
 Escribid un programa Java para mover todos los 0 al final de un array. Mantened el orden relativo de los otros elementos de la array (distintos de cero).
 # Matrices
@@ -52,50 +65,19 @@ Consultad las siguientes referencias:
 > System.out.println("matriz : " + Arrays.deepToString(matriz));
 > ```
 
-## 7 `RellenaMatriz.java`
+## `RellenaMatriz.java`
+
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
 
 Rellena una matriz de 10 x 10 con valores aleatorios \(0 o 1\) e imprímela de la siguiente forma:
 
 ![](/programacion-java/assets/img/arraysii/matriz1.png)
 
-> -toogle-Piensa antes de mirar
->
-> ```java
-> import java.util.Arrays;
-> public class RellenaMatriz {
-> 
-> 	public static String imprimeMatriz(int[][] matriz) {
-> 		String resultado = "";
-> 		int filas = matriz.length;
-> 		int columnas = matriz[0].length;
-> 		//Recorremos todas las filas
-> 		for (int i = 0; i < filas; i++) {
-> 			// y todas las columnas dentro de la fila iésima
-> 			for (int j = 0; j < columnas; j++) {
-> 				resultado += matriz[i][j] + " ";
-> 			}
-> 			// Despúes de cada fila, imprimir un salto de línea
-> 			resultado += "\n";
-> 		}
-> 		return resultado;
-> 	}
-> 	public static void main(String[] args) {
-> 		int[][] matriz = new int[10][10];
-> 		Utilidades.rellenaMatriz(matriz, 0, 1);
-> 
-> 		System.out.println("matriz : "+Arrays.deepToString(matriz));
-> 		
-> 		System.out.println(imprimeMatriz(matriz));
-> 	}
-> 
-> }
-> ```
-
-## 8 `ValoresACero.java`
+## `ValoresACero.java`
 
 Modifica el programa anterior para que muestre cuántas filas tienen todos sus valores a 0 y cuántas columnas tienen todos sus valores a 0
 
-## 9 `Tablero.java`
+## `Tablero.java`
 
 Escribe un programa que dada una matriz de 8x8 que puede contener los números del 0 al 3, imprima un tablero como el siguiente:
 
@@ -120,7 +102,9 @@ int[][] tablero =
 {% endraw %}
 
 Donde, 0 =&gt; "·", 1 =&gt; "+", 2 =&gt; "0", 3 =&gt; "X".
-## 10 `HundirLaFlota.java`
+## `HundirLaFlota.java`
+
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
 
 A partir del programa anterior que imprime un tablero, escribir un programa que simule el juego Hundir la Flota sobre un tablero de 8x8. El programa colocará 10 naves al azar en él \(sólo de 1 celda\).  
 El usuario introducirá una coordenada \(primera letra y luego número\) y el programa escribirá el tablero completo cada vez con los barcos hundidos \(X\) y disparos perdidos \(O\). Se mostrará el contador de tiros y el número de naves hundidas.
