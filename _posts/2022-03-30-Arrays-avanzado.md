@@ -42,11 +42,19 @@ Escribir un programa Java para probar la igualdad de dos vectores \(en este caso
 
 Escribid un programa Java para eliminar de un array un elemento específico (índice) introducido por el usuario  (moviéndolo al final del mismo). Si el índice es mayor que el tamaño del array, debe volver a pedírselo.
 
-## `MoverCeros.java`
+## `MoverCeros.java` (D)
 
 <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
 
 Escribid un programa Java para mover todos los 0 al final de un array. Mantened el orden relativo de los otros elementos de la array (distintos de cero).
+## `Inverso.java` (F)
+
+Crea un programa que a partir de un array de enteros, cree una copia en otro array con los elementos en orden inverso
+
+## `SegundoMayor.java` (F)
+
+Escribe un programa que calcule el segundo valor más grande en un array de enteros (se puede usar `Arrays.sort()`)
+
 # Matrices
 
 Las matrices son arrays que tienen dos dimensiones
