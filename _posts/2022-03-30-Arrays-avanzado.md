@@ -14,23 +14,23 @@ permalink: arrays-avanzado
 
 ## `Duplicados.java`
 
-<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a, r3.c)</span>
 
 Escribid un programa Java para encontrar los valores duplicados de un array de valores enteros.
 
-## `Comunes.java`
+## `Comunes.java` (F)
 
-<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a, r3.c)</span>
 
 Escribid un programa Java para encontrar los elementos comunes entre dos arrays de enteros.
 
-## `SumaIgual.java`
+## `SumaIgual.java` (F)
 
 <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
 
 Escribid un programa Java para encontrar todos los pares de elementos en un array cuya suma es igual a un número especificado por el usuario.
 
-## `Iguales.java` 
+## `Iguales.java` (F)
 
 <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
 
@@ -49,9 +49,13 @@ Escribid un programa Java para eliminar de un array un elemento específico (ín
 Escribid un programa Java para mover todos los 0 al final de un array. Mantened el orden relativo de los otros elementos de la array (distintos de cero).
 ## `Inverso.java` (F)
 
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
+
 Crea un programa que a partir de un array de enteros, cree una copia en otro array con los elementos en orden inverso
 
-## `SegundoMayor.java` (F)
+## `SegundoMayor.java` (M)
+
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
 
 Escribe un programa que calcule el segundo valor más grande en un array de enteros (se puede usar `Arrays.sort()`)
 
@@ -81,11 +85,15 @@ Rellena una matriz de 10 x 10 con valores aleatorios \(0 o 1\) e imprímela de l
 
 ![](/programacion-java/assets/img/arraysii/matriz1.png)
 
-## `ValoresACero.java`
+## `ValoresACero.java` (F)
+
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
 
 Modifica el programa anterior para que muestre cuántas filas tienen todos sus valores a 0 y cuántas columnas tienen todos sus valores a 0
 
 ## `Tablero.java`
+
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
 
 Escribe un programa que dada una matriz de 8x8 que puede contener los números del 0 al 3, imprima un tablero como el siguiente:
 
@@ -110,7 +118,7 @@ int[][] tablero =
 {% endraw %}
 
 Donde, 0 =&gt; "·", 1 =&gt; "+", 2 =&gt; "0", 3 =&gt; "X".
-## `HundirLaFlota.java`
+## `HundirLaFlota.java` (D)
 
 <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
 
