@@ -8,27 +8,6 @@ conToc: true
 permalink: strings
 ---
 
-
-## Reemplazar (Reemplazar.java) (F)
-
-Realiza un programa que reemplace en una cadena de entrada el carácter de la posición pasada como parámetro por el carácter pasado como parámetro:
-
-> -info- 
->
-> Por ejemplo:
-> cadena original = Chico
-> posición = 4
-> resultado = Chica
-
-
-> -info-En los siguientes ejercicios utiliza la función 
->
-> ```java
-> String palabras[] = Utilidades.dividirEnPalabras(cadena);
-> ```
-> Para dividir la cadena en un array de cadenas
-
-
 ## Palabras de longitud dada `Longitud.java` (F)
 
 Realiza un programa que lea una cadena de texto y nos diga cuántas palabras tienen una longitud de `k` caracteres.
