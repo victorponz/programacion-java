@@ -7,16 +7,18 @@ categories: strings
 conToc: true
 permalink: strings
 ---
-En todos estos programas usaremos las funciones definidas en la clase `Utilidades`
 
-<script src="https://gist.github.com/victorponz/93c93fb7f8d88171b4792d78b8b03259.js"></script>
 
-## Reemplazar (Reemplazar.java)
+## Reemplazar (Reemplazar.java) (F)
+
 Realiza un programa que reemplace en una cadena de entrada el carácter de la posición pasada como parámetro por el carácter pasado como parámetro:
-Por ejemplo:
-cadena original = Chico
-posición = 4
-resultado = Chica
+
+> -info- 
+>
+> Por ejemplo:
+> cadena original = Chico
+> posición = 4
+> resultado = Chica
 
 
 > -info-En los siguientes ejercicios utiliza la función 
@@ -25,10 +27,6 @@ resultado = Chica
 > String palabras[] = Utilidades.dividirEnPalabras(cadena);
 > ```
 > Para dividir la cadena en un array de cadenas
-
-
-## IP 4 (Ip.java)
-Escribe un programa para validar una dirección IPv4. 
 
 
 ## Palabras de longitud dada `Longitud.java` (F)
@@ -63,8 +61,10 @@ está bien parentizada.
 Pero las cadenas
 
 > una \)cadena \(mal \(parentizada\)
-
-(una)(
+>
+> **y**
+>
+> (una)(
 
 no lo están.
 
@@ -79,18 +79,6 @@ Por ejemplo:
 ```
 "Esto es una frase" => "frase una es Esto"  
 ```
-## Insertar `Insertar.java` (M)
-Dada una cadena, la tarea es insertar otra cadena entre la cadena dada en un índice particular especificado. Usa la función `substring`
-Por ejemplo:
-```
-cadenaOriginal=Portal de la computadora
-cadena a insertar = Ciencias
-índice = 9
-resultado= Portal de Ciencias de la computadora
-```
-## Insertar II `InsertarII`
-Igual que el anterior pero sólo se puede usar el método `charAt`
-
 ## Siglas `Siglas.java` (F)
 
 Realiza un programa que lea un frase y la convierta en unas siglas. Por ejemplo, Escuela Oficial de Idiomas, se convierte en EOI.
@@ -112,10 +100,7 @@ Diseña un programa que ayude al creador de pasatiempos. Recibirá una cadena y 
 ## Suma binaria `SumarBinario.java` (D)
 Haz un programa que lea dos cadenas que representen a sendos números binarios. A continuación, el programa mostrará el número binario que resulta de sumar ambos (y que será otra cadena\). Si, por ejemplo, el usuario introduce las cadenas '100' y '111', el programa mostrará como resultado la cadena '1011'
 
-## Encriptar `Encriptar.java` (D)
 
-Una de las técnicas de criptografía más rudimentarias consiste en sustituir cada uno de los caracteres por otro situado _n_ posiciones más a la derecha del abecedario. Si _n = 2_, sustituiremos la "a" por la "c", la "b" por la "d", y así sucesivamente. El problema que aparece con las últimas _n_ letras del alfabeto tiene fácil solución: en el ejemplo, la letra "y" se sustituye se sustituye por la "a" y la "z" por la "b". La sustitución debe aplicarse a las letras minúsculas y mayúsculas y a los dígitos. Las letras no deben incluir caracteres no ingleses \(es decir sin "ñ, ç" ni acentos\)
-Diseña un programa que lea un texto y el valor n y muestre el texto criptografiado.
 
 
 
