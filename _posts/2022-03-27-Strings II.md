@@ -76,6 +76,9 @@ Diseña un programa que ayude al creador de pasatiempos. Recibirá una cadena y 
 ## Suma binaria `SumarBinario.java` (D)
 Haz un programa que lea dos cadenas que representen a sendos números binarios. A continuación, el programa mostrará el número binario que resulta de sumar ambos (y que será otra cadena\). Si, por ejemplo, el usuario introduce las cadenas '100' y '111', el programa mostrará como resultado la cadena '1011'
 
+## Palíndromo `Palindroma`(M)
+Una palabra es palíndroma si se lee igual de derecha a izquierda como de izquierda a derecha. Haz un programa para saber si una palabra es palíndroma.
+
 
 
 
