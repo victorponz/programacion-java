@@ -63,9 +63,6 @@ Por ejemplo:
 Realiza un programa que lea un frase y la convierta en unas siglas. Por ejemplo, Escuela Oficial de Idiomas, se convierte en EOI.
 Date cuenta que las palabras en minúsculas no forman parte de las siglas.
 
-## Anagrama `Anagrama` (M)
-Una cadena se considera anagrama de otra cuando tiene las mismas letras pero el orden no es el mismo
-
 ## Alfabética `Alfabetica.java` (M)
 
 Una palabra es _alfabética_ si todas sus letras están ordenadas alfabéticamente. Por ejemplo, "amor", "chino" e "himno" son palabras alfabéticas. Diseña un programa que nos diga si una palabra es alfabética o no.
