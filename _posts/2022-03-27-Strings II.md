@@ -23,7 +23,7 @@ Escribe un programa que lea una cadena y un número entero `k` y muestre el mens
 
 ## Dígitos `Digitos.java` (F)
 
-Escribe un programa que muestre la cantidad de dígitos que aparecen en una cadena. Por ejemplo, la cadena "un 1 y un 20", tiene 3 dígitos.
+Escribe un programa que muestre la cantidad de dígitos que aparecen en una cadena. Por ejemplo, la cadena "1 20 hola 234 45a", tiene 8 dígitos.
 
 ## Dígitos II `Digitos2.java` (D)
 
@@ -76,7 +76,7 @@ Diseña un programa que ayude al creador de pasatiempos. Recibirá una cadena y 
 ## Suma binaria `SumarBinario.java` (D)
 Haz un programa que lea dos cadenas que representen a sendos números binarios. A continuación, el programa mostrará el número binario que resulta de sumar ambos (y que será otra cadena\). Si, por ejemplo, el usuario introduce las cadenas '100' y '111', el programa mostrará como resultado la cadena '1011'
 
-## Palíndromo `Palindroma`(M)
+## Palíndromo `Palindromo`(M)
 Una palabra es palíndroma si se lee igual de derecha a izquierda como de izquierda a derecha. Haz un programa para saber si una palabra es palíndroma.
 
 
