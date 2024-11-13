@@ -353,11 +353,15 @@ Geeks For Geeks
 
 ### Ejercicio `Coches` (F)
 
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
+
 Realiza un programa que permita al usuario añadir marcas de coches mediante la consola. Si escribe una línea en blanco, se acabará de añadir marcas.
 
 Al final debe imprimirlas ordenadas en líneas separadas
 
 ### Ejercicio `Altura` (M)
+
+<span style='color:green'> <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
 Programa Java que pida por teclado las alturas de N alumnos de una clase y las guarde en un `ArrayList` de tipo **Double**. 
 
@@ -375,7 +379,9 @@ Para resolverlo vamos a utilizar 6 métodos además del método `main`:
 
 ### Repartiendo regalos en tu calle (D)
 
- Papá Noel quiere repartir juguetes a todos los niños de la mejor calle del mundo: la tuya. Para ello, consulta una lista de los portales de esa calle en los que debe dejar regalos.
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
+
+Papá Noel quiere repartir juguetes a todos los niños de la mejor calle del mundo: la tuya. Para ello, consulta una lista de los portales de esa calle en los que debe dejar regalos.
 
 La forma en la que reparte los regalos es peculiar. Aterriza con su trineo en un portal determinado (que no tiene por qué ser uno en los que tiene que dar regalos), y luego sigue las siguientes reglas:
 
@@ -383,9 +389,7 @@ La forma en la que reparte los regalos es peculiar. Aterriza con su trineo en un
 - La distancia entre dos portales es el valor absoluto de su resta. Es decir, la distancia entre el portal 10 y el portal 8 es 2 (10 − 8 = 2), lo mismo que la distancia entre el portal 8 y el portal 10 (valor absoluto de 8 − 10).
 - Si dos portales están a igual distancia, siempre va hacia el que tiene el número más grande.
 
-¿Cuál es el orden en el que visita los portales?
-
-
+**¿Cuál es el orden en el que visita los portales?**
 
 La entrada constará de 2 parámetros: el número de portal en el que aterriza y una lista con todos los portales que ha de visitar.
 
@@ -532,13 +536,19 @@ Finalmente la clase `LinkedHashMap` mantiene ordenado los elementos del mapa seg
 
 ### Ejercicio `PaisCapital.java` (F)
 
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
+
 Declara un `HashMap` que almacene el país y la capital de varios países Europeos. Luego realiza un programa que pida un País al usuario y muestre su capital.
 
 ### Teléfonos (F)
 
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
+
 Queremos tener un guía de teléfonos que asocie un número de teléfono a un contacto. El programa debe pedir un contacto y mostrar su número asociado
 
 ### Teléfonos II (F)
+
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
 Se trata de implementar el ejercicio anterior pero un contacto puede tener más de un teléfono:
 
@@ -574,11 +584,13 @@ Se trata de implementar el ejercicio anterior pero un contacto puede tener más 
 
 ### La mejor terminación (M)
 
-​      En los sorteos de la lotería más mediáticos, como el del Gordo de Navidad o el del Niño, es habitual que los fetichistas  busquen números con algún tipo de significado extraño o que los matemáticos y estadísticos se entretengan informando sobre los números más habituales.    
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
-​      Esto último es interesante si queremos maximizar la probabilidad de ganar algo. Dado que los números que terminan con el mismo dígito que el del premio principal tienen un reintegro, una buena forma de intentar, al menos, no perder dinero es jugar un número con la terminación más habitual en el histórico de sorteos.    
+En los sorteos de la lotería más mediáticos, como el del Gordo de Navidad o el del Niño, es habitual que los fetichistas  busquen números con algún tipo de significado extraño o que los matemáticos y estadísticos se entretengan informando sobre los números más habituales.    
 
-​      Siendo puristas, la probabilidad de que salga un número es independiente de lo que haya ocurrido en años anteriores. Pero es tan tentador ignorar esto que no puedes resistirte. 
+Esto último es interesante si queremos maximizar la probabilidad de ganar algo. Dado que los números que terminan con el mismo dígito que el del premio principal tienen un reintegro, una buena forma de intentar, al menos, no perder dinero es jugar un número con la terminación más habitual en el histórico de sorteos.    
+
+Siendo puristas, la probabilidad de que salga un número es independiente de lo que haya ocurrido en años anteriores. Pero es tan tentador ignorar esto que no puedes resistirte. 
 
 La entrada consistirá en un array con varios boletos de lotería y la salida será cuántas veces se repite una terminación (sólo el último dígito).
 
@@ -600,11 +612,13 @@ O, `"58975", "25894", "52985", "98598"`
 
 ### Ejercicio `Botín` (M)
 
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
+
 Al-Colleja y sus secuaces tienen que repartir el botín de su  último golpe. No es una tarea fácil, porque todos quieren llevarse  lo máximo posible, y todos están armados… 
 
-Para no entrar en discusiones que terminen en tragedia,  Al-Colleja  ha ideado un sencillo método en el que, en lugar de  preocuparse de ser justos repartiendo en base a quién ha trabajado más en la  consecución del golpe, se lo deja prácticamente todo al azar.  Prefiere recibir menos beneficios pero mantener la  banda intacta.
+Para no entrar en discusiones que terminen en tragedia, Al-Colleja  ha ideado un sencillo método en el que, en lugar de  preocuparse de ser justos repartiendo en base a quién ha trabajado más en la consecución del golpe, se lo deja prácticamente todo al azar. Prefiere recibir menos beneficios pero mantener la banda intacta.
 
-El procedimiento es sencillo. Coge todos los billetes  conseguidos y los pone en un montón tras barajarlos. Después se  coloca toda la banda en círculo y va dando un billete a cada uno,  hasta que quedan todos repartidos. Eso sí, el primero que recibe  billete es él, de esa forma se asegura de que si los billetes se  terminan a mitad de una vuelta, él siempre habrá recibido uno  adicional.
+El procedimiento es sencillo. Coge todos los billetes conseguidos y los pone en un montón tras barajarlos. Después se  coloca toda la banda en círculo y va dando un billete a cada uno, hasta que quedan todos repartidos. Eso sí, el primero que recibe billete es él, de esa forma se asegura de que si los billetes se  terminan a mitad de una vuelta, él siempre habrá recibido uno adicional.
 
 El componente de azar aparece porque los billetes están descolocados, así que puede tocar en el reparto desde el mísero  billete de 10 hasta el deseado de 500...
 
@@ -651,6 +665,8 @@ que resultará en
 
 ### Ejercicio `Frequency` (F)
 
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
+
 Se trata de pedir por pantalla una serie de palabras y calcular la frecuencia de cada una de ellas, es decir, las veces que se repiten. Para finalizar el programa se debe introducir una línea en blanco
 Por ejemplo:
 
@@ -664,6 +680,8 @@ dos - 2
 tres - 3
 ```
 ### Ejercicio `Anagramas` (M)
+
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra5.d, ra6.b, ra6.e, ra6.c)</span>
 
 Un anagrama es un grupo de palabras que contienen las mismas letras pero en diferente orden:
 
@@ -696,6 +714,8 @@ public class Anagramas {
 
 ### Ejemplo `CountCountries` (M)
 
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra5.d, ra6.b, ra6.e, ra6.c)</span>
+
 En el siguiente ejercicio partimos de un [fichero](/programacion-java/assets/files/collections/Colfuturo-Seleccionados.csv) `csv` que almacena los datos de los alumnos, incluido el país de origen que se almacena en el campo 7 de dicho archivo.
 
 Se trata de contar cuántos alumnos pertenecen a cada país.
@@ -718,6 +738,8 @@ Luego el programa deberá mostrar la cantidad de alumnos de un país pasado como
 > ```
 
 ### Ejercicio `LastNameFrequency`. (M)
+
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra5.d, ra6.b, ra6.e, ra6.c)</span>
 
 Tenemos un archivo con la frecuencia de los apellidos en España. Este [fichero](/programacion-java/assets/files/collections/LastnameFrequencies.csv) es de tipo csv y almacena el Apellido y la frecuencia.
 
