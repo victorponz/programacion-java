@@ -339,23 +339,6 @@ public class Person {
 ><span style='color:green'> (ra2.d, ra2.h, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
 >
 >Recibes una lista de Personas. Imprime cuántas son las personas que nacieron antes de 1970:
->
->```java
->ArrayList<Person> personas = new ArrayList<>();
->Person persona = new Person("Pepe", "García", 1968);
->personas.add(persona);
->
->persona = new Person("María", "García", 1998);
->personas.add(persona);
->
->persona = new Person("Juan", "Martínez", 1968);
->personas.add(persona);
->
->long count = personas.stream()
->.filter(person -> person.getBirthYear() < 1970)
->.count();
->System.out.println("Count: " + count); //El resultado es 2
->```
 
 >-task-**Ejercicio 2 (F)**  
 >
@@ -370,8 +353,6 @@ public class Person {
 >Recibes una lista de Personas. Imprime los nombres que son únicos en orden alfabético
 
 >-task-**Ejercicio 4 (F)**  
->
-><span style='color:green'> (ra2.d, ra2.h, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
 >
 >Escribe un programa que lea la entrada del usuario. Cuando el usuario da un número negativo como entrada, la lectura de entrada se detendrá. Después de esto, imprime todos los números que el usuario ha dado como entrada que están entre 1 y 5 con el uso de `streams`
 
