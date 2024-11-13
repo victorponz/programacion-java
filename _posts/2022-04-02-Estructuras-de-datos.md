@@ -626,31 +626,17 @@ La entrada constará de 2 partes: la primera es el número e participantes en el
 
 Por ejemplo: `2, 10, 20, 50, 200, 500` que producirá como salida 
 
-```
-{0=10  50 500, 1=20  200}
+```java
+{0=10 50 500, 1=20 200} //esta es la salida usando toString. Debes devolver el Mapa
 ```
 
 O `3, 50, 20, 100, 200, 500, 10, 50`
 
 que resultará en
 
+```java
+{0=50 200 50, 1=20 500, 2=100  10} //esta es la salida usando toString. Debes devolver el Mapa
 ```
-{0=50  200 50, 1=20  500, 2=100  10}
-```
-
-> -info-La función defínela así.
->
-> ```java
->  public static String repartir(int participantes, int ... billetes){
-> ```
->
-> Y para llamarla, 
->
-> ```java
-> repartir(2, 10, 20, 50, 200, 500)
-> ```
->
-> Para imprimir el Map usa `toString`
 
 > -toogle-Pista
 >
