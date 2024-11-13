@@ -112,40 +112,15 @@ Realiza un programa que mediante la conversión a `Stream` de un `ArrayList` con
 
 <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
 
-> -toogle-Piensa antes de mirar
+> -hint-Pista
+>
+> Si queremos sumar los datos, hemos de usar un truco
 >
 > ```java
-> import java.util.ArrayList;
-> import java.util.List;
-> 
-> public class Suma {
->     public static void main(String[] args) {
->         List<Integer> numeros = new ArrayList<>();
->       
->         numeros.add(25);
->         numeros.add(-5);
->         numeros.add(20);
->         numeros.add(-10);
->         numeros.add(-5);
->         Long positivos = numeros.stream()
->                     .filter(numero -> numero > 0)
->                     .count();
->         Long negativos = numeros.stream()
->                     .filter(numero -> numero < 0)
->                     .count();
->         
->         System.out.printf("Los positivos son %d y los negativos son %d%n", positivos, negativos);
->     }
-> }
+> int suma = numeros.stream()
+>	.mapToInt(Integer::valueOf)
+>	.sum();
 > ```
-
-Si queremos sumar los datos, hemos de usar un truco
-
-```java
-int suma = numeros.stream()
-	.mapToInt(Integer::valueOf)
-	.sum();
-```
 
 Hay que usar `mapToInt(Integer::valueOf)` 
 
@@ -353,6 +328,8 @@ public class Person {
 >Recibes una lista de Personas. Imprime los nombres que son únicos en orden alfabético
 
 >-task-**Ejercicio 4 (F)**  
+>
+><span style='color:green'> (ra2.d, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
 >
 >Escribe un programa que lea la entrada del usuario. Cuando el usuario da un número negativo como entrada, la lectura de entrada se detendrá. Después de esto, imprime todos los números que el usuario ha dado como entrada que están entre 1 y 5 con el uso de `streams`
 
