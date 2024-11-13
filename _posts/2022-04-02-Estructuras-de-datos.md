@@ -60,6 +60,16 @@ Collections.sort(coches);
 ...
 ```
 
+Si queremos comprobar si un dato ya está en la lista:
+
+```java
+ArrayList<Integer> nums = new ArrayList<>();
+nums.add(1);
+nums.add(5);
+System.out.println(nums.contains(1)); //true
+System.out.println(nums.contains(3)); //false
+```
+
 Vamos a ver unos cuantos ejemplos.
 
 ```java
@@ -343,9 +353,9 @@ Geeks For Geeks
 
 ### Ejercicio `Coches` (F)
 
-Realiza un programa que permita al usuario añadir Coches mediante la consola. Si escribe una línea en blanco, se acaba de añadir coches.
+Realiza un programa que permita al usuario añadir marcas de coches mediante la consola. Si escribe una línea en blanco, se acabará de añadir marcas.
 
-Al final debe imprimirlos ordenados en líneas separadas
+Al final debe imprimirlas ordenadas en líneas separadas
 
 ### Ejercicio `Altura` (M)
 
@@ -357,103 +367,15 @@ Para resolverlo vamos a utilizar 6 métodos además del método `main`:
 * Método `numeroAlumnos()`: este método pide por teclado el número de alumnos de la clase y devuelve dicho número al programa principal.
 * Método `leerAlturas()`: pide por teclado las alturas de los N alumnos y las almacena en el `ArrayList`. Este método recibe como parámetros el `ArrayList` inicialmente vacío y el número de alumnos a leer.
 * Método `calcularMedia()`: calcula y devuelve la media de los alumnos de la clase. Este método recibe como parámetro el `ArrayList` con las alturas de todos los alumnos.
-* Método `calcularAlumnosAlturaSuperior`: devuelve el número de alumnos con una altura superior a la media
-* Método `calcularAlumnosAlturaInferior`: devuelve el número de alumnos con una altura inferior a la media
+* Método `calcularAlumnosAlturaSuperior`: Este método recibe como parámetro el `ArrayList` con las alturas de todos los alumnos y devuelve el número de alumnos con una altura superior a la media
+* Método `calcularAlumnosAlturaInferior`: Este método recibe como parámetro el `ArrayList` con las alturas de todos los alumnos y devuelve el número de alumnos con una altura inferior a la media
 * Método `mostrarResultados()`: muestra por pantalla todas las alturas y calcula y muestra el número de alumnos con altura superior e inferior a la media. Recibe como parámetros el `ArrayList` con las alturas de todos los alumnos y la media calculada anteriormente.
 
 
 
-### Ejercicio Convertir a array (F)
-
-Crea un programa para convertir un ArrayList en un array:
-
-> -toogle- Piensa antes de mirar
->
-> ```java
-> import java.util.*;
-> 
-> public class ConvertArrayListToArray {
->     public static void main(String args[]) {
->       // Creating and initializing ArrayList
->       ArrayList<String> fruits = new ArrayList<>();
->       fruits.add("Apple");
->       fruits.add("Banana");
->       fruits.add("Mango");
->       fruits.add("Pear");
-> 
->       // ArrayList to String array conversion
->       String[] str = new String[fruits.size()];
->       for(int i=0; i < fruits.size(); i++) {
->           str[i] = fruits.get(i);
->       }
->       
->       // Print elements using for-each loop
->       for(String s : str) {
->         System.out.println(s);      
->       }
->     }
-> }
-> ```
-
-### Ejercicio existe (F)
-
-Dado un `ArrayList`, haz un método para comprobar si un elemento existe en dicho `ArrayList`.
-
-> -toogle- Piensa antes de mirar
->
-> ```java
-> import java.util.*;
-> public class ArrayListContainsExample {
->     public static boolean existe(ArrayList<Integer> l, int n){
->         return l.contains(n);
->     }
->     public static void main(String args[]) {
->         // initialize ArrayList  
->         ArrayList<Integer> al = new ArrayList<Integer>();
->         // add elements to ArrayList object
->         al.add(3);
->         al.add(17);
->         al.add(6);
->         al.add(9);
->         al.add(7);
-> 
->         if (al.contains(7)) {
->             System.out.println("7 was found in the list");
->         } else {
->             System.out.println("7 was not found in the list");
->         }        
->     }
-> }
-> ```
-
-### Ejercicio AddAll (F)
-
-Haz un programa que añada todos los elementos de una lista a otra
-
-> -toogle- Piensa antes de mirar
->
-> ```java
-> import java.util.*;
-> public class AddAll {
->     public static void main(String[] args) {
->         List<String> l = new ArrayList<String>();
->         l.add("uno");
->         l.add("dos");
->         l.add("tres");
->         List<String> ll = new ArrayList<String>();
->         ll.add("cuatro");
->         ll.add("cinco");
->         ll.add("seis");
->         //Añadimos toda la lista l a la ll
->         ll.addAll(l);
->         System.out.println(ll);
->     }
-> }
-> ```
-
 ### Repartiendo regalos en tu calle (D)
 
- Papá Noel quiere repartir juguetes a todos los niños de la    mejor calle del mundo: la tuya. Para ello, consulta una lista de los portales de esa calle en los que debe dejar regalos.
+ Papá Noel quiere repartir juguetes a todos los niños de la mejor calle del mundo: la tuya. Para ello, consulta una lista de los portales de esa calle en los que debe dejar regalos.
 
 La forma en la que reparte los regalos es peculiar. Aterriza con su trineo en un portal determinado (que no tiene por qué ser uno en los que tiene que dar regalos), y luego sigue las siguientes reglas:
 
@@ -462,6 +384,8 @@ La forma en la que reparte los regalos es peculiar. Aterriza con su trineo en un
 - Si dos portales están a igual distancia, siempre va hacia el que tiene el número más grande.
 
 ¿Cuál es el orden en el que visita los portales?
+
+
 
 La entrada constará de 2 parámetros: el número de portal en el que aterriza y una lista con todos los portales que ha de visitar.
 
@@ -492,7 +416,7 @@ y `3, 2, 4, 7` cuya salida será
 
 Esta clases: `HashMap`, `TreeMap` y `LinkedHashMap` nos permite almacenar elementos asociando a cada clave un valor.
 
-Para cada clave tenemos un valor asociado. Podemos después buscar fácilmente un valor para una determinada clave. Las claves en el diccionario no pueden repetirse.
+Para cada clave tenemos un valor asociado. Podemos después buscar fácilmente un valor para una determinada clave.
 
 Algunos ejemplos donde podríamos usar un Mapa:
 
@@ -610,11 +534,11 @@ Finalmente la clase `LinkedHashMap` mantiene ordenado los elementos del mapa seg
 
 Declara un `HashMap` que almacene el país y la capital de varios países Europeos. Luego realiza un programa que pida un País al usuario y muestre su capital.
 
-## Teléfonos (F)
+### Teléfonos (F)
 
 Queremos tener un guía de teléfonos que asocie un número de teléfono a un contacto. El programa debe pedir un contacto y mostrar su número asociado
 
-## Teléfonos II (F)
+### Teléfonos II (F)
 
 Se trata de implementar el ejercicio anterior pero un contacto puede tener más de un teléfono:
 
@@ -747,7 +671,7 @@ Por ejemplo: alma, mala
 
 El ejercicio consiste en leer todas las líneas de un [fichero](/programacion-java/assets/files/collections/spanish-dict.txt). Por cada palabra que encuentra crea una entrada en el mapa con la palabra *alfabetizada* con las letras en orden alfabético como clave. Siguiendo el ejemplo, `aalm`
 
-Y el valor crea un `ArrayList` con todas las palabras con las mismas letras.
+Y en el valor crea un `ArrayList` con todas las palabras con las mismas letras.
 
 Es decir, la clave `aalm` tendrá una lista con dos valores: `alma` y `mala`. 
 
@@ -774,9 +698,24 @@ public class Anagramas {
 
 En el siguiente ejercicio partimos de un [fichero](/programacion-java/assets/files/collections/Colfuturo-Seleccionados.csv) `csv` que almacena los datos de los alumnos, incluido el país de origen que se almacena en el campo 7 de dicho archivo.
 
-Se trata de contar cuántos alumnos pertenecen a cada país
+Se trata de contar cuántos alumnos pertenecen a cada país.
 
-> -hint- Acuérdate que en algún ejercicio hemos *dividido* un array en palabras
+Luego el programa deberá mostrar la cantidad de alumnos de un país pasado como parámetro:
+
+> -hint- Acuérdate que en algún ejercicio hemos *dividido* un array en palabras. Ahora se trata de dividirlo por la `,`
+>
+> Para suma 1 a la lista de países;
+>
+> ```java
+> //Cogemos el campo 7 de la línea 
+> Integer freq = map.get(data[6]);
+> if (freq==null)
+>     map.put(data[6], 1);
+> else
+>     map.put(data[6], freq+1);
+> //Que se puede resumir utilizando el operador ternario
+> map.put(data[6], freq==null ? 1: freq+1);
+> ```
 
 ### Ejercicio `LastNameFrequency`. (M)
 
@@ -856,7 +795,6 @@ public class SetExample {
 			new Integer[] { 1, 3, 7, 5, 4, 0, 7, 5 }));
 
 
-​		
 		// To find union
 		Set<Integer> union = new HashSet<Integer>(a);
 		union.addAll(b);
@@ -884,92 +822,6 @@ public class SetExample {
 Union of the two Set[0, 1, 2, 3, 4, 5, 7, 8, 9]
 Intersection of the two Set[0, 1, 3, 4]
 Difference of the two Set[2, 8, 9]
-```
-
-### Ejemplo devolver entradas únicas
-
-Se trata de encontrar los valores únicos de un array
-```java
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-public class Unicos {
-    public static void printUnique( String ... array) {
-		List<String> list = Arrays.asList(array);
-		Set<String> hashSet = new HashSet<String>(list);
-		System.out.println(hashSet);
-	}
-
-	public static void main(String[] args) {
-	
-		printUnique("hola", "adios", "hola", "hola", "tres", "cuatro", "adios");
-		
-	}
-}
-```
-
-### Ejemplo encontrar duplicados
-
-Se trata de generar un `HashSet` con los elementos duplicados en un array:
-
-```java
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-public class HashSetExample {
-	public static void printDuplicates( String ... array) {
-		List<String> list = new ArrayList<String>(Arrays.asList(array));
-		Set<String> hashSet = new HashSet<String>(list);
-		
-		for (String s: hashSet) {
-			list.remove(s);
-		}
-		Set<String> duplicates = new HashSet<String>(list);
-		System.out.println(duplicates);
-	}
-	
-	public static void main(String[] args) {
-			printDuplicates("hola", "adios", "hola", "hola", "tres", "cuatro", "adios");
-		
-	}
-}
-```
-
-### Ejemplo incrementar valores
-
-Se trata de devolver un `Set` de `Integers` incrementando el valor de cada uno de los valores de otro pasado como parámetro.
-
-```java
-import java.util.HashSet;
-
-public class Increment {
-    public static HashSet<Integer> increment( HashSet<Integer> set) {
-		HashSet<Integer> newSet = new HashSet<Integer>();
-	    for (Integer i: set)
-	         newSet.add(i+1);
-	    return newSet;
-	}
-
-	public static void main(String[] args) {
-		
-		HashSet<Integer> set = new HashSet<Integer>(); 
-		set.add(1);
-		set.add(4);
-		set.add(6);
-		set.add(8);
-		set.add(2);
-		System.out.println(set);
-		set = increment(set);
-	    System.out.println(set);
-		
-	}    
-}
 ```
 
 ## Pilas
@@ -1190,7 +1042,7 @@ Popped element: 20
 Stack after pop operation [10, 15, 30]
 ```
 
-### Ejercicios
+## Ejercicios
 
 Realiza los siguientes ejercicios:
 
