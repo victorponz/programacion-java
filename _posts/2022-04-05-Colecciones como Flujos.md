@@ -110,6 +110,8 @@ Luego lo convertimos a entero en la línea 3 y le aplicamos un filtro. Este es d
 
 Realiza un programa que mediante la conversión a `Stream` de un `ArrayList` con números enteros calcule cuántos números positivos hay y cuántos negativos.
 
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
+
 > -toogle-Piensa antes de mirar
 >
 > ```java
@@ -333,6 +335,9 @@ public class Person {
 ```
 
 >-task-**Problema 1** 
+>
+><span style='color:green'> (ra2.d, ra2.h, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
+>
 >Recibes una lista de Personas. Imprime cuántas son las personas que nacieron antes de 1970:
 >
 >```java
@@ -347,22 +352,28 @@ public class Person {
 >personas.add(persona);
 >
 >long count = personas.stream()
->    .filter(person -> person.getBirthYear() < 1970)
->    .count();
+>.filter(person -> person.getBirthYear() < 1970)
+>.count();
 >System.out.println("Count: " + count); //El resultado es 2
 >```
 
 >-task-**Ejercicio 2 (F)**  
-> Recibes una lista de Personas. Imprime cuántas personas tienen un primer apellido que empiece por **A** 
+>
+><span style='color:green'> (ra2.d, ra2.h, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
+>
+>Recibes una lista de Personas. Imprime cuántas personas tienen un primer apellido que empiece por **A** 
 
 >-task-**Ejercicio 3 (F)**
-> Recibes una lista de Personas. Imprime los nombres que son únicos en orden alfabético
+>
+><span style='color:green'> (ra2.d, ra2.h, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
+>
+>Recibes una lista de Personas. Imprime los nombres que son únicos en orden alfabético
 
-> -task-**Ejercicio 4 No hacer** 
-> Escribe un programa que lea la entrada del usuario como cadenas. Cuando el usuario ingresa una cadena vacía (solo presiona `enter`), la lectura de entrada se detendrá y el programa imprimirá todas las entradas del usuario mediante el uso de `streams`
-
->-task-**Ejercicio 5 (F)**  
-> Escribe un programa que lea la entrada del usuario. Cuando el usuario da un número negativo como entrada, la lectura de entrada se detendrá. Después de esto, imprime todos los números que el usuario ha dado como entrada que están entre 1 y 5 con el uso de `streams`
+>-task-**Ejercicio 4 (F)**  
+>
+><span style='color:green'> (ra2.d, ra2.h, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
+>
+>Escribe un programa que lea la entrada del usuario. Cuando el usuario da un número negativo como entrada, la lectura de entrada se detendrá. Después de esto, imprime todos los números que el usuario ha dado como entrada que están entre 1 y 5 con el uso de `streams`
 
 ## Objetos y Streams
 
