@@ -8,7 +8,9 @@ conToc: true
 permalink: interfaz-comparable
 ---
 
-El método `compareTo` requerido por la interfaz `Comparable` recibe como parámetro el objeto con el que se compara el objeto `this`. Si el objeto `this` viene antes que el objeto recibido como parámetro en términos de orden de clasificación, el método debería devolver un número negativo. Si, por el contrario, el objeto `this` viene después del objeto recibido como parámetro, el método debería devolver un número positivo. De lo contrario, se devuelve 0. La ordenación resultante del método `compareTo` se denomina ordenación natural.
+## Ordenación de datos
+
+Para ordenar Colecciones se suele sobrescribir el método `compareTo` requerido por la interfaz `Comparable` que recibe como parámetro el objeto con el que se compara el objeto `this`. Si el objeto `this` viene antes que el objeto recibido como parámetro en términos de orden de clasificación, el método debería devolver un número negativo. Si, por el contrario, el objeto `this` viene después del objeto recibido como parámetro, el método debería devolver un número positivo. De lo contrario, se devuelve 0. La ordenación resultante del método `compareTo` se denomina ordenación natural.
 
 Echemos un vistazo a esto con la ayuda de una clase de `Member` que representa a un niño o joven que pertenece a un club. Cada miembro del club tiene un nombre y una altura. Los miembros del club deben ir a comer en orden de altura, por lo que la clase `Member` debe implementar la interfaz `Comparable`. La interfaz `Comparable` toma como parámetro de tipo la clase que es objeto de la comparación. 
 
@@ -102,6 +104,8 @@ matti (187)
 ```
 
 >-task-**Ejercicio (F)** 
+>
+><span style='color:green'> (ra2.d, ra2.h, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
 >
 >Se te proporciona la clase `Human`. Un ser humano tiene un nombre e información sobre salario. Implementa la interfaz `Comparable` de tal manera que el método `compareTo` clasifique a los humanos según el salario del más grande al más pequeño.
 
@@ -207,12 +211,14 @@ Mary Coombs
 ```
 
 >-task-**Ejercicio (M)**
-> 
+>
+><span style='color:green'> (ra2.a, ra2.d, ra2.h, ra3.b, ra3.f, ra4.a, ra4.b, ra4.d, ra4.e, ra5.c, ra5.d, ra6.b, ra6.e, ra6.c, ra6.d)</span>
+>
 >El siguiente [archivo](/programacion-java/assets/illiterate.csv) muestra la población analfabeta mundial en el formato:
 >
 >```
 >"ILLPOP_AG15T24","Youth illiterate population, 15-24 years, both sexes
- (number)","40550","Small Island Developing States","2016","2016",1192378,,
+> (number)","40550","Small Island Developing States","2016","2016",1192378,,
 >```
 >
 >Se trata de realizar un programa que lea este archivo y que luego muestre la información en pantalla por orden ascendente del total de personas analfabetas (en el ejemplo, 1192378)
@@ -288,6 +294,8 @@ C (2001)
 ```
 
 >-task-**Ejercicios**
+>
+><span style='color:green'> (ra2.a, ra2.d, ra2.h, ra3.b, ra3.f, ra4.a, ra4.b, ra4.d, ra4.e, ra5.c, ra5.d, ra6.b, ra6.e, ra6.c, ra6.d)</span>
 >
 >[Felipe y sus tareas](https://www.aceptaelreto.com/problem/statement.php?id=579) **(F)**
 >

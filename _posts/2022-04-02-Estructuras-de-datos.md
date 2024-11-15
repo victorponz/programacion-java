@@ -60,6 +60,16 @@ Collections.sort(coches);
 ...
 ```
 
+Si queremos comprobar si un dato ya está en la lista:
+
+```java
+ArrayList<Integer> nums = new ArrayList<>();
+nums.add(1);
+nums.add(5);
+System.out.println(nums.contains(1)); //true
+System.out.println(nums.contains(3)); //false
+```
+
 Vamos a ver unos cuantos ejemplos.
 
 ```java
@@ -343,11 +353,15 @@ Geeks For Geeks
 
 ### Ejercicio `Coches` (F)
 
-Realiza un programa que permita al usuario añadir Coches mediante la consola. Si escribe una línea en blanco, se acaba de añadir coches.
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
-Al final debe imprimirlos ordenados en líneas separadas
+Realiza un programa que permita al usuario añadir marcas de coches mediante la consola. Si escribe una línea en blanco, se acabará de añadir marcas.
+
+Al final debe imprimirlas ordenadas en líneas separadas
 
 ### Ejercicio `Altura` (M)
+
+<span style='color:green'> <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
 Programa Java que pida por teclado las alturas de N alumnos de una clase y las guarde en un `ArrayList` de tipo **Double**. 
 
@@ -357,103 +371,17 @@ Para resolverlo vamos a utilizar 6 métodos además del método `main`:
 * Método `numeroAlumnos()`: este método pide por teclado el número de alumnos de la clase y devuelve dicho número al programa principal.
 * Método `leerAlturas()`: pide por teclado las alturas de los N alumnos y las almacena en el `ArrayList`. Este método recibe como parámetros el `ArrayList` inicialmente vacío y el número de alumnos a leer.
 * Método `calcularMedia()`: calcula y devuelve la media de los alumnos de la clase. Este método recibe como parámetro el `ArrayList` con las alturas de todos los alumnos.
-* Método `calcularAlumnosAlturaSuperior`: devuelve el número de alumnos con una altura superior a la media
-* Método `calcularAlumnosAlturaInferior`: devuelve el número de alumnos con una altura inferior a la media
+* Método `calcularAlumnosAlturaSuperior`: Este método recibe como parámetro el `ArrayList` con las alturas de todos los alumnos y devuelve el número de alumnos con una altura superior a la media
+* Método `calcularAlumnosAlturaInferior`: Este método recibe como parámetro el `ArrayList` con las alturas de todos los alumnos y devuelve el número de alumnos con una altura inferior a la media
 * Método `mostrarResultados()`: muestra por pantalla todas las alturas y calcula y muestra el número de alumnos con altura superior e inferior a la media. Recibe como parámetros el `ArrayList` con las alturas de todos los alumnos y la media calculada anteriormente.
 
 
 
-### Ejercicio Convertir a array (F)
-
-Crea un programa para convertir un ArrayList en un array:
-
-> -toogle- Piensa antes de mirar
->
-> ```java
-> import java.util.*;
-> 
-> public class ConvertArrayListToArray {
->     public static void main(String args[]) {
->       // Creating and initializing ArrayList
->       ArrayList<String> fruits = new ArrayList<>();
->       fruits.add("Apple");
->       fruits.add("Banana");
->       fruits.add("Mango");
->       fruits.add("Pear");
-> 
->       // ArrayList to String array conversion
->       String[] str = new String[fruits.size()];
->       for(int i=0; i < fruits.size(); i++) {
->           str[i] = fruits.get(i);
->       }
->       
->       // Print elements using for-each loop
->       for(String s : str) {
->         System.out.println(s);      
->       }
->     }
-> }
-> ```
-
-### Ejercicio existe (F)
-
-Dado un `ArrayList`, haz un método para comprobar si un elemento existe en dicho `ArrayList`.
-
-> -toogle- Piensa antes de mirar
->
-> ```java
-> import java.util.*;
-> public class ArrayListContainsExample {
->     public static boolean existe(ArrayList<Integer> l, int n){
->         return l.contains(n);
->     }
->     public static void main(String args[]) {
->         // initialize ArrayList  
->         ArrayList<Integer> al = new ArrayList<Integer>();
->         // add elements to ArrayList object
->         al.add(3);
->         al.add(17);
->         al.add(6);
->         al.add(9);
->         al.add(7);
-> 
->         if (al.contains(7)) {
->             System.out.println("7 was found in the list");
->         } else {
->             System.out.println("7 was not found in the list");
->         }        
->     }
-> }
-> ```
-
-### Ejercicio AddAll (F)
-
-Haz un programa que añada todos los elementos de una lista a otra
-
-> -toogle- Piensa antes de mirar
->
-> ```java
-> import java.util.*;
-> public class AddAll {
->     public static void main(String[] args) {
->         List<String> l = new ArrayList<String>();
->         l.add("uno");
->         l.add("dos");
->         l.add("tres");
->         List<String> ll = new ArrayList<String>();
->         ll.add("cuatro");
->         ll.add("cinco");
->         ll.add("seis");
->         //Añadimos toda la lista l a la ll
->         ll.addAll(l);
->         System.out.println(ll);
->     }
-> }
-> ```
-
 ### Repartiendo regalos en tu calle (D)
 
- Papá Noel quiere repartir juguetes a todos los niños de la    mejor calle del mundo: la tuya. Para ello, consulta una lista de los portales de esa calle en los que debe dejar regalos.
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
+
+Papá Noel quiere repartir juguetes a todos los niños de la mejor calle del mundo: la tuya. Para ello, consulta una lista de los portales de esa calle en los que debe dejar regalos.
 
 La forma en la que reparte los regalos es peculiar. Aterriza con su trineo en un portal determinado (que no tiene por qué ser uno en los que tiene que dar regalos), y luego sigue las siguientes reglas:
 
@@ -461,7 +389,7 @@ La forma en la que reparte los regalos es peculiar. Aterriza con su trineo en un
 - La distancia entre dos portales es el valor absoluto de su resta. Es decir, la distancia entre el portal 10 y el portal 8 es 2 (10 − 8 = 2), lo mismo que la distancia entre el portal 8 y el portal 10 (valor absoluto de 8 − 10).
 - Si dos portales están a igual distancia, siempre va hacia el que tiene el número más grande.
 
-¿Cuál es el orden en el que visita los portales?
+**¿Cuál es el orden en el que visita los portales?**
 
 La entrada constará de 2 parámetros: el número de portal en el que aterriza y una lista con todos los portales que ha de visitar.
 
@@ -492,7 +420,7 @@ y `3, 2, 4, 7` cuya salida será
 
 Esta clases: `HashMap`, `TreeMap` y `LinkedHashMap` nos permite almacenar elementos asociando a cada clave un valor.
 
-Para cada clave tenemos un valor asociado. Podemos después buscar fácilmente un valor para una determinada clave. Las claves en el diccionario no pueden repetirse.
+Para cada clave tenemos un valor asociado. Podemos después buscar fácilmente un valor para una determinada clave.
 
 Algunos ejemplos donde podríamos usar un Mapa:
 
@@ -608,13 +536,19 @@ Finalmente la clase `LinkedHashMap` mantiene ordenado los elementos del mapa seg
 
 ### Ejercicio `PaisCapital.java` (F)
 
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
+
 Declara un `HashMap` que almacene el país y la capital de varios países Europeos. Luego realiza un programa que pida un País al usuario y muestre su capital.
 
-## Teléfonos (F)
+### Teléfonos (F)
+
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
 Queremos tener un guía de teléfonos que asocie un número de teléfono a un contacto. El programa debe pedir un contacto y mostrar su número asociado
 
-## Teléfonos II (F)
+### Teléfonos II (F)
+
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
 Se trata de implementar el ejercicio anterior pero un contacto puede tener más de un teléfono:
 
@@ -650,11 +584,13 @@ Se trata de implementar el ejercicio anterior pero un contacto puede tener más 
 
 ### La mejor terminación (M)
 
-​      En los sorteos de la lotería más mediáticos, como el del Gordo de Navidad o el del Niño, es habitual que los fetichistas  busquen números con algún tipo de significado extraño o que los matemáticos y estadísticos se entretengan informando sobre los números más habituales.    
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
-​      Esto último es interesante si queremos maximizar la probabilidad de ganar algo. Dado que los números que terminan con el mismo dígito que el del premio principal tienen un reintegro, una buena forma de intentar, al menos, no perder dinero es jugar un número con la terminación más habitual en el histórico de sorteos.    
+En los sorteos de la lotería más mediáticos, como el del Gordo de Navidad o el del Niño, es habitual que los fetichistas  busquen números con algún tipo de significado extraño o que los matemáticos y estadísticos se entretengan informando sobre los números más habituales.    
 
-​      Siendo puristas, la probabilidad de que salga un número es independiente de lo que haya ocurrido en años anteriores. Pero es tan tentador ignorar esto que no puedes resistirte. 
+Esto último es interesante si queremos maximizar la probabilidad de ganar algo. Dado que los números que terminan con el mismo dígito que el del premio principal tienen un reintegro, una buena forma de intentar, al menos, no perder dinero es jugar un número con la terminación más habitual en el histórico de sorteos.    
+
+Siendo puristas, la probabilidad de que salga un número es independiente de lo que haya ocurrido en años anteriores. Pero es tan tentador ignorar esto que no puedes resistirte. 
 
 La entrada consistirá en un array con varios boletos de lotería y la salida será cuántas veces se repite una terminación (sólo el último dígito).
 
@@ -676,11 +612,13 @@ O, `"58975", "25894", "52985", "98598"`
 
 ### Ejercicio `Botín` (M)
 
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
+
 Al-Colleja y sus secuaces tienen que repartir el botín de su  último golpe. No es una tarea fácil, porque todos quieren llevarse  lo máximo posible, y todos están armados… 
 
-Para no entrar en discusiones que terminen en tragedia,  Al-Colleja  ha ideado un sencillo método en el que, en lugar de  preocuparse de ser justos repartiendo en base a quién ha trabajado más en la  consecución del golpe, se lo deja prácticamente todo al azar.  Prefiere recibir menos beneficios pero mantener la  banda intacta.
+Para no entrar en discusiones que terminen en tragedia, Al-Colleja  ha ideado un sencillo método en el que, en lugar de  preocuparse de ser justos repartiendo en base a quién ha trabajado más en la consecución del golpe, se lo deja prácticamente todo al azar. Prefiere recibir menos beneficios pero mantener la banda intacta.
 
-El procedimiento es sencillo. Coge todos los billetes  conseguidos y los pone en un montón tras barajarlos. Después se  coloca toda la banda en círculo y va dando un billete a cada uno,  hasta que quedan todos repartidos. Eso sí, el primero que recibe  billete es él, de esa forma se asegura de que si los billetes se  terminan a mitad de una vuelta, él siempre habrá recibido uno  adicional.
+El procedimiento es sencillo. Coge todos los billetes conseguidos y los pone en un montón tras barajarlos. Después se  coloca toda la banda en círculo y va dando un billete a cada uno, hasta que quedan todos repartidos. Eso sí, el primero que recibe billete es él, de esa forma se asegura de que si los billetes se  terminan a mitad de una vuelta, él siempre habrá recibido uno adicional.
 
 El componente de azar aparece porque los billetes están descolocados, así que puede tocar en el reparto desde el mísero  billete de 10 hasta el deseado de 500...
 
@@ -688,31 +626,17 @@ La entrada constará de 2 partes: la primera es el número e participantes en el
 
 Por ejemplo: `2, 10, 20, 50, 200, 500` que producirá como salida 
 
-```
-{0=10  50 500, 1=20  200}
+```java
+{0=10 50 500, 1=20 200} //esta es la salida usando toString. Debes devolver el Mapa
 ```
 
 O `3, 50, 20, 100, 200, 500, 10, 50`
 
 que resultará en
 
+```java
+{0=50 200 50, 1=20 500, 2=100  10} //esta es la salida usando toString. Debes devolver el Mapa
 ```
-{0=50  200 50, 1=20  500, 2=100  10}
-```
-
-> -info-La función defínela así.
->
-> ```java
->  public static String repartir(int participantes, int ... billetes){
-> ```
->
-> Y para llamarla, 
->
-> ```java
-> repartir(2, 10, 20, 50, 200, 500)
-> ```
->
-> Para imprimir el Map usa `toString`
 
 > -toogle-Pista
 >
@@ -726,6 +650,8 @@ que resultará en
 
 
 ### Ejercicio `Frequency` (F)
+
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
 Se trata de pedir por pantalla una serie de palabras y calcular la frecuencia de cada una de ellas, es decir, las veces que se repiten. Para finalizar el programa se debe introducir una línea en blanco
 Por ejemplo:
@@ -741,13 +667,15 @@ tres - 3
 ```
 ### Ejercicio `Anagramas` (M)
 
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra5.d, ra6.b, ra6.e, ra6.c)</span>
+
 Un anagrama es un grupo de palabras que contienen las mismas letras pero en diferente orden:
 
 Por ejemplo: alma, mala
 
 El ejercicio consiste en leer todas las líneas de un [fichero](/programacion-java/assets/files/collections/spanish-dict.txt). Por cada palabra que encuentra crea una entrada en el mapa con la palabra *alfabetizada* con las letras en orden alfabético como clave. Siguiendo el ejemplo, `aalm`
 
-Y el valor crea un `ArrayList` con todas las palabras con las mismas letras.
+Y en el valor crea un `ArrayList` con todas las palabras con las mismas letras.
 
 Es decir, la clave `aalm` tendrá una lista con dos valores: `alma` y `mala`. 
 
@@ -772,13 +700,32 @@ public class Anagramas {
 
 ### Ejemplo `CountCountries` (M)
 
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra5.d, ra6.b, ra6.e, ra6.c)</span>
+
 En el siguiente ejercicio partimos de un [fichero](/programacion-java/assets/files/collections/Colfuturo-Seleccionados.csv) `csv` que almacena los datos de los alumnos, incluido el país de origen que se almacena en el campo 7 de dicho archivo.
 
-Se trata de contar cuántos alumnos pertenecen a cada país
+Se trata de contar cuántos alumnos pertenecen a cada país.
 
-> -hint- Acuérdate que en algún ejercicio hemos *dividido* un array en palabras
+Luego el programa deberá mostrar la cantidad de alumnos de un país pasado como parámetro:
+
+> -hint- Acuérdate que en algún ejercicio hemos *dividido* un array en palabras. Ahora se trata de dividirlo por la `,`
+>
+> Para suma 1 a la lista de países;
+>
+> ```java
+> //Cogemos el campo 7 de la línea 
+> Integer freq = map.get(data[6]);
+> if (freq==null)
+>     map.put(data[6], 1);
+> else
+>     map.put(data[6], freq+1);
+> //Que se puede resumir utilizando el operador ternario
+> map.put(data[6], freq==null ? 1: freq+1);
+> ```
 
 ### Ejercicio `LastNameFrequency`. (M)
+
+<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra5.d, ra6.b, ra6.e, ra6.c)</span>
 
 Tenemos un archivo con la frecuencia de los apellidos en España. Este [fichero](/programacion-java/assets/files/collections/LastnameFrequencies.csv) es de tipo csv y almacena el Apellido y la frecuencia.
 
@@ -856,7 +803,6 @@ public class SetExample {
 			new Integer[] { 1, 3, 7, 5, 4, 0, 7, 5 }));
 
 
-​		
 		// To find union
 		Set<Integer> union = new HashSet<Integer>(a);
 		union.addAll(b);
@@ -884,92 +830,6 @@ public class SetExample {
 Union of the two Set[0, 1, 2, 3, 4, 5, 7, 8, 9]
 Intersection of the two Set[0, 1, 3, 4]
 Difference of the two Set[2, 8, 9]
-```
-
-### Ejemplo devolver entradas únicas
-
-Se trata de encontrar los valores únicos de un array
-```java
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-public class Unicos {
-    public static void printUnique( String ... array) {
-		List<String> list = Arrays.asList(array);
-		Set<String> hashSet = new HashSet<String>(list);
-		System.out.println(hashSet);
-	}
-
-	public static void main(String[] args) {
-	
-		printUnique("hola", "adios", "hola", "hola", "tres", "cuatro", "adios");
-		
-	}
-}
-```
-
-### Ejemplo encontrar duplicados
-
-Se trata de generar un `HashSet` con los elementos duplicados en un array:
-
-```java
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-public class HashSetExample {
-	public static void printDuplicates( String ... array) {
-		List<String> list = new ArrayList<String>(Arrays.asList(array));
-		Set<String> hashSet = new HashSet<String>(list);
-		
-		for (String s: hashSet) {
-			list.remove(s);
-		}
-		Set<String> duplicates = new HashSet<String>(list);
-		System.out.println(duplicates);
-	}
-	
-	public static void main(String[] args) {
-			printDuplicates("hola", "adios", "hola", "hola", "tres", "cuatro", "adios");
-		
-	}
-}
-```
-
-### Ejemplo incrementar valores
-
-Se trata de devolver un `Set` de `Integers` incrementando el valor de cada uno de los valores de otro pasado como parámetro.
-
-```java
-import java.util.HashSet;
-
-public class Increment {
-    public static HashSet<Integer> increment( HashSet<Integer> set) {
-		HashSet<Integer> newSet = new HashSet<Integer>();
-	    for (Integer i: set)
-	         newSet.add(i+1);
-	    return newSet;
-	}
-
-	public static void main(String[] args) {
-		
-		HashSet<Integer> set = new HashSet<Integer>(); 
-		set.add(1);
-		set.add(4);
-		set.add(6);
-		set.add(8);
-		set.add(2);
-		System.out.println(set);
-		set = increment(set);
-	    System.out.println(set);
-		
-	}    
-}
 ```
 
 ## Pilas
@@ -1190,7 +1050,7 @@ Popped element: 20
 Stack after pop operation [10, 15, 30]
 ```
 
-### Ejercicios
+## Ejercicios
 
 Realiza los siguientes ejercicios:
 
