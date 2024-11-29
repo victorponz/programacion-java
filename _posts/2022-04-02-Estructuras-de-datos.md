@@ -9,14 +9,14 @@ permalink: estructuras-basicas
 ---
 
 ## ArrayList
-
+[https://classroom.github.com/assignment-invitations/32e19c107fce8d0750dbbae9e655dda7](https://classroom.github.com/assignment-invitations/32e19c107fce8d0750dbbae9e655dda7)
 Hemos visto en el tema de Arrays que éstos tienen un tamaño definido en el momento de la creación y que este tamaño es inmutable.
 
 Si queremos usar este tipo de estructura pero que **pueda cambiar el tamaño**, usaremos `ArrayList`
 
 ```java
 import java.util.ArrayList; 
-ArrayList<String> coches = new ArrayList<String>(); 
+ArrayList<String> coches = new ArrayList<String>();
 ```
 
 El método para añadir elementos es `add`
@@ -51,7 +51,7 @@ for(String coche: coches){
 }
 ```
 
-Si necesitamos ordenarlos, 
+Si necesitamos ordenarlos,
 
 ```java
 import java.util.Collections;
@@ -315,8 +315,8 @@ public class GFG {
 **Salida**
 
 ```
-Geeks For Geeks 
-Geeks For Geeks 
+Geeks For Geeks
+Geeks For Geeks
 ```
 
 | Método                                                       | Descripción                                                  |
@@ -363,7 +363,7 @@ Al final debe imprimirlas ordenadas en líneas separadas
 
 <span style='color:green'> <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
-Programa Java que pida por teclado las alturas de N alumnos de una clase y las guarde en un `ArrayList` de tipo **Double**. 
+Programa Java que pida por teclado las alturas de N alumnos de una clase y las guarde en un `ArrayList` de tipo **Double**.
 
 A continuación el programa calculará la altura media de todos los alumnos, cuántos alumnos hay más altos que la media y cuantos más bajos.
 Para resolverlo vamos a utilizar 6 métodos además del método `main`:
@@ -401,7 +401,7 @@ Y la salida será
 2, 4
 ```
 
-`3, 2, 5, 1` cuya salida será 
+`3, 2, 5, 1` cuya salida será
 
 ```
 2 1 5
@@ -429,7 +429,7 @@ Algunos ejemplos donde podríamos usar un Mapa:
 
 **Ejemplo**
 
-> Almacenar un diccionario las palabras en castellano como 'clave' y las traducciones de las mismas en el 'valor'. 
+> Almacenar un diccionario las palabras en castellano como 'clave' y las traducciones de las mismas en el 'valor'.
 
 ```java
 import java.util.HashMap;
@@ -442,24 +442,24 @@ public class PruebaHashMap {
         mapa1.put("verde", "green");
         mapa1.put("azul", "blue");
         mapa1.put("blanco", "white");
-        
+
         System.out.println("Listado completo de valores");
         for (String valor : mapa1.values())
             System.out.print(valor + "-");
         System.out.println();
-        
+
         System.out.println("Listado completo de claves");
         for (String clave : mapa1.keySet())
             System.out.print(clave + "-");
         System.out.println();
-        
+
         System.out.println("La traducción de 'rojo' es:" + mapa1.get("rojo"));
-        
+
         if (!mapa1.containsKey("negro"))
             System.out.println("No existe la clave 'negro'");
-        
+
         System.out.println("La traducción de 'marron' es:" + mapa1.getOrDefault("marrón", "No existe la clave marrón"));
-        
+
         mapa1.remove("rojo");
         System.out.println(mapa1);
     }
@@ -558,7 +558,7 @@ Se trata de implementar el ejercicio anterior pero un contacto puede tener más 
 >
 > ```java
 > HashMap<String, ArrayList<String>> agenda = new HashMap<>();
-> 
+>
 > ```
 >
 > Ahora para añadir los teléfonos de Pepe
@@ -568,7 +568,7 @@ Se trata de implementar el ejercicio anterior pero un contacto puede tener más 
 > telefonos.add("667761");
 > telefonos.add("+0034 44001");
 > agenda.put("Pepe", telefonos);
-> // Para empezar a dar de alta los números del siguiente contacto es necesario usar 
+> // Para empezar a dar de alta los números del siguiente contacto es necesario usar
 > // new ArrayList<>() pues de lo contrario la lista sería compartida por todos!
 > telefonos = new ArrayList<>();
 > telefonos.add("94884");
@@ -590,7 +590,7 @@ En los sorteos de la lotería más mediáticos, como el del Gordo de Navidad o e
 
 Esto último es interesante si queremos maximizar la probabilidad de ganar algo. Dado que los números que terminan con el mismo dígito que el del premio principal tienen un reintegro, una buena forma de intentar, al menos, no perder dinero es jugar un número con la terminación más habitual en el histórico de sorteos.    
 
-Siendo puristas, la probabilidad de que salga un número es independiente de lo que haya ocurrido en años anteriores. Pero es tan tentador ignorar esto que no puedes resistirte. 
+Siendo puristas, la probabilidad de que salga un número es independiente de lo que haya ocurrido en años anteriores. Pero es tan tentador ignorar esto que no puedes resistirte.
 
 La entrada consistirá en un array con varios boletos de lotería y la salida será cuántas veces se repite una terminación (sólo el último dígito).
 
@@ -614,7 +614,7 @@ O, `"58975", "25894", "52985", "98598"`
 
 <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
-Al-Colleja y sus secuaces tienen que repartir el botín de su  último golpe. No es una tarea fácil, porque todos quieren llevarse  lo máximo posible, y todos están armados… 
+Al-Colleja y sus secuaces tienen que repartir el botín de su  último golpe. No es una tarea fácil, porque todos quieren llevarse  lo máximo posible, y todos están armados…
 
 Para no entrar en discusiones que terminen en tragedia, Al-Colleja  ha ideado un sencillo método en el que, en lugar de  preocuparse de ser justos repartiendo en base a quién ha trabajado más en la consecución del golpe, se lo deja prácticamente todo al azar. Prefiere recibir menos beneficios pero mantener la banda intacta.
 
@@ -624,7 +624,7 @@ El componente de azar aparece porque los billetes están descolocados, así que 
 
 La entrada constará de 2 partes: la primera es el número e participantes en el golpe y la segunda un array con los billetes a repartir.
 
-Por ejemplo: `2, 10, 20, 50, 200, 500` que producirá como salida 
+Por ejemplo: `2, 10, 20, 50, 200, 500` que producirá como salida
 
 ```java
 {0=10 50 500, 1=20 200} //esta es la salida usando toString. Debes devolver el Mapa
@@ -677,7 +677,7 @@ El ejercicio consiste en leer todas las líneas de un [fichero](/programacion-ja
 
 Y en el valor crea un `ArrayList` con todas las palabras con las mismas letras.
 
-Es decir, la clave `aalm` tendrá una lista con dos valores: `alma` y `mala`. 
+Es decir, la clave `aalm` tendrá una lista con dos valores: `alma` y `mala`.
 
 Después se pide un número  (`minGroupSize`) que es el mínimo número de valores para que salga impreso por pantalla
 
@@ -697,6 +697,14 @@ public class Anagramas {
     }
 }
 ```
+Para ordenar una cadena por orden alfabético, usa el siguiente código;
+```java
+   private static String alphabetize(String s) {
+        char[] a = s.toCharArray();
+        Arrays.sort(a);
+        return new String(a);
+    }
+```
 
 ### Ejemplo `CountCountries` (M)
 
@@ -713,7 +721,7 @@ Luego el programa deberá mostrar la cantidad de alumnos de un país pasado como
 > Para suma 1 a la lista de países;
 >
 > ```java
-> //Cogemos el campo 7 de la línea 
+> //Cogemos el campo 7 de la línea
 > Integer freq = map.get(data[6]);
 > if (freq==null)
 >     map.put(data[6], 1);
@@ -750,7 +758,7 @@ public class HashSet1 {
 		// Demonstrating Set using HashSet
 		// Declaring object of type String
 		Set<String> hash_Set = new HashSet<String>();
-	
+
 		// Adding elements to the Set
 		// using add() method
 		hash_Set.add("Geeks");
@@ -758,7 +766,7 @@ public class HashSet1 {
 		hash_Set.add("Geeks");
 		hash_Set.add("Example");
 		hash_Set.add("Set");
-	
+
 		// Printing elements of HashSet object
 		System.out.println(hash_Set);
 	}
@@ -790,15 +798,15 @@ public class SetExample {
 		// Creating an object of Set class
 		// Declaring object of Integer type
 		Set<Integer> a = new HashSet<Integer>();
-	
+
 		// Adding all elements to List
 		a.addAll(Arrays.asList(
 			new Integer[] { 1, 3, 2, 4, 8, 9, 0 }));
-	
+
 	// Again declaring object of Set class
 	// with reference to HashSet
 		Set<Integer> b = new HashSet<Integer>();
-		
+
 	b.addAll(Arrays.asList(
 			new Integer[] { 1, 3, 7, 5, 4, 0, 7, 5 }));
 
@@ -808,13 +816,13 @@ public class SetExample {
 		union.addAll(b);
 		System.out.print("Union of the two Set");
 		System.out.println(union);
-	
+
 		// To find intersection
 		Set<Integer> intersection = new HashSet<Integer>(a);
 		intersection.retainAll(b);
 		System.out.print("Intersection of the two Set");
 		System.out.println(intersection);
-	
+
 		// To find the symmetric difference
 		Set<Integer> difference = new HashSet<Integer>(a);
 		difference.removeAll(b);
@@ -834,7 +842,7 @@ Difference of the two Set[2, 8, 9]
 
 ## Pilas
 
-El marco de Java Collection proporciona una clase `Stack` que modela e implementa una estructura de datos de tipo pila. La clase se basa en el principio básico de último en entrar, primero en salir. 
+El marco de Java Collection proporciona una clase `Stack` que modela e implementa una estructura de datos de tipo pila. La clase se basa en el principio básico de último en entrar, primero en salir.
 
 <img src="/programacion-java/assets/img/estructuras/stack.png" style="zoom:67%;" />
 
@@ -860,31 +868,31 @@ class Test
 			stack.push(i);
 		}
 	}
-	
+
 	// Popping element from the top of the stack
 	static void stack_pop(Stack<Integer> stack)
 	{
 		System.out.println("Pop Operation:");
-	
+
 		for(int i = 0; i < 5; i++)
 		{
 			Integer y = (Integer) stack.pop();
 			System.out.println(y);
 		}
 	}
-	
+
 	// Displaying element on the top of the stack
 	static void stack_peek(Stack<Integer> stack)
 	{
 		Integer element = (Integer) stack.peek();
 		System.out.println("Element on stack top: " + element);
 	}
-	
+
 	// Searching element in the stack
 	static void stack_search(Stack<Integer> stack, int element)
 	{
 		Integer pos = (Integer) stack.search(element);
-	
+
 		if(pos == -1)
 			System.out.println("Element not found");
 		else
@@ -895,7 +903,7 @@ class Test
 	public static void main (String[] args)
 	{
 		Stack<Integer> stack = new Stack<Integer>();
-	
+
 		stack_push(stack);
 		stack_pop(stack);
 		stack_push(stack);
@@ -929,27 +937,27 @@ import java.io.*;
 import java.util.*;
 
 class StackDemo {
-	
+
 	// Main Method
 	public static void main(String[] args)
 	{
-	
+
 		// Default initialization of Stack
 		Stack stack1 = new Stack();
-	
+
 		// Initialization of Stack
 		// using Generics
 		Stack<String> stack2 = new Stack<String>();
-	
+
 		// pushing the elements
 		stack1.push(4);
 		stack1.push("All");
 		stack1.push("Geeks");
-	
+
 		stack2.push("Geeks");
 		stack2.push("For");
 		stack2.push("Geeks");
-	
+
 		// Printing the Stack Elements
 		System.out.println(stack1);
 		System.out.println(stack2);
@@ -977,21 +985,21 @@ public class StackDemo {
 	{
 		// Creating an empty Stack
 		Stack<String> stack = new Stack<String>();
-	
+
 		// Use push() to add elements into the Stack
 		stack.push("Welcome");
 		stack.push("To");
 		stack.push("Geeks");
 		stack.push("For");
 		stack.push("Geeks");
-	
+
 		// Displaying the Stack
 		System.out.println("Initial Stack: " + stack);
-	
+
 		// Fetching the element at the head of the Stack
 		System.out.println("The element at the top of the"
 						+ " stack is: " + stack.peek());
-	
+
 		// Displaying the Stack after the Operation
 		System.out.println("Final Stack: " + stack);
 	}
@@ -1026,16 +1034,16 @@ public class StackDemo {
 		stack.push(30);
 		stack.push(20);
 		stack.push(5);
-	
+
 		// Displaying the Stack
 		System.out.println("Initial Stack: " + stack);
-	
+
 		// Removing elements using pop() method
 		System.out.println("Popped element: "
 						+ stack.pop());
 		System.out.println("Popped element: "
 						+ stack.pop());
-	
+
 		// Displaying the Stack after pop operation
 		System.out.println("Stack after pop operation "
 						+ stack);
@@ -1074,7 +1082,3 @@ Adaptado del siguiente material
 * [https://www.geeksforgeeks.org/stack-class-in-java/](https://www.geeksforgeeks.org/stack-class-in-java/)
 
 * [https://www.hackerrank.com/domains/java?filters%5Bsubdomains%5D%5B%5D=java-data-structure](https://www.hackerrank.com/domains/java?filters%5Bsubdomains%5D%5B%5D=java-data-structure)
-
-  
-
-
