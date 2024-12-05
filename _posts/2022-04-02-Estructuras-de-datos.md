@@ -731,14 +731,6 @@ Luego el programa deberá mostrar la cantidad de alumnos de un país pasado como
 > map.put(data[6], freq==null ? 1: freq+1);
 > ```
 
-### Ejercicio `LastNameFrequency`. (M)
-
-<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra5.d, ra6.b, ra6.e, ra6.c)</span>
-
-Tenemos un archivo con la frecuencia de los apellidos en España. Este [fichero](/programacion-java/assets/files/collections/LastnameFrequencies.csv) es de tipo csv y almacena el Apellido y la frecuencia.
-
-Se trata de realizar un programa que pida por pantalla un apellido y muestre la frecuencia de éste. El programa finalizará cuando el usuario introduzca una línea vacía.
-
 ## HashSet
 
 Es una colección desordenada de objetos en la que no pueden existir duplicados.
@@ -1050,7 +1042,7 @@ public class StackDemo {
 	}
 }
 ```
-
+**Salida**
 ```
 Initial Stack: [10, 15, 30, 20, 5]
 Popped element: 5
