@@ -117,7 +117,7 @@ Pepe
 	4444444
 ```
 
-En el siguiente código hemos creado en la línea **<span style='color:red'>14</span>** una **nueva variable de instancia** aunque se llame también `telefonos`.
+En el siguiente código hemos creado en la línea **<span style='color:red'>14</span>** una **nueva variable de instancia**.
 
 ```java
 import java.util.ArrayList;
@@ -146,6 +146,7 @@ public class Main {
 }
 ```
 
+
 ```
 María
 	4444444
@@ -158,7 +159,7 @@ Como se ve, ahora cada uno tiene sus propios teléfonos.
 
 ## Getters
 
-Como los atributos son privados, se debe crear un método público que devuelva el estado el mismo. Por ejemplo:
+Como los atributos son privados, se debe crear un método público que devuelva el estado del mismo. Por ejemplo:
 
 ```java
 public String getNombre(){
@@ -168,7 +169,7 @@ public String getNombre(){
 
 > -warning-El nombre del método **siempre** debe empezar por `get` y a continuación el nombre del atributo en **C**amel**C**ase
 >
-> Cuando el tipo del atributo es `boolean` el método se debe llamar `isNombreAtributo` o `hasNombreAtributo`
+> Cuando el tipo del atributo es `boolean` el método se debe llamar `isNombreAtributo` o `hasNombreAtributo`, donde `NombreAtributo` es el nombre del atributo, por ejemplo, `isEven` o `hasChildren
 
 ## Setters
 
@@ -503,7 +504,7 @@ public class Libro{
 }
 ```
 
-` this.titulo = titulo;` hace que el campo `titulo` se iguale a la variable local (parámetro) `titulo` que se pasa como dato en el parámetro del método. Parece un galimatías. Lo verás más claro de la siguiente forma:
+`this.titulo = titulo;` hace que el campo `titulo` se iguale a la variable local (parámetro) `titulo` que se pasa como dato en el parámetro del método. Parece un galimatías. Lo verás más claro de la siguiente forma:
 
 ```java
 public class Libro{
@@ -733,7 +734,7 @@ public abstract class Vehiculo {
 }
 ```
 
-Como esta clase define un método como `abstract` toda la clase pasa a ser abstracta aunque no la hubiéramo definido como abstracta.
+Como esta clase define un método como `abstract` toda la clase pasa a ser abstracta aunque no la hubiéramos definido como abstracta.
 
 Vamos a crear la clase `Coche`
 
