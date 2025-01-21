@@ -20,13 +20,13 @@ La composición es una Asociación **fuerte** mientras que la agregación es **d
 
 ## Relaciones 1:1
 
-En el caso de las relaciones que son unívocas crearemos un atributo en la entidad principal que almacene una referencia a la entidad secundaria. 
+En el caso de las relaciones que son unívocas crearemos un atributo en la entidad principal que almacene una referencia a la entidad secundaria.
 
 Por ejemplo,
 
 ```mermaid
 erDiagram
-	PLANETA ||..|| ORBITA : orbita 
+	PLANETA ||..|| ORBITA : orbita
 ```
 
 En este caso la entidad principal es  `PLANETA` ya que `ORBITA` depende de que el planeta exista:
@@ -57,7 +57,7 @@ Por ejemplo:
 
 ```mermaid
 erDiagram
-	EDITORIAL ||..|{ LIBRO : edita 
+	EDITORIAL ||..|{ LIBRO : edita
 ```
 Si empezamos por la clase `Editorial` todavía no existe la entidad `Libro`.
 ```java
@@ -71,7 +71,7 @@ public class Editorial{
 public class Libro{
     private String titulo;
     private Editorial editorial;
-	
+
 	public Libro(String titulo, Editorial editorial){
         this.titulo = titulo;
         this.editorial = editorial;
@@ -86,18 +86,18 @@ Ahora ya podemos finalizar la clase `Editorial` con la lista de libros y creamos
 public class Editorial{
     private String nombre;
     private Set<Libro> libros;
-    
+
     public Editorial(String nombre){
         this.nombre = nombre;
         this.libros = new HashSet<>();
     }
-    
+
     //Además del setter por defecto, creamos otro para poder añadir un Libro
     public void addLibro(Libro libro){
         this.libros.add(libro);
     }
 	//Se omiten getters y setters
-    
+
 }
 ```
 
@@ -105,24 +105,24 @@ public class Editorial{
 
 ## Relaciones N:M sin atributos
 
-En este caso hemos de crear un `Set` en cada una de las entidades que permita almacenar las entidades de la otra relación:
+En este caso hemos de crear un lista en cada una de las entidades que permita almacenar las entidades de la otra relación:
 
 ```mermaid
 erDiagram
-	LIBRO |{..|{ AUTORES : escribe 
+	LIBRO |{..|{ AUTOR : escribe
 ```
 
 ```java
 public class Libro{
     private String titulo;
     private Set<Autor> autores;
-    
+
     public Libro(String titulo){
         this.titulo = titulo;
         this.autores = new HashSet<>();
     }
 	//Se omiten getters y setters
-    
+
     //Creamos un setter que nos permita añadir un autor a la lista
     public void addAutor(Autor autor){
         this.autores.add(autor);
@@ -134,13 +134,13 @@ public class Libro{
 public class Autor{
     private String nombre;
     private Set<Libro> libros;
-    
+
     public Autor(String nombre){
         this.nombre = nombre;
         this.libros = new HashSet<>();
     }
 	//Se omiten getters y setters
-    
+
     //Creamos un setter que nos permita añadir un libro a la lista
     public void addLibro(Libro libro){
         this.libros.add(libro);
@@ -159,7 +159,7 @@ erDiagram
     PUBLICA {
     	date fecha
     }
-    
+
 ```
 
 En este caso crearemos una nueva clase con referencias a `Libro` y a `Autor`
@@ -179,7 +179,7 @@ Además, en cada parte de la relación crearemos un `Set` para mantener la lista
 public class Libro{
 	//...
     private Set<autor> autores;
-    
+
     //Creamos un setter para poder añadir un autor
     public void addAutor(Autor autor){
         this.autores.add(autor);
@@ -190,7 +190,7 @@ public class Libro{
 ```java
 public class Autor{
     private Set<Libro> libros;
-       
+
     //Creamos un setter para poder añadir un autor
     public void addLibro(Libro libro){
         this.libros.add(libro);
@@ -201,4 +201,3 @@ public class Autor{
 **Adaptado en parte de:**
 
 * [https://www.geeksforgeeks.org/association-composition-aggregation-java/](https://www.geeksforgeeks.org/association-composition-aggregation-java/)
-
