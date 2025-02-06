@@ -1729,7 +1729,7 @@ public class LeerGmaps {
 > ```java
 >     //Reemplazar blancos por +
 >      String albumName = JOptionPane.showInputDialog("???????:").replaceAll("\\s+","+");
->       
+> ```       
 
 ***Fuentes***
 
