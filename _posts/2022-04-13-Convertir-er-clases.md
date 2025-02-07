@@ -92,7 +92,7 @@ public class Editorial{
     public Editorial(String nombre){
         this.nombre = nombre;
         //Debemos inicializar el ArrayList a un ArrayList nuevo para 
-        //que después podamos llamar a this.libros,add(libro). 
+        //que después podamos llamar a this.libros.add(libro). 
         //De lo contrario saltaría el error NullPointerException
         this.libros = new ArrayList<>();
     }
