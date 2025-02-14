@@ -8,6 +8,8 @@ conToc: true
 permalink: chuletario-poo
 ---
 
+<span style='color:green'> (ra2.a, ra2.b, ra2.h, ra2.i, ra4.a, ra4.b, ra4.c, ra4.d, ra4.e, ra4.f, ra4.g, ra4.h, ra4.i, ra6.c, ra7.a, ra7.b. ra7.c, ra7.d, ra7.e, ra7.f)</span>
+
 ## Crear una clase
 
 ```java
