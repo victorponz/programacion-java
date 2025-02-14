@@ -293,6 +293,215 @@ D (2000)
 C (2001)
 ```
 
+## Cómo resolver los ejercicios
+
+### Creación de la clase POJO
+
+Una clase POJO es una clase que representa a una entidad como una `Persona`, un `Animal`, una `Impresora`. Estas clases tienen `campos` para almacenar datos, un constructor para inicializarla y  varios `setters` y `getters`
+
+Por ejemplo:
+
+```java
+package comparable;
+
+public class Member{
+    private String name;
+    private int height;
+
+    public Member(String name, int height) {
+        this.name = name;
+        this.height = height;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    @Override
+    public String toString() {
+        return this.getName() + " (" + this.getHeight() + ")";
+    }
+}
+```
+
+Creamos ahora un `main` para crear una lista con varios `Member`.
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainMember {
+    public static void main(String[] args) {
+        List<Member> members = new ArrayList<>();
+        Member m = new Member("Juan", 180);
+        members.add(m);
+
+        m = new Member("María", 168);
+        members.add(m);
+
+        m = new Member("Andres", 190);
+        members.add(m);
+
+    }
+}
+```
+
+Si ahora intentamos ordenarla va a saltar una `Exception` porque java no sabe cómo ordenarla lista (por `name`?, por `height`? )
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainMember {
+    public static void main(String[] args) {
+        List<Member> members = new ArrayList<>();
+        Member m = new Member("Juan", 180);
+        members.add(m);
+
+        m = new Member("María", 168);
+        members.add(m);
+
+        m = new Member("Andres", 190);
+        members.add(m);
+
+        members.stream()
+                .sorted()
+                .forEach(System.out::println);
+    }
+}
+
+```
+
+Y esta es la `Exception`
+
+```
+Exception in thread "main" java.lang.ClassCastException: class Member cannot be cast to class java.lang.Comparable (comparable.Member is in unnamed module of loader 'app'; java.lang.Comparable is in module java.base of loader 'bootstrap')
+	at java.base/java.util.Comparators$NaturalOrderComparator.compare(Comparators.java:47)
+```
+
+Que nos viene a decir que la clase `Member` no implementa la interfaz `Comparable`
+
+### Interfaz `Comparable`
+
+Por tanto, vamos a hacer que la clase implemente dicha Interfaz.
+
+```java
+package comparable;
+
+public class Member implements Comparable<Member> {
+    private String name;
+    private int height;
+
+    public Member(String name, int height) {
+        this.name = name;
+        this.height = height;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    @Override
+    public String toString() {
+        return this.getName() + " (" + this.getHeight() + ")";
+    }
+
+    @Override
+    public int compareTo(Member other) {
+
+        //Si mi altura es igual a la del otro, devuelve 0. Por tanto, no se toca
+        if (this.height == other.getHeight()) {
+            return 0;
+        } else if (this.height > other.getHeight()) {
+            //Si mi altura es mayor, pasa adelante
+            return 1;
+        } else {
+            //Si mi altura es menor, pasa atrás
+            return -1;
+        }
+        //También se puede hacer de forma resumida
+        //return this.height - other.getHeigh();
+        
+        //Y si queremos ordenar de mayor a menor (fíjate cómo cambia el orden
+        //de this y other)
+        //return other.getHeight() - this.height;
+        
+        // Otra forma de hacerlo sería
+        //return Integer.compare(this.getHeight(), other.getHeight());
+    }
+}
+```
+
+Ahora, la clase debe implementar el método `compareTo` porque así lo indicamos en la clase:
+
+```java
+public class Member implements Comparable<Member> {
+```
+
+Y hemos implementado el método `compareTo` 
+
+```java
+@Override
+public int compareTo(Member other) {
+	//Este método debe devolver un número menor que 0 si this es menor que other
+    //0 si son iguales y un número mayor si this is mayor que other
+    //Si mi altura es igual a la del otro, devuelve 0. Por tanto, no se toca
+    if (this.height == other.getHeight()) {
+        return 0;
+    } else if (this.height > other.getHeight()) {
+        //Si mi altura es mayor, pasa adelante
+        return 1;
+    } else {
+        //Si mi altura es menor, pasa atrás
+        return -1;
+    }
+    //También se puede hacer de forma resumida
+    //return this.height - other.getHeigh();
+    //Y si queremos ordenar de mayor a menor
+    //return other.getHeight() - this.height;
+    // Otro forma de hacerlo sería
+    //return Integer.compare(this.height(), other.getHeight());
+}
+```
+
+La forma más fácil de hacer es simplemente hacer la resta:
+
+```java
+return this.height - other.getHeigh(); //Si queremos de menor a mayor
+```
+
+O de esta forma:
+
+```java
+return other.height - this.getHeigh(); //De mayor a menor
+```
+
+Para otro tipo de datos como `Double` lo más fácil es usar el método:
+
+```java
+Double.compare(this.getHeight(), other.getHeight());//Suponiendo que height sea Double
+```
+
+¿Y qué pasa si deseo ordenar por más campos? Vamos a ordenarlos por `name` y en el caso que sea el mismo, ordenarlo por `height` de menor a mayor.
+
+```java
+if (this.name.equals(other.getName())){
+    return Integer.compare(this.height, other.getHeigh());
+    //O
+    //return this.height, other.getHeigh();
+}else{
+    return this.name.compareTo(other.getName());
+}
+```
+
 >-task-**Ejercicios**
 >
 ><span style='color:green'> (ra2.a, ra2.d, ra2.h, ra3.b, ra3.f, ra4.a, ra4.b, ra4.d, ra4.e, ra5.c, ra5.d, ra6.b, ra6.e, ra6.c, ra6.d)</span>

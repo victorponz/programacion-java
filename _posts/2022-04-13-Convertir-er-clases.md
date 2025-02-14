@@ -20,13 +20,13 @@ La composición es una Asociación **fuerte** mientras que la agregación es **d
 
 ## Relaciones 1:1
 
-En el caso de las relaciones que son unívocas crearemos un atributo en la entidad principal que almacene una referencia a la entidad secundaria. 
+En el caso de las relaciones que son unívocas crearemos un atributo en la entidad principal que almacene una referencia a la entidad secundaria.
 
 Por ejemplo,
 
 ```mermaid
 erDiagram
-	PLANETA ||..|| ORBITA : orbita 
+	PLANETA ||..|| ORBITA : orbita
 ```
 
 En este caso la entidad principal es  `PLANETA` ya que `ORBITA` depende de que el planeta exista:
@@ -57,7 +57,7 @@ Por ejemplo:
 
 ```mermaid
 erDiagram
-	EDITORIAL ||..|{ LIBRO : edita 
+	EDITORIAL ||..|{ LIBRO : edita
 ```
 Si empezamos por la clase `Editorial` todavía no existe la entidad `Libro`.
 ```java
@@ -71,7 +71,7 @@ public class Editorial{
 public class Libro{
     private String titulo;
     private Editorial editorial;
-	
+
 	public Libro(String titulo, Editorial editorial){
         this.titulo = titulo;
         this.editorial = editorial;
@@ -80,24 +80,34 @@ public class Libro{
 }
 ```
 
-Ahora ya podemos finalizar la clase `Editorial` con la lista de libros y creamos un método para poder añadir un libro a la lista.
+Ahora ya podemos finalizar la clase `Editorial` con la lista de libros de su catálogo y creamos un método para poder añadir un libro a la lista.
 
 ```java
 public class Editorial{
     private String nombre;
-    private Set<Libro> libros;
-    
+    //Como estamos en la parte 1 de la relación, creamos una
+    //list con todos los libros de la misma (parte n)
+    private List<Libro> libros;
+
     public Editorial(String nombre){
         this.nombre = nombre;
-        this.libros = new HashSet<>();
+        //Debemos inicializar el ArrayList a un ArrayList nuevo para 
+        //que después podamos llamar a this.libros.add(libro). 
+        //De lo contrario saltaría el error NullPointerException
+        this.libros = new ArrayList<>();
     }
-    
+
     //Además del setter por defecto, creamos otro para poder añadir un Libro
     public void addLibro(Libro libro){
         this.libros.add(libro);
     }
+    //Devolver todos los libros. Como devuelve una lista, el nombre del método
+    //va en plural
+    public List<Libro> getLibros(){
+        return this.libros;
+    }
 	//Se omiten getters y setters
-    
+
 }
 ```
 
@@ -105,27 +115,37 @@ public class Editorial{
 
 ## Relaciones N:M sin atributos
 
-En este caso hemos de crear un `Set` en cada una de las entidades que permita almacenar las entidades de la otra relación:
+En este caso hemos de crear un lista en cada una de las entidades que permita almacenar las entidades de la otra relación:
 
 ```mermaid
 erDiagram
-	LIBRO |{..|{ AUTORES : escribe 
+	LIBRO |{..|{ AUTOR : escribe
 ```
 
 ```java
 public class Libro{
     private String titulo;
-    private Set<Autor> autores;
-    
+    //Como estamos en la parte 1 de la relación, creamos una
+    //list con todos los autores del mismo (parte n)
+    private List<Autor> autores;
+
     public Libro(String titulo){
         this.titulo = titulo;
-        this.autores = new HashSet<>();
+        //Debemos inicializar el ArrayList a un ArrayList nuevo para 
+        //que después podamos llamar a this.autores,add(autor). 
+        //De lo contrario saltaría el error NullPointerException
+        this.autores = new ArrayList<>();
     }
 	//Se omiten getters y setters
-    
+
     //Creamos un setter que nos permita añadir un autor a la lista
     public void addAutor(Autor autor){
         this.autores.add(autor);
+    }
+    //Devolver todos los autores del libro. Como devuelve una lista,
+    //el nombre del método debe estar en plural
+    public List<Libro> getAutores(){
+        return this.autores;
     }
 }
 ```
@@ -133,17 +153,26 @@ public class Libro{
 ```java
 public class Autor{
     private String nombre;
-    private Set<Libro> libros;
-    
+    private List<Libro> libros;
+
     public Autor(String nombre){
         this.nombre = nombre;
-        this.libros = new HashSet<>();
+        //Debemos inicializar el ArrayList a un ArrayList nuevo para 
+        //que después podamos llamar a this.libros,add(libro). 
+        //De lo contrario saltaría el error NullPointerException
+        this.libros = new ArrayList<>();
     }
 	//Se omiten getters y setters
-    
+
     //Creamos un setter que nos permita añadir un libro a la lista
     public void addLibro(Libro libro){
         this.libros.add(libro);
+    }
+    
+    //Devolver todos los libros del autor. Como devuelve una lista,
+    //el nombre del método debe estar en plural
+    public List<Libro> getLibros(){
+        return this.libros;
     }
 }
 ```
@@ -159,7 +188,7 @@ erDiagram
     PUBLICA {
     	date fecha
     }
-    
+
 ```
 
 En este caso crearemos una nueva clase con referencias a `Libro` y a `Autor`
@@ -173,13 +202,13 @@ En este caso crearemos una nueva clase con referencias a `Libro` y a `Autor`
  }
 ```
 
-Además, en cada parte de la relación crearemos un `Set` para mantener la lista de los libros publicados por un autor y la lista de los autores de un libro.
+Además, en cada parte de la relación crearemos un `ArrayList` para mantener la lista de los libros publicados por un autor y la lista de los autores de un libro.
 
 ```java
 public class Libro{
 	//...
-    private Set<autor> autores;
-    
+    private List<autor> autores;
+
     //Creamos un setter para poder añadir un autor
     public void addAutor(Autor autor){
         this.autores.add(autor);
@@ -189,8 +218,8 @@ public class Libro{
 
 ```java
 public class Autor{
-    private Set<Libro> libros;
-       
+    private List<Libro> libros;
+
     //Creamos un setter para poder añadir un autor
     public void addLibro(Libro libro){
         this.libros.add(libro);
@@ -201,4 +230,3 @@ public class Autor{
 **Adaptado en parte de:**
 
 * [https://www.geeksforgeeks.org/association-composition-aggregation-java/](https://www.geeksforgeeks.org/association-composition-aggregation-java/)
-
