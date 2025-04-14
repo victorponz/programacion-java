@@ -606,6 +606,8 @@ O, `"58975", "25894", "52985", "98598"`
 {4=1, 5=2, 8=1}
 ```
 
+> -
+
 **Fuente**
 [https://www.aceptaelreto.com/problem/statement.php?id=387](https://www.aceptaelreto.com/problem/statement.php?id=387)
 
@@ -718,17 +720,11 @@ Luego el programa deberá mostrar la cantidad de alumnos de un país pasado como
 
 > -hint- Acuérdate que en algún ejercicio hemos *dividido* un array en palabras. Ahora se trata de dividirlo por la `,`
 >
-> Para suma 1 a la lista de países;
+> Para sumar 1 a la lista de países;
 >
 > ```java
-> //Cogemos el campo 7 de la línea
-> Integer freq = map.get(data[6]);
-> if (freq==null)
->     map.put(data[6], 1);
-> else
->     map.put(data[6], freq+1);
-> //Que se puede resumir utilizando el operador ternario
-> map.put(data[6], freq==null ? 1: freq+1);
+> //Cogemos el campo 7 de la línea. Si ya está esa clave, le sumamos 1, si no, lo inicializamos 1
+> map.put(splittedLine[6], map.getOrDefault(splittedLine[6] , 1) + 1);
 > ```
 
 ## HashSet
