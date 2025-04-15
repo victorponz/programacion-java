@@ -723,8 +723,9 @@ Luego el programa deberá mostrar la cantidad de alumnos de un país pasado como
 > Para sumar 1 a la lista de países;
 >
 > ```java
-> //Cogemos el campo 7 de la línea. Si ya está esa clave, le sumamos 1, si no, lo inicializamos 1
-> map.put(splittedLine[6], map.getOrDefault(splittedLine[6] , 1) + 1);
+> //Cogemos el campo 7 de la línea. 
+> // Si no está esa clave, la ponemos, la inicializamos a 0 y luego sumamos 1
+> map.put(splittedLine[6], map.getOrDefault(splittedLine[6] , 0) + 1);
 > ```
 
 ## HashSet
