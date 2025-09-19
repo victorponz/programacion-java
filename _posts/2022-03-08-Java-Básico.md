@@ -638,3 +638,27 @@ int secreto = aleatorio.nextInt(100);
 
 Como no sabemos cuántas veces se va a realizar el bucle, usamos un `do..while` 
 
+## 39 Triángulos (M)
+
+Los triángulos se clasifican en 3 tipos:
+
+* Si **todos los ángulos < 90°** → acutángulo.
+
+* Si **uno de los ángulos > 90°** → obtusángulo.
+
+* Si **uno de los ángulos = 90°** → rectángulo. 
+
+![](https://aceptaelreto.com/pub/problems/v001/80/st/statements/Spanish/TiposDeTriangulos.svg)
+
+Pero la forma más sencilla de clasificarlos es a partir de la longitud de los lados.
+
+```
+Sea un triángulo con lados a, b, c donde c es el mayor lado:
+
+Si c² < a² + b² → el triángulo es acutángulo.
+Si c² = a² + b² → es rectángulo.
+Si c² > a² + b² → es obtusángulo.
+```
+Haz un programa que, a partir de la longitud de 3 lados, nos diga qué tipo de triángulo es.
+
+**Fuente:** [](https://aceptaelreto.com/problem/credits.php?id=180&cat=5)
