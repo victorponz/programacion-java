@@ -653,14 +653,13 @@ Los triángulos se clasifican en 3 tipos:
 Además, dados tres lados, no siempre se puede construir un triángulo:
 
 ```
-Los tres lados a,b,c deben cumplir la desigualdad triangular:
+Ningún lado puede ser mayor que la suma de los otros dos:
 a + b > c, a + c > b, b + c > a
 ```
-Una vez sabemoa que se puede formar un triángulo, la forma más sencilla de clasificarlos es a partir de la longitud de los lados.
+Una vez sabemos que se puede formar un triángulo, la forma más sencilla de clasificarlos es a partir de la longitud de los lados.
 
 ```
 Sea un triángulo con lados a, b, c donde c es el mayor lado:
-
 Si c² < a² + b² → el triángulo es acutángulo.
 Si c² = a² + b² → es rectángulo.
 Si c² > a² + b² → es obtusángulo.
