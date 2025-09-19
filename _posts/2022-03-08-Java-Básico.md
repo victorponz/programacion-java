@@ -655,7 +655,6 @@ Además, dados tres lados, no siempre se puede construir un triángulo:
 ```
 Los tres lados a,b,c deben cumplir la desigualdad triangular:
 a + b > c, a + c > b, b + c > a
-a + b > c, a + c > b, b + c >a
 ```
 Una vez sabemoa que se puede formar un triángulo, la forma más sencilla de clasificarlos es a partir de la longitud de los lados.
 
@@ -676,4 +675,4 @@ Haz un programa que, a partir de la longitud de 3 lados, nos diga qué tipo de t
 3 4 7 -> IMPOSIBLE
 ```
 
-**Fuente:** [](https://aceptaelreto.com/problem/credits.php?id=180&cat=5)
+**Fuente:** [https://aceptaelreto.com/problem/statement.php?id=180&cat=5](https://aceptaelreto.com/problem/statement.php?id=180&cat=5)
