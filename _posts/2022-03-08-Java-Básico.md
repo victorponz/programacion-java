@@ -650,7 +650,14 @@ Los triángulos se clasifican en 3 tipos:
 
 ![](https://aceptaelreto.com/pub/problems/v001/80/st/statements/Spanish/TiposDeTriangulos.svg)
 
-Pero la forma más sencilla de clasificarlos es a partir de la longitud de los lados.
+Además, dados tres lados, no siempre se puede construir un triángulo:
+
+```
+Los tres lados a,b,c deben cumplir la desigualdad triangular:
+a + b > c, a + c > b, b + c > a
+a + b > c, a + c > b, b + c >a
+```
+Una vez sabemoa que se puede formar un triángulo, la forma más sencilla de clasificarlos es a partir de la longitud de los lados.
 
 ```
 Sea un triángulo con lados a, b, c donde c es el mayor lado:
@@ -659,6 +666,14 @@ Si c² < a² + b² → el triángulo es acutángulo.
 Si c² = a² + b² → es rectángulo.
 Si c² > a² + b² → es obtusángulo.
 ```
+
 Haz un programa que, a partir de la longitud de 3 lados, nos diga qué tipo de triángulo es.
+
+```
+3 4 4 -> ACUTÁNGULO
+5 3 4 -> RECTÁNGULO
+3 4 6 -> OBTUSÁNGULO
+3 4 7 -> IMPOSIBLE
+```
 
 **Fuente:** [](https://aceptaelreto.com/problem/credits.php?id=180&cat=5)
