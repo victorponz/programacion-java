@@ -19,10 +19,6 @@ El primer concepto que afrontamos el un programa es que **todos trabajan con dat
 
 ![1536599756984](/programacion-java/assets/img/java-basico/1536599756984.png)
 
-Os dejo un [vídeo](https://www.youtube.com/watch?v=bq6nJRJq27A) donde se explican las variables en java
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bq6nJRJq27A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## 2 Un programa que calcula una división y una suma \(enteros\).
 
 ![1536599861891](/programacion-java/assets/img/java-basico/1536599861891.png)
@@ -151,8 +147,6 @@ public static void main(String[] args) {
 }
  ```
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/b2ZtZndiT1Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## 8 Realiza un programa que pida la edad al usuario y muestre un mensaje si es mayor de **edad** (F)
 
 <span style='color:green'>(ra1.a, ra1.c, ra3.a, ra3.e)</span>
@@ -175,8 +169,6 @@ public static void main(String[] args) {
     .....
 }
  ```
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8t5-D5dZu5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## 9 Igual que el anterior pero que también muestre un mensaje si es menor de edad (F) 
 
 <span style='color:green'>(ra1.a, ra1.c, ra3.a, ra3.e)</span>
@@ -295,9 +287,6 @@ switch (UN_ENTERO o un String o un char)
 
 Hay que hacer notar que la condición swith sólo admite un char o un entero  
 ![](/programacion-java/assets/img/java-basico//switch.png)
-
-Os dejo un vídeo del canal de [Píldoras Informáticas](https://www.youtube.com/channel/UCdulIs-x_xrRd1ezwJZR9ww)
-<iframe width="560" height="315" src="https://www.youtube.com/embed/b2ZtZndiT1Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## 15 Realiza un programa que lea un número entero del 1 al 10 y que muestre su valor en letra. (F)
 
@@ -478,10 +467,6 @@ for (int i = 0; i < 10; i++) {
     }
 }
 ```
-
-Os dejo el vídeo de [Píldoras Informáticas](https://www.youtube.com/watch?v=HQz8xwAjCsI&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=18) donde explica los bucles. Mirad además los otros vídeos de la colección a partir de este, donde explica el resto de bucles. Si algo no lo entendéis, haced un *salto de fe*
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HQz8xwAjCsI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## 22 Números positivos (M)
 
