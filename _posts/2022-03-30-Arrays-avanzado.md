@@ -26,12 +26,6 @@ Escribid un programa Java para encontrar los elementos comunes entre dos arrays 
 
 Escribid un programa Java para encontrar todos los pares de elementos en un array cuya suma es igual a un número especificado por el usuario.
 
-## `Iguales.java` (F)
-
-<span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
-
-Escribir un programa Java para probar la igualdad de dos vectores \(en este caso, como será difícil que os dé dos veces el mismo array, igualad el segundo al primero, para probarlo. Esto se hace mediante el método `clone()` del array\).
-
 ## `Eliminar.java` (D)
 
 <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.a)</span>
