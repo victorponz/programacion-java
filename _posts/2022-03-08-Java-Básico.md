@@ -650,10 +650,10 @@ Los triángulos se clasifican en 3 tipos:
 
 ![](https://aceptaelreto.com/pub/problems/v001/80/st/statements/Spanish/TiposDeTriangulos.svg)
 
-Además, dados tres lados, no siempre se puede construir un triángulo:
+Dados tres lados, no siempre se puede construir un triángulo:
 
 ```
-Ningún lado puede ser mayor que la suma de los otros dos:
+Si algún lado es mayor que la suma de los otros dos, no se puede crear un triángulo:
 a + b > c, a + c > b, b + c > a
 ```
 Una vez sabemos que se puede formar un triángulo, la forma más sencilla de clasificarlos es a partir de la longitud de los lados.

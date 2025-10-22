@@ -19,11 +19,35 @@ Una vez identificados estos datos e instrucciones es muy fácil convertirlo en u
 
 ## Número más grande
 
-Tenemos un programa `main` que lee [dos números y muestra cuál es el más grande.](https://gist.github.com/victorponz/10f53524b8528134acc0559404f6051f)
+Tenemos un programa `main` que lee dos números y muestra cuál es el más grande:
 
-<script src="https://gist.github.com/victorponz/10f53524b8528134acc0559404f6051f.js"></script>
+```java
+//Diseña un algoritmo que lea dos valores y muestre el más grande de ellos.
+import java.util.Scanner;
 
-El algoritmo en sí, empieza en la línea 6 y acaba en la 10. Podemos comprobar que las variables **numero** y **numero2** son los datos necesarios para que funcione el algoritmo (es decir, debe conocer los dos valores a comparar) y además su tipo es **int**.
+public class MasGrande {
+	public static void main(String[] argv) {
+        // 1.- Datos
+        Scanner sc = new Scanner(System.in);
+        int numero;
+		int numero2;
+        System.out.println("Introduce 2 números:");
+        numero  = sc.nextInt();
+        numero2 = sc.nextInt();
+
+		// 2 y 3.- Algoritmo e impresión
+		if (numero > numero2) {
+			System.out.println("El número más grande es: " + numero);
+		} else {
+			System.out.println("El número más grande es: " + numero2);
+		}
+	}
+}
+```
+
+
+
+El algoritmo en sí, empieza en la línea 14 y acaba en la 17. Podemos comprobar que las variables **numero** y **numero2** son los datos necesarios para que funcione el algoritmo (es decir, debe conocer los dos valores a comparar) y además su tipo es **int**.
 
 Pero hay que tener en cuenta que un método **NUNCA debe imprimir** en pantalla sino devolver un resultado. El programa que haga uso de este método ya imprimirá si es necesario (o lo enviará por correo electrónico, lo enviará a un sensor, etc).
 
@@ -54,12 +78,31 @@ public static int valorMasGrande(int num1, int num2) {
 Y ahora modificamos el programa `main` para que use este método:
 
 ```java
-public static void main(String argv[]) {
-	int numero = Utilidades.leerEntero("Introduce un número entero:");
-	int numero2 = Utilidades.leerEntero("Introduce otro número entero:");
+import java.util.Scanner;
 
-	System.out.println("El número más grande es: " + valorMasGrande(numero, numero2));
+public class MasGrandeMetodo {
+    public static void main(String[] argv) {
+        // 1.- Datos
+        Scanner sc = new Scanner(System.in);
+        int numero;
+        int numero2;
+        System.out.println("Introduce 2 números:");
+        numero  = sc.nextInt();
+        numero2 = sc.nextInt();
+
+        // 2 y 3.- Algoritmo e impresión
+        System.out.println("El número más grande es: " + valorMasGrande(numero, numero2));
+
+    }
+    public static int valorMasGrande(int num1, int num2) {
+        if (num1 > num2) {
+            return num1;
+        } else {
+            return num2;
+        }
+    }
 }
+
 ```
 Fijaos que ahora quien imprime es `main`, no el algoritmo.
 
