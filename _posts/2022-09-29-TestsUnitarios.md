@@ -110,4 +110,3 @@ Ahora indicar que ha salido mal y además te muestra cuál era el resultado espe
 
 ![image-20231004170449333](/programacion-java/assets/img/tests/image-20231004170449333.png)
 
-Y además te indica en qué linea ha fallado el test.
