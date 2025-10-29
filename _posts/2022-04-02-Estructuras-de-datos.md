@@ -9,7 +9,6 @@ permalink: estructuras-basicas
 ---
 
 ## ArrayList
-[https://classroom.github.com/assignment-invitations/32e19c107fce8d0750dbbae9e655dda7](https://classroom.github.com/assignment-invitations/32e19c107fce8d0750dbbae9e655dda7)
 Hemos visto en el tema de Arrays que éstos tienen un tamaño definido en el momento de la creación y que este tamaño es inmutable.
 
 Si queremos usar este tipo de estructura pero que **pueda cambiar el tamaño**, usaremos `ArrayList`
@@ -351,15 +350,15 @@ Geeks For Geeks
 **Fuente**
 [https://www.geeksforgeeks.org/list-interface-java-examples/](https://www.geeksforgeeks.org/list-interface-java-examples/)
 
-### Ejercicio `Coches` (F)
+### Ejercicio 1 `Coches` (F)
 
 <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
 Realiza un programa que permita al usuario añadir marcas de coches mediante la consola. Si escribe una línea en blanco, se acabará de añadir marcas.
 
-Al final debe imprimirlas ordenadas en líneas separadas
+Al final debe imprimirlas ordenadas en líneas separadas.
 
-### Ejercicio `Altura` (M)
+### Ejercicio 2 `Altura` (M)
 
 <span style='color:green'> <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
@@ -377,7 +376,7 @@ Para resolverlo vamos a utilizar 6 métodos además del método `main`:
 
 
 
-### Repartiendo regalos en tu calle (D)
+### Ejercicio 3 Repartiendo regalos en tu calle (D)
 
 <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
@@ -416,9 +415,9 @@ y `3, 2, 4, 7` cuya salida será
 **Fuente**
 [https://www.aceptaelreto.com/problem/statement.php?id=367](https://www.aceptaelreto.com/problem/statement.php?id=367)
 
-## HashMap, TreeMap y LinkedHashMap
+## HashMap
 
-Esta clases: `HashMap`, `TreeMap` y `LinkedHashMap` nos permite almacenar elementos asociando a cada clave un valor.
+Esta clase nos permite almacenar elementos asociando a cada clave un valor como si se tratara de un diccionario.
 
 Para cada clave tenemos un valor asociado. Podemos después buscar fácilmente un valor para una determinada clave.
 
@@ -517,7 +516,7 @@ System.out.println("La traducción de 'marron' es:" +
                    mapa1.getOrDefault("marrón", "No existe la clave marrón"));
 ```
 
-Para eliminar un elemento de la colección debemos hacer uso del método `remove`, pasamos una clave del mapa:
+Para eliminar un elemento de la colección debemos hacer uso del método `remove`, pasando una clave del mapa:
 
 ```java
 mapa1.remove("rojo");
@@ -529,24 +528,22 @@ Para imprimir el mapa completo en la Consola podemos hacer uso del método `prin
 System.out.println(mapa1);
 ```
 
-Hemos utilizado la clase `HashMap` para resolver el problema. La clase  `TreeMap` es idéntica a `HashMap` con la salvedad que mantiene ordenado los datos por la clave.
-
-Finalmente la clase `LinkedHashMap` mantiene ordenado los elementos del mapa según el orden de inserción.
+Hemos utilizado la clase `HashMap` para resolver el problema.
 
 
-### Ejercicio `PaisCapital.java` (F)
+### Ejercicio 4 `PaisCapital.java` (F)
 
 <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
 Declara un `HashMap` que almacene el país y la capital de varios países Europeos. Luego realiza un programa que pida un País al usuario y muestre su capital.
 
-### Teléfonos (F)
+### Ejercicio Teléfonos (F)
 
 <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
 Queremos tener un guía de teléfonos que asocie un número de teléfono a un contacto. El programa debe pedir un contacto y mostrar su número asociado
 
-### Teléfonos II (F)
+### Ejercicio 6 Teléfonos II (F)
 
 <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
@@ -582,7 +579,7 @@ Se trata de implementar el ejercicio anterior pero un contacto puede tener más 
 
 
 
-### La mejor terminación (M)
+### Ejercicio 7 La mejor terminación (M)
 
 <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
@@ -606,13 +603,11 @@ O, `"58975", "25894", "52985", "98598"`
 {4=1, 5=2, 8=1}
 ```
 
-> -
-
 **Fuente**
 [https://www.aceptaelreto.com/problem/statement.php?id=387](https://www.aceptaelreto.com/problem/statement.php?id=387)
 
 
-### Ejercicio `Botín` (M)
+### Ejercicio 8 `Botín` (M)
 
 <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
@@ -651,7 +646,7 @@ que resultará en
 [https://www.aceptaelreto.com/problem/statement.php?id=238](https://www.aceptaelreto.com/problem/statement.php?id=238)
 
 
-### Ejercicio `Frequency` (F)
+### Ejercicio 9 `Frequency` (F)
 
 <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c)</span>
 
@@ -667,7 +662,7 @@ uno - 1
 dos - 2
 tres - 3
 ```
-### Ejercicio `Anagramas` (M)
+### Ejercicio 10 `Anagramas` (M)
 
 <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra5.d, ra6.b, ra6.e, ra6.c)</span>
 
@@ -708,7 +703,7 @@ Para ordenar una cadena por orden alfabético, usa el siguiente código;
     }
 ```
 
-### Ejemplo `CountCountries` (M)
+### Ejercicio 11 `CountCountries` (M)
 
 <span style='color:green'> (ra3.b, ra3.f, ra5.c, ra5.d, ra6.b, ra6.e, ra6.c)</span>
 
@@ -728,110 +723,11 @@ Luego el programa deberá mostrar la cantidad de alumnos de un país pasado como
 > map.put(splittedLine[6], map.getOrDefault(splittedLine[6] , 0) + 1);
 > ```
 
-## HashSet
 
-Es una colección desordenada de objetos en la que no pueden existir duplicados.
-
-```java
-// Java program Illustrating Set Interface
-
-// Importing utility classes
-import java.util.*;
-
-// Main class
-public class HashSet1 {
-
-	// Main driver method
-	public static void main(String[] args)
-	{
-		// Demonstrating Set using HashSet
-		// Declaring object of type String
-		Set<String> hash_Set = new HashSet<String>();
-
-		// Adding elements to the Set
-		// using add() method
-		hash_Set.add("Geeks");
-		hash_Set.add("For");
-		hash_Set.add("Geeks");
-		hash_Set.add("Example");
-		hash_Set.add("Set");
-
-		// Printing elements of HashSet object
-		System.out.println(hash_Set);
-	}
-}
-
-```
-
-**Salida**
-
-```
-[Set, Example, Geeks, For]
-```
-
-Ejemplo de unión, intersección y diferencia de HashSet
-
-```java
-// Java Program Demonstrating Operations on the Set
-// such as Union, Intersection and Difference operations
-
-// Importing all utility classes
-import java.util.*;
-
-// Main class
-public class SetExample {
-
-	// Main driver method
-	public static void main(String args[])
-	{
-		// Creating an object of Set class
-		// Declaring object of Integer type
-		Set<Integer> a = new HashSet<Integer>();
-
-		// Adding all elements to List
-		a.addAll(Arrays.asList(
-			new Integer[] { 1, 3, 2, 4, 8, 9, 0 }));
-
-	// Again declaring object of Set class
-	// with reference to HashSet
-		Set<Integer> b = new HashSet<Integer>();
-
-	b.addAll(Arrays.asList(
-			new Integer[] { 1, 3, 7, 5, 4, 0, 7, 5 }));
-
-
-		// To find union
-		Set<Integer> union = new HashSet<Integer>(a);
-		union.addAll(b);
-		System.out.print("Union of the two Set");
-		System.out.println(union);
-
-		// To find intersection
-		Set<Integer> intersection = new HashSet<Integer>(a);
-		intersection.retainAll(b);
-		System.out.print("Intersection of the two Set");
-		System.out.println(intersection);
-
-		// To find the symmetric difference
-		Set<Integer> difference = new HashSet<Integer>(a);
-		difference.removeAll(b);
-		System.out.print("Difference of the two Set");
-		System.out.println(difference);
-	}
-}
-```
-
-**Salida**
-
-```
-Union of the two Set[0, 1, 2, 3, 4, 5, 7, 8, 9]
-Intersection of the two Set[0, 1, 3, 4]
-Difference of the two Set[2, 8, 9]
-```
 
 ## Pilas
 
-El marco de Java Collection proporciona una clase `Stack` que modela e implementa una estructura de datos de tipo pila. La clase se basa en el principio básico de último en entrar, primero en salir.
+El marco de Java `Collection` proporciona una clase `Stack` que modela e implementa una estructura de datos de tipo pila. La clase se basa en el principio básico de último en entrar, primero en salir.
 
 <img src="/programacion-java/assets/img/estructuras/stack.png" style="zoom:67%;" />
 
@@ -1040,6 +936,7 @@ public class StackDemo {
 }
 ```
 **Salida**
+
 ```
 Initial Stack: [10, 15, 30, 20, 5]
 Popped element: 5
@@ -1047,24 +944,22 @@ Popped element: 20
 Stack after pop operation [10, 15, 30]
 ```
 
-## Ejercicios
 
-Realiza los siguientes ejercicios:
 
-* [Paréntesis](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#14-par%C3%A9ntesis). **(M)**
+## Ejercicio 12 [Paréntesis](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#14-par%C3%A9ntesis). **(M)**
 
-  > -toogle-Pista
-  >
-  > * Cuando encuentres un símbolo de apertura, añádelo a la pila
-  > * Cuando sea de cierre, saca uno de la pila y comprueba si es el correspondiente. En caso contrario está mal
+> -toogle-Pista
+>
+> * Cuando encuentres un símbolo de apertura, añádelo a la pila
+> * Cuando sea de cierre, saca uno de la pila y comprueba si es el correspondiente. En caso contrario está mal
 
-* [Expresiones aritméticas](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#16-expresiones-aritm%C3%A9ticas) **(M)**
+## Ejercicio 13 [Expresiones aritméticas](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#16-expresiones-aritm%C3%A9ticas) **(M)**
 
-  > -toogle-Pista
-  >
-  > * ve apilando los operandos
-  > * Cuando encuentres un operador, saca dos operandos y aplícale el operador
-
+> -toogle-Pista
+>
+> * ve apilando los operandos
+> * Cuando encuentres un operador, saca dos operandos y aplícale el operador
+## Ejercicio 14 [Los pendientes de la señora Ignacia](https://aceptaelreto.com/problem/statement.php?id=718&cat=21) (F)
 -----
 Adaptado del siguiente material
 
