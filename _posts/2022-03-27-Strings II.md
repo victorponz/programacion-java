@@ -27,7 +27,7 @@ Escribe un programa que muestre la cantidad de dígitos que aparecen en una cade
 
 ## Dígitos II `Digitos2.java` (D)
 
-Escribe un programa que muestre la cantidad de números que aparecen en una cadena. Por ejemplo, la cadena "1  20 hola 234 45a", tiene 3 números. Las palabras **deben** separarse por blancos.
+Escribe un programa que muestre la cantidad de números que aparecen en una cadena. Por ejemplo, la cadena "1 20 hola 234 45a", tiene 3 números. Las palabras **deben** separarse por blancos.
 
 ## Paréntesis `Parentesis.java` (M)
 
@@ -79,7 +79,24 @@ Haz un programa que lea dos cadenas que representen a sendos números binarios. 
 ## Palíndromo `Palindromo`(M)
 Una palabra es palíndroma si se lee igual de derecha a izquierda como de izquierda a derecha. Haz un programa para saber si una palabra es palíndroma.
 
+## Encadenando palabras (M)
 
+A Samuel y a Clara les encanta jugar a encadenar palabras. Si Samuel dice *Mata*, Clara sigue diciendo *Tapa*. Samuel le sigue el juego diciendo *Papa* y Clara remata diciendo *Pato*.
 
+Normalmente no tarda mucho en estallar la discusión cuando alguno piensa que el otro lo ha hecho mal. En realidad Samuel acaba de aprender a leer y a Clara todavía le queda un poco para empezar... así que es  normal que tengan conflictos, pero lo cierto es que sus padres acaban cansados de tantas discusiones.
 
+¿Puedes hacer un programa que les diga a Samuel y a Clara si su lista de palabras encadenadas está bien? No te preocupes por la existencia o inexistencia de las palabras que usan, de eso seguirán ocupándose sus  sufridos padres.
+
+Cada palabra, de un mínimo de 2 caracteres, **está  separada de la siguiente mediante un espacio**. Clara y Samuel no tienen  aún demasiado vocabulario, por lo que podemos asegurar que las palabras  que utilizan están **formadas por sílabas formadas por dos letras**.
+
+Por ejemplo
+
+```
+gugutata -> Sí (solo tiene una sílaba)
+mata tapa papa pato -> Sí
+seto taco coma matute -> No
+sien encima mapa patuco comida -> Sí
+cata tasama malote tejaba batama -> Sí
+kiosko comida -> No
+```
 
