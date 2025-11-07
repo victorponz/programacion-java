@@ -15,7 +15,8 @@ Si queremos usar este tipo de estructura pero que **pueda cambiar el tamaño**, 
 
 ```java
 import java.util.ArrayList; 
-ArrayList<String> coches = new ArrayList<String>();
+import java.util.List; 
+List<String> coches = new ArrayList<>();
 ```
 
 El método para añadir elementos es `add`
@@ -57,6 +58,10 @@ import java.util.Collections;
 ...
 Collections.sort(coches);
 ...
+```
+Para añadir elementos en el momento de la creación:
+```java
+    List<String> names = new ArrayList<>(List.of("Alice", "Bob", "Charlie"));
 ```
 
 Si queremos comprobar si un dato ya está en la lista:
