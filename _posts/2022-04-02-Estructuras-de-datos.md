@@ -500,6 +500,14 @@ De forma similar si queremos recorrer todas las claves del mapa:
 for (String clave : mapa1.keySet())
     System.out.print(clave + "-");
 ```
+Si queremos acceder tanto a la clave como al valor, usaremos:
+
+```java
+for (Map.Entry<String, Integer> entry : map.entrySet()) {
+    System.out.println(entry.getKey() + " => " + entry.getValue());
+}
+```
+Donde `String` es el tipo de dato de la clave y `Integer` es el tipo de dato del valor, y hay que adecuarlo al tipo de datos del mapa.
 
 Para recuperar un valor para una determinada clave llamamos al método `get` y le pasamos la clave a buscar, si dicha clave no existe en el  mapa se nos retorna el valor `null`:
 
