@@ -441,7 +441,7 @@ import java.util.Map;
 
 public class PruebaHashMap {
     public static void main(String[] args) {
-        Map<String, String> mapa1 = new HashMap<String, String>();
+        Map<String, String> mapa1 = new HashMap<>();
         mapa1.put("rojo", "red");
         mapa1.put("verde", "green");
         mapa1.put("azul", "blue");
@@ -473,7 +473,7 @@ public class PruebaHashMap {
 La clase `HashMap` debe implementar la interfaz `Map`, así que se declara como;
 
 ```java
-Map<String, String> mapa1 = new HashMap<String, String>();
+Map<String, String> mapa1 = new HashMap<>();
 ```
 
 La clase `HashMap` utiliza datos genéricos tanto para la clave como para el valor, en este ejemplo la clave y el valor son datos de tipo  **String**.
