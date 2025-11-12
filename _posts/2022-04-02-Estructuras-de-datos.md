@@ -976,7 +976,7 @@ Stack after pop operation [10, 15, 30]
 
 ### Ejercicio 15 El ahorcado (Ms)
 
-> Se trata de implementar una versión del juego del ahorcado. Se tiene una palabra a adivinar, un número de veces que el adivinador puede jugar letra y las propuestas por este. Hay que tener en cuenta que, si el adivinador repite letra, no se cuenta como fallo.
+> Se trata de implementar una versión del juego del ahorcado. Se tiene una palabra a adivinar, un número de veces que el adivinador puede fallar letra y las propuestas por este. Hay que tener en cuenta que, si el adivinador repite letra, no se cuenta como fallo.
 >
 >  La signatura debe ser la siguiente:
 >
