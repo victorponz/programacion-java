@@ -737,6 +737,28 @@ Luego el programa deberá mostrar la cantidad de alumnos de un país pasado como
 > ```
 
 
+### Ejercicio 12 [Los pendientes de la señora Ignacia](https://aceptaelreto.com/problem/statement.php?id=718&cat=21) (F)
+
+
+### Ejercicio 13 El ahorcado (Ms)
+
+> Se trata de implementar una versión del juego del ahorcado. Se tiene una palabra a adivinar, un número de veces que el adivinador puede fallar letra y las propuestas por este. Hay que tener en cuenta que, si el adivinador repite letra, no se cuenta como fallo.
+>
+>  La signatura debe ser la siguiente:
+>
+> ```java
+> public static int ahorcado (int numFallos, String palabraOculta, String letrasPropuestas);
+> ```
+>
+> Donde `numFallos` es el número de veces que se puede fallar, `palabraOculta` es la palabra a adivinar, y `letrasPropuestas` son los caracteres que ha jugado el adivinador 
+>
+> El método devolverá:
+>
+> * un 1 si el adivinador ha ganado
+> * un 2 si el adivinador ha fallado más de `numFallos`
+> * un 3 si todavía está jugando, por ejemplo `ahorcado(7, "jazz", "aeiiiiii") // ni ha perdido ni ganado todavía`
+
+
 
 ## Pilas
 
@@ -957,40 +979,19 @@ Popped element: 20
 Stack after pop operation [10, 15, 30]
 ```
 
-
-
-### Ejercicio 12 [Paréntesis](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#14-par%C3%A9ntesis). **(M)**
+### Ejercicio 14 [Paréntesis](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#14-par%C3%A9ntesis). **(M)**
 
 > -toogle-Pista
 >
 > * Cuando encuentres un símbolo de apertura, añádelo a la pila
 > * Cuando sea de cierre, saca uno de la pila y comprueba si es el correspondiente. En caso contrario está mal
 
-### Ejercicio 13 [Expresiones aritméticas](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#16-expresiones-aritm%C3%A9ticas) **(M)**
+### Ejercicio 15 [Expresiones aritméticas](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#16-expresiones-aritm%C3%A9ticas) **(M)**
 
 > -toogle-Pista
 >
 > * ve apilando los operandos
 > * Cuando encuentres un operador, saca dos operandos y aplícale el operador
-### Ejercicio 14 [Los pendientes de la señora Ignacia](https://aceptaelreto.com/problem/statement.php?id=718&cat=21) (F)
-
-### Ejercicio 15 El ahorcado (Ms)
-
-> Se trata de implementar una versión del juego del ahorcado. Se tiene una palabra a adivinar, un número de veces que el adivinador puede fallar letra y las propuestas por este. Hay que tener en cuenta que, si el adivinador repite letra, no se cuenta como fallo.
->
->  La signatura debe ser la siguiente:
->
-> ```java
-> public static int ahorcado (int numFallos, String palabraOculta, String letrasPropuestas);
-> ```
->
-> Donde `numFallos` es el número de veces que se puede fallar, `palabraOculta` es la palabra a adivinar, y `letrasPropuestas` son los caracteres que ha jugado el adivinador 
->
-> El método devolverá:
->
-> * un 1 si el adivinador ha ganado
-> * un 2 si el adivinador ha fallado más de `numFallos`
-> * un 3 si todavía está jugando, por ejemplo `ahorcado(7, "jazz", "aeiiiiii") // ni ha perdido ni ganado todavía`
 
 -----
 Adaptado del siguiente material
