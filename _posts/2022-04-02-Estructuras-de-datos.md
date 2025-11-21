@@ -961,14 +961,14 @@ Stack after pop operation [10, 15, 30]
 > * Cuando encuentres un operador, saca dos operandos y aplícale el operador
 ### Ejercicio 14 [Los pendientes de la señora Ignacia](https://aceptaelreto.com/problem/statement.php?id=718&cat=21) (F)
 
-### Ejercicio 15 El ahorcado (Ms)
+### Ejercicio 15 El [ahorcado](https://aceptaelreto.com/pub/problems/v006/78/st/statements/Spanish/index.html) (M)
 
-> Se trata de implementar una versión del juego del ahorcado. Se tiene una palabra a adivinar, un número de veces que el adivinador puede jugar letra y las propuestas por este. Hay que tener en cuenta que, si el adivinador repite letra, no se cuenta como fallo.
+> Se trata de implementar una versión del juego del ahorcado. Se tiene una palabra a adivinar, un número de veces que el adivinador puede jugar letra y las letras propuestas por este. Hay que tener en cuenta que, si el adivinador repite letra, no se cuenta como fallo.
 >
 >  La signatura debe ser la siguiente:
 >
 > ```java
-> public static int ahorcado (int numFallos, String palabraOculta, String letrasPropuestas);
+> public static int ahorcado (int numFallos, String palabraOculta, String letrasPropuestas)
 > ```
 >
 > Donde `numFallos` es el número de veces que se puede fallar, `palabraOculta` es la palabra a adivinar, y `letrasPropuestas` son los caracteres que ha jugado el adivinador 
