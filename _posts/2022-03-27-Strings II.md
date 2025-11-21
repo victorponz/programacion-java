@@ -100,3 +100,16 @@ cata tasama malote tejaba batama -> Sí
 kiosko comida -> No
 ```
 
+## Boleto de lotería
+
+Cuando se creo la lotería y se estaban redactando las bases del sorteo, omitieron la coletilla *y en el mismo orden* . Menos mal que se dieron cuenta y lo corrigieron.
+
+El programa trata de averiguar si un boleto comprado coincide con los dígitos del boleto premiado, aunque no estén en el mismo orden.
+
+> Por ejemplo:
+>
+> Premiado: 12345 Boleto: 54321 -> Ha ganado
+>
+> Premiado: 12345 Boleto: 12345 -> Ha ganado
+>
+> Premiado: 89345 Boleto: 89541 -> Ha perdido
