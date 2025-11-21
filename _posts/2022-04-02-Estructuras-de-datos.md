@@ -747,7 +747,7 @@ Luego el programa deberá mostrar la cantidad de alumnos de un país pasado como
 >  La signatura debe ser la siguiente:
 >
 > ```java
-> public static int ahorcado (int numFallos, String palabraOculta, String letrasPropuestas);
+> public static int ahorcado(int maxFallos, String palabraOculta, String letrasPropuestas)
 > ```
 >
 > Donde `numFallos` es el número de veces que se puede fallar, `palabraOculta` es la palabra a adivinar, y `letrasPropuestas` son los caracteres que ha jugado el adivinador 
