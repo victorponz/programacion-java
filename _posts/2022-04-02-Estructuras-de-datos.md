@@ -15,7 +15,8 @@ Si queremos usar este tipo de estructura pero que **pueda cambiar el tamaño**, 
 
 ```java
 import java.util.ArrayList; 
-ArrayList<String> coches = new ArrayList<String>();
+import java.util.List; 
+List<String> coches = new ArrayList<>();
 ```
 
 El método para añadir elementos es `add`
@@ -57,6 +58,10 @@ import java.util.Collections;
 ...
 Collections.sort(coches);
 ...
+```
+Para añadir elementos en el momento de la creación:
+```java
+List<String> names = new ArrayList<>(List.of("Alice", "Bob", "Charlie"));
 ```
 
 Si queremos comprobar si un dato ya está en la lista:
@@ -436,7 +441,7 @@ import java.util.Map;
 
 public class PruebaHashMap {
     public static void main(String[] args) {
-        Map<String, String> mapa1 = new HashMap<String, String>();
+        Map<String, String> mapa1 = new HashMap<>();
         mapa1.put("rojo", "red");
         mapa1.put("verde", "green");
         mapa1.put("azul", "blue");
@@ -468,7 +473,7 @@ public class PruebaHashMap {
 La clase `HashMap` debe implementar la interfaz `Map`, así que se declara como;
 
 ```java
-Map<String, String> mapa1 = new HashMap<String, String>();
+Map<String, String> mapa1 = new HashMap<>();
 ```
 
 La clase `HashMap` utiliza datos genéricos tanto para la clave como para el valor, en este ejemplo la clave y el valor son datos de tipo  **String**.
@@ -495,6 +500,14 @@ De forma similar si queremos recorrer todas las claves del mapa:
 for (String clave : mapa1.keySet())
     System.out.print(clave + "-");
 ```
+Si queremos acceder tanto a la clave como al valor, usaremos:
+
+```java
+for (Map.Entry<String, Integer> entry : map.entrySet()) {
+    System.out.println(entry.getKey() + " => " + entry.getValue());
+}
+```
+Donde `String` es el tipo de dato de la clave y `Integer` es el tipo de dato del valor, y hay que adecuarlo al tipo de datos del mapa.
 
 Para recuperar un valor para una determinada clave llamamos al método `get` y le pasamos la clave a buscar, si dicha clave no existe en el  mapa se nos retorna el valor `null`:
 
@@ -724,6 +737,28 @@ Luego el programa deberá mostrar la cantidad de alumnos de un país pasado como
 > ```
 
 
+### Ejercicio 12 [Los pendientes de la señora Ignacia](https://aceptaelreto.com/problem/statement.php?id=718&cat=21) (F)
+
+
+### Ejercicio 13 El ahorcado (Ms)
+
+> Se trata de implementar una versión del juego del ahorcado. Se tiene una palabra a adivinar, un número de veces que el adivinador puede fallar letra y las propuestas por este. Hay que tener en cuenta que, si el adivinador repite letra, no se cuenta como fallo.
+>
+>  La signatura debe ser la siguiente:
+>
+> ```java
+> public static int ahorcado (int numFallos, String palabraOculta, String letrasPropuestas);
+> ```
+>
+> Donde `numFallos` es el número de veces que se puede fallar, `palabraOculta` es la palabra a adivinar, y `letrasPropuestas` son los caracteres que ha jugado el adivinador 
+>
+> El método devolverá:
+>
+> * un 1 si el adivinador ha ganado
+> * un 2 si el adivinador ha fallado más de `numFallos`
+> * un 3 si todavía está jugando, por ejemplo `ahorcado(7, "jazz", "aeiiiiii") // ni ha perdido ni ganado todavía`
+
+
 
 ## Pilas
 
@@ -944,41 +979,19 @@ Popped element: 20
 Stack after pop operation [10, 15, 30]
 ```
 
-
-
-### Ejercicio 12 [Paréntesis](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#14-par%C3%A9ntesis). **(M)**
+### Ejercicio 14 [Paréntesis](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#14-par%C3%A9ntesis). **(M)**
 
 > -toogle-Pista
 >
 > * Cuando encuentres un símbolo de apertura, añádelo a la pila
 > * Cuando sea de cierre, saca uno de la pila y comprueba si es el correspondiente. En caso contrario está mal
 
-### Ejercicio 13 [Expresiones aritméticas](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#16-expresiones-aritm%C3%A9ticas) **(M)**
+### Ejercicio 15 [Expresiones aritméticas](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#16-expresiones-aritm%C3%A9ticas) **(M)**
 
 > -toogle-Pista
 >
 > * ve apilando los operandos
 > * Cuando encuentres un operador, saca dos operandos y aplícale el operador
-### Ejercicio 14 [Los pendientes de la señora Ignacia](https://aceptaelreto.com/problem/statement.php?id=718&cat=21) (F)
-
-### Ejercicio 15 El [ahorcado](https://aceptaelreto.com/pub/problems/v006/78/st/statements/Spanish/index.html) (M)
-
-> Se trata de implementar una versión del juego del ahorcado. Se tiene una palabra a adivinar, un número de veces que el adivinador puede jugar letra y las letras propuestas por este. Hay que tener en cuenta que, si el adivinador repite letra, no se cuenta como fallo.
->
->  La signatura debe ser la siguiente:
->
-> ```java
-> public static int ahorcado (int numFallos, String palabraOculta, String letrasPropuestas)
-> ```
->
-> Donde `numFallos` es el número de veces que se puede fallar, `palabraOculta` es la palabra a adivinar, y `letrasPropuestas` son los caracteres que ha jugado el adivinador 
->
-> El método devolverá:
->
-> * un 1 si el adivinador ha ganado
-> * un 2 si el adivinador ha fallado más de `numFallos`
-> * un 3 si todavía está jugando, por ejemplo `ahorcado(7, "jazz", "aeiiiiii") // ni ha perdido ni ganado todavía`
-
 -----
 Adaptado del siguiente material
 
