@@ -333,11 +333,14 @@ Se entiende que una secuencia de caracteres está correctamente  equilibrada con
 
 Se trata de implementar un programa que indique si una cadena está  correctamente balanceada con respecto a paréntesis, corchetes y llaves.
 
->
-> ```java
-> assertTrue("Error", parentesis.esBalancenado("[{[(hola)]}]"));
-> assertFalse("Error", parentesis.esBalancenado("{(hola)]}]"));
-> ```
+```java
+assertTrue(Parentesis.esBalanceado("[({hola} esto está )] bien"));
+assertTrue(Parentesis.esBalanceado("(esto) también [es{}tá]{(bien)}"));
+assertFalse(Parentesis.esBalanceado("[({hola} esto NO está )] bien("));
+assertFalse(Parentesis.esBalanceado("(esto tampoco [es{}tá]{(bien)}"));
+assertFalse(Parentesis.esBalanceado("(esto tampoco [es{}tá{(bien)}"));
+assertFalse(Parentesis.esBalanceado("(y esto tampoco)("));
+```
 
 **Créditos**
 **Autor:** [Marco Antonio Gómez Martín](https://www.aceptaelreto.com/user/profile.php?id=5).
@@ -376,14 +379,14 @@ Dada una expresión, nos preguntamos si, al ser considerada escrita en cada una 
 Debes escribir dos métodos, uno para la pila y otro para la cola a los que se pasa una expresión. Cada elemento de la expresión debe estar separado por un espacio en blanco:
 
 ```java
-assertEquals(evaluarExpresion.pila("5 1 2 + 4 * + 3 -"), "14");
-assertEquals(evaluarExpresion.pila("2 4 5 3 / * +"), "6");
-assertEquals(evaluarExpresion.pila("6"), "6");
-assertEquals(evaluarExpresion.pila("3 5 4 + *"), "27");
+    assertEquals(evaluarExpresion.pila("5 1 2 + 4 * + 3 -"), "14");
+    assertEquals(evaluarExpresion.pila("2 4 5 3 / * +"), "6");
+    assertEquals(evaluarExpresion.pila("6"), "6");
+    assertEquals(evaluarExpresion.pila("3 5 4 + *"), "27");
 
-assertEquals(evaluarExpresion.pila("8 1 1 - /"), "ERROR");
-assertEquals(evaluarExpresion.pila("1 1 - 8 /"), "0");
-assertEquals(evaluarExpresion.pila("0 0 /"), "ERROR");
+    assertEquals(evaluarExpresion.pila("8 1 1 - /"), "ERROR");
+    assertEquals(evaluarExpresion.pila("1 1 - 8 /"), "0");
+    assertEquals(evaluarExpresion.pila("0 0 /"), "ERROR");
 ```
 
 **Créditos**
