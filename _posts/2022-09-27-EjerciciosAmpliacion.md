@@ -370,13 +370,11 @@ assertEquals(anyo2013.primeroSerie(2025), 2020);
 
 Las expresiones aritméticas suelen escribirse utilizando lo que se conoce como notación *infija* en la que los operadores se colocan entre los operandos. Esta notación, intuitiva para los humanos, tiene el problema de obligarnos a poner  paréntesis en ciertas ocasiones para cambiar el orden de aplicación de  los operadores.
 
-Por otro lado, la notación *postfija* consiste en colocar el operador *tras los dos operandos*; una de sus ventajas es que no necesita paréntesis. Además es fácilmente evaluable con una pila. El proceso de evaluación consiste en añadir a  la pila los operandos que nos vayamos encontrando. Cuando leemos un  operador, extraemos dos valores de la pila los combinamos con el  operador encontrado (teniendo en cuenta que el primer valor que se  extrae es el segundo operando de la operación) y añadimos el resultado de vuelta.
+Por otro lado, la notación *postfija* consiste en colocar el operador *tras los dos operandos*; una de sus ventajas es que no necesita paréntesis. Además es fácilmente evaluable con una pila. El proceso de evaluación consiste en añadir a  la pila los operandos que nos vayamos encontrando. Cuando leemos un  operador, extraemos dos valores de la pila los combinamos con el operador encontrado (teniendo en cuenta que el primer valor que se extrae es el segundo operando de la operación) y añadimos el resultado de vuelta.
 
-Existe otra posibilidad de notación que sigue la misma idea que la  anterior pero en vez de utilizar una pila para la evaluación, utiliza  una *cola*. Cuando se tienen que añadir elementos a la cola, se hace por detrás, mientras que la extracción se realiza por delante.
+Cada elemento de la expresión debe estar separado por un espacio en blanco; de esta forma, dividiremos mediante `split[" "]` la expresión a evaluar para quedarmos con los operadores y los operandos.
 
-Dada una expresión, nos preguntamos si, al ser considerada escrita en cada una de las dos notaciones, dará el mismo resultado, uno distinto, o incluso si la expresión no será correcta en alguna de las dos (debido a división por cero).
-
-Debes escribir dos métodos, uno para la pila y otro para la cola a los que se pasa una expresión. Cada elemento de la expresión debe estar separado por un espacio en blanco:
+Vamos a suponer que la expresión está **bien formada**
 
 ```java
     assertEquals(14, EvaluarExpresion.evaluarExpresion("5 1 2 + 4 * + 3 -"));
