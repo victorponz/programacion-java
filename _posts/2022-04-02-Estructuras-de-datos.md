@@ -979,19 +979,18 @@ Popped element: 20
 Stack after pop operation [10, 15, 30]
 ```
 
-### Ejercicio 14 [Paréntesis](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#14-par%C3%A9ntesis). **(M)**
+### Ejercicio 14 [Paréntesis](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#par%C3%A9ntesis). **(M)**
 
 > -toogle-Pista
->
-> * Cuando encuentres un símbolo de apertura, añádelo a la pila
+> * Cuando encuentres un símbolo cualquiera de apertura, añádelo a la pila
 > * Cuando sea de cierre, saca uno de la pila y comprueba si es el correspondiente. En caso contrario está mal
+> * Cuando acabes el bucle, has de comprobar que la pila está vacía
 
-### Ejercicio 15 [Expresiones aritméticas](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#16-expresiones-aritm%C3%A9ticas) **(M)**
+### Ejercicio 15 [Expresiones aritméticas](https://victorponz.github.io/programacion-java/ejercicios-ampliacion#expresiones-aritm%C3%A9ticas) **(M)**
 
 > -toogle-Pista
->
 > * ve apilando los operandos
-> * Cuando encuentres un operador, saca dos operandos y aplícale el operador
+> * cuando encuentres un operador, saca dos operandos y aplícale el operador
 -----
 Adaptado del siguiente material
 
