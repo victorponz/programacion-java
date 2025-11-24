@@ -379,14 +379,11 @@ Dada una expresión, nos preguntamos si, al ser considerada escrita en cada una 
 Debes escribir dos métodos, uno para la pila y otro para la cola a los que se pasa una expresión. Cada elemento de la expresión debe estar separado por un espacio en blanco:
 
 ```java
-    assertEquals(evaluarExpresion.pila("5 1 2 + 4 * + 3 -"), "14");
-    assertEquals(evaluarExpresion.pila("2 4 5 3 / * +"), "6");
-    assertEquals(evaluarExpresion.pila("6"), "6");
-    assertEquals(evaluarExpresion.pila("3 5 4 + *"), "27");
-
-    assertEquals(evaluarExpresion.pila("8 1 1 - /"), "ERROR");
-    assertEquals(evaluarExpresion.pila("1 1 - 8 /"), "0");
-    assertEquals(evaluarExpresion.pila("0 0 /"), "ERROR");
+    assertEquals(14, EvaluarExpresion.evaluarExpresion("5 1 2 + 4 * + 3 -"));
+    assertEquals(6, EvaluarExpresion.evaluarExpresion("2 4 5 3 / * +"));
+    assertEquals(6, EvaluarExpresion.evaluarExpresion("6"));
+    assertEquals(27, EvaluarExpresion.evaluarExpresion("3 5 4 + *"));
+    assertEquals(0, EvaluarExpresion.evaluarExpresion("1 1 - 8 /"));
 ```
 
 **Créditos**
