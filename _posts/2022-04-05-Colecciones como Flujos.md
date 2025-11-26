@@ -335,7 +335,7 @@ Hemos elegido `Person::getBirthYear` como valor para calcular la media y devuelt
 >
 ><span style='color:green'> (ra2.d, ra2.h, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
 >
->Recibes una lista de Personas. Imprime cuántas personas tienen un primer apellido que empiece por **A** 
+>Recibes una lista de Personas. Imprime cuántas personas tienen un nombre que empiece por **A** 
 
 >-task-**Ejercicio 3 (F)**
 >
