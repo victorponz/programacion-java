@@ -114,7 +114,7 @@ Realiza un programa que mediante la conversión a `Stream` de un `ArrayList` con
 
 > -hint-Pista
 >
-> Si queremos sumar los datos, hemos de usar un truco
+> Si queremos sumar los datos, hemos de usar un truco, ya que en algunas de las operaciones finales como `sum` o `average` se tiene que mapear a `Integer` aunque ya sea un entero.
 >
 > ```java
 > int suma = numeros.stream()
@@ -122,7 +122,7 @@ Realiza un programa que mediante la conversión a `Stream` de un `ArrayList` con
 >	.sum();
 > ```
 
-Hay que usar `mapToInt(Integer::valueOf)` 
+Hay que usar `mapToInt(Integer::valueOf)` . Más info [aquí](https://chatgpt.com/share/6926ea73-2250-8007-b9e8-02bfcf27e758)
 
 ## Funciones *lambda*
 
@@ -277,10 +277,6 @@ Third
 Fourth
 ```
 
-
-
-
-
 ## Objetos y Streams
 
 El manejo de objetos usando métodos de `stream` es natural.  Las clases `Person` y `Book` se proporcionan a continuación.
@@ -318,8 +314,14 @@ public static void main(String[] args) {
         personas.add(persona);
         double media;
         media = personas.stream()
+            	// Ver el comentario acerca de average()
+            	// Queremos sacar la media del año de nacimiento
                 .mapToInt(Person::getBirthYear)
-                .average().getAsDouble();
+            	// Sacamos la media
+                .average()
+            	// Y la devolvemos como Double
+            	.getAsDouble();
+    
         System.out.println(media);
     }
 ```
@@ -381,12 +383,13 @@ Digamos que tenemos una lista de libros. El cálculo del promedio de los años d
 // Supongamos que tenemos una lista de libros
 // List<Book> books = new ArrayList<>();
 double average = books.stream()
-    //Queremos trabajar con el Autor
+    // Queremos trabajar con el Autor
     .map(book -> book.getAuthor())
-    //Y de él, en año de nacimiento
+    // Y de él, el año de nacimiento
     .mapToInt(author -> author.getBirthYear())
-    //Sacar la media
+    // Sacar la media
     .average()
+    // Y devolverlo como Double
     .getAsDouble();
 
 System.out.println("Average of the authors' birth years: " + average);
