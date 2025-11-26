@@ -277,61 +277,9 @@ Third
 Fourth
 ```
 
-### Operaciones intermedias
 
-Las operaciones de flujo intermedio son métodos que devuelven un flujo. Dado que el valor devuelto es un flujo, podemos llamar secuencialmente a las operaciones intermedias. Las operaciones intermedias típicas incluyen convertir un valor de una forma a otra utilizando `map` y su forma más específica `mapToInt` utilizada para convertir una secuencia en una secuencia de enteros. Otros incluyen filtrar valores con `filter`, identificar valores únicos con `distinct` y organizar valores con `sorted` (si es posible).
 
-Veamos estos métodos en acción a través de algunos problemas. Digamos que tenemos la siguiente clase `Person`.
 
-```java
-public class Person {
-    private String firstName;
-    private String lastName;
-    private int birthYear;
-
-    public Person(String firstName, String lastName, int birthYear) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthYear = birthYear;
-    }
-
-    public String getFirstName() {
-        return this.firstName;
-    }
-
-    public String getLastName() {
-        return this.lastName;
-    }
-
-    public int getBirthYear() {
-        return this.birthYear;
-    }
-}
-```
-
->-task-**Problema 1** 
->
-><span style='color:green'> (ra2.d, ra2.h, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
->
->Recibes una lista de Personas. Imprime cuántas son las personas que nacieron antes de 1970:
-
->-task-**Ejercicio 2 (F)**  
->
-><span style='color:green'> (ra2.d, ra2.h, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
->
->Recibes una lista de Personas. Imprime cuántas personas tienen un primer apellido que empiece por **A** 
-
->-task-**Ejercicio 3 (F)**
->
-><span style='color:green'> (ra2.d, ra2.h, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
->
->Recibes una lista de Personas. Imprime los nombres que son únicos en orden alfabético
-
->-task-**Ejercicio 4 (F)**  
->
-><span style='color:green'> (ra2.d, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
->
->Escribe un programa que lea la entrada del usuario. Cuando el usuario da un número negativo como entrada, la lectura de entrada se detendrá. Después de esto, imprime todos los números que el usuario ha dado como entrada que están entre 1 y 5 con el uso de `streams`
 
 ## Objetos y Streams
 
@@ -360,6 +308,46 @@ public class Person {
     }
 }
 ```
+Por ejemplo, vamos a obtener la media del año de nacimiento:
+```java
+public static void main(String[] args) {
+        Person persona = new Person("Juan", "Pérez", 1980);
+        List<Person> personas = new ArrayList<>();
+        personas.add(persona);
+        persona = new Person("María", "Pacheo", 1950);
+        personas.add(persona);
+        double media;
+        media = personas.stream()
+                .mapToInt(Person::getBirthYear)
+                .average().getAsDouble();
+        System.out.println(media);
+    }
+```
+Hemos elegido `Person::getBirthYear` como valor para calcular la media y devuelto la media mediante `average().getAsDouble().
+
+>-task-**Problema 1** 
+>
+><span style='color:green'> (ra2.d, ra2.h, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
+>
+>Recibes una lista de Personas. Imprime cuántas son las personas que nacieron antes de 1970:
+
+>-task-**Ejercicio 2 (F)**  
+>
+><span style='color:green'> (ra2.d, ra2.h, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
+>
+>Recibes una lista de Personas. Imprime cuántas personas tienen un primer apellido que empiece por **A** 
+
+>-task-**Ejercicio 3 (F)**
+>
+><span style='color:green'> (ra2.d, ra2.h, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
+>
+>Recibes una lista de Personas. Imprime los nombres que son únicos en orden alfabético
+
+>-task-**Ejercicio 4 (F)**  
+>
+><span style='color:green'> (ra2.d, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
+>
+>Escribe un programa que lea la entrada del usuario. Cuando el usuario da un número negativo como entrada, la lectura de entrada se detendrá. Después de esto, imprime todos los números que el usuario ha dado como entrada que están entre 1 y 5 con el uso de `streams`
 
 ```java
 public class Book {
@@ -425,5 +413,4 @@ books.stream()
 Adaptado del siguiente material
 
 * [https://java-programming.mooc.fi/part-10/1-handling-collections-as-streams](https://java-programming.mooc.fi/part-10/1-handling-collections-as-streams) 
-
 
