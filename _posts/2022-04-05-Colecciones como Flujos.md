@@ -323,7 +323,7 @@ public static void main(String[] args) {
         System.out.println(media);
     }
 ```
-Hemos elegido `Person::getBirthYear` como valor para calcular la media y devuelto la media mediante `average().getAsDouble().
+Hemos elegido `Person::getBirthYear` como valor para calcular la media y devuelto la media mediante `.average().getAsDouble()`.
 
 >-task-**Problema 1** 
 >
