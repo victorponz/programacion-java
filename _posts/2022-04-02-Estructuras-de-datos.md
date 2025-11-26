@@ -991,8 +991,9 @@ Stack after pop operation [10, 15, 30]
 > -toogle-Pista
 > * ve apilando los operandos
 > * cuando encuentres un operador, saca dos operandos y aplícale el operador
------
-Adaptado del siguiente material
+
+
+**Adaptado del siguiente material**
 
 * [https://www.geeksforgeeks.org/stack-class-in-java/](https://www.geeksforgeeks.org/stack-class-in-java/)
 
