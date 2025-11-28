@@ -24,7 +24,7 @@ Comencemos a comprender el uso de flujos a través de un ejemplo concreto. Consi
 >
 > Escribe un programa que a partir de un `ArrayList` con números en formato de cadena imprima el número de enteros positivos divisibles por tres y el promedio de todos los valores.
 
-Vamos a implemertarlo de la manera tradicional:
+Vamos a implementarlo de la manera tradicional:
 
 ```java
 import java.util.ArrayList;
@@ -97,14 +97,14 @@ long cuantos = numeros.stream()
                 //convertimos a Int 
                 .mapToInt(s -> Integer.valueOf(s))
                 //filtramos los que sean múltiplo de 3
-                .filter(number -> number % 3 == 0)
+                .filter(number -> number % 3 == 0
                 //y los contamos
                 .count();
 ```
 
 Se puede convertir a `Stream` cualquier objeto de la implemente la interfaz `Collection` (Como `ArrayList`, `HashSet`, `HashMap`, etc)
 
-Luego lo convertimos a entero en la línea 3 y le aplicamos un filtro. Este es del estilo (valor -> condición del filtro). Cuando aplicamos el filtro, ya sólo nos queda 1 elemento en el `Stream`,
+Luego lo convertimos a entero en la línea 3 y le aplicamos un filtro. Este es del estilo `valor -> condición del filtro`. Cuando aplicamos el filtro, ya sólo nos queda 1 elemento en el `Stream`,
 
 ## Suma de positivos o negativos
 
@@ -152,6 +152,45 @@ Long mayoresDeCinco = numeros.stream()
                     .count();
 ```
 
+## Más ejemplos
+
+* Realizar alguna operación a los valores de un `ArrayList`
+
+  ```java
+  // Vamos a duplicar el valor de los elementos positivos de un `ArrayList`
+  List<Integer> numeros = new ArrayList<>(List.of(25, 2, 20, -1, -5));
+  
+  List<Integer> duplicada = numeros.stream()
+          .filter(n -> n > 0) // Sólo los positivos
+          .map(n -> 2 * n) // map es para transformar los valores del stream
+          .toList(); // Es una forma abreviada de .collect(Collectors.toList())
+  
+  System.out.println(duplicada.toString());
+  ```
+* Obtener los nombres únicos en mayúsculas
+
+  ```java
+  List<String> names = new ArrayList<>(List.of("Ana", "luis", "ANA", "María"));
+  
+  List<String> unicos = names.stream()
+          .map(String::toUpperCase)        // Transforma en mayúsculas
+          .distinct()                      // Extrae elementos únicos
+          .toList();                       // Devolvemos la lista
+  ```
+
+* Media de una lista de valores pares
+
+  ```java
+  List<Integer> numeros2 = new ArrayList<>(List.of(25, 2, 20, 23));
+  
+  double media = numeros.stream()
+          .filter(n -> n % 2 == 0)    // Sólo los pares.
+          .mapToInt(Integer::valueOf) // Se debe convertir a un IntStream para que tenga el método average
+          .average().getAsDouble(); // Sacamos la media y obtenemos el valor
+  
+  System.out.printf("La media es: %f%n", media);
+  ```
+
 ## Métodos de `Stream`
 
 Los métodos de flujo se pueden dividir aproximadamente en dos categorías: 
@@ -177,7 +216,9 @@ values.add(17);
 values.add(6);
 values.add(8);
 
-System.out.println("Cuántos: " + values.stream().filter(n -> n > 5).count());
+System.out.println("Cuántos: " + values.stream()
+                   					.filter(n -> n > 5) // Sólo los mayores de 5
+                   					.count()); // Y ahora contarlos
 ```
 
 Cuyo resultado es:
@@ -197,8 +238,11 @@ values.add(6);
 values.add(8);
 
 values.stream()
-    .filter(value -> value % 2 == 0)
-    .forEach(value -> System.out.println(value));
+    .filter(value -> value % 2 == 0) // Siempre debe devolver un booleano
+    .forEach(System.out::println);
+	// Cuando el método sólo recibe un parámetro, se puede escribir como arriba. Se escribe la clase luego : y el 
+	// nombre del método sin paréntesis
+    //.forEach(value -> System.out.println(value));
 ```
 
 Cuyo resultado es:
