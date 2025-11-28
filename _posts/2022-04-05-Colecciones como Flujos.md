@@ -358,8 +358,8 @@ public static void main(String[] args) {
         personas.add(persona);
         double media;
         media = personas.stream()
-            	// Ver el comentario acerca de average()
-            	// Queremos sacar la media del año de nacimiento
+            	// Queremos sacar la media del año de nacimiento.
+            	// Por eso, hemos de mapear (convertir) este atributo de Persona a Integer
                 .mapToInt(Person::getBirthYear)
             	// Sacamos la media
                 .average()
@@ -388,12 +388,6 @@ Hemos elegido `Person::getBirthYear` como valor para calcular la media y devuelt
 ><span style='color:green'> (ra2.d, ra2.h, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
 >
 >Recibes una lista de Personas. Imprime los nombres que son únicos en orden alfabético
-
->-task-**Ejercicio 4 (F)**  
->
-><span style='color:green'> (ra2.d, ra3.b, ra3.f, ra5.c, ra6.b, ra6.e, ra6.c, ra6.d)</span>
->
->Escribe un programa que lea la entrada del usuario. Cuando el usuario da un número negativo como entrada, la lectura de entrada se detendrá. Después de esto, imprime todos los números que el usuario ha dado como entrada que están entre 1 y 5 con el uso de `streams`
 
 ```java
 public class Book {
@@ -427,7 +421,7 @@ Digamos que tenemos una lista de libros. El cálculo del promedio de los años d
 // Supongamos que tenemos una lista de libros
 // List<Book> books = new ArrayList<>();
 double average = books.stream()
-    // Queremos trabajar con el Autor
+    // Queremos trabajar con el Autor del libro
     .map(book -> book.getAuthor())
     // Y de él, el año de nacimiento
     .mapToInt(author -> author.getBirthYear())
@@ -436,9 +430,9 @@ double average = books.stream()
     // Y devolverlo como Double
     .getAsDouble();
 
-System.out.println("Average of the authors' birth years: " + average);
+System.out.println("Media del año de nacimiento: " + average);
 
-// the mapping of a book to an author could also be done with a single map call
+// El mapeo se podría resumir como sigue
 // double average = books.stream()
 //     .mapToInt(book -> book.getAuthor().getBirthYear())
 //     ...
