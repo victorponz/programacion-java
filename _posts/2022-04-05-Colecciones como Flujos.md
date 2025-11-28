@@ -418,21 +418,31 @@ public class Book {
 Digamos que tenemos una lista de libros. El cálculo del promedio de los años de nacimiento de los autores se puede hacer usando métodos de flujo de una manera que se sienta natural. Primero, convertimos el `stream` de libros en un `stream` de personas, y luego convertimos el `stream` de personas en una `stream` de años de nacimiento. Finalmente, le pedimos al `stream` (entero) un promedio.
 
 ```java
-// Supongamos que tenemos una lista de libros
-// List<Book> books = new ArrayList<>();
+List<Book> books = new ArrayList<>();
+Person autor = new Person("Cervantes", 1547);
+Book book = new Book(autor, "Quijote", 500);
+books.add(book);
+
+book = new Book(autor, "Entremeses", 200);
+books.add(book);
+
+autor = new Person("Shakespeare", 1564);
+book = new Book(autor, "Hamlet", 300);
+books.add(book);
+
+
 double average = books.stream()
-    // Queremos trabajar con el Autor del libro
-    .map(book -> book.getAuthor())
-    // Y de él, el año de nacimiento
-    .mapToInt(author -> author.getBirthYear())
-    // Sacar la media
-    .average()
-    // Y devolverlo como Double
-    .getAsDouble();
+        // Queremos trabajar con el Autor del libro
+        .map(Book::getAuthor)
+        // Y de él, el año de nacimiento
+        .mapToInt(Person::getBirthYear)
+        // Sacar la media
+        .average()
+        // Y devolverlo como Double
+        .getAsDouble();
 
 System.out.println("Media del año de nacimiento: " + average);
-
-// El mapeo se podría resumir como sigue
+// El mapeo se podría resumir como sigue    
 // double average = books.stream()
 //     .mapToInt(book -> book.getAuthor().getBirthYear())
 //     ...
