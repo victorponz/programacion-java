@@ -161,7 +161,7 @@ persons.stream().sorted((p1, p2) -> {
 
 System.out.println();
 
-persons.stream().forEach(p -> System.out.println(p.getName()));
+persons.stream().forEach(System.out::println));
 
 System.out.println();
 
@@ -487,7 +487,8 @@ return other.height - this.getHeigh(); //De mayor a menor
 Para otro tipo de datos como `Double` lo más fácil es usar el método:
 
 ```java
-Double.compare(this.getHeight(), other.getHeight());//Suponiendo que height sea Double
+Double.compare(this.getHeight(), other.getHeight());//Suponiendo que height sea Double, de menor a mayor Double.compare(other.getHeight(), this.getHeight());//Suponiendo que height sea Double, de mayor a mayor
+
 ```
 
 ¿Y qué pasa si deseo ordenar por más campos? Vamos a ordenarlos por `name` y en el caso que sea el mismo, ordenarlo por `height` de menor a mayor.
@@ -518,5 +519,4 @@ if (this.name.equals(other.getName())){
 Adaptado del siguiente material
 
 * [https://java-programming.mooc.fi/part-10/2-interface-comparable](https://java-programming.mooc.fi/part-10/2-interface-comparable)
-
 
