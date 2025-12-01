@@ -144,7 +144,7 @@ persons.add(new Person("Grace Hopper", 1906));
 persons.add(new Person("Mary Coombs", 1929));
 ```
 
-Queremos ordenar la lista sin tener que implementar la interfaz `Comparable`.
+ Queremos ordenar la lista sin tener que implementar la interfaz `Comparable`.
 
 Tanto el método `sort` de la clase `Collections` como el método `sorted` del `stream` aceptan una expresión lambda como parámetro que define los criterios de clasificación. Más específicamente, ambos métodos se pueden proporcionar con un objeto que implementa la interfaz `Comparator`, que define el orden deseado: la expresión lambda se usa para crear este objeto.
 
@@ -497,7 +497,6 @@ Para otro tipo de datos como `Double` lo más fácil es usar el método:
 ```java
 Double.compare(this.getHeight(), other.getHeight());//Suponiendo que height sea Double, de menor a mayor
 Double.compare(other.getHeight(), this.getHeight());//Suponiendo que height sea Double, de mayor a mayor
-
 ```
 
 ¿Y qué pasa si deseo ordenar por más campos? Vamos a ordenarlos por `name` y en el caso que sea el mismo, ordenarlo por `height` de menor a mayor.
@@ -529,3 +528,6 @@ Adaptado del siguiente material
 
 * [https://java-programming.mooc.fi/part-10/2-interface-comparable](https://java-programming.mooc.fi/part-10/2-interface-comparable)
 
+> [!TIP]
+>
+> prueba
