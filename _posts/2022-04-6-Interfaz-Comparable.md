@@ -333,7 +333,7 @@ public class Ejemplo {
 
     public static void main(String[] args) {
         List<Member> members = new ArrayList<>();
-        // Añadimos varios miembrso
+        // Añadimos varios miembros
         Member m = new Member("Juan", 180);
         members.add(m);
 
@@ -351,27 +351,21 @@ public class Ejemplo {
 Si ahora intentamos ordenarla va a saltar una `Exception` porque java no sabe cómo ordenarla lista (por `name`?, por `height`? )
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
+public static void main(String[] args) {
+    List<Member> members = new ArrayList<>();
+    Member m = new Member("Juan", 180);
+    members.add(m);
 
-public class MainMember {
-    public static void main(String[] args) {
-        List<Member> members = new ArrayList<>();
-        Member m = new Member("Juan", 180);
-        members.add(m);
+    m = new Member("María", 168);
+    members.add(m);
 
-        m = new Member("María", 168);
-        members.add(m);
+    m = new Member("Andres", 190);
+    members.add(m);
 
-        m = new Member("Andres", 190);
-        members.add(m);
-
-        members.stream()
-                .sorted()
-                .forEach(System.out::println);
-    }
+    members.stream()
+            .sorted()
+            .forEach(System.out::println);
 }
-
 ```
 
 Y esta es la `Exception`
@@ -388,52 +382,71 @@ Que nos viene a decir que la clase `Member` no implementa la interfaz `Comparabl
 Por tanto, vamos a hacer que la clase implemente dicha Interfaz.
 
 ```java
-package comparable;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Member implements Comparable<Member> {
-    private String name;
-    private int height;
+public class Ejemplo{
+    static class Member implements Comparable<Member>{
 
-    public Member(String name, int height) {
-        this.name = name;
-        this.height = height;
-    }
+        private String name;
+        private int height;
 
-    public String getName() {
-        return this.name;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    @Override
-    public String toString() {
-        return this.getName() + " (" + this.getHeight() + ")";
-    }
-
-    @Override
-    public int compareTo(Member other) {
-
-        //Si mi altura es igual a la del otro, devuelve 0. Por tanto, no se toca
-        if (this.height == other.getHeight()) {
-            return 0;
-        } else if (this.height > other.getHeight()) {
-            //Si mi altura es mayor, pasa adelante
-            return 1;
-        } else {
-            //Si mi altura es menor, pasa atrás
-            return -1;
+        public Member(String name, int height) {
+            this.name = name;
+            this.height = height;
         }
-        //También se puede hacer de forma resumida
-        //return this.height - other.getHeigh();
-        
-        //Y si queremos ordenar de mayor a menor (fíjate cómo cambia el orden
-        //de this y other)
-        //return other.getHeight() - this.height;
-        
-        // Otra forma de hacerlo sería
-        //return Integer.compare(this.getHeight(), other.getHeight());
+
+        public String getName() {
+            return this.name;
+        }
+
+        public int getHeight() {
+            return this.height;
+        }
+
+        @Override
+        public String toString() {
+            return this.getName() + " (" + this.getHeight() + ")";
+        }
+
+        @Override
+        public int compareTo(Member other){
+            //Si mi altura es igual a la del otro, devuelve 0. Por tanto, no se toca
+            if (this.height == other.getHeight()) {
+                return 0;
+            } else if (this.height > other.getHeight()) {
+                //Si mi altura es mayor, pasa adelante
+                return 1;
+            } else {
+                //Si mi altura es menor, pasa atrás
+                return -1;
+            }
+            //También se puede hacer de forma resumida
+            //return this.height - other.getHeigh();
+
+            //Y si queremos ordenar de mayor a menor (fíjate cómo cambia el orden
+            //de this y other)
+            //return other.getHeight() - this.height;
+
+            // Otra forma de hacerlo sería
+            //return Integer.compare(this.getHeight(), other.getHeight());
+        }
+    }
+
+    public static void main(String[] args) {
+        List<Member> members = new ArrayList<>();
+        Member m = new Member("Juan", 180);
+        members.add(m);
+
+        m = new Member("María", 168);
+        members.add(m);
+
+        m = new Member("Andres", 190);
+        members.add(m);
+
+        members.stream()
+                .sorted()
+                .forEach(System.out::println);
     }
 }
 ```
