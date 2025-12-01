@@ -496,7 +496,7 @@ Double.compare(this.getHeight(), other.getHeight());//Suponiendo que height sea 
 if (this.name.equals(other.getName())){
     return Integer.compare(this.height, other.getHeigh());
     //O
-    //return this.height, other.getHeigh();
+    //return this.height - other.getHeigh();
 }else{
     return this.name.compareTo(other.getName());
 }
