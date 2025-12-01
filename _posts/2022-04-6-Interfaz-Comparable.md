@@ -302,41 +302,38 @@ Una clase POJO es una clase que representa a una entidad como una `Persona`, un 
 Por ejemplo:
 
 ```java
-package comparable;
-
-public class Member{
-    private String name;
-    private int height;
-
-    public Member(String name, int height) {
-        this.name = name;
-        this.height = height;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    @Override
-    public String toString() {
-        return this.getName() + " (" + this.getHeight() + ")";
-    }
-}
-```
-
-Creamos ahora un `main` para crear una lista con varios `Member`.
-
-```java
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainMember {
+public class Ejemplo {
+    //Fíjate que no lleva public y es static
+    static class Member {
+
+        private String name;
+        private int height;
+
+        public Member(String name, int height) {
+            this.name = name;
+            this.height = height;
+        }
+
+        public String getName() {
+            return this.name;
+        }
+
+        public int getHeight() {
+            return this.height;
+        }
+
+        @Override
+        public String toString() {
+            return this.getName() + " (" + this.getHeight() + ")";
+        }
+    }
+
     public static void main(String[] args) {
         List<Member> members = new ArrayList<>();
+        // Añadimos varios miembrso
         Member m = new Member("Juan", 180);
         members.add(m);
 
@@ -345,10 +342,11 @@ public class MainMember {
 
         m = new Member("Andres", 190);
         members.add(m);
-
     }
 }
 ```
+
+
 
 Si ahora intentamos ordenarla va a saltar una `Exception` porque java no sabe cómo ordenarla lista (por `name`?, por `height`? )
 
