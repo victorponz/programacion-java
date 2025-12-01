@@ -481,13 +481,22 @@ return this.height - other.getHeigh(); //Si queremos de menor a mayor
 O de esta forma:
 
 ```java
-return other.height - this.getHeigh(); //De mayor a menor
+return other.height - this.height(); //De mayor a menor
+```
+
+O usando el método `compareTo` de la clase `Integer`
+
+```java
+return Integer.compare(this.height, other.height);
+// O
+return Integer.compare(other.height, this.height);
 ```
 
 Para otro tipo de datos como `Double` lo más fácil es usar el método:
 
 ```java
-Double.compare(this.getHeight(), other.getHeight());//Suponiendo que height sea Double, de menor a mayor Double.compare(other.getHeight(), this.getHeight());//Suponiendo que height sea Double, de mayor a mayor
+Double.compare(this.getHeight(), other.getHeight());//Suponiendo que height sea Double, de menor a mayor
+Double.compare(other.getHeight(), this.getHeight());//Suponiendo que height sea Double, de mayor a mayor
 
 ```
 
