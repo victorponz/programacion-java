@@ -528,6 +528,3 @@ Adaptado del siguiente material
 
 * [https://java-programming.mooc.fi/part-10/2-interface-comparable](https://java-programming.mooc.fi/part-10/2-interface-comparable)
 
-> [!TIP]
->
-> prueba
