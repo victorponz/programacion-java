@@ -61,7 +61,7 @@ public int compareTo(Member member) {
 }
 ```
 
-Dado que la clase `Member` implementa la interfaz `Comparable`, es posible ordenar la lista utilizando el método ordenado. De hecho, los objetos de cualquier clase que implementen la interfaz Comparable se pueden ordenar mediante el método de ordenación. Ten en cuenta, sin embargo, que una transmisión no ordena la lista original; solo se ordenan los elementos de la transmisión.
+Dado que la clase `Member` implementa la interfaz `Comparable`, es posible ordenar la lista utilizando el método ordenado. De hecho, los objetos de cualquier clase que implementen la interfaz `Comparable` se pueden ordenar mediante el método de ordenación. Ten en cuenta, sin embargo, que una transmisión **no ordena la lista original**; solo se ordenan los elementos de la transmisión.
 
 Si un programador quiere organizar la lista original, se debe usar el método de clasificación de la clase `Collections`. Esto, por supuesto, asume que los objetos en la lista implementan la interfaz `Comparable`.
 
@@ -75,11 +75,13 @@ members.add(new Member("ada", 184));
 
 members.stream().forEach(System.out::println);
 System.out.println();
-// sorting the stream that is to be printed using the sorted method
+// Aquí se ordenana para imprimirlos
 members.stream().sorted().forEach(System.out::println);
+// Aquí se impreime la lista original sin ordenar
 members.stream().forEach(System.out::println);
-// sorting a list with the sort-method of the Collections class
+// Aquí la lista original SÍ que se ordena,
 Collections.sort(members);
+// por tanto, la imprime ordenada
 members.stream().forEach(System.out::println);
 ```
 
@@ -306,7 +308,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ejemplo {
-    //Fíjate que no lleva public y es static
+    // Es static porque `main` es static. De lo contrario no podríamos crear objetos Member
     static class Member {
 
         private String name;
@@ -345,8 +347,6 @@ public class Ejemplo {
     }
 }
 ```
-
-
 
 Si ahora intentamos ordenarla va a saltar una `Exception` porque java no sabe cómo ordenarla lista (por `name`?, por `height`? )
 
@@ -409,21 +409,11 @@ public class Ejemplo{
             return this.getName() + " (" + this.getHeight() + ")";
         }
 
+        // Al implementar la interfaz, debe sobrescribir el método compareTo. En otro caso, la clase no compila
         @Override
         public int compareTo(Member other){
-            //Si mi altura es igual a la del otro, devuelve 0. Por tanto, no se toca
-            if (this.height == other.getHeight()) {
-                return 0;
-            } else if (this.height > other.getHeight()) {
-                //Si mi altura es mayor, pasa adelante
-                return 1;
-            } else {
-                //Si mi altura es menor, pasa atrás
-                return -1;
-            }
-            //También se puede hacer de forma resumida
-            //return this.height - other.getHeigh();
-
+            // Ordenamos de menor a mayor
+        	return this.height - other.getHeigh();
             //Y si queremos ordenar de mayor a menor (fíjate cómo cambia el orden
             //de this y other)
             //return other.getHeight() - this.height;
@@ -461,38 +451,28 @@ Y hemos implementado el método `compareTo`
 
 ```java
 @Override
-public int compareTo(Member other) {
-	//Este método debe devolver un número menor que 0 si this es menor que other
-    //0 si son iguales y un número mayor si this is mayor que other
-    //Si mi altura es igual a la del otro, devuelve 0. Por tanto, no se toca
-    if (this.height == other.getHeight()) {
-        return 0;
-    } else if (this.height > other.getHeight()) {
-        //Si mi altura es mayor, pasa adelante
-        return 1;
-    } else {
-        //Si mi altura es menor, pasa atrás
-        return -1;
-    }
-    //También se puede hacer de forma resumida
-    //return this.height - other.getHeigh();
-    //Y si queremos ordenar de mayor a menor
+public int compareTo(Member other){
+    // Ordenamos de menor a mayor
+    return this.height - other.getHeigh();
+    //Y si queremos ordenar de mayor a menor (fíjate cómo cambia el orden
+    //de this y other)
     //return other.getHeight() - this.height;
-    // Otro forma de hacerlo sería
-    //return Integer.compare(this.height(), other.getHeight());
+
+    // Otra forma de hacerlo sería
+    //return Integer.compare(this.getHeight(), other.getHeight());
 }
 ```
 
 La forma más fácil de hacer es simplemente hacer la resta:
 
 ```java
-return this.height - other.getHeigh(); //Si queremos de menor a mayor
+return this.height - other.getHeigh(); // Si queremos de menor a mayor
 ```
 
 O de esta forma:
 
 ```java
-return other.height - this.height(); //De mayor a menor
+return other.height - this.height(); // De mayor a menor
 ```
 
 O usando el método `compareTo` de la clase `Integer`
@@ -506,14 +486,15 @@ return Integer.compare(other.height, this.height);
 Para otro tipo de datos como `Double` lo más fácil es usar el método:
 
 ```java
-Double.compare(this.getHeight(), other.getHeight());//Suponiendo que height sea Double, de menor a mayor
-Double.compare(other.getHeight(), this.getHeight());//Suponiendo que height sea Double, de mayor a mayor
+Double.compare(this.getHeight(), other.getHeight()); // Suponiendo que height sea Double, de menor a mayor
+Double.compare(other.getHeight(), this.getHeight()); // Suponiendo que height sea Double, de mayor a mayor
 ```
 
 ¿Y qué pasa si deseo ordenar por más campos? Vamos a ordenarlos por `name` y en el caso que sea el mismo, ordenarlo por `height` de menor a mayor.
 
 ```java
 if (this.name.equals(other.getName())){
+    // Si son iguales, ordeno por height
     return Integer.compare(this.height, other.getHeigh());
     //O
     //return this.height - other.getHeigh();
