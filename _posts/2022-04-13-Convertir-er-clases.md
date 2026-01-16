@@ -89,14 +89,10 @@ public class Editorial{
     private String nombre;
     //Como estamos en la parte 1 de la relación, creamos una
     //list con todos los libros de la misma (parte n)
-    private List<Libro> libros;
+    private List<Libro> libros = new ArrayList<>();
 
     public Editorial(String nombre){
         this.nombre = nombre;
-        //Debemos inicializar el ArrayList a un ArrayList nuevo para 
-        //que después podamos llamar a this.libros.add(libro). 
-        //De lo contrario saltaría el error NullPointerException
-        this.libros = new ArrayList<>();
     }
 
     //Además del setter por defecto, creamos otro para poder añadir un Libro
@@ -129,22 +125,13 @@ public class Libro{
     private String titulo;
     //Como estamos en la parte 1 de la relación, creamos una
     //list con todos los autores del mismo (parte n)
-    private List<Autor> autores;
+    private List<Autor> autores = new ArrayList<>();
 
     public Libro(String titulo){
         this.titulo = titulo;
-        //Debemos inicializar el ArrayList a un ArrayList nuevo para
-        //que después podamos llamar a this.autores,add(autor).
-        //De lo contrario saltaría el error NullPointerException
-        this.autores = new ArrayList<>();
     }
     public Libro(String titulo, Autor autor){
         this.titulo = titulo;
-        //Debemos inicializar el ArrayList a un ArrayList nuevo para
-        //que después podamos llamar a this.autores,add(autor).
-        //De lo contrario saltaría el error NullPointerException
-        this.autores = new ArrayList<>();
-        this.autores.add(autor);
         // Añadimos este libro a la lista de libros del autor
         autor.getLibros().add(this);
     }
@@ -168,14 +155,10 @@ public class Libro{
 ```java
 public class Autor{
     private String nombre;
-    private List<Libro> libros;
+    private List<Libro> libros = new ArrayList<>();;
 
     public Autor(String nombre){
         this.nombre = nombre;
-        //Debemos inicializar el ArrayList a un ArrayList nuevo para
-        //que después podamos llamar a this.libros,add(libro).
-        //De lo contrario saltaría el error NullPointerException
-        this.libros = new ArrayList<>();
     }
     //Se omiten getters y setters
 
@@ -223,7 +206,7 @@ Además, en cada parte de la relación crearemos un `ArrayList` para mantener la
 ```java
 public class Libro{
 	//...
-    private List<autor> autores;
+    private List<autor> autores = new ArrayList<>();
 
     //Creamos un setter para poder añadir un autor
     public void addAutor(Autor autor){
@@ -234,7 +217,7 @@ public class Libro{
 
 ```java
 public class Autor{
-    private List<Libro> libros;
+    private List<Libro> libros = new ArrayList<>();
 
     //Creamos un setter para poder añadir un autor
     public void addLibro(Libro libro){
