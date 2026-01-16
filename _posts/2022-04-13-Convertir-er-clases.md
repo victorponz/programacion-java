@@ -155,7 +155,7 @@ public class Libro{
 ```java
 public class Autor{
     private String nombre;
-    private List<Libro> libros = new ArrayList<>();;
+    private List<Libro> libros = new ArrayList<>();
 
     public Autor(String nombre){
         this.nombre = nombre;
