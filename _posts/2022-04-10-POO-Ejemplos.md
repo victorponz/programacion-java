@@ -176,37 +176,6 @@ public class Main {
 >
 >![image-20230130190423703](/programacion-java/assets/img/poo/image-20230130190423703.png)
 
-
-
-## Métodos privados
-
-<span style='color:green'> (ra2.a, ra2.b, ra2.h, ra2.i, ra3.d, ra4.a, ra4.b, ra4.c, ra4.d, ra4.e, ra4.f)</span>
-
-Vamos a modificar la clase `Person` para añadirle un atributo `dni`. Ya sabéis que la letra del DNI se calcula mediante un algoritmo.
-
-Debes crear un `setter` llamado `setDNI(String dni)` que a su vez llamará a un método privado que compruebe si el DNI es correcto y en otro caso que lance la excepción
-
-```java
-throw new IllegalArgumentException("El DNI no es correcto ");
-```
-
-Por ejemplo:
-
-```java
-private boolean comprobarDNI(String DNI){
-    //Realiza el algoritmo
-
-    if (está mal)
-        throw new IllegalArgumentException("El DNI no es correcto ");
-    else
-        return  true;
-}
-```
-
-Los atributos se hacen privados para que no se puedan crear objetos con datos que no sean correctos. Por ejemplo, podemos también comprobar que el nombre no sea `null`
-
-En principio todos los métodos que no sean getters o setters deben ser privados.
-
 > -task-
 >
 > <span style='color:green'> (ra2.a, ra2.b, ra2.h, ra2.i, ra3.d, ra4.a, ra4.b, ra4.c, ra4.d, ra4.e, ra5.d, ra5.e)</span>
@@ -231,153 +200,6 @@ En principio todos los métodos que no sean getters o setters deben ser privados
 > Después has de hacer un método en un clase `main` que, dado un autor por teclado, imprima los datos de los libros de dicho autor.
 >
 
-> -task-**Ejercicio 8** 
->
-> <span style='color:green'> (ra2.a, ra2.b, ra2.h, ra2.i, ra4.a, ra4.b, ra4.c, ra4.d, ra4.e)</span>
->
-> Crea un proyecto en IntelliJ llamado Juego que contiene dos clases llamadas: `Dado` y `JuegodeDados`. La clase `Dado` tendrá un atributo que será el valor del dado y 3 métodos, el primero obtendrá el valor de una tirada del dado, el segundo imprimirá el valor de esa tirada y el tercero retorna el valor de la tirada.
-> La clase `JuegodeDados` tendrá tres métodos, el primero definirá tres dados para hacer una partida, el segundo hará la tirada de los tres dados y dirá si el usuario ha ganado o ha perdido (se considera que ha ganado si el valor de la tirada de los tres dados es el mismo, ejemplo: 3 - 3 - 3). El tercer método será `main` que llamará a los otros dos métodos para realizar una partida de dados.
->
-> ```
-> 2-1-5
-> 2-3-3
-> 2-3-5
-> 6-6-3
-> 1-1-1
-> Lo conseguiste a la tirada 5
-> ```
-> Como el ḿetodo `main` tiene el modificador `static` todos los métodos y propiedades que uses también lo deben ser
-
-
-## Student
-
-<span style='color:green'> (ra2.a, ra2.b, ra2.h, ra2.i, ra4.a, ra4.b, ra4.c, ra4.d, ra4.e, ra4.g)</span>
-
-Cree una clase `Student`, que hereda la clase `Person`.
-
-En la creación, un estudiante tiene 0 créditos de estudio. Cada vez que un estudiante estudia, la cantidad de créditos de estudio aumenta. La clase debe actuar de la siguiente manera:
-
-```java
-Student ollie = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
-System.out.println(ollie);
-System.out.println("Study credits " + ollie.credits());
-ollie.study();
-System.out.println("Study credits "+ ollie.credits());
-```
-
-```
-Ollie
-  6381 Hollywood Blvd. Los Angeles 90028
-Study credits 0
-Study credits 1
-```
-
-### Student's to String
-
-En la tarea anterior, `Student` hereda el método `toString` de la clase `Person`. Sin embargo, también puede sobrescribir un método heredado, reemplazándolo con su propia versión. Escriba una versión del método `toString` específicamente para la clase `Student`. El método debe actuar de la siguiente manera:
-
-```java
-Student ollie = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
-System.out.println(ollie);
-ollie.study();
-System.out.println(ollie);
-```
-
-```
-Ollie
-  6381 Hollywood Blvd. Los Angeles 90028
-  Study credits 0
-Ollie
-  6381 Hollywood Blvd. Los Angeles 90028
-  Study credits 1
-```
-
-### Teacher
-
-<span style='color:green'> (ra2.a, ra2.b, ra2.h, ra2.i, ra4.a, ra4.b, ra4.c, ra4.d, ra4.e, ra4.g)</span>
-
-Crea la clase `Teacher` que herede de `Person`
-
-La clase debe actuar como sigue:
-
-```java
-Teacher ada = new Teacher("Ada Lovelace", "24 Maddox St. London W1S 2QN", 1200);
-Teacher esko = new Teacher("Esko Ukkonen", "Mannerheimintie 15 00100 Helsinki", 5400);
-System.out.println(ada);
-System.out.println(esko);
-
-Student ollie = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
-
-int i = 0;
-while (i < 25) {
-  ollie.study();
-  i = i + 1;
-}
-System.out.println(ollie);
-```
-
-```
-Ada Lovelace
-  24 Maddox St. London W1S 2QN
-  salary 1200 euro/month
-Esko Ukkonen
-  Mannerheimintie 15 00100 Helsinki
-  salary 5400 euro/month
-Ollie
-  6381 Hollywood Blvd. Los Angeles 90028
-  Study credits 25
-```
-
-El tipo real de un objeto dicta qué método se ejecuta:
-
-El tipo de un objeto decide cuáles son los métodos proporcionados por el objeto. Por ejemplo, implementamos la clase `Student` anteriormente. Si se almacena una referencia a un objeto de tipo `Student` en una variable de tipo `Person`, solo estarán disponibles los métodos definidos en la clase `Person`(y su superclase e interfaces):
-
-```java
-Person ollie = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
-ollie.credits();        // DOESN'T WORK!
-ollie.study();              // DOESN'T WORK!
-System.out.println(ollie);   // ollie.toString() WORKS
-```
-
-Entonces, un objeto tiene a su disposición los métodos que se relacionan con su tipo y también con sus superclases e interfaces. El objeto `Student` anterior ofrece los métodos definidos en las clases `Person` y `Object`.
-
-En el último ejercicio, escribimos una nueva implementación de `toString` para que `Student` invalide el método que hereda de `Person`. La clase `Person` ya había anulado el método `toString` que heredó de la clase `Object`. Si manejamos un objeto por algún otro tipo que no sea su tipo real, ¿a qué versión del método del objeto se llama?
-
-En el siguiente ejemplo, tendremos dos estudiantes a los que nos referiremos por variables de diferentes tipos. ¿Qué versión del método `toString` se ejecutará: la definida en `Object`, `Person` o `Student`?
-
-```java
-Student ollie = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
-System.out.println(ollie);
-Person olliePerson = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
-System.out.println(olliePerson);
-Object ollieObject = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
-System.out.println(ollieObject);
-
-Object alice = new Student("Alice", "177 Stewart Ave. Farmington, ME 04938");
-System.out.println(alice);
-```
-
-```
-Ollie
-  6381 Hollywood Blvd. Los Angeles 90028
-  credits 0
-Ollie
-  6381 Hollywood Blvd. Los Angeles 90028
-  credits 0
-Ollie
-  6381 Hollywood Blvd. Los Angeles 90028
-  credits 0
-Alice
-  177 Stewart Ave. Farmington, ME 04938
-  credits 0
-```
-
-El método a ejecutar se elige en función del tipo real del objeto, lo que significa la clase cuyo constructor se llama cuando se crea el objeto. Si el método no tiene definición en esa clase, la versión del método se elige de la clase más cercana al tipo real en la jerarquía de herencia.
-
-> -info-**Polimorfismo**
->
-> Independientemente del tipo de variable, el método que se ejecuta siempre se elige en función del tipo real del objeto. Los objetos son polimórficos, lo que significa que se pueden utilizar a través de muchos tipos de variables diferentes. El método ejecutado siempre se relaciona con el tipo real del objeto. Este fenómeno se llama polimorfismo.
-
 ## Laboratorio
 
 <span style='color:green'> (ra2.a, ra2.b, ra2.h, ra2.i, ra4.a, ra4.b, ra4.c, ra4.d, ra4.e, ra4.g)</span>
@@ -392,7 +214,7 @@ Vamos a crear una clase `Lab` que implemente un laboratorio. Éste tiene un nomb
 
 Vamos a implementar un máquina expendedora de tiques. Los tiques tienen un precio. La máquina tiene un cajón que recoge los importes de los tiques.
 
-El cliente va introduciendo dinero y si pulsa el botón *Sacar tique* se le expenderá el tique siempre que haya introducido una cantidad igual o mayor que el importe. Este método debe imprimir el tique y devolver en un `String` la cantidad de billetes y monedas mínimas para dicha devolución:
+El cliente va introduciendo dinero y si pulsa el botón *Sacar tique* se le expenderá el tique, siempre que haya introducido una cantidad igual o mayor que el importe. Este método debe imprimir el tique y devolver en un `String` la cantidad de billetes y monedas mínimas para dicha devolución:
 
 Por ejemplo, si el tique vale 1,20 € y el usuario introduce 5€, le debe devolver 1 moneda de 2€, 1 moneda de 1€,  1 de 0,50€, 1 de 0,20€ y 1 de 0,10€.
 Además ingresará en el cajón el importe del tique.
