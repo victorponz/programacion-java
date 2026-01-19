@@ -176,30 +176,6 @@ public class Main {
 >
 >![image-20230130190423703](/programacion-java/assets/img/poo/image-20230130190423703.png)
 
-> -task-
->
-> <span style='color:green'> (ra2.a, ra2.b, ra2.h, ra2.i, ra3.d, ra4.a, ra4.b, ra4.c, ra4.d, ra4.e, ra5.d, ra5.e)</span>
->
-> Tenemos un [archivo](/programacion-java/assets/dataset_bvmc_20220325.zip) con un catálogo de libros que contienen datos de la Biblioteca Nacional
->
-> Debes crear una clase `Libro`  y luego popularla a partir de dicho archivo csv. Ya hemos hecho algún ejercicio parecido.
->
-> Pero en este caso hay un problema, y es que algunas de las líneas están mal formadas y salta una excepción `ArrayIndexOutOfBoundsException`. Para que no se rompa el código hemos de *capturarla*
->
-> ```java
-> while ((l = f.readLine()) != null){
->   datos = l.split(",");
->   try {
->         b.add(new Book(datos[5], datos[7]));
->   }catch (ArrayIndexOutOfBoundsException e){
->         System.out.println(Arrays.toString(datos));
->   }
-> }
-> ```
->
-> Después has de hacer un método en un clase `main` que, dado un autor por teclado, imprima los datos de los libros de dicho autor.
->
-
 ## Laboratorio
 
 <span style='color:green'> (ra2.a, ra2.b, ra2.h, ra2.i, ra4.a, ra4.b, ra4.c, ra4.d, ra4.e, ra4.g)</span>
