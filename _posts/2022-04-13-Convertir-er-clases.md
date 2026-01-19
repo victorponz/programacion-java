@@ -206,11 +206,13 @@ Además, en cada parte de la relación crearemos un `ArrayList` para mantener la
 ```java
 public class Libro{
 	//...
-    private List<autor> autores = new ArrayList<>();
+    private List<Autor> autores = new ArrayList<>();
 
     //Creamos un setter para poder añadir un autor
     public void addAutor(Autor autor){
         this.autores.add(autor);
+        autor.getLibros().add(this);
+        
     }
 }
 ```
@@ -222,6 +224,7 @@ public class Autor{
     //Creamos un setter para poder añadir un autor
     public void addLibro(Libro libro){
         this.libros.add(libro);
+        libro.getAutores().add(this);
     }
 }
 ```
