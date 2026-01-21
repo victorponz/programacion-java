@@ -77,6 +77,8 @@ public class Libro{
 	public Libro(String titulo, Editorial editorial){
         this.titulo = titulo;
         this.editorial = editorial;
+        // Añadirlo a la editorial para que quede enlazada la relación 1:M
+        this.editorial.getLibros().add(this);
     }
     //Se omiten getters y setters
 }
@@ -133,7 +135,7 @@ public class Libro{
     public Libro(String titulo, Autor autor){
         this.titulo = titulo;
         // Añadimos este libro a la lista de libros del autor
-        autor.getLibros().add(this);
+        this.autor.getLibros().add(this);
     }
     //Se omiten getters y setters
 
@@ -141,7 +143,7 @@ public class Libro{
     public void addAutor(Autor autor){
         this.autores.add(autor);
         // Añadimos este libro a la lista de libros del autor
-        autor.getLibros().add(this);
+        this.autor.getLibros().add(this);
 
     }
     //Devolver todos los autores del libro. Como devuelve una lista,
@@ -165,7 +167,7 @@ public class Autor{
     //Creamos un setter que nos permita añadir un libro a la lista
     public void addLibro(Libro libro){
         this.libros.add(libro);
-        libro.getAutores().add(this);
+        this.libro.getAutores().add(this);
     }
 
     //Devolver todos los libros del autor. Como devuelve una lista,
