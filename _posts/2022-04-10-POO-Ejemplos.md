@@ -108,6 +108,8 @@ public class Main {
     }
 }
 ```
+## Ejercicios
+
 >-info-En todas las clases implementa el método toString()
 >En todos los ejercicios crea una clase `Main` y modela varios objetos. Después imprímelos.
 
@@ -176,39 +178,58 @@ public class Main {
 >
 >![image-20230130190423703](/programacion-java/assets/img/poo/image-20230130190423703.png)
 
-> -task-Ejercicio 8
+> -task-**Ejercicio 8**
 >
 > <span style='color:green'>(ra2.a, ra2.b, ra2.f, ra2.h, ra2.i, ra4.a, ra4.b, ra4.c, ra4.d, ra4.e)</span>
 >
-> Crea las clases necesarias para poder representar el siguiente diagrama entidad-relación
+> Un **centro hospitalario** está organizado en varios **departamentos médicos** (como Cardiología, Traumatología, Pediatría, etc.).
+>  Cada departamento pertenece a un único hospital y puede contar con varios **médicos**. Un médico puede colaborar en uno o varios departamentos.
+>
+> El hospital atiende a **pacientes**, de los cuales se almacena información personal básica.
+>  Cada paciente tiene asignado un **médico responsable**, que se encarga de coordinar su atención, aunque el paciente puede ser atendido por otros médicos.
+>
+> El hospital dispone de varias **plantas**, y cada planta contiene distintas **habitaciones**.
+>  Una habitación puede alojar a varios pacientes al mismo tiempo, pero cada paciente se aloja en una única habitación.
+>
+> Durante la atención sanitaria se registran **intervenciones médicas**.
+>  Cada intervención:
+>
+> - es realizada por un único médico,
+> - se realiza a un único paciente,
+> - tiene una fecha, un tipo, una duración y un coste asociados.
+>
+> En una intervención pueden prescribirse uno o varios **medicamentos**. Un mismo medicamento puede ser prescrito en distintas intervenciones.
 >
 > ![mermaid](/programacion-java/assets/img/poo/mermaid.png)
 >
-> 
+> Crea las clases necesarias para representar este mundo
 
-## Sistema de subastas
-
-<span style='color:green'> (ra2.a, ra2.b, ra2.h, ra2.i, ra4.a, ra4.b, ra4.c, ra4.d, ra4.e, ra4.g)</span>
-
-Se pretende modelar un sistema de subastas que funciona de la siguiente manera:
-
-La casa de subastas planifica la subasta en un día en concreto de una serie de artículos organizados en lotes.
-
-De cada artículo se debe almacenar su `nombre` y el `precio`. Del lote se desea conocer su número y el precio de salida.
-
-Llegado el día de la subasta los pujadores (Nombre) realizan pujas de dinero sobre cada uno de los lotes. Cuando se finaliza la subasta, el lote se adjudica al pujador con la puja más alta.
-
-El sistema debe:
-
-* poder generar una o más subastas
-* añadir lotes de artículos a las subastas
-* gestionar las pujas y los pujadores
-* cerrar la subasta
-* imprimir una relación de los lotes que se han adjudicado a los pujadores una vez cerrada la subasta. Si algún lote no tuviese puja, se debe imprimir "No adjudicado"
-
->-task-Implementa este sistema de subastas. Piensa en los constructores, setters y getters necesarios. Debes crear, además, un método en `main` que permita *cerrar* la subasta, es decir, debe imprimir quien se ha llevado cada lote y por qué importe
+>  -task-**Sistema de subastas**
+>
+> <span style='color:green'> (ra2.a, ra2.b, ra2.h, ra2.i, ra4.a, ra4.b, ra4.c, ra4.d, ra4.e, ra4.g)</span>
+>
+> Se pretende modelar un sistema de subastas que funciona de la siguiente manera:
+>
+> * La casa de subastas planifica la subasta en un día en concreto de una serie de artículos organizados en lotes.
+>* De cada artículo se debe almacenar su `nombre` y el `precio`. Del lote se desea conocer su número y el precio de salida.
+> * Llegado el día de la subasta los pujadores (`nombre`) realizan pujas de dinero sobre cada uno de los lotes. Cuando se finaliza la subasta, el lote se adjudica al pujador con la puja más alta.
+>
+> El sistema debe:
+>
+> * poder generar una o más subastas
+>
+> * añadir lotes de artículos a las subastas
+>
+> * gestionar las pujas y los pujadores
+>
+> * cerrar la subasta
+>
+> * imprimir una relación de los lotes que se han adjudicado a los pujadores una vez cerrada la subasta y el importe de la puja ganadora. Si algún lote no tuviese puja, se debe imprimir "No adjudicado".
+>
+> Implementa este sistema de subastas. Piensa en los constructores, setters y getters necesarios. 
+>
 
 ---
 
-* [http://greenteapress.com/wp/think-java/](http://greenteapress.com/wp/think-java/) Version 6 by Allen Downey and Chris Mayfield
-* [https://java-programming.mooc.fi/part-9/1-inheritance](https://java-programming.mooc.fi/part-9/1-inheritance)
+
+
