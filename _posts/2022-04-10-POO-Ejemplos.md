@@ -176,28 +176,15 @@ public class Main {
 >
 >![image-20230130190423703](/programacion-java/assets/img/poo/image-20230130190423703.png)
 
-## Laboratorio
-
-<span style='color:green'> (ra2.a, ra2.b, ra2.h, ra2.i, ra4.a, ra4.b, ra4.c, ra4.d, ra4.e, ra4.g)</span>
-
-Vamos a crear una clase `Lab` que implemente un laboratorio. Éste tiene un nombre, un taller, una capacidad máxima, la hora y día en que se imparte, un profesor que lo imparte y una lista de estudiantes que asisten.
-
-> -task-Diseña la clase. Piensa en los atributos, constructores y setters y getters necesarios. Luego crea una clase llamada `MainLab` donde crees varias instancias de la clase `Lab`
-
-## Máquina expendedora
-
-<span style='color:green'> (ra2.a, ra2.b, ra2.h, ra2.i, ra4.a, ra4.b, ra4.c, ra4.d, ra4.e, ra4.g)</span>
-
-Vamos a implementar un máquina expendedora de tiques. Los tiques tienen un precio. La máquina tiene un cajón que recoge los importes de los tiques.
-
-El cliente va introduciendo dinero y si pulsa el botón *Sacar tique* se le expenderá el tique, siempre que haya introducido una cantidad igual o mayor que el importe. Este método debe imprimir el tique y devolver en un `String` la cantidad de billetes y monedas mínimas para dicha devolución:
-
-Por ejemplo, si el tique vale 1,20 € y el usuario introduce 5€, le debe devolver 1 moneda de 2€, 1 moneda de 1€,  1 de 0,50€, 1 de 0,20€ y 1 de 0,10€.
-Además ingresará en el cajón el importe del tique.
-
-Si no hay suficiente dinero en el cajón, le debe decir `Introduzca el importe exacto`.
-
-> -task-Implementa la clase `MaquinaExpendora` Piensa en los constructores, setters y getters necesarios
+> -task-Ejercicio 8
+>
+> <span style='color:green'>(ra2.a, ra2.b, ra2.f, ra2.h, ra2.i, ra4.a, ra4.b, ra4.c, ra4.d, ra4.e)</span>
+>
+> Crea las clases necesarias para poder representar el siguiente diagrama entidad-relación
+>
+> ![mermaid](/programacion-java/assets/img/poo/mermaid.png)
+>
+> 
 
 ## Sistema de subastas
 
@@ -219,7 +206,7 @@ El sistema debe:
 * cerrar la subasta
 * imprimir una relación de los lotes que se han adjudicado a los pujadores una vez cerrada la subasta. Si algún lote no tuviese puja, se debe imprimir "No adjudicado"
 
->-task-Implementa este sistema de subastas. Piensa en los constructores, setters y getters necesarios
+>-task-Implementa este sistema de subastas. Piensa en los constructores, setters y getters necesarios. Debes crear, además, un método en `main` que permita *cerrar* la subasta, es decir, debe imprimir quien se ha llevado cada lote y por qué importe
 
 ---
 
