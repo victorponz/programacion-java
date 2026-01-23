@@ -21,13 +21,13 @@ public class Articulo{
     private String nombre;
     Articulo(String nombre){
         this.nombre = nombre;
-        this.ID = numSerie++;
+        this.ID = numSerie++; // A esta variable NO se le antepone `this` porque no es de un objeto
     }
     //Se omiten setters y getters
 }
 ```
 
-Estas variables se definen anteponiendo la palabra reservada `static` e implica que esta variable va a ser común para todos los elementos de la clase.
+Estas variables se definen anteponiendo la palabra reservada `static` e implica que esta variable **va a ser común para todos los elementos de la clase**.
 
 Fijaos que en el constructor se asigna e incrementa el valor de esta variable al atributo `ID`
 
@@ -108,8 +108,7 @@ El método `checkDNI(String DNIAComprobar)` **no accede** a ningún atributo del
 public class Persona {
     private String nombre;
     private String DNI;
-    private static final char[] letras = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H',
-				'L', 'C', 'K', 'E' };
+    private static final char[] letras = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E' };
 
     public Persona(String nombre, String DNI) {
         this.nombre = nombre;
@@ -127,6 +126,7 @@ public class Persona {
         return DNI;
     }
 
+    // Como no usa ninguna variable no estática de la clase, se puede o debe hacer estático
     private static boolean checkDNI(String DNIAComprobar){
         if (DNIAComprobar.length() != 9) return false;
         else{
@@ -147,3 +147,12 @@ public class Persona {
 Desde un método **no estático** se puede acceder a una variable o método **estático** pero no al revés.
 
 > -warning-Piensa que es como una relación `1:N` entre la clase y el objeto. Desde la parte `N` (objeto) se puede acceder a la parte `1` (clase) porque sólo hay una, pero ¿desde la parte `1` a qué objeto de la parte `N` accedo?
+
+**Comparación rápida (estático vs no estático)**
+
+| Aspecto        | `static`        | No `static`      |
+| -------------- | --------------- | ---------------- |
+| Pertenece a    | Clase           | Objeto           |
+| Necesita `new` | ❌ No            | ✔ Sí             |
+| Copias         | 1 sola          | Una por objeto   |
+| Acceso         | `Clase.miembro` | `objeto.miembro` |
