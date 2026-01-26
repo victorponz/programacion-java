@@ -84,30 +84,27 @@ public class Libro{
 }
 ```
 
+Fíjate que cuando le asignamos la `editorial`, cogemos la lista de libros de esta y le añadimos este libro (`this`). Aunque para que esto funcione, primero has de hacer `getLibros` en `Editorial`
+
 Ahora ya podemos finalizar la clase `Editorial` con la lista de libros de su catálogo y creamos un método para poder añadir un libro a la lista.
 
 ```java
 public class Editorial{
     private String nombre;
-    //Como estamos en la parte 1 de la relación, creamos una
-    //list con todos los libros de la misma (parte n)
+    // Como estamos en la parte 1 de la relación, creamos una
+    // list con todos los libros de la misma (parte n)
     private List<Libro> libros = new ArrayList<>();
 
     public Editorial(String nombre){
         this.nombre = nombre;
     }
 
-    //Además del setter por defecto, creamos otro para poder añadir un Libro
-    public void addLibro(Libro libro){
-        this.libros.add(libro);
-    }
-    //Devolver todos los libros. Como devuelve una lista, el nombre del método
-    //va en plural
+    //  Devolver todos los libros. Como devuelve una lista, el nombre del método
+    // va en plural
     public List<Libro> getLibros(){
         return this.libros;
     }
-	//Se omiten getters y setters
-
+	// Se omiten el resto getters y setters
 }
 ```
 
@@ -199,7 +196,14 @@ En este caso crearemos una nueva clase con referencias a `Libro` y a `Autor`
  	private Autor autor;
     private Libro libro;
     private String fecha;
-    //Se omite el constructor, getters y setters
+    public Publica(Autor autor, Libro libro, String fecha){
+        this.autor = autor;
+        this.autor.getLibros().add(this);
+        this.libro = libro;
+        this.libro.getAutores().add(this);
+        this.fecha = fecha:
+    }
+    // Se omite el constructor, getters y setters     
  }
 ```
 
@@ -207,27 +211,17 @@ Además, en cada parte de la relación crearemos un `ArrayList` para mantener la
 
 ```java
 public class Libro{
-	//...
+	// ...
     private List<Autor> autores = new ArrayList<>();
-
-    //Creamos un setter para poder añadir un autor
-    public void addAutor(Autor autor){
-        this.autores.add(autor);
-        autor.getLibros().add(this);
-        
-    }
+	// Se omite el constructor, getters y setters     
 }
 ```
 
 ```java
 public class Autor{
+    // ...
     private List<Libro> libros = new ArrayList<>();
-
-    //Creamos un setter para poder añadir un autor
-    public void addLibro(Libro libro){
-        this.libros.add(libro);
-        libro.getAutores().add(this);
-    }
+	// Se omite el constructor, getters y setters
 }
 ```
 
