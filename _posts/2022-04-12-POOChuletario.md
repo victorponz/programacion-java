@@ -520,27 +520,13 @@ public class Libro{
 
 **Pero esta forma no suele usarse**; sólo aparece a modo explicativo.
 
-Ahora vamos a ver el método `compareTo`:
-
-```java
-public class Libro implements Comparable<Libro>{
-    //....
-    @Override
-    public int compareTo(Libro otro){
-        return this.titulo.compareTo(otro.getTitulo());
-    }
-}
-```
-
-Fijáos que en este caso se usa `getTitulo` porque quiero acceder al campo `titulo` y en el objeto `other` la propiedad `titulo` es `private`
-
 Se suele anteponer la palabra reservada `this` delante de todos los métodos y parámetros de la clase.
 
 Usar `this` también puede mejorar la legibilidad y la autodocumentación del código al indicar explícitamente que te estás refiriendo a una variable de instancia de la clase.
 
 ## Estado de una instancia
 
-El estado de una instancia es el valor que tienen cada uno de los atributos en un momento dado del ciclo de vida de la misma.
+El estado de una instancia es el **valor que tienen cada uno de los atributos en un momento dado del ciclo de vida de la misma.**
 
 ## Modificadores dentro de una clase
 
