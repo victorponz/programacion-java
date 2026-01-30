@@ -1070,3 +1070,42 @@ Fotografo fotografo  = new Fotografo("Juan", visionPro);
 fotografo.tomarFoto();
 ```
 
+También se puede inyectar la dependencia en un setter. Por ejemplo,
+
+```java
+package fotografia;
+
+public class Fotografo {
+    private String nombre;
+    //Ahora aparato es cualquier dispositivo que pueda tomar fotos
+    private TomarFoto aparato;
+    public Fotografo(String nombre, TomarFoto aparato) {
+        this.nombre = nombre;
+        this.aparato = aparato;
+    }
+
+    public void tomarFoto(){
+        this.aparato.tomarFoto();
+    }
+    
+    // Ahora puedo cambiar el aparato
+    public void setAparato(TomarFoto aparato){
+        this.aparato = aparato;
+    }
+}
+```
+
+Por ejemplo:
+
+```
+Camara camara = new Camara("Nikon");
+// Primero la hace con la cámara
+Fotografo fotografo  = new Fotografo("Juan", camara);
+fotografo.tomarFoto();
+
+Movil movil = new Movil("Nokia");
+// Y, a partir de ahora, con el Móvil
+fotografo.setAparato(movil);
+fotografo1.tomarFoto();
+```
+
