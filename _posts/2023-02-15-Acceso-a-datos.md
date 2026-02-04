@@ -35,7 +35,20 @@ Miremos este ejemplo, en el que vamos a crear una tabla muy sencilla en la Base 
 
 > **Nota** En este enlace tenéis la clase [DatabaseConnection](https://gist.github.com/victorponz/34e36ad0ff5585d91952e0edeb23fa49)
 
-![1558006429758](/programacion-java/assets/img/datos/1558006429758.png)
+```java
+public class Main {
+    static java.sql.Connection con = DatabaseConnection.getConnection();
+    public static void main(String[] args) {
+		// No hace nada, de momento
+    }
+}
+```
+
+Debe aparecer en la consola:
+
+```
+Conexión realizada
+```
 
 ## Sentencias que devuelven datos
 
@@ -84,17 +97,7 @@ Aquí tenéis un ejemplo completo:
 
 
 
-## Ejemplos
-
-El siguiente ejemplo permite insertar un usuario en la base de datos:
-
-![1558006506490](/programacion-java/assets/img/datos/1558006506490.png)
-
-Y este sería el mismo método pero pasándole los parámetros nombre y apellidos:
-
-![1558006521344](/programacion-java/assets/img/datos/1558006521344.png)
-
-Como se puede observar, hemos de construir la cadena sql concatenado datos, alternando comillas simples con dobles. Vamos, que si hemos de realizar una consulta con muchos campos, resulta bastante complejo crear la cadena sql y, además, puede llevarnos a errores.
+> -hint- Nosotros obviaremos la gestión de errores con el fin de acortar los programas:
 
 ## Sentencias predefinidas
 
@@ -117,15 +120,11 @@ Los parámetros de la sentencia se marcarán con el símbolo de interrogación (
 setXXXX(<posiciónEnLaSentenciaSQL>, <valor>);
 ```
 
-Este es el mismo método para insertar un usuario pero usando `PreparedStatement`:
-
-![1558006558042](/programacion-java/assets/img/datos/1558006558042.png)
-
-Fijaos que ahora, además, la sentencia sql es mucho más fácil de escribir.
-
 ## Trabajar con Sqlite
 
 Para poder trabajar en casa, vamos a utilizar Sqlite que es un una base de datos sencilla que se guarda en un único archivo en disco.
+
+> -info-Esta base de datos es la más usada en el mundo pues todos los móviles Android la llevan incorporada
 
 Lo primero es instalar SQLite, en Ubuntu
 
@@ -133,121 +132,231 @@ Lo primero es instalar SQLite, en Ubuntu
 sudo apt-get install sqlite
 ```
 
-Si queréis hacerlo en Windows, podéis seguir las instrucciones en http://www.sqlitetutorial.net/download-install-sqlite/
-
-Para poder trabajar en java, hemos de descargar también el conector, desde
-
-http://www.sqlitetutorial.net/sqlite-java/sqlite-jdbc-driver/
+>  -info-Si queréis hacerlo en Windows, podéis seguir las instrucciones en [http://www.sqlitetutorial.net/download-install-sqlite/](http://www.sqlitetutorial.net/download-install-sqlite/)
 
 Lo primero que hemos de hacer es crear una base de datos, desde la línea de comandos. Para ello nos situamos en el directorio del proyecto y la creamos en el directorio `bd` mediante el siguiente comando:
 
 ```
-cd directorio-del-proyecto
-mkdir bd
-cd bd
-sqlite network.bd
+cd directorio-de-recursos-del-proyecto
+sqlite3 empresa.bd
+//Ahora escribe cualquier cosa 
+SQLite version 3.45.1 2024-01-30 16:01:20
+Enter ".help" for usage hints.
+sqlite> SELECT name FROM sqlite_master WHERE type='table';
+sqlite> .quit
 ```
 
-Mediante estos comandos creamos una base de datos en disco llamada **network.bd**.
+Comprueba que realmente se ha creado la base de datos (aunque también veremos que se puede crear desde IntelliJ)
 
-Ahora podemos crear las tablas mediante Eclipse, añadiendo una nueva `DataBaseConnection`, al igual que hicimos con MySql (previamente hemos de crear el `Driver Definition`).
+Mediante estos comandos creamos una base de datos en disco llamada **empresa.bd**.
 
-![1558285490693](/programacion-java/assets/img/datos/1558285490693.png)
-
-Y ahora podemos crear las tablas mediante Scrapbook
-
-![1558285576032](/programacion-java/assets/img/datos/1558285576032.png)
-
-<script src="https://gist.github.com/victorponz/a8cc553b166f9d903ce3ddedc8536ae9.js"></script>
-
-Y vamos a añadir el jar que hemos descargado al Build path.
-
-> Nota. No sé por qué motivo pero no funciona si lo hago igual que para MySql
-
-Así que elegimos el jar desde Build Path -> Libraries -> Add External JARs.
-
-![1558285819653](/programacion-java/assets/img/datos/1558285819653.png)
-
-Finalmente pulsamos Apply and Close.
-
-En IntelliJ procedemos de la misma manera que hicimos para instalar el driver de MySql.
+Para continuar en IntelliJ, hemos de importar la dependencia
 
 ```xml
 <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
+<!-- Source: https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
 <dependency>
     <groupId>org.xerial</groupId>
     <artifactId>sqlite-jdbc</artifactId>
-    <version>3.40.0.0</version>
+    <version>3.51.1.0</version>
+    <scope>compile</scope>
 </dependency>
 ```
 
-Y ahora modificamos `DatabaseConnection`
+Y ahora creamos la clase `DatabaseConnection` para conectarnos:
 
 ```java
- String host = "jdbc:sqlite:src/main/resources/network";
- con = java.sql.DriverManager.getConnection( host);
+import java.sql.Connection;
+import java.sql.DriverManager;
+public class DatabaseConnection
+{
+    private static Connection con;
+    public static Connection getConnection(){
+        try {
+            // Poned la ruta correcta, de lo contrario, os creará un a bd nueva
+            String host = "jdbc:sqlite:src/main/resources/empresa.bd";
+            con = DriverManager.getConnection(host);
+            System.out.println("Conexión realizada");
+        } catch (java.sql.SQLException ex) {
+            System.out.println("Se ha producido un error al conectar: " + ex.getMessage());
+        }
+        return con;
+    }
+}
 ```
+
+Y lo probamos en un `main`
+
+```java
+public class Main {
+    // Es static porque pertenece a toda la clase y final porque no se va a modificar
+    static final java.sql.Connection con = DatabaseConnection.getConnection();
+    public static void main(String[] args) {
+        // No hace nada, de momento
+    }
+}
+```
+
+Debe aparecer en la consola el texto:
+
+```
+Conexión realizada
+```
+
+En IntelliJ Ultimate aparece un botón ![image-20260204102930120](/programacion-java/assets/img/datos/image-20260204102930120.png) en la parte derecha de la ventana que es un gestor incorporado de bases de datos.
+
+Al hacer clic, se muestra esta ventana:
+
+![image-20260204103107486](/programacion-java/assets/img/datos/image-20260204103107486.png)
+
+Y podemos dar al `+` o a `Create data source...` y buscáis `sqlite`
+
+![image-20260204103250105](/programacion-java/assets/img/datos/image-20260204103250105.png)
+
+Ahora seleccionamos el archivo de la base de datos `empresa.db`
+
+![image-20260204103645619](/programacion-java/assets/img/datos/image-20260204103645619.png)
+
+
 
 ### Ejemplos
 
-Vamos a crear una pequeña base de datos para Empleados en Sqlite:
+Vamos a crear una pequeña base de datos para Empleados en Sqlite. Elige `New -> Query console` 
 
-| **Num** | **Nom**bre | **Depart**amento | **Edad** | **Sueldo** |
-| ------- | ---------- | ---------------- | -------- | ---------- |
-| 1       | Andreu     | 10               | 32       | 1000.00    |
-| 2       | Bernat     | 20               | 28       | 1200.00    |
-| 3       | Claudia    | 10               | 26       | 1100.00    |
-| 4       | Damià      | 10               | 40       | 1500.00    |
+![image-20260204111921277](/programacion-java/assets/img/datos/image-20260204111921277.png)
 
-Primero creamos un nuevo Proyecto en Eclipse llamado `EmpleadosBD` y le añadimos la librería sqlite al build path.
+Y pega el siguiente `SQL`
 
-Creamos también la base de datos mediante la línea de comandos:
-
-```
-cd directorio-del-proyecto
-mkdir bd
-cd bd
-sqlite empleados.bd
+```sql
+CREATE TABLE empleados (
+   num INTEGER PRIMARY KEY,
+   nombre TEXT NOT NULL,
+   departamento INTEGER NOT NULL,
+   edad INTEGER CHECK (edad >= 0),
+   sueldo REAL CHECK (sueldo >= 0)
+);
 ```
 
-Copiamos el archivo `DatabaseConnection.java` del anterior proyecto y modificamos la cadena de conexión:
+Ahora haz clic en el botón verde con forma de flecha.
+
+Y ahora insertamos los datos:
+
+```sql
+INSERT INTO empleados (num, nombre, departamento, edad, sueldo) VALUES
+    (1, 'Andreu', 10, 32, 1000.00),
+    (2, 'Bernat', 20, 28, 1200.00),
+    (3, 'Claudia', 10, 26, 1100.00),
+    (4, 'Damià', 10, 40, 1500.00);
+```
+
+Creamos la clase para conectarnos:
 
 ```java
-String host = "jdbc:sqlite:./bd/empleados.bd";
-con = java.sql.DriverManager.getConnection( host);
+import java.sql.Connection;
+import java.sql.DriverManager;
+public class DatabaseConnection
+{
+    private static Connection con;
+    public static Connection getConnection(){
+        try {
+            // Poned la ruta correcta, de lo contrario, os creará una bd nueva
+            String host = "jdbc:sqlite:src/main/resources/empresa.bd";
+            con = DriverManager.getConnection( host);
+            System.out.println("Conexión realizada");
+        } catch (java.sql.SQLException ex) {
+            System.out.println("Se ha producido un error al conectar: " + ex.getMessage());
+        }
+        return con;
+    }
+}
 ```
-
-#### Crear tabla
-
-Creamos una clase `CreateTable` para poder crear la tabla:
-
-![1558290594573](/programacion-java/assets/img/datos/1558290594573.png)
-
-
 
 #### Insertar datos
 
-Y creamos otra para insertar datos. Esta vez lo haremos con `PreparedStatement`:
+Creamos el `SQL` para insertar mediante `preparedStatement` y `excuteUpdate`
 
-![1558290468365](/programacion-java/assets/img/datos/carbon.png)
+```java
+public static void insertarEmpleado(int numero, String nombre, int departamento, int edad, float sueldo) throws SQLException {
+    // Cuando trabajemos con datos sobre los que no tenemos ninguna forma de controlar, 
+    // por ejemplo, datos enviados mediante un formulario web, hemos de usar PreparedStatement para evitar
+    // ataques de inyección de dependencias
+    
+    // Creamos el SQL. En cada dato ponemos un ?
+    String sql = "INSERT INTO empleados (num, nombre, departamento, edad, sueldo)";
+    sql += " VAlUES(?, ?, ?, ?, ?)";
+    
+    // Preparamos el SQL
+    PreparedStatement st = con.prepareStatement(sql);
+    
+    // Y ahora hemos de rellenar los datos, teniendo cuidado de que los tipos
+    // de la tabla coincidan con el tipo de setter;
+    st.setInt(1, numero);
+    st.setString(2, nombre);
+    st.setInt(3, departamento);
+    st.setInt(4, edad);
+    st.setFloat(5, sueldo);
+
+    // Y no nos olvidemos de hacer executeUpdate();
+    st.executeUpdate();
+
+    imprimirEmpleados();
+}
+```
 
 
-
-Esta es la versión con `Statement`:
-
-![1558290468365](/programacion-java/assets/img/datos/1558290468365.png)
 
 #### Consultar datos
 
-Creamos  una clase `getAllEmpleados` que nos devuelva todos los empleados:
+Creamos  el métido `imprimirEmpleados` que nos devuelva todos los empleados:
 
-![1558290433130](/programacion-java/assets/img/datos/1558290433130.png)
+```java
+public static void imprimirEmpleados() throws SQLException {
+    // Como no va a tener parámetros, no hace falta crear preparedStatement
+    Statement st = con.createStatement();
+
+    // Creamos el SQL que al ser de consulta se hace con executeQuery()
+    ResultSet rs = st.executeQuery("SELECT * FROM empleados");
+
+    System.out.println("Núm.\tNombre\tDepartamento\tEdad\t Sueldo");
+    // Y ahora recorremos los datos
+    while (rs.next()){
+        // Hemos de hacer coincidir el tipo de getter con
+        // el tipo de dato de la tabla
+        System.out.print(rs.getInt(1) + "\t");
+        System.out.print(rs.getString(2) + "\t");
+        System.out.print(rs.getInt(3) + "\t");
+        System.out.print(rs.getInt(4) + "\t");
+        System.out.println(rs.getFloat(5) + "\t");
+    }
+}
+```
+
+
 
 #### Modificar datos
 
-Ahora modificamos los datos. Simplemente aumentamos el sueldo un 5% y modificamos el departamento del empleado 3, poniéndole el departamento 3.
+Ahora modificamos los datos. Simplemente aumentamos el sueldo un 5% y modificamos el departamento del empleado 3, poniéndole el departamento 20.
 
-![1558290448718](/programacion-java/assets/img/datos/1558290448718.png)
+```java
+private static void actualizarEmpleados() throws SQLException {
+    // Como no va a tener parámetros, no hace falta crear preparedStatement
+    // Cuando los datos vengan de fuera de la aplicación, por ejemplo, un
+    // usuario de una web que envía datos, es OBLIGADO crear un preparedStatement
+    // para evitar ataques de inyección de SQL
+    Statement st = con.createStatement();
+
+    // Creamos el SQL que al ser de modificación de datos se hace con executeUpdate()
+    String sql = "UPDATE empleados set sueldo = sueldo * 1.05";
+    st.executeUpdate(sql);
+
+    sql = "UPDATE empleados set departamento = 20 WHERE num = 3";
+    st.executeUpdate(sql);
+}
+```
+
+
 
 ## Ejercicio
->-task-Crea una aplicación que nos permita gestionar la base de datos network. Debe tener un menú desde el que se puedan gestionar (Create, Read, Update, Delete) usuarios, posts y comentarios
+>-task-Crea una aplicación que nos permita gestionar la base de datos network. 
+>
+>Debe tener un menú desde el que se puedan gestionar las operaciones CRUD (**C**reate, **R**ead, **U**pdate, **D**elete) usuarios, posts y comentarios. El usuario debe estar logeado para poder introducir posts y comentarios.
