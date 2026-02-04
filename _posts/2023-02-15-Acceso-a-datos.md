@@ -188,17 +188,6 @@ Y ahora modificamos `DatabaseConnection`
  con = java.sql.DriverManager.getConnection( host);
 ```
 
-Y hacemos una prueba para ver si funciona:
-
-![1558290614137](/programacion-java/assets/img/datos/1558290614137.png)
-
-Y este debe ser el resultado:
-
-```
-Conexión realizada
-1	Janet	Espinosa
-```
-
 ### Ejemplos
 
 Vamos a crear una pequeña base de datos para Empleados en Sqlite:
