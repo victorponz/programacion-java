@@ -192,7 +192,8 @@ public class Main {
     // Es static porque pertenece a toda la clase y final porque no se va a modificar
     static final java.sql.Connection con = DatabaseConnection.getConnection();
     public static void main(String[] args) {
-        // No hace nada, de momento
+        // No hace nada, de momento.
+        // En cada método que creemos, usaremos la variable `con`
     }
 }
 ```
@@ -249,38 +250,16 @@ INSERT INTO empleados (num, nombre, departamento, edad, sueldo) VALUES
     (4, 'Damià', 10, 40, 1500.00);
 ```
 
-Creamos la clase para conectarnos:
-
-```java
-import java.sql.Connection;
-import java.sql.DriverManager;
-public class DatabaseConnection
-{
-    private static Connection con;
-    public static Connection getConnection(){
-        try {
-            // Poned la ruta correcta, de lo contrario, os creará una bd nueva
-            String host = "jdbc:sqlite:src/main/resources/empresa.bd";
-            con = DriverManager.getConnection( host);
-            System.out.println("Conexión realizada");
-        } catch (java.sql.SQLException ex) {
-            System.out.println("Se ha producido un error al conectar: " + ex.getMessage());
-        }
-        return con;
-    }
-}
-```
-
 #### Insertar datos
 
 Creamos el `SQL` para insertar mediante `preparedStatement` y `excuteUpdate`
 
+> -alert-
+>
+> Cuando trabajemos con datos sobre los que no tenemos ninguna forma de controlar su contenido, por ejemplo, datos enviados mediante un formulario web, hemos de usar `PreparedStatement` para evitar ataques de [inyección de SQL](https://owasp.org/www-community/attacks/SQL_Injection)
+
 ```java
 public static void insertarEmpleado(int numero, String nombre, int departamento, int edad, float sueldo) throws SQLException {
-    // Cuando trabajemos con datos sobre los que no tenemos ninguna forma de controlar, 
-    // por ejemplo, datos enviados mediante un formulario web, hemos de usar PreparedStatement para evitar
-    // ataques de inyección de dependencias
-    
     // Creamos el SQL. En cada dato ponemos un ?
     String sql = "INSERT INTO empleados (num, nombre, departamento, edad, sueldo)";
     sql += " VAlUES(?, ?, ?, ?, ?)";
@@ -298,7 +277,8 @@ public static void insertarEmpleado(int numero, String nombre, int departamento,
 
     // Y no nos olvidemos de hacer executeUpdate();
     st.executeUpdate();
-
+	
+    // Imprimimos para ver los resultados
     imprimirEmpleados();
 }
 ```
@@ -331,11 +311,9 @@ public static void imprimirEmpleados() throws SQLException {
 }
 ```
 
-
-
 #### Modificar datos
 
-Ahora modificamos los datos. Simplemente aumentamos el sueldo un 5% y modificamos el departamento del empleado 3, poniéndole el departamento 20.
+Ahora modificamos los datos. Por ejemplo, aumentamos el sueldo un 5% y modificamos el departamento del empleado 3 actualizándolo al departamento 20.
 
 ```java
 private static void actualizarEmpleados() throws SQLException {
@@ -354,9 +332,34 @@ private static void actualizarEmpleados() throws SQLException {
 }
 ```
 
-
-
 ## Ejercicio
 >-task-Crea una aplicación que nos permita gestionar la base de datos network. 
 >
->Debe tener un menú desde el que se puedan gestionar las operaciones CRUD (**C**reate, **R**ead, **U**pdate, **D**elete) usuarios, posts y comentarios. El usuario debe estar logeado para poder introducir posts y comentarios.
+>Debe tener un menú desde el que se puedan gestionar las operaciones [CRUD](https://www.freecodecamp.org/espanol/news/operaciones-crud-que-es-crud/) (**C**reate, **R**ead, **U**pdate, **D**elete) usuarios, posts y comentarios. El usuario debe estar logeado (no hace falta ponerle contraseña) para poder introducir posts y comentarios.
+>
+>La estructura del programa sería algo parecido a esto:
+>
+>```java
+>import java.util.Scanner;
+>
+>public class Main {
+>    // Es static porque pertenece a toda la clase y final porque no se va a modificar
+>    static final java.sql.Connection con = DatabaseConnection.getConnection();
+>    static final Scanner teclado = new Scanner(System.in);
+>    public static void main(String[] args) {
+>        int opcion;
+>        while(true){
+>           opcion = teclado.nextInt();
+>           switch (opcion){
+>               case -1: break; // este sale del switch
+>               case 2:
+>                   metodoX();
+>                   break;
+>               // Y el resto de opciones y métodos
+>           }
+>           // Y ahora salimos del bucle para acabar el programa
+>           if (opcion == -1) break;
+>       }
+>    }
+>}
+>```
