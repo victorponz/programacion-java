@@ -33,8 +33,6 @@ Aunque se trata de sentencias muy dispares, desde el punto de vista de la comuni
 
 Miremos este ejemplo, en el que vamos a crear una tabla muy sencilla en la Base de Datos MySql/network
 
-> **Nota** En este enlace tenéis la clase [DatabaseConnection](https://gist.github.com/victorponz/34e36ad0ff5585d91952e0edeb23fa49)
-
 ```java
 public class Main {
     static java.sql.Connection con = DatabaseConnection.getConnection();
