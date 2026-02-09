@@ -345,26 +345,28 @@ Y, por último, llama a este método desde la clase principal.
 >```java
 >import java.util.Scanner;
 >
->public class Main {
+>public class Main{
 >    // Es static porque pertenece a toda la clase y final porque no se va a modificar
 >    static final java.sql.Connection con = DatabaseConnection.getConnection();
 >    static final Scanner teclado = new Scanner(System.in);
+>
 >    public static void main(String[] args) {
->       int opcion;
->       while(true){
->          opcion = teclado.nextInt();
->          switch (opcion){
->              case -1: break; // este sale del switch
->              case 2:
->                  metodoX();
->                  break;
->              // Y el resto de opciones y métodos
->          }
->          // Y ahora salimos del bucle para acabar el programa
->          if (opcion == -1) break;
->      }
+>        int opcion;
+>        while (true) {
+>            opcion = teclado.nextInt();
+>            switch (opcion) {
+>                case -1:
+>                    break; // este sale del switch
+>                case 2:
+>                    metodoX();
+>                    break;
+>                // Y el resto de opciones y métodos
+>            }
+>            // Y ahora salimos del bucle para acabar el programa
+>            if (opcion == -1) break;
+>        }
 >    }
 >}
->>-hint-Si queréis usar una variable en toda la aplicación, seguid el modelo de variable `teclado`
 >```
 
+>-hint-Si queréis usar una variable en toda la aplicación, seguid el modelo de la variable `teclado`
