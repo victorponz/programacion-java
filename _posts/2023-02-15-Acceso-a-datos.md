@@ -136,11 +136,9 @@ sudo apt-get install sqlite
 
 Lo primero que hemos de hacer es crear una base de datos, desde la línea de comandos. Para ello nos situamos en el directorio del proyecto y la creamos en el directorio `bd` mediante el siguiente comando:
 
-```
+```sql
 cd directorio-de-recursos-del-proyecto
 sqlite3 empresa.bd
-//Ahora escribe cualquier cosa 
-SQLite version 3.45.1 2024-01-30 16:01:20
 Enter ".help" for usage hints.
 sqlite> SELECT name FROM sqlite_master WHERE type='table';
 sqlite> .quit
@@ -283,7 +281,7 @@ public static void insertarEmpleado(int numero, String nombre, int departamento,
 }
 ```
 
-
+Ahora llama a este método desde la clase principal.
 
 #### Consultar datos
 
@@ -311,6 +309,8 @@ public static void imprimirEmpleados() throws SQLException {
 }
 ```
 
+También llama a este método desde el programa principal.
+
 #### Modificar datos
 
 Ahora modificamos los datos. Por ejemplo, aumentamos el sueldo un 5% y modificamos el departamento del empleado 3 actualizándolo al departamento 20.
@@ -332,7 +332,10 @@ private static void actualizarEmpleados() throws SQLException {
 }
 ```
 
+Y, por último, llama a este método desde la clase principal.
+
 ## Ejercicio
+
 >-task-Crea una aplicación que nos permita gestionar la base de datos network. 
 >
 >Debe tener un menú desde el que se puedan gestionar las operaciones [CRUD](https://www.freecodecamp.org/espanol/news/operaciones-crud-que-es-crud/) (**C**reate, **R**ead, **U**pdate, **D**elete) usuarios, posts y comentarios. El usuario debe estar logeado (no hace falta ponerle contraseña) para poder introducir posts y comentarios.
@@ -347,19 +350,21 @@ private static void actualizarEmpleados() throws SQLException {
 >    static final java.sql.Connection con = DatabaseConnection.getConnection();
 >    static final Scanner teclado = new Scanner(System.in);
 >    public static void main(String[] args) {
->        int opcion;
->        while(true){
->           opcion = teclado.nextInt();
->           switch (opcion){
->               case -1: break; // este sale del switch
->               case 2:
->                   metodoX();
->                   break;
->               // Y el resto de opciones y métodos
->           }
->           // Y ahora salimos del bucle para acabar el programa
->           if (opcion == -1) break;
->       }
+>       int opcion;
+>       while(true){
+>          opcion = teclado.nextInt();
+>          switch (opcion){
+>              case -1: break; // este sale del switch
+>              case 2:
+>                  metodoX();
+>                  break;
+>              // Y el resto de opciones y métodos
+>          }
+>          // Y ahora salimos del bucle para acabar el programa
+>          if (opcion == -1) break;
+>      }
 >    }
 >}
+>>-hint-Si queréis usar una variable en toda la aplicación, seguid el modelo de variable `teclado`
 >```
+
