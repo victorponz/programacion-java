@@ -37,7 +37,13 @@ Miremos este ejemplo, en el que vamos a crear una tabla muy sencilla en la Base 
 
 ```java
 public class Main {
-    static java.sql.Connection con = DatabaseConnection.getConnection();
+    static java.sql.Connection con = conectar();
+	
+    private static conectar(){
+        String host = "jdbc:sqlite:src/main/resources/network"; // Apunta a la ruta correcta
+        con = java.sql.DriverManager.getConnection( host);
+        System.out.println("Conexión realizada");
+    }
     public static void main(String[] args) {
 		// No hace nada, de momento
     }
@@ -188,8 +194,14 @@ Y lo probamos en un `main`
 ```java
 public class Main {
     // Es static porque pertenece a toda la clase y final porque no se va a modificar
-    static final java.sql.Connection con = DatabaseConnection.getConnection();
+    static final java.sql.Connection con = conectar();
+    private static void conectar() throws SQLException {
+        String host = "jdbc:sqlite:src/main/resources/network";
+        con = java.sql.DriverManager.getConnection( host);
+        System.out.println("Conexión realizada");
+    }
     public static void main(String[] args) {
+        conectar();
         // No hace nada, de momento.
         // En cada método que creemos, usaremos la variable `con`
     }
