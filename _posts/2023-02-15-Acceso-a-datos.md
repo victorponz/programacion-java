@@ -338,6 +338,41 @@ Y, por último, llama a este método desde la clase principal.
 
 >-task-Crea una aplicación que nos permita gestionar la base de datos network. 
 >
+>>
+>
+>```sql
+>create table main.users
+>(
+>    id       INTEGER
+>        primary key autoincrement,
+>    name     VARCHAR(50)  not null,
+>    lastName VARCHAR(255) not null
+>);
+>
+>create table main.posts
+>(
+>    id     INTEGER
+>        primary key autoincrement,
+>    text   VARCHAR(255)                        not null,
+>    likes  INTEGER                             not null,
+>    date   timestamp default CURRENT_TIMESTAMP not null,
+>    userId INTEGER                             not null
+>        references main.users
+>);
+>
+>create table main.comments
+>(
+>    id     INTEGER
+>        primary key autoincrement,
+>    text   VARCHAR(255)                        not null,
+>    date   timestamp default CURRENT_TIMESTAMP not null,
+>    userId INTEGER                             not null
+>        references main.users,
+>    postId INTEGER                             not null
+>        references main.posts
+>);
+>```
+>
 >Debe tener un menú desde el que se puedan gestionar las operaciones [CRUD](https://www.freecodecamp.org/espanol/news/operaciones-crud-que-es-crud/) (**C**reate, **R**ead, **U**pdate, **D**elete) usuarios, posts y comentarios. 
 >
 >Os podéis descargar un [esqueleto](https://gist.github.com/victorponz/6a3947b781b331b3a2a57a933037fc3f) de la aplicación.
