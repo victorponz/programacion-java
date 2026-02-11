@@ -33,6 +33,8 @@ Aunque se trata de sentencias muy dispares, desde el punto de vista de la comuni
 
 Miremos este ejemplo, en el que vamos a crear una tabla muy sencilla en la Base de Datos MySql/network
 
+> **Nota** En este enlace tenéis la clase [DatabaseConnection](https://gist.github.com/victorponz/34e36ad0ff5585d91952e0edeb23fa49)
+
 ```java
 public class Main {
     static java.sql.Connection con = DatabaseConnection.getConnection();
@@ -338,33 +340,6 @@ Y, por último, llama a este método desde la clase principal.
 >
 >Debe tener un menú desde el que se puedan gestionar las operaciones [CRUD](https://www.freecodecamp.org/espanol/news/operaciones-crud-que-es-crud/) (**C**reate, **R**ead, **U**pdate, **D**elete) usuarios, posts y comentarios. El usuario debe estar logeado (no hace falta ponerle contraseña) para poder introducir posts y comentarios.
 >
->La estructura del programa sería algo parecido a esto:
+>Os podéis descargar un [esqueleto](https://gist.github.com/victorponz/6a3947b781b331b3a2a57a933037fc3f) de la aplicación.
 >
->```java
->import java.util.Scanner;
->
->public class Main{
->    // Es static porque pertenece a toda la clase y final porque no se va a modificar
->    static final java.sql.Connection con = DatabaseConnection.getConnection();
->    static final Scanner teclado = new Scanner(System.in);
->
->    public static void main(String[] args) {
->        int opcion;
->        while (true) {
->            opcion = teclado.nextInt();
->            switch (opcion) {
->                case -1:
->                    break; // este sale del switch
->                case 2:
->                    metodoX();
->                    break;
->                // Y el resto de opciones y métodos
->            }
->            // Y ahora salimos del bucle para acabar el programa
->            if (opcion == -1) break;
->        }
->    }
->}
->```
 
->-hint-Si queréis usar una variable en toda la aplicación, seguid el modelo de la variable `teclado`
