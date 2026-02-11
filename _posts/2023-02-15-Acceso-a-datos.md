@@ -353,7 +353,7 @@ Y, por último, llama a este método desde la clase principal.
 >>
 >
 >```sql
->create table main.users
+>create table users
 >(
 >    id       INTEGER
 >        primary key autoincrement,
@@ -361,7 +361,7 @@ Y, por último, llama a este método desde la clase principal.
 >    lastName VARCHAR(255) not null
 >);
 >
->create table main.posts
+>create table posts
 >(
 >    id     INTEGER
 >        primary key autoincrement,
@@ -369,19 +369,19 @@ Y, por último, llama a este método desde la clase principal.
 >    likes  INTEGER                             not null,
 >    date   timestamp default CURRENT_TIMESTAMP not null,
 >    userId INTEGER                             not null
->        references main.users
+>        references users
 >);
 >
->create table main.comments
+>create table comments
 >(
 >    id     INTEGER
 >        primary key autoincrement,
 >    text   VARCHAR(255)                        not null,
 >    date   timestamp default CURRENT_TIMESTAMP not null,
 >    userId INTEGER                             not null
->        references main.users,
+>        references users,
 >    postId INTEGER                             not null
->        references main.posts
+>        references posts
 >);
 >```
 >
