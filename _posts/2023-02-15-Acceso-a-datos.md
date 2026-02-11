@@ -338,7 +338,7 @@ Y, por último, llama a este método desde la clase principal.
 
 >-task-Crea una aplicación que nos permita gestionar la base de datos network. 
 >
->Debe tener un menú desde el que se puedan gestionar las operaciones [CRUD](https://www.freecodecamp.org/espanol/news/operaciones-crud-que-es-crud/) (**C**reate, **R**ead, **U**pdate, **D**elete) usuarios, posts y comentarios. El usuario debe estar logeado (no hace falta ponerle contraseña) para poder introducir posts y comentarios.
+>Debe tener un menú desde el que se puedan gestionar las operaciones [CRUD](https://www.freecodecamp.org/espanol/news/operaciones-crud-que-es-crud/) (**C**reate, **R**ead, **U**pdate, **D**elete) usuarios, posts y comentarios. 
 >
 >Os podéis descargar un [esqueleto](https://gist.github.com/victorponz/6a3947b781b331b3a2a57a933037fc3f) de la aplicación.
 >
