@@ -37,14 +37,11 @@ Miremos este ejemplo, en el que vamos a crear una tabla muy sencilla en la Base 
 
 ```java
 public class Main {
-    static java.sql.Connection con = conectar();
-	
-    private static conectar(){
-        String host = "jdbc:sqlite:src/main/resources/network"; // Apunta a la ruta correcta
-        con = java.sql.DriverManager.getConnection( host);
-        System.out.println("Conexión realizada");
-    }
+    static java.sql.Connection con;
+
     public static void main(String[] args) {
+        String host = "jdbc:sqlite:src/main/resources/network";
+        con = java.sql.DriverManager.getConnection(host);
 		// No hace nada, de momento
     }
 }
