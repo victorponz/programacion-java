@@ -1145,7 +1145,7 @@ public class EscribirEnFicheroJSON {
 
 Gson es una librería para serializar y deserializar objetos. Por tanto, para poder realizar esta transformación hemos de tener implementadas las clases presentes en el fichero json. Vamos a ver un ejemplo más complejo, procesando la respuesta `json` devuelta desde el api de [Google Maps](https://maps.googleapis.com/maps/api/geocode/json?latlng=40,0).
 
-> -alert-Lo más sencillo para crear la clase que mapea los datos devueltos es pasarle a ChatGPT la cadena JSON y pedirle que te la convierta a una clase Gson. No siempre acierta a la primera pero ya tienes trabajo tedioso hecho
+> -alert-Lo más sencillo para crear la clase que mapea los datos devueltos es pasarle a la IA la cadena JSON y pedirle que te la convierta a una clase Gson. No siempre acierta a la primera, pero ya tienes trabajo tedioso hecho
 
 Os dejo un ejemplo de este [json](/programacion-java/assets/img/formato/gmaps.json) devuelto.
 
@@ -1593,7 +1593,7 @@ public class GeoResponse {
 }
 ```
 
-Una vez tenemos la clase para mapear los objetos json, el código para procesarla es igual de sencillo que para la clase Empleado:
+Una vez tenemos la clase para mapear los objetos json, el código para procesarla es igual de sencillo que para la clase `Empleado`:
 
 ```java
 package googlemaps;
@@ -1700,7 +1700,7 @@ public class LeerGmaps {
 >       //Quitar carácter " del principio y del final
 >        return token.substring(1, token.length()-1);
 >    }
-> ``` 
+> ```
 > En el siguiente código tienes un ejemplo de petición a la api de Spotify con el apiKey
 > ```java
 > private void setAlbum(String nombreAlbum) throws IOException{
@@ -1724,12 +1724,12 @@ public class LeerGmaps {
 >        in.close();
 >        return album;
 >    }
-> ```   
+> ```
 > También puedes usar este código para que el usuario introduzca el dato para buscar en la api
 > ```java
 >     //Reemplazar blancos por +
 >      String albumName = JOptionPane.showInputDialog("???????:").replaceAll("\\s+","+");
-> ```       
+> ```
 
 ***Fuentes***
 
