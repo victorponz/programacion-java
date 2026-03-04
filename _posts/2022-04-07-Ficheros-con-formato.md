@@ -648,19 +648,36 @@ Es muy importante observar que cuando tenemos un elemento que ya tiene contenido
 
 En el ejemplo:
 
-* Para ***marca*** hemos cogido de toda la lista de hijos el primero, para sacar su valor.
-
-* En ***matricula*** en vez de coger toda la lista de hijos, sólo hemos tomado el primero, y por lo tanto es más rápido.
-
-* Y para ***motor*** utilizamos el método `getTextContent`, que coge el contenido de texto del elemento y de todos sus descendientes. Como es un nodo de texto ya sabemos a priori que nos irá bien, y por lo tanto es la forma más rápida.
-
-
-
-El atributo ***combustible*** del elemento ***motor*** lo hemos sacado de 2 maneras:*
-
-* La primera cogiendo la lista de atributos, y luego el primero de esta lista.
-
-* En la segunda manera se ha hecho más elegante, yendo a buscar la propiedad en cuestión. Por eso hemos convertido el nodo en el **elemento m**, para poder utilizar `getAttribute`.  
+> -info-**Varias formas de acceder al contenido**
+>
+> * Para ***marca*** hemos cogido de toda la lista de hijos el primero, para sacar su valor.
+>
+>   ```java
+>   getChildNodes().item(0).getNodeValue();
+>   ```
+>
+> * En ***matricula*** en vez de coger toda la lista de hijos, sólo hemos tomado el primero, y por lo tanto es más rápido de escribir. Es decir:
+>
+>   ```java
+>   getChildNodes().item(0) <==> getFirstChild()
+>   ```
+>
+> * Y para ***motor*** utilizamos el método `getTextContent`, que coge el contenido de texto del elemento y de todos sus descendientes. Como es un nodo de texto ya sabemos a priori que nos irá bien, y por lo tanto es la forma más rápida.
+>
+> El atributo ***combustible*** del elemento ***motor*** lo hemos sacado de 2 maneras:
+>
+> * La primera cogiendo la lista de atributos, y luego el primero de esta lista.
+>
+>   ```java
+>   el.getElementsByTagName("motor").item(0).getAttributes().item(0).getNodeValue());
+>   ```
+>
+> * En la segunda manera se ha hecho más elegante, yendo a buscar la propiedad en cuestión. Por eso hemos convertido el nodo en el **elemento m**, para poder utilizar `getAttribute`.  
+>
+>   ```java
+>   Element m = (Element) el.getElementsByTagName("motor").item(0);
+>   System.out.println("Combustible: " + m.getAttribute("combustible"));
+>   ```
 
 Al final hacemos el `getTextContent()` sobre la raíz para comprobar que saca su contenido y el de todos sus hijos, por eso aparece la información duplicada  Este será el resultado del ejemplo anterior:
 
@@ -716,7 +733,7 @@ La primera consideración es que partiremos de un documento vacío. Iremos const
 
 Los principales métodos para ir construyendo la estructura son:
 
-**Métodos de Document**
+**Métodos de `Document`**
 
 | Valor devuelto | Método                         | Descripción                                                  |
 | -------------- | ------------------------------ | ------------------------------------------------------------ |
@@ -724,14 +741,14 @@ Los principales métodos para ir construyendo la estructura son:
 | `Text`         | `createTextNode(String datos)` | Crea un nuevo elemento de texto (con contenido)              |
 | `Node`         | `appendChild(Node nuevo)`      | Añade el nodo, que será la raíz                              |
 
-**Métodos de Node**
+**Métodos de `Node`**
 
 | Valor devuelto | Método                      | Descripción                                              |
 | -------------- | --------------------------- | -------------------------------------------------------- |
 | `Node`         | `appendChild(Node nuevo)`   | Añade el nodo nuevo como el último hijo hasta el momento |
 | `void`         | `removeChild(Node antiguo)` | Elimina el nodo antiguo como hijo                        |
 
-**Métodos de Element**
+**Métodos de `Element`**
 
 | Valor devuelto | Método                                      | Descripción                                                  |
 | -------------- | ------------------------------------------- | ------------------------------------------------------------ |
@@ -756,7 +773,7 @@ En el archivo `XML` generado, observarás que no hay retornos de carro, todo est
 
 ## 5 Documentos JSON
 
-`JSON` significa **J**ava**S**cript **O**bject **N**otation, es decir Notación de Objetos de JavaScript. Es una manera de representar objetos inicialmente para javascript, pero por su sencillez, y como es en texto plano, sirve para cualquier entorno. Permite representar estructuras de datos de una determinada complejidad, como el `XML`, pero pesa mucho menos que éste, y por eso está convirtiéndose en un estándar de intercambio de datos, sobre todo entre un servidor y una aplicación web.  La extensión de un archivo `JSON` es `.json`
+`JSON` significa **J**ava**S**cript **O**bject **N**otation, es decir Notación de Objetos de JavaScript. Es una manera de representar objetos inicialmente para javascript, pero por su sencillez, y como es en texto plano, sirve para cualquier entorno. Permite representar estructuras de datos de una determinada complejidad, como el `XML`, pero pesa mucho menos que éste, y por eso está convirtiéndose en un estándar de intercambio de datos, sobre todo entre un servidor y una aplicación web.
 
 ## 5.1 Estructura JSON
 
@@ -801,7 +818,7 @@ ahora un objeto, la raíz, también con 5 miembros que son parejas clave-valor. 
 }
 ```
 
-en este caso tenemos un objeto, la raíz que consta de un único objeto, ***empleado***, el cual consta de 5 miembros clave-valor.
+en este caso tenemos un objeto, la raíz que consta de un único objeto `{}`, ***empleado***, el cual consta de 5 miembros clave-valor.
 
 Miremos un ejemplo con un **array**:
 
@@ -811,11 +828,7 @@ Miremos un ejemplo con un **array**:
 }
 ```
 
-donde tenemos el elemento raíz que consta de un único miembro, notas, que es un array.  También sería correcto de este modo, para ver que el elemento raíz no tiene porque ser un objeto, sino también un array
-
-```json
-[ 5 , 7 , 8 , 7 ]
-```
+donde tenemos el elemento raíz que consta de un único miembro, **notas**, que es un array `[]`. 
 
 Y ahora uno más completo con la misma estructura que el archivo `XML` que habíamos visto en la pregunta 4. Tendremos un objeto raíz, con sólo un objeto, ***empresa***, que tiene un único elemento ***empleado*** que es un array con 4 elementos, cada uno de los empleados :
 
@@ -1148,8 +1161,6 @@ Gson es una librería para serializar y deserializar objetos. Por tanto, para po
 > -alert-Lo más sencillo para crear la clase que mapea los datos devueltos es pasarle a la IA la cadena JSON y pedirle que te la convierta a una clase Gson. No siempre acierta a la primera, pero ya tienes trabajo tedioso hecho
 
 Os dejo un ejemplo de este [json](/programacion-java/assets/img/formato/gmaps.json) devuelto.
-
-El siguiente json es sólo una de los valores devueltos por esta api.
 
 ```json
 {
@@ -1671,33 +1682,34 @@ public class LeerGmaps {
 
 **Reto 3**
 > -reto- Elige una api de las que se listan en este [listado de apis](https://github.com/public-apis/public-apis). Elige una cuyo método `Auth` sea **apiKey** o **No**. En el caso de que elijas una de tipo **apiKey** deberás registrarte en la web para que te den un `client_api` y un `client_secret`. 
-> Ahora debes conocer el formato de llamada a la api para realizar una petición a la misma. Con los datos devueltos, debes generar un archivo `html` válido con la información devuelta.
+> Debes conocer el formato de llamada a la api para realizar una petición a la misma por lo que has de consultar la información de la misma. Con los datos devueltos, debes generar un archivo `html` válido con la información devuelta.
 >
 > Para conseguir el token usa este código:
 > ```java
 > private static String getToken() throws IOException {
 > 
->     //Modifica la URL
+>     // La url dependerá de la api que uses
 >     URL url = new URL("https://accounts.spotify.com/api/token");
 > 
 >     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 >     conn.setDoOutput(true);
 >     conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 >     conn.setRequestMethod("POST");
->     //esta cadena dependerá de la api
+>     
+>     // Esta cadena dependerá de la api
 >     String postData = "grant_type=client_credentials&client_id=" + clientID + "&client_secret=" + clientSecret;
 > 
->     // Write the POST data to the connection
+>     // Llamamos a la url pasando los parámetros de `client_id` y `client_secret`
 >     try (OutputStream os = conn.getOutputStream()) {
 >         byte[] postDataBytes = postData.getBytes("UTF-8");
 >         os.write(postDataBytes);
 >         os.flush();
 >     }
->      BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
->      //En in tienes la información devuelta donde debe aparecer el token. Parséala para obtenerlo
->     //{"access_token":"???????????","token_type":"Bearer","expires_in":3600}
+>     BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+>     // En in tienes la información devuelta donde debe aparecer el token. Parséala para obtenerlo
+>     // {"access_token":"???????????","token_type":"Bearer","expires_in":3600}
 >     token = in.readLine().split(",")[0].split(":")[1];
->    //Quitar carácter " del principio y del final
+>     // Quitar carácter " del principio y del final
 >     return token.substring(1, token.length()-1);
 > }
 > ```
