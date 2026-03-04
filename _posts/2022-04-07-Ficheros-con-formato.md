@@ -854,7 +854,7 @@ Y ahora uno más completo con la misma estructura que el archivo `XML` que habí
    }
 ```
 
-Como ejemplo real, un WebService de Google Maps nos proporciona información de los sitios que encuentra cerca, entre otras cosas la dirección, de unas coordenadas que le pasamos (en el ejemplo 40, 0). Por ejemplo, [https://maps.googleapis.com/maps/api/geocode/json?latlng=40,0](https://maps.googleapis.com/maps/api/geocode/json?latlng=40,0) devuelve lo siguiente:
+Como ejemplo real, un WebService de Google Maps nos proporciona información de los sitios que encuentra cerca, entre otras cosas la dirección, de unas coordenadas que le pasamos (en el ejemplo 40, 0). Por ejemplo:
 
 ```json
 {
@@ -1673,66 +1673,60 @@ public class LeerGmaps {
 > -reto- Elige una api de las que se listan en este [listado de apis](https://github.com/public-apis/public-apis). Elige una cuyo método `Auth` sea **apiKey** o **No**. En el caso de que elijas una de tipo **apiKey** deberás registrarte en la web para que te den un `client_api` y un `client_secret`. 
 > Ahora debes conocer el formato de llamada a la api para realizar una petición a la misma. Con los datos devueltos, debes generar un archivo `html` válido con la información devuelta.
 >
-> Para conseguir el token usa este código
+> Para conseguir el token usa este código:
 > ```java
->    private static String getToken() throws IOException {
->
->        //Modifica la URL
->        URL url = new URL("https://accounts.spotify.com/api/token");
->
->        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
->        conn.setDoOutput(true);
->        conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
->        conn.setRequestMethod("POST");
->        //esta cadena dependerá de la api
->        String postData = "grant_type=client_credentials&client_id=" + clientID + "&client_secret=" + clientSecret;
->
->        // Write the POST data to the connection
->        try (OutputStream os = conn.getOutputStream()) {
->            byte[] postDataBytes = postData.getBytes("UTF-8");
->            os.write(postDataBytes);
->            os.flush();
->        }
->         BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
->         //En in tienes la información devuelta donde debe aparecer el token. Parséala para obtenerlo
->        //{"access_token":"???????????","token_type":"Bearer","expires_in":3600}
->        token = in.readLine().split(",")[0].split(":")[1];
->       //Quitar carácter " del principio y del final
->        return token.substring(1, token.length()-1);
->    }
+> private static String getToken() throws IOException {
+> 
+>     //Modifica la URL
+>     URL url = new URL("https://accounts.spotify.com/api/token");
+> 
+>     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+>     conn.setDoOutput(true);
+>     conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+>     conn.setRequestMethod("POST");
+>     //esta cadena dependerá de la api
+>     String postData = "grant_type=client_credentials&client_id=" + clientID + "&client_secret=" + clientSecret;
+> 
+>     // Write the POST data to the connection
+>     try (OutputStream os = conn.getOutputStream()) {
+>         byte[] postDataBytes = postData.getBytes("UTF-8");
+>         os.write(postDataBytes);
+>         os.flush();
+>     }
+>      BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+>      //En in tienes la información devuelta donde debe aparecer el token. Parséala para obtenerlo
+>     //{"access_token":"???????????","token_type":"Bearer","expires_in":3600}
+>     token = in.readLine().split(",")[0].split(":")[1];
+>    //Quitar carácter " del principio y del final
+>     return token.substring(1, token.length()-1);
+> }
 > ```
-> En el siguiente código tienes un ejemplo de petición a la api de Spotify con el apiKey
+> En el siguiente código tienes un ejemplo de petición a la api de Spotify con el apiKey obtenido antes
 > ```java
 > private void setAlbum(String nombreAlbum) throws IOException{
->        final Gson gson = new Gson();
->        URL url = new URL("https://api.spotify.com/v1/search?q=" + nombreAlbum + "&type=album&limit=1&offset=0");
->        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
->        conn.setRequestProperty("Accept", "application/json");
->        //Sólo en el caso que la autorización sea de tipo apiKey
->        conn.setRequestProperty("Authorization","Bearer " + getToken());
->        conn.setRequestMethod("GET");
->
->        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
->        //La clase SpotifyResponse es la que realiza el mapeo
->        SpotifyResponse g = gson.fromJson(in, SpotifyResponse.class);
->        Album album = null;
->        if (!g.albums.items.isEmpty()){
->            album = new Album(g.albums.items.get(0).artists.get(0).name,
->                    g.albums.items.get(0).name,
->                    g.albums.items.get(0).release_date, g.albums.items.get(0).images);
->         }
->        in.close();
->        return album;
->    }
+>     final Gson gson = new Gson();
+>     URL url = new URL("https://api.spotify.com/v1/search?q=" + nombreAlbum + "&type=album&limit=1&offset=0");
+>     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+>     conn.setRequestProperty("Accept", "application/json");
+>     //Sólo en el caso que la autorización sea de tipo apiKey
+>     conn.setRequestProperty("Authorization","Bearer " + getToken());
+>     conn.setRequestMethod("GET");
+> 
+>     BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+>     //La clase SpotifyResponse es la que realiza el mapeo
+>     SpotifyResponse g = gson.fromJson(in, SpotifyResponse.class);
+>     Album album = null;
+>     if (!g.albums.items.isEmpty()){
+>         album = new Album(g.albums.items.get(0).artists.get(0).name,
+>                 g.albums.items.get(0).name,
+>                 g.albums.items.get(0).release_date, g.albums.items.get(0).images);
+>      }
+>     in.close();
+>     return album;
+> }
 > ```
 > También puedes usar este código para que el usuario introduzca el dato para buscar en la api
 > ```java
->     //Reemplazar blancos por +
->      String albumName = JOptionPane.showInputDialog("???????:").replaceAll("\\s+","+");
+>  //Reemplazar blancos por +
+>   String albumName = JOptionPane.showInputDialog("???????:").replaceAll("\\s+","+");
 > ```
-
-***Fuentes***
-
-[https://www.adictosaltrabajo.com/tutoriales/gson-java-json/](https://www.adictosaltrabajo.com/tutoriales/gson-java-json/)
-
-[https://codereview.stackexchange.com/questions/117787/google-maps-coordinations-json-to-object](https://codereview.stackexchange.com/questions/117787/google-maps-coordinations-json-to-object)
