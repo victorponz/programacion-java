@@ -1631,8 +1631,8 @@ public class LeerGmaps {
     }
 }
 ```
-
-> -task-[Aquí](/programacion-java/assets/specie.json) encontrarás la información en formato JSON de la especie pokémon `Aegislash`
+## Reto 1
+> -reto-[Aquí](/programacion-java/assets/specie.json) encontrarás la información en formato JSON de la especie pokémon `Aegislash`
 >
 > A partir de este fichero, debes generar la siguiente salida:
 >
@@ -1655,8 +1655,7 @@ public class LeerGmaps {
 > 	坚盾剑怪
 > ```
 
-**Reto 1**
-
+## Reto 2
 > -reto-En este reto deberás obtener la información directamente del api de [pokémon](https://pokeapi.co/) (sin guardarla en disco)
 >
 > Por ejemplo para el pokémon ditto la url es [https://pokeapi.co/api/v2/pokemon/ditto](https://pokeapi.co/api/v2/pokemon/ditto)
@@ -1677,22 +1676,27 @@ public class LeerGmaps {
 > 	...
 > ```
 
-**Reto 2**
+## Reto 3
 > -reto- Crea una aplicación que le pida al usuario el nombre de un pokémon. Después imprime la misma información del reto anterior. Si no existe dicho pokémon se debe informar a usuario. El programa finaliza cuando el usuario introduce una cadena vacía
 >
 > ```java
 > String pokemonName = JOptionPane.showInputDialog("Introduce un pokemon:");
 > ```
 
-**Reto 3**
-> -reto- Elige una api de las que se listan en este [listado de apis](https://github.com/public-apis/public-apis). Elige una cuyo método `Auth` sea **apiKey** o **No**. En el caso de que elijas una de tipo **apiKey** deberás registrarte en la web para que te den un `client_api` y un `client_secret`. 
+## Reto 4
+
+> -alert- Antes de escoger una api, preguntadme si cumple los requisitos para usarla
+
+> -reto- Elige una api de las que se listan en este [listado de apis](https://github.com/public-apis/public-apis). Elige una cuyo método `Auth` sea **apiKey** o **No**. 
+>
+> En el caso de que elijas una de tipo **apiKey** deberás registrarte en la web para que te den un `client_api` y un `client_secret`. 
 > Debes conocer el formato de llamada a la api para realizar una petición a la misma por lo que has de consultar su documentación. Con los datos devueltos, debes generar un archivo `html` válido con la información devuelta.
 >
 > Para conseguir el token usa este código:
 > ```java
 > /**
 > 	NOTA. Cuando nos devuelve el token, también nos dice cuando expira. 
-> 	Lo ideal sería pedir sólo el token cuando haya caducado, así nos ahorramos peticiones a la api
+> 	Lo ideal sería guardarlo en caché y pedirlo sólo cuando haya caducado, así nos ahorramos peticiones a la api
 > */
 > private static String getToken() throws IOException {
 >     // La url dependerá de la api que uses
