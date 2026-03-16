@@ -191,7 +191,7 @@ Llamar a `event.consume()` en cualquier punto detiene la propagación.
 
 ### Formas de registrar manejadores
 
-#### 1. `setOnXxx` — la más sencilla (fase bubble)
+1. `setOnXxx` — la más sencilla (fase bubble)
 
 ```java
 button.setOnAction(event -> {
@@ -209,7 +209,7 @@ nodo.setOnMouseEntered(e -> nodo.setStyle("-fx-opacity: 0.8;"));
 nodo.setOnMouseExited(e -> nodo.setStyle("-fx-opacity: 1.0;"));
 ```
 
-#### 2. `addEventHandler` — fase bubble, permite múltiples handlers
+2. `addEventHandler` — fase bubble, permite múltiples handlers
 
 ```java
 button.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
@@ -222,7 +222,7 @@ button.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
 });
 ```
 
-#### 3. `addEventFilter` — fase capture, intercepta antes de llegar al target
+3. `addEventFilter` — fase capture, intercepta antes de llegar al target
 
 ```java
 scene.addEventFilter(MouseEvent.MOUSE_CLICKED, event -> {
@@ -285,6 +285,3 @@ boton.disableProperty().bind(
 );
 ```
 
----
-
-*Generado a partir de conversación con Claude — JavaFX desde cero.*
