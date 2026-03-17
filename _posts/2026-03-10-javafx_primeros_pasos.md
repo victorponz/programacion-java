@@ -31,21 +31,29 @@ La clase principal debe extender `javafx.application.Application` e implementar 
 ### Ejemplo mínimo
 
 ```java
-public class MiApp extends Application {
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
-    @Override
-    public void start(Stage stage) {
-        Label label = new Label("Hola, JavaFX");
-        Scene scene = new Scene(new StackPane(label), 400, 300);
-        stage.setScene(scene);
-        stage.setTitle("Mi primera app");
-        stage.show();
-    }
-
+public class Launcher extends Application {
+    // Este `main` es siempre igual
     public static void main(String[] args) {
-        launch(args);
+        Application.launch(HelloApplication.class, args);
     }
+
+    @Override // Método definido en `javafx.application.Application`
+    public void start(Stage stage) {
+        Label label = new Label("Hola, JavaFX"); // Crea un texto no editable
+        Scene scene = new Scene(new StackPane(label), 400, 300); // Define la ventana o Scene con una distribución y un tamaño
+        stage.setScene(scene); // El escenario es la aplicación
+        stage.setTitle("Mi primera app"); // Le ponemos un título a la ventana o Stage
+        stage.show(); // La mostramos
+    }
+
 }
+
 ```
 
 ---
@@ -73,8 +81,21 @@ Los contenedores organizan sus nodos hijos según reglas de posicionamiento dist
 Apila los nodos hijos en **vertical**, uno debajo del otro.
 
 ```java
-VBox vbox = new VBox(10); // 10px de separación entre hijos
-vbox.getChildren().addAll(new Label("Uno"), new Label("Dos"), new Button("Tres"));
+@Override // Método definido en `javafx.application.Application`
+public void start(Stage stage) {
+    VBox vbox = new VBox(10); // Una caja vertical con 10px de separación entre cada uno de los hijos
+
+    // Y añadimos los controles necesarios, que en este caso son anónimos,
+    // es decir, no se ha creado una variable, aunque lo habitual es crearla
+    vbox.getChildren().addAll(new Label("Uno"), new TextField(), new Button("Tres"));
+
+    Scene scene = new Scene(vbox, 400, 300); // Define la ventana o Scene con una distribución y un tamaño
+
+    // Estos tres pasos también suelen ser igual
+    stage.setScene(scene); // El escenario es la aplicación
+    stage.setTitle("Mi primera app"); // Le ponemos un título a la ventana o Stage
+    stage.show(); // La mostramos
+}
 ```
 
 ### HBox
@@ -82,7 +103,8 @@ vbox.getChildren().addAll(new Label("Uno"), new Label("Dos"), new Button("Tres")
 Apila los nodos hijos en **horizontal**, uno al lado del otro.
 
 ```java
-HBox hbox = new HBox(8);
+// Refactoriza VBox del ejemplo anterior
+HBox hbox = new HBox(8); // En este caso, es horizontal
 hbox.getChildren().addAll(new Label("Nombre:"), new TextField());
 ```
 
@@ -92,12 +114,14 @@ Organiza los nodos en una **cuadrícula de filas y columnas**. Ideal para formul
 
 ```java
 GridPane grid = new GridPane();
-grid.setHgap(10);
-grid.setVgap(8);
+grid.setHgap(10); // Fijamos la separación horizontal de cada una de las celdas
+grid.setVgap(8); // Y, ahora, la vertical
+
+// Las celdas se numeran desde el vértice superior-izquierdo
 grid.add(new Label("Usuario:"), 0, 0); // columna 0, fila 0
 grid.add(new TextField(),       1, 0); // columna 1, fila 0
-grid.add(new Label("Email:"),   0, 1);
-grid.add(new TextField(),       1, 1);
+grid.add(new Label("Email:"),   0, 1); // columna 0, fila 1
+grid.add(new TextField(),       1, 1); // columna 1, fila1
 ```
 
 ### BorderPane
@@ -119,8 +143,8 @@ Permite fijar nodos a los **bordes del contenedor** mediante anclas (distancias 
 ```java
 AnchorPane anchor = new AnchorPane();
 Button btn = new Button("Esquina");
-AnchorPane.setTopAnchor(btn, 10.0);
-AnchorPane.setRightAnchor(btn, 10.0);
+AnchorPane.setTopAnchor(btn, 10.0); // Distancia desde arriba
+AnchorPane.setRightAnchor(btn, 10.0); // Distancia desde la derecha
 anchor.getChildren().add(btn);
 ```
 
@@ -194,8 +218,10 @@ Llamar a `event.consume()` en cualquier punto detiene la propagación.
 1. `setOnXxx` — la más sencilla (fase bubble)
 
 ```java
+// Como voy a asignarle un evento, necesito tener la variable (y no valen variables anónimas)
+Button button = new Button("Click Me");
 button.setOnAction(event -> {
-    System.out.println("Botón pulsado");
+    System.out.println("Button clicked");
 });
 
 textField.setOnKeyPressed(event -> {
