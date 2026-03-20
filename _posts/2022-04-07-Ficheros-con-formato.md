@@ -1545,6 +1545,15 @@ Vemos que cada resultado tiene los siguientes campos:
 * `place_id` es un `String`
 * `types` es otra  lista de `String`
 
+> -info-Los campos deben escribirse tal cual vienen en el archivo json, a no ser que se anote el campo
+>
+> ```java
+> @SerializedName("address_components")
+> private String direccion;
+> ```
+
+
+
 La clase `AddressComponent` queda así:
 
 ```java
@@ -1581,17 +1590,20 @@ public class GeoResponse {
     String status;
 
     static class Result {
+        // Esta propiedad es una lista de AddessComponent
         List<AddressComponent> address_components;
         String formatted_address;
         Geometry geometry;
         String place_id;
         List<String> types;
 
+        // Y esta tiene a su vez una lista de String
         static class AddressComponent {
             String long_name, short_name;
             List<String> types;
         }
-
+		
+        // Y esta tiene una clase LatLng
         static class Geometry {
             LatLng location;
             String location_type;
@@ -1677,13 +1689,6 @@ public class LeerGmaps {
 > ```
 
 ## Reto 3
-> -reto- Crea una aplicación que le pida al usuario el nombre de un pokémon. Después imprime la misma información del reto anterior. Si no existe dicho pokémon se debe informar a usuario. El programa finaliza cuando el usuario introduce una cadena vacía
->
-> ```java
-> String pokemonName = JOptionPane.showInputDialog("Introduce un pokemon:");
-> ```
-
-## Reto 4
 
 > -alert- Antes de escoger una api, preguntadme si cumple los requisitos para usarla
 
@@ -1695,70 +1700,77 @@ public class LeerGmaps {
 > Para conseguir el token usa este código:
 > ```java
 > /**
-> 	NOTA. Cuando nos devuelve el token, también nos dice cuando expira. 
-> 	Lo ideal sería guardarlo en caché y pedirlo sólo cuando haya caducado, así nos ahorramos peticiones a la api
+> 	NOTA. Cuando nos devuelve el token, también nos dice cuándo expira. 
+> 	Lo ideal sería guardarlo en caché y pedirlo sólo cuando haya caducado, así nos ahorramos peticiones a la api para
+> 	pedir el token
 > */
+> // Debes obtener estos del panel de control de la api con la que trabajas.
+> // Ahí habrá dos datos: clientID y clientSecret, o algo parecido
+> // Estos dos parámetros se pueden almacenar en un archivo de propiedades o en variables de entorno
+> String clientID;
+> String clientSecret;
 > private static String getToken() throws IOException {
->     // La url dependerá de la api que uses
->     URL url = new URL("https://accounts.spotify.com/api/token");
+>  // La url dependerá de la api que uses
+>  URL url = new URL("https://accounts.spotify.com/api/token");
 > 
->     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
->     conn.setDoOutput(true);
->     conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
->     conn.setRequestMethod("POST");
+>  // Creamos una conexión con METHOD = POST
+>  HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+>  conn.setDoOutput(true);
+>  conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+>  conn.setRequestMethod("POST");
 > 
->     // Esta cadena dependerá de la api
->     String postData = "grant_type=client_credentials&client_id=" + clientID + "&client_secret=" + clientSecret;
+>  // Esta cadena dependerá de la api, pero seguro que te pide dos datos 
+>  String postData = "grant_type=client_credentials&client_id=" + this.clientID + "&client_secret=" + this.clientSecret;
 > 
->     // Llamamos a la url pasando los parámetros de `client_id` y `client_secret`
->     try (OutputStream os = conn.getOutputStream()) {
->         byte[] postDataBytes = postData.getBytes("UTF-8");
->         os.write(postDataBytes);
->         os.flush();
->     }
->     BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
->     
->     // En la variable `in` tienes la información devuelta por la api de registro, 
->     // donde debe aparecer el token. Seguramente estará en json
->     // {"access_token":"???????????","token_type":"Bearer","expires_in":3600}
->     Gson gson = new Gson();
->     final Properties prop = gson.fromJson(in, Properties.class);
->     
->     // Y ahora, obtén la propiedad buscada
->     token = prop.getProperty("access_token");
+>  // Llamamos a la url pasando los parámetros de `client_id` y `client_secret`
+>  try (OutputStream os = conn.getOutputStream()) {
+>      byte[] postDataBytes = postData.getBytes("UTF-8");
+>      os.write(postDataBytes);
+>      os.flush();
+>  }
+>  BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+> 
+>  // En la variable `in` tienes la información devuelta por la api de registro, 
+>  // donde debe aparecer el token. Seguramente estará en json
+>  // {"access_token":"???????????","token_type":"Bearer","expires_in":3600}
+>  Gson gson = new Gson();
+>  final Properties prop = gson.fromJson(in, Properties.class);
+> 
+>  // Y ahora, obtén la propiedad buscada
+>  token = prop.getProperty("access_token");
 > }
 > ```
 > En el siguiente código tienes un ejemplo de petición a la api de Spotify con el apiKey obtenido antes: 
 > ```java
 > private void getAlbum(String nombreAlbum) throws IOException{
->     final Gson gson = new Gson();
->     
->     // Este es el endpoint de la api. Aquí va el endpoint del api que utilicéis
->     URL url = new URL("https://api.spotify.com/v1/search?q=" + nombreAlbum + "&type=album&limit=1&offset=0");
->     
->     // Abrimos la conexión a dicho endpoint
->     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
->     
->     // Y le decimos que el tipo de la respuesta que aceptamos es json
->     conn.setRequestProperty("Accept", "application/json");
+>  final Gson gson = new Gson();
 > 
->     // Sólo en el caso que la autorización sea de tipo apiKey
->     conn.setRequestProperty("Authorization","Bearer " + getToken());
->     conn.setRequestMethod("GET");
+>  // Este es el endpoint de la api. Aquí va el endpoint del api que utilicéis
+>  URL url = new URL("https://api.spotify.com/v1/search?q=" + nombreAlbum + "&type=album&limit=1&offset=0");
 > 
->     BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
->     
->     // La clase SpotifyResponse es la que realiza el mapeo
->     SpotifyResponse g = gson.fromJson(in, SpotifyResponse.class);
->     
->     // Este código ya depende del mapeo que hayáis usado.
->     Album album = null;       
->     if (!g.albums.items.isEmpty()){
->      album = new Album(g.albums.items.get(0).artists.get(0).name,
->              g.albums.items.get(0).name,
->              g.albums.items.get(0).release_date, g.albums.items.get(0).images);
->     }
->     in.close();
->     return album;
+>  // Abrimos la conexión a dicho endpoint
+>  HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+> 
+>  // Y le decimos que el tipo de la respuesta que aceptamos es json
+>  conn.setRequestProperty("Accept", "application/json");
+> 
+>  // Sólo en el caso que la autorización sea de tipo apiKey
+>  conn.setRequestProperty("Authorization","Bearer " + getToken());
+>  conn.setRequestMethod("GET");
+> 
+>  BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+> 
+>  // La clase SpotifyResponse es la que realiza el mapeo
+>  SpotifyResponse g = gson.fromJson(in, SpotifyResponse.class);
+> 
+>  // Este código ya depende del mapeo que hayáis usado.
+>  Album album = null;       
+>  if (!g.albums.items.isEmpty()){
+>   album = new Album(g.albums.items.get(0).artists.get(0).name,
+>           g.albums.items.get(0).name,
+>           g.albums.items.get(0).release_date, g.albums.items.get(0).images);
+>  }
+>  in.close();
+>  return album;
 > }
 > ```
