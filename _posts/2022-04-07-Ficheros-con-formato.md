@@ -1694,6 +1694,8 @@ public class LeerGmaps {
 
 > -reto- Elige una api de las que se listan en este [listado de apis](https://github.com/public-apis/public-apis). Elige una cuyo método `Auth` sea **apiKey** o **No**. 
 >
+> Después, crea un programa que lea algún dato de esa api y muestre los datos por pantalla.
+>
 > En el caso de que elijas una de tipo **apiKey** deberás registrarte en la web para que te den un `client_api` y un `client_secret`. 
 > Debes conocer el formato de llamada a la api para realizar una petición a la misma por lo que has de consultar su documentación. Con los datos devueltos, debes generar un archivo `html` válido con la información devuelta.
 >
