@@ -14,6 +14,8 @@ En JavaFX, los archivos **FXML** son archivos XML que describen la interfaz grá
 
 ------
 
+
+
 ## ¿Qué es un Resource en Java?
 
 Un *resource* es cualquier archivo que se incluye dentro del classpath del proyecto (imágenes, CSS, FXML, etc.). En lugar de usar rutas absolutas del sistema de archivos, se accede a ellos mediante el **classloader**, lo que hace que el proyecto sea portable.
