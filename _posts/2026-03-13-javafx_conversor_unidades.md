@@ -15,7 +15,7 @@ En esta práctica vamos a crear un conversor de unidades de millas ➡️ kilóm
 ![image-20260323101848511](/programacion-java/assets/img/javafx/image-20260323101848511.png)
 
 
-> -info-Os dejo aquí el esqueleto de la [aplicación](../../assets/conversor-pasoapaso.zip)
+> -info-Os dejo aquí el esqueleto de la [aplicación](/programacion-java/assets/conversor.pasoapaso.zip)
 
 Este es el contenido de `MainApp`
 
