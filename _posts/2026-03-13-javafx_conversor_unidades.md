@@ -10,14 +10,91 @@ permalink: javafx-conversor-unidades
 
 ## Objetivo
 
-En esta práctica vamos a crear un conversor de unidades de millas :left_right_arrow: kilómetros. 
+En esta práctica vamos a crear un conversor de unidades de millas ➡️ kilómetros. 
 
-![image-20260317114353745](/programacion-java/assets/img/javafx/image-20260317114353745.png)
+![image-20260323101848511](/programacion-java/assets/img/javafx/image-20260323101848511.png)
 
 
-> -info-Os dejo aquí el esqueleto de la [aplicación](../assets/conversor-pasoapaso.zip)
+> -info-Os dejo aquí el esqueleto de la [aplicación](../../assets/conversor-pasoapaso.zip)
 
-## Creación del panel km :arrow_right: millas
+Este es el contenido de `MainApp`
+
+```java
+package org.ieselcaminas.conversor;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class MainApp extends Application {
+
+     /**
+     * Punto de entrada REAL de JavaFX.
+     * Se llama automáticamente después de launch().
+     * Aquí se construye la ventana principal (Stage).
+     *
+     * @param stage El escenario (ventana) principal que nos proporciona JavaFX.
+     */
+    @Override
+    public void start(Stage stage) {
+        // La ventana que vamos a mostrar
+        ConverterView view = new ConverterView();
+        // Cogemos del DOM la raíz para crear una escena
+        Scene scene = new Scene(view.getRoot(), 780, 680);
+
+        // El stage es la ventana
+        stage.setTitle("Conversor de Distancias");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+	/**
+     * Método llamado ANTES de start().
+     * Útil para inicializar recursos: conexión a BD, cargar configuración, etc.
+     */
+    @Override
+    public void init() {
+        System.out.println("Aplicación iniciando...");
+        // Aquí podrías inicializar, por ejemplo:
+        // - Conexión a base de datos
+        // - Cargar un fichero de propiedades
+        // - Preparar un servicio singleton
+    }
+    /** Ciclo de vida que ejecuta JavaFX
+        main()
+          └─► launch()
+                ├─► init()       ← preparar recursos
+                ├─► start()      ← construir y mostrar la ventana  ← aquí está todo
+                └─► stop()       ← liberar recursos al cerrar
+    */
+    /**
+     * Método llamado al CERRAR la aplicación.
+     * Ideal para liberar recursos: cerrar conexiones, guardar estado, etc.
+     */
+    @Override
+    public void stop() {
+        System.out.println("Aplicación cerrando. Liberando recursos...");
+        // Aquí podrías:
+        // - Cerrar conexión a BD
+        // - Guardar preferencias del usuario
+        // - Detener hilos en segundo plano
+    }
+
+    /**
+     * Punto de entrada del programa (main).
+     * En JavaFX, main() simplemente llama a launch(),
+     * que es quien arranca el ciclo de vida de la aplicación.
+     *
+     * @param args Argumentos de línea de comandos (raramente usados en JavaFX).
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+```
+
+
+
+## Creación del panel  ➡️  millas
 
 Creamos primero la vista:
 
@@ -30,12 +107,18 @@ public class ConverterView {
     private Label kmResultLabel;
 
     public ConverterView() {
+        // En el constructor se llama a buildUI() por convención
         buildUI();
     }
 
     private void buildUI() {
+        // La pantalla principal será una caja vertical con un separación entre cajas de 20
         root = new VBox(20);
+        
+        // Le ponemos padding en el interior para que no se apelotonen los controles
         root.setPadding(new Insets(32, 36, 32, 36));
+        
+        // Y la ponemos en el centro
         root.setAlignment(Pos.TOP_CENTER);
 
         // ── Título ──────────────────────────────────────────────
@@ -59,30 +142,32 @@ public class ConverterView {
 
     }
     private VBox buildConversionPanelMillas() {
+        // Creamos el título 
         Label panelTitulo = new Label("🏁  Millas  →  Kilómetros");
         panelTitulo.setFont(Font.font("SansSerif", FontWeight.SEMI_BOLD, 14));
 
+        // Creamos una etiqueta para el control de de texto
         Label inputLabel = new Label("Introduce las millas:");
-
         millasInput = new TextField();
         millasInput.setPromptText("Ej: 10");
+        // Lo hacemos máximo para que ocupe toda la caja
         millasInput.setMaxWidth(Double.MAX_VALUE);
 
         Label unidadLabel = new Label("kilómetros");
+        // Creamos un botón que, de momento, no hace nada
         Button btnConvertir = new Button("Convertir a km");
         btnConvertir.setMaxWidth(Double.MAX_VALUE);
 
-        btnConvertir.setOnAction(e -> {
-            convertirMillasAKm();
-        });
-
+        // Creamos un label para mostrar el resultado
         kmResultLabel = new Label("—");
         kmResultLabel.setFont(Font.font("SansSerif", FontWeight.BOLD, 36));
         kmResultLabel.setTextAlignment(TextAlignment.CENTER);
 
+        // Y ahora creamos una caja vertical con una separación de 2 con el resultado
         VBox resultBox = new VBox(2, kmResultLabel, unidadLabel);
         resultBox.setAlignment(Pos.CENTER);
 
+        // Y ahora, creamos otra caja vertical para apilar todos los controles
         VBox panel = new VBox(10, panelTitulo, inputLabel, millasInput, btnConvertir, resultBox);
         panel.setStyle("-fx-background-color: -color-bg-subtle; -fx-background-radius: 8;");
         panel.setPadding(new Insets(16));
@@ -98,11 +183,11 @@ Este debe ser el resultado:
 
 ### Manejo de eventos
 
-Ahora vamos a crear la lógica de la ventana: al pulsar el botón, debe aparecer la conversión a kilómetros en el `millasResultadoLabel`
+Ahora vamos a crear la **lógica** de la ventana: al pulsar el botón, debe aparecer la conversión a kilómetros en el `millasResultadoLabel`
 
 **Clase `DistanceConverter`**
 
-En la clase `DistanceConverter`creamos la lógica para hacer los cálculo y así separamos la lógica de la representación.
+Creamos la clase `DistanceConverter` donde se aloja la lógica para hacer los cálculos y así **separamos la lógica de la representación**.
 
 ```java
 public class DistanceConverter {
@@ -132,14 +217,54 @@ public class DistanceConverter {
 }
 ```
 
-**Evento `click`**
-
-En `buildConversionPanel`
+Creamos un método `convertirKmAMillas` para llamar a `DistanceConverter.kmToMiles` y actualizamos el estado de la ventana:
 
 ```java
-// Al hacer click
+private void convertirKmAMillas() {
+    try {
+        // En español, los decimales se escriben con `coma` pero java espera que sea un `punto`
+        double km = Double.parseDouble(kmInput.getText().replace(",", "."));
+        // Hacemos la conversión propiamente dichar
+        double millas = DistanceConverter.kmToMiles(km);
+        // Lo formateamos a 4 decimales
+        String resultado = DistanceConverter.format(millas, DECIMALS);
+        // Ponemos el resultado en el `millasResultadoLabel`
+        millasResultadoLabel.setText(resultado);
+        // Anima la etiqueta para que crezca
+        animarLabel(millasResultadoLabel);
+    } catch (NumberFormatException e) {
+        millasResultadoLabel.setText("Valor inválido");
+    }
+}
+```
+
+Y un método para hacer una chulada:
+
+```java
+private void animarLabel(Label label) {
+    ScaleTransition st = new ScaleTransition(Duration.millis(150), label);
+    st.setFromX(0.85);
+    st.setFromY(0.85);
+    st.setToX(1.0);
+    st.setToY(1.0);
+
+    FadeTransition ft = new FadeTransition(Duration.millis(150), label);
+    ft.setFromValue(0.4);
+    ft.setToValue(1.0);
+
+    st.play();
+    ft.play();
+}
+```
+
+**Evento `click`**
+
+En `buildConversionPanel`, ya podemos convertir a millas
+
+```java
+// Al hacer clic
 btnConvertir.setOnAction(e -> {
-    convertirKmAMilas();
+    convertirKmAMillas();
 });
 ```
 
@@ -147,7 +272,7 @@ Ahora ya debe funcionar la conversión:
 
 ![image-20260323084320066](/programacion-java/assets/img/javafx/image-20260323084320066.png)
 
-## Creación del panel millas  :left_right_arrow: kilómetros
+## Creación del panel millas   ➡️  kilómetros
 
 Es igual que el anterior. Primero creamos el panel.
 
@@ -201,7 +326,7 @@ private void convertirKmAMillas() {
 }
 ```
 
-Y, por último, modificamos la vista principal para añadir este panel:
+Y, por último, modificamos la vista principal  `buildUI` para añadir este panel:
 
 ```java
 // ── Un panel para millas ─────────────────────
@@ -279,18 +404,22 @@ Primero creamos la vista:
 private ListView<String> historialList;
 ...
 private VBox buildHistorialPanel() {
+    // EL título
     Label titulo = new Label("📋  Historial de conversiones");
     titulo.setFont(Font.font("SansSerif", FontWeight.SEMI_BOLD, 14));
 
+    // Una lista para escribir las conversiones
     historialList = new ListView<>();
     historialList.setPrefHeight(120);
     historialList.getStyleClass().add(Styles.DENSE);
     historialList.setPlaceholder(new Label("Aún no hay conversiones..."));
 
+    // Botón para limpiar la vista
     Button btnLimpiar = new Button("Limpiar historial");
     btnLimpiar.getStyleClass().add(Styles.DANGER);
     btnLimpiar.setOnAction(e -> historialList.getItems().clear());
 
+    // Y el panel vertical donde añado todos los controles
     VBox panel = new VBox(8, titulo, historialList, btnLimpiar);
     panel.setStyle("-fx-background-color: -color-bg-subtle; -fx-background-radius: 8;");
     panel.setPadding(new Insets(16));
@@ -316,7 +445,7 @@ Un  nuevo método para agregar el historial:
 
 ```java
 private void agregarHistorial(String entrada) {
-    // Si la actual ya está añadida la primera, no la agrego
+    // Si la entrada actual ya está añadida la primera, no la agrego
     if (!historialList.getItems().isEmpty() &&
             historialList.getItems().getFirst().equals(entrada)) return;
     
@@ -330,36 +459,16 @@ private void agregarHistorial(String entrada) {
 }
 ```
 
-Y ahora, cada vez que hagamos clic lo añadimos a la lista:
+Y ahora, en `convertirKmAMillas`
 
 ```java
- private void convertirKmAMillas() {
-    try {
-        double km = Double.parseDouble(kmInput.getText().replace(",", "."));
-        double millas = DistanceConverter.kmToMiles(km);
-        String resultado = DistanceConverter.format(millas, DECIMALS);
-        millasResultadoLabel.setText(resultado);
-        // Ahora lo añadimos al historial
-        agregarHistorial(String.format("%.4f km  →  %s mi", km, resultado));
+agregarHistorial(String.format("%.4f km  →  %s mi", km, resultado));
+```
 
-    } catch (NumberFormatException e) {
-        millasResultadoLabel.setText("Valor inválido");
-    }
-}
-private void convertirMillasAKm() {
-    try {
-        double millas = Double.parseDouble(millasInput.getText().replace(",", "."));
-        double km = DistanceConverter.milesToKm(millas);
-        String resultado = DistanceConverter.format(km, DECIMALS);
-        kmResultLabel.setText(resultado);
-		// Ahora lo añadimos al historial
-        agregarHistorial(String.format("%.4f mi  →  %s km", millas, resultado));
+Y en `convertirMillasAKm`
 
-    } catch (NumberFormatException e) {
-        kmResultLabel.setText("Valor inválido");
-    }
-}
-
+```java
+ agregarHistorial(String.format("%.4f mi  →  %s km", millas, resultado));
 ```
 
 Y este es el resultado:
