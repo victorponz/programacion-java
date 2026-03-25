@@ -262,7 +262,7 @@ En `buildConversionPanel`, ya podemos convertir a millas
 ```java
 // Al hacer clic
 btnConvertir.setOnAction(e -> {
-   convertirMillasAKm()
+   convertirMillasAKm();
 });
 ```
 
