@@ -358,7 +358,7 @@ Este es el resultado
 
 ### Hoja de estilo
 
-Los controles de javaFX se pueden estilizar mediante css. Vamos a utilizar una librería que ya trae una serie de temas predefinidos. En `pon.xml` añade esta dependencia:
+Los controles de javaFX se pueden estilizar mediante css. Vamos a utilizar una librería que ya trae una serie de temas predefinidos. En `pom.xml` añade esta dependencia:
 
 ```xml
 <dependency>
