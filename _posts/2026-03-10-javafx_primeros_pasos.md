@@ -8,6 +8,8 @@ conToc: true
 permalink: javafx-primeros-pasos
 ---
 
+
+
 ## 1. Ciclo de vida de la aplicación
 
 JavaFX es el framework de interfaces gráficas moderno para Java. Su arquitectura sigue un modelo de árbol de nodos renderizado sobre un escenario.
@@ -29,6 +31,23 @@ La clase principal debe extender `javafx.application.Application` e implementar 
 > -alert-**Importante:** `init()` se ejecuta en el hilo de la aplicación, no en el JavaFX Thread. Todo lo visual debe ir en `start()`.
 
 ### Ejemplo mínimo
+
+Añade las siguientes dependencias:
+
+```xml
+<dependency>
+    <groupId>org.openjfx</groupId>
+    <artifactId>javafx-controls</artifactId>
+    <version>21.0.2</version>
+</dependency>
+<dependency>
+    <groupId>org.openjfx</groupId>
+    <artifactId>javafx-fxml</artifactId>
+    <version>21.0.2</version>
+</dependency>
+```
+
+
 
 ```java
 import javafx.application.Application;
