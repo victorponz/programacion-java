@@ -47,7 +47,7 @@ Añade las siguientes dependencias:
 </dependency>
 ```
 
-
+Y crea la clase `Launcher`
 
 ```java
 import javafx.application.Application;
