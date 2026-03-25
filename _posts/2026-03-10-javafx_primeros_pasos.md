@@ -124,7 +124,9 @@ Apila los nodos hijos en **horizontal**, uno al lado del otro.
 ```java
 // Refactoriza VBox del ejemplo anterior
 HBox hbox = new HBox(8); // En este caso, es horizontal
-hbox.getChildren().addAll(new Label("Nombre:"), new TextField());
+hbox.getChildren().addAll(new Label("Nombre:"    public VBox getRoot(){
+        return root;
+    }), new TextField());
 ```
 
 ### GridPane

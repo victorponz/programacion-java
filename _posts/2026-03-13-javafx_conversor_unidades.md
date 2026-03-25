@@ -174,6 +174,9 @@ public class ConverterView {
 
         return panel;
     }
+    public VBox getRoot(){
+        return root;
+    }
 }
 ```
 
@@ -217,23 +220,18 @@ public class DistanceConverter {
 }
 ```
 
-Creamos un método `convertirKmAMillas` para llamar a `DistanceConverter.kmToMiles` y actualizamos el estado de la ventana:
+Creamos un método `convertirMillasAKm` para llamar a `DistanceConverter.kmToMiles` y actualizamos el estado de la ventana:
 
 ```java
-private void convertirKmAMillas() {
+private void convertirMillasAKm() {
     try {
-        // En español, los decimales se escriben con `coma` pero java espera que sea un `punto`
-        double km = Double.parseDouble(kmInput.getText().replace(",", "."));
-        // Hacemos la conversión propiamente dichar
-        double millas = DistanceConverter.kmToMiles(km);
-        // Lo formateamos a 4 decimales
-        String resultado = DistanceConverter.format(millas, DECIMALS);
-        // Ponemos el resultado en el `millasResultadoLabel`
-        millasResultadoLabel.setText(resultado);
-        // Anima la etiqueta para que crezca
-        animarLabel(millasResultadoLabel);
+        double millas = Double.parseDouble(millasInput.getText().replace(",", "."));
+        double km = DistanceConverter.milesToKm(millas);
+        String resultado = DistanceConverter.format(km, DECIMALS);
+        kmResultLabel.setText(resultado);
+        animarLabel(kmResultLabel);
     } catch (NumberFormatException e) {
-        millasResultadoLabel.setText("Valor inválido");
+        kmResultLabel.setText("Valor inválido");
     }
 }
 ```
@@ -264,7 +262,7 @@ En `buildConversionPanel`, ya podemos convertir a millas
 ```java
 // Al hacer clic
 btnConvertir.setOnAction(e -> {
-    convertirKmAMillas();
+   convertirMillasAKm()
 });
 ```
 
@@ -272,11 +270,15 @@ Ahora ya debe funcionar la conversión:
 
 ![image-20260323084320066](/programacion-java/assets/img/javafx/image-20260323084320066.png)
 
-## Creación del panel millas   ➡️  kilómetros
+## Creación del panel kilómetros   ➡️  millas
 
 Es igual que el anterior. Primero creamos el panel.
 
 ```java
+// Código anterior
+    private TextField kmInput;
+    private Label millasResultadoLabel;
+// Código anterior
 private VBox buildConversionPanelKms() {
     Label panelTitulo = new Label("📍  Kilómetros  →  Millas");
     panelTitulo.setFont(Font.font("SansSerif", FontWeight.SEMI_BOLD, 14));
