@@ -8,13 +8,19 @@ conToc: true
 permalink: javafx-recursos-fxm l
 ---
 
-# Resources FXML en JavaFX
+
+
+## Proyecto
+
+Crea un nuevo proyecto de tipo JavaFX en IntelliJ
+
+![image-20260325085550791](/programacion-java/assets/img/javafx/image-20260325085550791.png)
+
+## ¿Qué es un archivo `fxml`
 
 En JavaFX, los archivos **FXML** son archivos XML que describen la interfaz gráfica de forma declarativa. Para usarlos correctamente, es fundamental entender cómo gestionarlos como **recursos** del proyecto.
 
 ------
-
-
 
 ## ¿Qué es un Resource en Java?
 
@@ -28,64 +34,75 @@ Un *resource* es cualquier archivo que se incluye dentro del classpath del proye
 src/
 └── main/
     ├── java/
-    │   └── com/ejemplo/
-    │       ├── MainApp.java
-    │       └── controllers/
-    │           └── MainController.java
+    │   └── com/fxml/
+    │       ├── HelloApplication.java
+    │       └── HelloController.java
+    │       └── Launcher.java 	
     └── resources/
-        └── com/ejemplo/
-            ├── views/
-            │   └── main-view.fxml
-            └── styles/
-                └── style.css
+        └── com/fxml/
+            ├── main-view.fxml
+            └── style.css
 ```
 
-> 💡 Es buena práctica **replicar la estructura de paquetes** dentro de `resources/` para mantener el orden.
+> -info-Es buena práctica **replicar la estructura de paquetes** dentro de `resources/` para mantener el orden.
 
-------
+
 
 ## Cómo cargar un FXML como resource
 
 La forma correcta es usando `getClass().getResource(...)`:
 
 ```java
-// En MainApp.java
-FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ejemplo/views/main-view.fxml"));
-Parent root = loader.load();
+public class HelloApplication extends Application {
+    @Override
+    public void start(Stage stage) throws IOException {
+        // Cargamos el fxml
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        // Creamos la escena a partir del fxml con un tamaño en píxels de 320 x 240
+        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        // Le ponemos un título
+        stage.setTitle("Hello!");
+        // Y la mostramos
+        stage.setScene(scene);
+        stage.show();
+    }
+}
 ```
 
 ### ¿Por qué no usar rutas absolutas?
 
 ```java
 // ❌ MAL - Ruta absoluta, no funcionará en otro ordenador
-new File("C:/proyectos/miapp/src/main/resources/views/main-view.fxml");
+new File("/home/usuario/miapp/src/main/resources/org/ieselcaminas/fxml/views/main-view.fxml");
 
 // ✅ BIEN - Resource path, funciona siempre
-getClass().getResource("/com/ejemplo/views/main-view.fxml");
+ FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 ```
 
 ------
 
 ## El archivo FXML por dentro
 
-xml
+Este es el contenido de `main-view.fxml`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
 <?import javafx.scene.control.Button?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.ieselcaminas.fxml.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
 
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.ejemplo.controllers.MainController"
-      spacing="10">
-
-    <Label fx:id="miLabel" text="Hola, DAW!"/>
-    <Button text="Púlsame" onAction="#handleBoton"/>
-
+    <Label fx:id="welcomeText"/>
+    <Button text="Hello!" onAction="#onHelloButtonClick"/>
 </VBox>
+
 ```
 
 Las partes clave son:
@@ -94,29 +111,22 @@ Las partes clave son:
 | -------------------- | --------------------------------------------------------- |
 | `fx:controller`      | Clase Java que actúa como controlador                     |
 | `fx:id`              | Identificador para inyectar el elemento en el controlador |
-| `onAction="#metodo"` | Referencia a un método del controlador                    |
-
-
+| `onAction="#metodo"` | Referencia a un método del controladorç                   |
 
 ------
 
 ## El Controlador asociado
 
 ```java
-public class MainController {
-
+public class HelloController {
+    // El nombre de la etiqueta debe coincidir con el id del archivo fxml fx:id="welcomeText"
     @FXML
-    private Label miLabel;  // Se inyecta automáticamente si tiene fx:id="miLabel"
+    private Label welcomeText;
 
+    // Este evento se ha enlazado en el fxml a través de `onAction`
     @FXML
-    private void handleBoton(ActionEvent event) {
-        miLabel.setText("¡Botón pulsado!");
-    }
-
-    @FXML
-    public void initialize() {
-        // Se ejecuta automáticamente al cargar el FXML
-        System.out.println("Controlador inicializado");
+    protected void onHelloButtonClick() {
+        welcomeText.setText("Welcome to JavaFX Application!");
     }
 }
 ```
@@ -147,7 +157,7 @@ FXML (diseño UI)  ──►  FXMLLoader (carga el fichero)
 ## Hoja de estilo CSS en JavaFX
 JavaFX tiene su propio sistema de CSS, muy parecido al CSS web pero con propiedades propias con el prefijo `-fx-`.
 
-Estructura del archivo css `com/ejemplo/styles/style.cs`
+Estructura del archivo css `org/ieselcaminas/fxml/style.cs`
 
 ```css
 
@@ -399,7 +409,7 @@ label.setStyle("-fx-text-fill: red;");
 Esta sería la aplicación completa:
 
 ```java
-package org.ieselcaminas.conversor;
+package org.ieselcaminas.fxml;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -420,7 +430,7 @@ public class MainApp extends Application {
     private static final String TITULO_APP    = "Mi Aplicación JavaFX";
     private static final double ANCHO_VENTANA = 800;
     private static final double ALTO_VENTANA  = 600;
-    private static final String FXML_PRINCIPAL = "/org/ieselcaminas/conversor/views/main-view.fxml";
+    private static final String FXML_PRINCIPAL = "main-view.fxml";
 
     /**
      * Punto de entrada REAL de JavaFX.
@@ -433,32 +443,19 @@ public class MainApp extends Application {
     public void start(Stage stage) {
         try {
             // 1. Localizamos el archivo FXML como resource del classpath
-            URL fxmlUrl = getClass().getResource(FXML_PRINCIPAL);
-
-            if (fxmlUrl == null) {
-                System.err.println("ERROR: No se encontró el FXML en: " + FXML_PRINCIPAL);
-                return;
-            }
+	        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 
             // 2. Cargamos el FXML con FXMLLoader
             //    Esto también instancia e inicializa el controlador asociado
-            FXMLLoader loader = new FXMLLoader(fxmlUrl);
-            Parent root = loader.load();
+            Scene scene = new Scene(fxmlLoader.load(), ANCHO_VENTANA, ALTO_VENTANA);
 
-            // 3. (Opcional) Obtenemos el controlador si necesitamos pasarle datos iniciales
-            // MainController controller = loader.getController();
-            // controller.setAlgunDato("valor inicial");
-
-            // 4. Creamos la escena con el nodo raíz cargado del FXML
-            Scene scene = new Scene(root, ANCHO_VENTANA, ALTO_VENTANA);
-
-            // 5. (Opcional) Añadimos una hoja de estilos CSS externa
-            URL cssUrl = getClass().getResource("/org/ieselcaminas/conversor/styles/style.css");
+            // 3. (Opcional) Añadimos una hoja de estilos CSS externa
+            URL cssUrl = getClass().getResource("/org/ieselcaminas/fxml/style.css");
             if (cssUrl != null) {
                 scene.getStylesheets().add(cssUrl.toExternalForm());
             }
 
-            // 6. Configuramos el Stage (la ventana) y lo mostramos
+            // 6¡4. Configuramos el Stage (la ventana) y lo mostramos
             stage.setTitle(TITULO_APP);
             stage.setScene(scene);
             stage.setResizable(true);      // Permite redimensionar la ventana
