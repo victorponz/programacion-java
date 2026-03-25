@@ -94,7 +94,7 @@ public class MainApp extends Application {
 
 
 
-## Creación del panel  ➡️  millas
+## Creación del panel millas ➡️ kilómetros
 
 Creamos primero la vista:
 
