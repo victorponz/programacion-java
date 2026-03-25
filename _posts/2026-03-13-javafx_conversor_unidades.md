@@ -257,7 +257,7 @@ private void animarLabel(Label label) {
 
 **Evento `click`**
 
-En `buildConversionPanel`, ya podemos convertir a millas
+En `buildConversionPanelMillas`, ya podemos convertir a millas
 
 ```java
 // Al hacer clic
