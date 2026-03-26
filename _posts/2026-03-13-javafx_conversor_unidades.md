@@ -146,7 +146,7 @@ public class ConverterView {
         Label panelTitulo = new Label("🏁  Millas  →  Kilómetros");
         panelTitulo.setFont(Font.font("SansSerif", FontWeight.SEMI_BOLD, 14));
 
-        // Creamos una etiqueta para el control de de texto
+        // Creamos una etiqueta para el TextField
         Label inputLabel = new Label("Introduce las millas:");
         millasInput = new TextField();
         millasInput.setPromptText("Ej: 10");
@@ -183,6 +183,35 @@ public class ConverterView {
 Este debe ser el resultado:
 
 ![image-20260323081817231](/programacion-java/assets/img/javafx/image-20260323081817231.png)
+
+### Resumiendo
+
+1. Plantearse qué distribución va a tener, por ejemplo `VBox`
+
+2. Creamos controles:
+
+   ```java
+   // Creamos una etiqueta
+   Label inputLabel = new Label("Introduce las millas:");
+   // Y un control para introducir texto
+   millasInput = new TextField();
+   ```
+
+3. Y ahora, que no se nos olvide agregarlo al `VBox`
+
+   ```java
+   // Y ahora creamos una caja vertical con una separación de 2 con el resultado
+   VBox resultBox = new VBox(2, inputLabel, millasInput);
+   ```
+4. Este `resultBox` se debe añadir al nodo `root`
+   
+   ```java
+   root.getChildren().addAll(
+   	resultBox // más el resto de controles de la ventana si hubiera
+   );
+   ```
+   
+   
 
 ### Manejo de eventos
 
