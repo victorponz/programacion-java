@@ -180,6 +180,14 @@ public class Teacher {
     public String toString() {
         return name;
     }
+
+    public Departament getDepartament() {
+        return departament;
+    }
+
+    public void setDepartament(Departament departament) {
+        this.departament = departament;
+    }
 }
 ```
 
@@ -197,7 +205,7 @@ import java.util.Set;
 @Table(name = "departament")
 public class Departament {
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public Departament() {
@@ -591,6 +599,221 @@ private ObservableList<Teacher> teachers = FXCollections.observableArrayList();
 ## Flujo completo de una operación
 
 <img src="/programacion-java/assets/img/javafx/image-20260324113204416.png" alt="image-20260324113204416" style="zoom:50%;" />
+
+
+
+## Departamentos
+
+Vamos a implementar la relación `1:n` entre Profesores y Departamentos.
+
+Primero creamos una vista para el departamento llamada `departament-view.fxml`
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<VBox spacing="10" style="-fx-padding: 20;"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.ieselcaminas.teacher.controller.DepartamentController">
+    <!-- Input -->
+    <HBox spacing="10">
+        <Label text="Nombre del departamento:"/>
+        <TextField fx:id="nameField" promptText="Escribe el nombre"/>
+    </HBox>
+    <!-- Buttons -->
+    <HBox spacing="10">
+        <Button text="Guardar" onAction="#onSave"/>
+        <Button text="Eliminar" onAction="#onDelete"/>
+    </HBox>
+    <!-- List -->
+    <ListView fx:id="departamentList" prefHeight="200"/>
+</VBox>
+```
+
+Esta vista tiene los mismos componentes que `teacher-view.fxml`
+
+Ahora añadimos un botón en la vista `teacher-view` para que abra la vista `departament-view`
+
+```xml
+    <HBox spacing="10">
+        <Button text="Guardar" onAction="#onSave"/>
+        <Button text="Eliminar" onAction="#onDelete"/>
+        <Button text="Gestionar departamentos" onAction="#onOpenDepartaments"/> // Este botón es nuevo
+    </HBox>
+```
+
+Y ahora implementamos el método `onOpenDepartaments` en `TeacherController` 
+
+```java
+/**
+ * Botón Gestionar departamentos: abre la ventana modal de departamentos.
+ */
+@FXML
+private void onOpenDepartaments() throws IOException {
+    // Cargamos la vista del departamento
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/departament-view.fxml"));
+
+    Stage deptStage = new Stage();
+    // Aquí le estamos diciendo que esta ventama pertenece a la ventana a la que pertenece la lista
+    deptStage.initOwner(teacherList.getScene().getWindow());
+    // Y la abrimpo modal
+    deptStage.initModality(Modality.WINDOW_MODAL);
+    deptStage.setTitle("Gestión de departamentos");
+    deptStage.setScene(new Scene(loader.load(), 480, 400));
+
+    // Inyectamos el contexto en el controlador de departamentos
+    DepartamentController deptController = loader.getController();
+    deptController.setSpringContext(springContext);
+    deptController.initialize();
+
+    deptStage.show();
+}
+```
+
+> -info-Una ventana `modal` es un tipo de ventana que se superpone a todas las demás y en la que el foco no puede salir de la misma, a no ser que la cerremos
+
+Por último, creamos `departamentController` que es igual que `teacherController` pero para la entidad `departament`
+
+![image-20260415090721959](/programacion-java/assets/img/javafx/image-20260415090721959.png)
+
+#### Últimos retoques
+
+Modificamos `teacher-view.fxml` para añadir un combo box para poder seleccionar un departamento para el profesor:
+
+```xml
+    <!--
+       Fila: selector de departamento.
+       fx:id="departamentCombo" lo inyecta TeacherController con @FXML.
+       promptText aparece cuando no hay nada seleccionado.
+   -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Departamento:"/>
+        <ComboBox fx:id="departamentCombo"
+                  promptText="Sin departamento"
+                  HBox.hgrow="ALWAYS"
+                  maxWidth="Infinity"/>
+    </HBox>
+```
+
+En `TeacherController`
+
+```java
+@FXML 
+private ComboBox<Departament> departamentCombo;  // ← NUEVO
+
+/**
+ * Lista compartida de departamentos.
+ * Esta MISMA instancia se pasa al DepartamentController, de modo que
+ * cualquier add/remove que haga ese controlador se refleja aquí
+ * automáticamente gracias a que ObservableList notifica a sus observadores.
+ */
+private final ObservableList<Departament> departaments = FXCollections.observableArrayList();  // ← NUEVO
+
+public void initialize() {
+    // ── Configurar ComboBox ──────────────────────────────────────────
+	departamentCombo.setItems(departaments); // ← NUEVO
+ 	....
+}
+
+ teacherList.setOnMouseClicked(event -> { // ← MODIFICADO
+    // en `event` tenemos mucha información, por ejemplo si se ha hecho doble clic
+    if (event.getClickCount() == 2) {
+        // Cogemos el `teacher` seleccionado
+        Teacher selected = teacherList.getSelectionModel().getSelectedItem();
+        if (selected != null) {
+            // Si hay algo, rellenamos el campo nombre
+            nameField.setText(selected.getName());
+            teacherEditing = selected; // Estamos editando este `teacher`
+            // Seleccionar el departamento actual en el combo.
+            // Buscamos en la lista del combo el que tenga el mismo id.
+            if (selected.getDepartament() != null) {
+                departaments.stream()
+                        .filter(d -> d.getId().equals(selected.getDepartament().getId()))
+                        .findFirst()
+                        .ifPresent(departamentCombo::setValue);
+            } else {
+                departamentCombo.setValue(null);
+            }
+        }
+    }
+});
+
+@FXML
+private void onSave() { // ← MODIFICADO
+    String name = nameField.getText().trim();
+    // Coger el departamento del combo
+    Departament selectedDept = departamentCombo.getValue(); // puede ser null
+    if (!name.isEmpty()) {
+        TeacherRepository repo = springContext.getBean(TeacherRepository.class);
+        // NO estamos editando, por tanto `teacherEditing` es nulo
+        if (teacherEditing == null) {
+            Teacher teacher = repo.save(new Teacher(name));
+            // Fijar el departamento
+            teacher.setDepartament(selectedDept);
+            teachers.add(teacher);
+        } else {
+            // Aquí SÍ estamos editando, por lo que obtenemos
+            // el `teacher` cuyo `id` sea el de `teacherEditing`
+            Teacher teacher = repo.findById(teacherEditing.getId()).orElse(null);
+            if (teacher != null) {
+                // Hay que actualizar tanto el nombre del `teacher` como del `teacherEditing`
+                // para que se coordinen
+                teacher.setName(name);
+                // Fijar el departamento
+                teacher.setDepartament(selectedDept);
+                repo.save(teacher);
+                teacherEditing.setName(name);
+                teacherList.refresh();
+            }
+            // Ya hemos acabado, por lo que ya no estamos editando
+            teacherEditing = null;
+        }
+        nameField.clear();
+        departamentCombo.setValue(null);
+    }
+}
+
+@FXML
+private void onOpenDepartaments() throws IOException {  // ← MODIFICADo
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/departament-view.fxml"));
+
+    Stage deptStage = new Stage();
+    deptStage.initOwner(teacherList.getScene().getWindow());
+    deptStage.initModality(Modality.WINDOW_MODAL);
+    deptStage.setTitle("Gestión de departamentos");
+    deptStage.setScene(new Scene(loader.load(), 480, 400));
+
+    // Inyectamos el contexto en el controlador de departamentos
+    DepartamentController deptController = loader.getController();
+    deptController.setSpringContext(springContext);
+    // ↓ Pasamos nuestra lista compartida: el controlador de depts
+    //   operará sobre ella en lugar de crear la suya propia.
+    deptController.setDepartaments(departaments);  // ← NUEVO
+    deptController.initialize();
+
+    deptStage.show();
+}
+```
+
+En `DepartamentController`
+
+```java
+// Esta lista es la que se comparte entre la ventana del profesor y la del departamento para que se actualice automáticamente
+private ObservableList<Departament> departaments = FXCollections.observableArrayList();
+
+/**
+ * Recibe la ObservableList del TeacherController para operar sobre ella.
+ * Debe llamarse ANTES de initialize().
+ */
+public void setDepartaments(ObservableList<Departament> 
+                            departaments) { // ← NUEVO
+    this.departaments = departaments;
+}
+```
 
 
 
