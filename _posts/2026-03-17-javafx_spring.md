@@ -43,7 +43,7 @@ Primero, el mapa de archivos importantes:
     <groupId>org.example</groupId>
     <artifactId>JavaFXTeacher</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>JavaFXTecher</name>
+    <name>JavaFXTeacher</name>
     <description>JavaFXTeacher</description>
     <url/>
     <licenses>
@@ -135,10 +135,12 @@ Este archivo le dice a Maven (el gestor de dependencias) qué librerías necesit
 
 ### 2. `Teacher.java` y `Departament.java` — Los modelos (las "plantillas de datos")
 
+Debes crear los `package` `org.ieselcaminas.teacher`
+
 Estos archivos representan las tablas de la base de datos como clases Java. La anotación `@Entity` le dice a Spring: *"esta clase es una tabla en la BD"*.
 
 ```java
-package org.ieselcaminas.teacher;
+package org.ieselcaminas.teacher.model;
 
 import jakarta.persistence.*;
 
@@ -157,7 +159,11 @@ public class Teacher {
     public Teacher() {
         
     }
-    
+
+    public Long getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -170,12 +176,18 @@ public class Teacher {
     @JoinColumn(name = "departament_id")
     private Departament departament;
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }
 ```
 
 y
 
 ```java
+package org.ieselcaminas.teacher.model;
+
 import jakarta.persistence.*;
 
 import java.util.LinkedHashSet;
@@ -187,6 +199,13 @@ public class Departament {
     @Id
     @Column(name = "id", nullable = false)
     private Long id;
+
+    public Departament() {
+    }
+
+    public Departament(String name) {
+        this.name = name;
+    }
 
     @OneToMany(mappedBy = "departament", orphanRemoval = true)
     private Set<Teacher> teachers = new LinkedHashSet<>();
@@ -217,6 +236,11 @@ public class Departament {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public  String toString() {
+        return name;
+    }
 }
 ```
 
@@ -227,6 +251,9 @@ La relación entre las dos entidades es:
 ### 3. Los repositorios — El acceso a la base de datos "gratis"
 
 ```java
+package org.ieselcaminas.teacher.repository;
+
+import org.ieselcaminas.teacher.model.Teacher;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -237,11 +264,14 @@ public interface TeacherRepository extends JpaRepository<Teacher, Long> {}
 y
 
 ```java
-import org.springframework.data.repository.JpaRepository;
-import org.springframework.data.repository.Repository;
+package org.ieselcaminas.teacher.repository;
 
-public interface DepartamentRepository extends JpaRepository<Departament, Long> {
-}
+import org.ieselcaminas.teacher.model.Departament;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface DepartamentRepository extends JpaRepository<Departament, Long> {}
 ```
 
 Esta interfaz está **completamente vacía**, pero eso es lo mágico. Al extender `JpaRepository`, Spring Data JPA le regala automáticamente todos estos métodos sin que tengas que escribir ni una línea de SQL:
@@ -258,7 +288,7 @@ Esta interfaz está **completamente vacía**, pero eso es lo mágico. Al extende
 Esta clase va a gestionar toda la lógica de la aplicación (de momento, no hace nada):
 
 ```java
-package org.ieselcaminas.teacher;
+package org.ieselcaminas.teacher.controller;
 
 import org.springframework.context.ApplicationContext;
 
@@ -274,7 +304,7 @@ public class TeacherController {
 }
 ```
 
-Y ahora creamos la vista `teacher-view.fxml`, guarda en el directorio de recursos:
+Y ahora creamos la vista `teacher-view.fxml`, guardada en el directorio de recursos:
 
 ```java
 <?xml version="1.0" encoding="UTF-8"?>
@@ -282,7 +312,7 @@ Y ahora creamos la vista `teacher-view.fxml`, guarda en el directorio de recurso
 
 <VBox spacing="10" style="-fx-padding: 20;"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.ieselcaminas.teacher.TeacherController">
+      fx:controller="org.ieselcaminas.teacher.controller.TeacherController">
 </VBox>
 ```
 
@@ -297,6 +327,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.ieselcaminas.teacher.controller.TeacherController;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -350,13 +381,25 @@ Este es el archivo más complejo. Hace dos cosas a la vez: **arrancar Spring Boo
 
 ### 6. La interfaz gráfica — Lo que ve el usuario
 
+> -alert- Para poder ejecutar la aplicación desde el botón Ejecutar, has de crear una Configuración desde 
+>
+> ![image-20260414095300331](/programacion-java/assets/img/javafx/image-20260414095350260.png)
+>
+> ![image-20260414095408019](/programacion-java/assets/img/javafx/image-20260414095408019.png)
+>
+> Ahora, dale ejecutar a la configuración recién creada.
+
+
+
 Hasta ahora, hemos creado la siguiente interfaz:
 
 ![image-20260413101458777](/programacion-java/assets/img/javafx/image-20260413101458777.png)
 
-La ventana se construye con contenedores y componentes. Vamos a ir creando el resto de controles junto con los controladores de eventos.
+Vamos a empezar a definir la ventana principal de la aplicación que se construye con contenedores y componentes. Vamos a ir creando el resto de controles junto con los controladores de eventos.
 
-Primero el `label` y el `inputText` para el nombre del profesor. Añade lo siguiente al archivo `teacher-view.fxml`
+#### Añadir
+
+Primero el `label` y el `inputText` para el nombre del profesor y la lista de profesores. Añade lo siguiente al archivo `teacher-view.fxml` dentro del contenedor `VBox`
 
 ```xml
      <!-- Input -->
@@ -383,35 +426,48 @@ El proceso consta de 2 partes:
 1. Crear un método en el controlador ` onSave`
 
    ```java
-   package org.ieselcaminas.teacher;
+   package org.ieselcaminas.teacher.controller;
    
+   import javafx.collections.FXCollections;
+   import javafx.collections.ObservableList;
    import javafx.fxml.FXML;
-   import javafx.scene.control.Label;
    import javafx.scene.control.ListView;
    import javafx.scene.control.TextField;
+   import org.ieselcaminas.teacher.model.Teacher;
+   import org.ieselcaminas.teacher.repository.TeacherRepository;
    import org.springframework.context.ApplicationContext;
    
    public class TeacherController {
    
        private ApplicationContext springContext;
+       
        @FXML // El campo para el nombre
        private TextField nameField;
    
        @FXML
        private ListView<Teacher> teacherList;
+       // Creamos una lista que se va a mantener sincronizada automáticamente
+       // con el ListView
+       private ObservableList<Teacher> teachers = FXCollections.observableArrayList();
+   
        // 🔌 Inyectamos Spring manualmente
        public void setSpringContext(ApplicationContext context) {
            this.springContext = context;
        }
        @FXML
+       public void initialize() {
+           // Le decimos al ListView que tiene que estar sincronizada con la List `teachers`
+           teacherList.setItems(teachers);
+       }
+       @FXML
        private void onSave() {
-           
            String name = nameField.getText().trim(); // Quitamos espacios en blancos del principio y final
            if (!name.isEmpty()) {
                //Cogemos el repositorio asociado a Teacher
                TeacherRepository repo = springContext.getBean(TeacherRepository.class);
-               // Lo guadamos
+               // Lo guardamos
                Teacher teacher = repo.save(new Teacher(name));
+               teachers.add(teacher);
            }
            nameField.clear();
        }
@@ -429,40 +485,94 @@ El proceso consta de 2 partes:
        </HBox>
    ```
 
-   
+#### Modificar
 
-### 6. Los tres botones y cómo funcionan
+Ahora vamos a modificar un elemento de la lista al hacer doble clic en un elemento de la vista.
 
-El comportamiento del botón **Guardar** distingue si estás creando o editando gracias a la variable `teacherEditing`:
+Primero nos creamos una propiedad en el controlador para discriminar si estamos editando un `teacher`
 
 ```java
-// Si teacherEditing es null → crear nuevo profesor
-if (teacherEditing == null) {
-    Teacher teacher = repo.save(new Teacher(name)); // INSERT en BD
-    teachers.add(teacher);                          // añade a la lista visual
-} else {
-    // Si teacherEditing tiene valor → modificar el existente
-    teacher.setName(name);
-    repo.save(teacher);          // UPDATE en BD
-    teacherList.refresh();       // refresca la lista visual
-    teacherEditing = null;       // vuelve a modo "crear"
+// Esta variable almacena el teacher sobre el que se ha hecho doble clic para editarlo
+private Teacher teacherEditing = null;
+```
+
+Y ahora creamos el evento en `initialize()`
+
+```java
+@FXML
+public void initialize() {
+    teacherList.setItems(teachers);
+
+    teacherList.setOnMouseClicked(event -> {
+        // en `event` tenemos mucha información, por ejemplo si se ha hecho doble clic
+        if (event.getClickCount() == 2) {
+            // Cogemos el `teacher` seleccionado
+            Teacher selected = teacherList.getSelectionModel().getSelectedItem();
+            if (selected != null) {
+                // Si hay algo, rellenamos el campo nombre
+                nameField.setText(selected.getName());
+                teacherEditing = selected; // Marcamos que estamos editando este teacher
+            }
+        }
+    });
 }
 ```
 
-El botón **Eliminar** borra lo que esté seleccionado en la lista:
+Y ahora vamos a modificar la acción de guardar, para saber si es nuevo o estamos editando:
 
 ```java
-Teacher selected = teacherList.getSelectionModel().getSelectedItem();
-repo.deleteById(selected.getId()); // DELETE en BD
-teachers.remove(selected);         // quita de la lista visual
+saveBtn.setOnAction(e -> {
+    String name = nameField.getText().trim();
+    if (!name.isEmpty()) {
+        TeacherRepository repo = springContext.getBean(TeacherRepository.class);
+        // NO estamos editando, por tanto `teacherEditing` es nulo
+        if (teacherEditing == null) {
+            Teacher teacher = repo.save(new Teacher(name));
+            teachers.add(teacher);
+        } else {
+            // Aquí SÍ estamos estamos editando, por lo que obtenemos
+            // el `teacher` cuyo `id` sea el de `teacherEditing`
+            Teacher teacher = repo.findById(teacherEditing.getId()).orElse(null);
+            if (teacher != null) {
+                // Hay que actualizar tanto el nombre del `teacher` como del `teacherEditing`
+                // para que se coordinen
+                teacher.setName(name);
+                repo.save(teacher);
+                teacherEditing.setName(name);
+                teacherList.refresh();
+            }
+            // Ya hemos acabado, ya no estamos editando
+            teacherEditing = null;
+        }
+        nameField.clear();
+    }
+});
 ```
 
-Y el **doble clic** en un elemento de la lista activa el modo edición:
+####  Eliminar
+
+Añadir el botón en `teacher-view.fxml` 
+
+```xml
+    <HBox spacing="10">
+        <Button text="Guardar" onAction="#onSave"/>
+        <Button text="Eliminar" onAction="#onDelete"/>
+    </HBox>
+```
+
+y el método `onDelete`
 
 ```java
-if (event.getClickCount() == 2) {
-    nameField.setText(selected.getName()); // rellena el campo
-    teacherEditing = selected;             // activa modo edición
+@FXML
+private void onDelete() {
+    // Obtener el repositorio de profesores
+    TeacherRepository repo = springContext.getBean(TeacherRepository.class);
+    // Obtener el `teacher` seleccionado
+    Teacher selected = teacherList.getSelectionModel().getSelectedItem();
+    if (selected != null) {
+        repo.deleteById(selected.getId()); // DELETE en BD
+        teachers.remove(selected);         // quita de la lista visual
+    }
 }
 ```
 
@@ -474,13 +584,15 @@ if (event.getClickCount() == 2) {
 private ObservableList<Teacher> teachers = FXCollections.observableArrayList();
 ```
 
-Esta no es una lista normal. Es una lista que la `ListView` "observa" continuamente. Cuando haces `teachers.add(...)` o `teachers.remove(...)`, la ventana se actualiza sola automáticamente, sin que tengas que decirle nada más.
+**Esta no es una lista normal**. Es una lista que la `ListView` "observa" continuamente. Cuando haces `teachers.add(...)` o `teachers.remove(...)`, la ventana se actualiza sola automáticamente, sin que tengas que decirle nada más.
 
 ------
 
 ## Flujo completo de una operación
 
 <img src="/programacion-java/assets/img/javafx/image-20260324113204416.png" alt="image-20260324113204416" style="zoom:50%;" />
+
+
 
 ## Resumen de conceptos clave
 
