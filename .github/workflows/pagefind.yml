@@ -1,2 +1,1 @@
-- name: Build pagefind index
-  run: npx pagefind --site _site
+
