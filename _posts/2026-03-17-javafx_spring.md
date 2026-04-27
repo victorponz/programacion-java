@@ -835,3 +835,19 @@ En esta aplicación están presentes varios conceptos fundamentales que conviene
 
 * **`springContext.getBean(...)`** — La forma de pedirle a Spring un objeto que él gestiona, desde fuera de su sistema de inyección habitual.
 
+
+
+## Ejecutar o depurar el proyecto en IntelliJ
+
+Para poder ejecutar o depurar un proyecto en IntelliJ, debemos configurar una Application en `Edit Configurarions`
+
+1. Descarga el sdk de [javafx](https://download2.gluonhq.com/openjfx/21.0.11/openjfx-21.0.11_linux-x64_bin-sdk.zip) 
+2. Descomprímelo y copia la ruta al directorio`lib`
+3. Ahora, en IntelliJ, crea una nueva configuración de tipo Application
+   1. Elige la opción `Manage options` 
+      ![image-20260427092827548](/programacion-java/assets/img/javafx/image-20260427092827548.png)
+      2. Escribe lo siguiente 
+         `--module-path /path-to-file/javafx-sdk-21.0.11/lib --add-modules javafx.controls,javafx.fxml`
+         ![image-20260427093109781](/programacion-java/assets/img/javafx/image-20260427093109781.png)
+
+​	Ahora ya puedes ejecutar y depurar desde los botones ![image-20260427093309908](/programacion-java/assets/img/javafx/image-20260427093309908.png)
