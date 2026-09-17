@@ -7,7 +7,7 @@ categories: parte1
 conToc: true
 permalink: primeros-pasos-en-java
 ---
-> -info-En esta unidad aprenderemos a usar los tipos básicos de datos en java, a usar librerías para leer la entrada del teclado y la diferencia entre una variable y una constante. También se introducen los [diagramas de flujo](https://es.wikipedia.org/wiki/Diagrama_de_flujo) \(_flowcharts_\) y aprendemos las [estructuras condicionales](#Estructuras condicionales \(if\)).
+> -info-En esta unidad aprenderemos a usar los tipos básicos de datos en java, a usar librerías para leer la entrada del teclado y la diferencia entre una variable y una constante. 
 
 ## 1 Un programa que calcula una división y una suma.
 
@@ -400,6 +400,28 @@ Datos resultantes:
 <span style='color:green'>(ra1.a, ra1.c, ra1.d, ra1.e, ra1.g, ra3.a, ra3.e)</span>
 
 Un cierto comercio hace un descuento dependiendo del precio de cada producto. Si el precio es inferior a 6 euros no hay descuento. Si es mayor o igual a 6 euros  y menos de 60 €, se aplica un 5% de descuento, y si es mayor o igual a 60 € se aplica  un 10% de descuento. Diseña el algoritmo para calcular el precio final.
+
+
+
+## Estructuras de decisión
+
+<span style='color:green'>(ra1.a, ra1.c, ra1.d, ra1.e, ra1.g, ra3.a, ra3.e)</span>
+
+**1. Clasificación de IMC**
+ Pide al usuario su peso (kg) y altura (m). Calcula el Índice de Masa Corporal (IMC = peso / altura²) y muestra si está en "Bajo peso" (<18.5), "Normal" (18.5-24.9), "Sobrepeso" (25-29.9) o "Obesidad" (≥30).
+
+**2. Calculadora de tarifa eléctrica por tramos**
+ Solicita el consumo mensual en kWh. Aplica un precio distinto según el tramo: hasta 100 kWh a 0.10€/kWh, de 101 a 300 kWh a 0.15€/kWh, y más de 300 kWh a 0.20€/kWh. Muestra el importe total a pagar (ten en cuenta que cada tramo se cobra a su propio precio, no todo al precio del tramo final).
+
+**3. Validador de triángulo**
+ Pide tres lados de un triángulo. Primero comprueba si es un triángulo válido (la suma de dos lados cualesquiera debe ser mayor que el tercero) y, si lo es, indica si es equilátero, isósceles o escaleno.
+
+**4. Sistema de descuentos en una tienda online**
+ Solicita el importe de la compra y si el cliente es socio ("sí"/"no"). Aplica: sin ser socio, 5% de descuento si la compra supera 50€; siendo socio, 10% si supera 50€ y 15% si supera 100€. Muestra el importe final.
+
+**5. Calificador de examen con condiciones múltiples**
+ Pide la nota numérica (0-10) y si el alumno ha entregado todas las prácticas ("sí"/"no"). Si la nota es menor de 5, "Suspenso" directamente. Si la nota es ≥5 pero no ha entregado las prácticas, "Suspenso por prácticas pendientes". Si ambas condiciones se cumplen, clasifica en "Aprobado" (5-6.9), "Notable" (7-8.9) o "Sobresaliente" (9-10).
+
 ## 21 Año bisiesto (D)
 
 <span style='color:green'>(ra1.a, ra1.c, ra1.d, ra1.e, ra1.g, ra3.a, ra3.e)</span>
