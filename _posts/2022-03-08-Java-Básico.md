@@ -490,6 +490,10 @@ for (int i = 0; i < 10; i++) {
 }
 ```
 
+El siguiente diagrama muestra cómo elegir uno u otro.
+
+![image-20260929083136347](/programacion-java/assets/img/java-basico/image-20260929083136347.png)
+
 ## 22 Números positivos (M)
 
 <span style='color:green'>(ra1.a, ra1.c, ra1.d, ra1.e, ra1.g, ra3.a, ra3.b, ra3.e)</span>
