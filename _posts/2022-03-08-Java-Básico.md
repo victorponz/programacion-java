@@ -510,9 +510,9 @@ Escribe un programa que pida al usuario 10 números y que muestre cuántos son p
 
 <span style='color:green'>(ra1.a, ra1.d, ra1.e, ra1.g, ra1.c, ra3.a, ra3.b, ra3.e)</span>
 
-Escribe un programa que pida al usuario n números y que muestre cuántos son positivos \(para acabar el programa, el usuario debe introducir el número 0)
+Escribe un programa que pida al usuario `n` números y que muestre cuántos son positivos \(para acabar el programa, el usuario debe introducir el número 0)
 
-> -info-Como de entrada no sabemos cuántas veces se va a hacer el bucle, usamos un `do ... while`
+> -info-Como de entrada no sabemos cuántas veces se va a hacer el bucle, pero se va a hacer por lo menos una vez, usamos un `do ... while`
 
 ## 24 Nota media (M) 
 
