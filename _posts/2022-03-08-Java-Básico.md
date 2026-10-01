@@ -707,3 +707,27 @@ Haz un programa que, a partir de la longitud de 3 lados, nos diga qué tipo de t
 Realiza un programa que imite a un cajero. El usuario debe introducir el dinero inicial, y luego puede ir retirando (si tiene saldo) y ingresando.
 
 ![image-20261001093300244](/programacion-java/assets/img/java-basico/image-20261001093300244.png)
+
+### Login
+
+Crea un programa que compruebe una contraseña. Si se superan `MAX_INTENTOS`, se bloqueará la cuenta. En otro caso se concederá el acceso. La contraseña se debe fijar en el código y `MAX_INTENTOS` también.
+
+
+
+![image-20261001093626608](/programacion-java/assets/img/java-basico/image-20261001093626608.png)
+
+### Conjetura de Collatz.
+
+La conjetura de Collatz es un famoso problema matemático sin resolver que afirma que cualquier número entero positivo siempre llega a 1 al aplicar una regla simple de forma repetida 
+
+**¿Cómo funciona la regla**
+
+Tomamos cualquier número natural n:
+
+• Si el número es par, se divide entre 2 (n / 2).
+• Si el número es impar, se multiplica por 3 y se suma 1 (3n + 1).
+
+Al final del proceso, siempre se llega a 1. El problema debe calcular cuántas iteraciones se necesitan para llegar a 1
+
+
+
