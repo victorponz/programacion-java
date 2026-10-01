@@ -701,3 +701,9 @@ Haz un programa que, a partir de la longitud de 3 lados, nos diga qué tipo de t
 ```
 
 **Fuente:** [https://aceptaelreto.com/problem/statement.php?id=180&cat=5](https://aceptaelreto.com/problem/statement.php?id=180&cat=5)
+
+### Cajero
+
+Realiza un programa que imite a un cajero. El usuario debe introducir el dinero inicial, y luego puede ir retirando (si tiene saldo) y ingresando.
+
+![image-20261001093300244](/programacion-java/assets/img/java-basico/image-20261001093300244.png)
