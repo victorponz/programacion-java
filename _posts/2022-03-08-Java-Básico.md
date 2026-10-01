@@ -702,13 +702,13 @@ Haz un programa que, a partir de la longitud de 3 lados, nos diga qué tipo de t
 
 **Fuente:** [https://aceptaelreto.com/problem/statement.php?id=180&cat=5](https://aceptaelreto.com/problem/statement.php?id=180&cat=5)
 
-### Cajero
+## Cajero
 
 Realiza un programa que imite a un cajero. El usuario debe introducir el dinero inicial, y luego puede ir retirando (si tiene saldo) y ingresando.
 
 ![image-20261001093300244](/programacion-java/assets/img/java-basico/image-20261001093300244.png)
 
-### Login
+## Login
 
 Crea un programa que compruebe una contraseña. Si se superan `MAX_INTENTOS`, se bloqueará la cuenta. En otro caso se concederá el acceso. La contraseña se debe fijar en el código y `MAX_INTENTOS` también.
 
@@ -716,7 +716,7 @@ Crea un programa que compruebe una contraseña. Si se superan `MAX_INTENTOS`, se
 
 ![image-20261001093626608](/programacion-java/assets/img/java-basico/image-20261001093626608.png)
 
-### Conjetura de Collatz.
+## Conjetura de Collatz.
 
 La conjetura de Collatz es un famoso problema matemático sin resolver que afirma que cualquier número entero positivo siempre llega a 1 al aplicar una regla simple de forma repetida 
 
