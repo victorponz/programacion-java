@@ -254,10 +254,10 @@ Cada carta se representa por su número contando J = 11, Q = 12, K = 13 y AS = 1
 Al programa se le pasan 4 números de cartas y debe calcular la carta necesaria que habría que añadir a las cuatro recibidas para obtener la escalera de color más alta posible
 
 ```java
-assertEquals(escaleraDeColor.escalera(11, 12,13 ,14), 10);
-assertEquals(escaleraDeColor.escalera(10, 12,13 ,14), 11);
-assertEquals(escaleraDeColor.escalera(5, 6,7 ,8), 9);
-assertEquals(escaleraDeColor.escalera(9, 12,13 ,14), 0);
+assertEquals(escaleraDeColor.escalera(11, 12, 13, 14), 10);
+assertEquals(escaleraDeColor.escalera(10, 12, 13, 14), 11);
+assertEquals(escaleraDeColor.escalera(5, 6, 7, 8), 9);
+assertEquals(escaleraDeColor.escalera(9, 12, 13, 14), 0); // No es posible formarla
 ```
 
 **Créditos**
