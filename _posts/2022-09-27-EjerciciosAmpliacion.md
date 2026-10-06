@@ -307,11 +307,12 @@ Dado un número, se trata de determinar si éste es o no  cubifinito.
 
 > -hint-
 >
-> Usa un `Set` para almacenar los números ya calculados
+> Usa un `ArrayList` para almacenar los números ya calculados
 >
 > ```java
->  Set<Integer> set;
->  set = new TreeSet<>();
+> List<Integer> numeros = new ArrayList<>();
+> // Y para probar si ya està
+> boolean existe = numeros.contains(5858); // El número a comprobar 
 > ```
 
 ```java
