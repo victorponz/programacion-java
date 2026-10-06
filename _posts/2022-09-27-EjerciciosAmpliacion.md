@@ -151,7 +151,7 @@ public class CodigoBarrasTest {
 
     @Test
     public void check() {
-        assertEquals(true, CodigoBarras.check("65839526"));
+        assertEquals(true, CodigoBarras.check("65839522"));
         assertEquals(false, CodigoBarras.check("65839521"));
         assertEquals(true, CodigoBarras.check("8414533043847"));
         assertEquals(true, CodigoBarras.check("5029365779425"));
