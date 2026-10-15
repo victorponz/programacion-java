@@ -39,4 +39,19 @@ Escribid un programa Java para mover todos los 0 al final de un array. Mantened 
 
 Crea un programa que a partir de un array de enteros, cree una copia en otro array con los elementos en orden inverso
 
+## `EstacionMeteorologica.java`
 
+**Contexto:** Una estación registra la temperatura máxima de cada día de la semana. El programa guarda las temperaturas en un `double[7]` y los nombres de los días en un `String[7]`.
+
+**Requisitos:**
+
+1. Pedir las 7 temperaturas mostrando el nombre del día. Solo se aceptan valores entre -30 y 50; si el valor no es válido, se vuelve a pedir.
+2. Mostrar la temperatura media de la semana con dos decimales.
+3. Mostrar la temperatura máxima y la mínima indicando **en qué día** se produjeron.
+4. Listar los días que superaron la media.
+5. Indicar entre qué dos días consecutivos se produjo la mayor subida de temperatura y de cuántos grados fue.
+6. Dibujar un gráfico de barras horizontal con asteriscos, uno por grado (los valores negativos se muestran con `-`).
+
+**Restricciones:** cada apartado debe ser un método independiente que reciba el array como parámetro. El `main` solo puede 
+
+![image-20261015101156732](/programacion-java/assets/img/arraysii/image-20261015101156732.png)
