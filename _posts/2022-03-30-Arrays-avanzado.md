@@ -52,6 +52,43 @@ Crea un programa que a partir de un array de enteros, cree una copia en otro arr
 5. Indicar entre qué dos días consecutivos se produjo la mayor subida de temperatura y de cuántos grados fue.
 6. Dibujar un gráfico de barras horizontal con asteriscos, uno por grado (los valores negativos se muestran con `-`).
 
-**Restricciones:** cada apartado debe ser un método independiente que reciba el array como parámetro. El `main` solo puede 
+**Restricciones:** cada apartado debe ser un **método independiente** que reciba el array como parámetro. El `main` solo puede 
 
 ![image-20261015101156732](/programacion-java/assets/img/arraysii/image-20261015101156732.png)
+
+## `Ahorcado.java`
+
+**Contexto:** El programa contiene un array con al menos 15 palabras y elige una al azar.
+
+**Requisitos:**
+
+1. Convertir la palabra secreta en un `char[]` y crear otro `char[]` del mismo tamaño relleno de `'_'` para mostrar el progreso.
+2. Pedir letras al jugador. Se rechaza todo lo que no sea una única letra.
+3. Guardar las letras ya usadas en un array y avisar si se repite una.
+4. Si la letra está en la palabra, descubrir **todas** sus apariciones; si no, restar un intento (6 en total).
+5. Mostrar en cada turno: progreso, letras falladas, intentos restantes y un dibujo del ahorcado que evoluciona con los fallos (los dibujos pueden guardarse en un array de `String`, uno por fase).
+6. La partida acaba al adivinar la palabra o agotar los intentos, mostrando la solución.
+
+**Ampliación opcional:** las palabras se clasifican por categorías (matriz `String[][]`, una fila por categoría) y el jugador elige la categoría antes de empezar. Las tildes deben tratarse como letras sin tilde (si el jugador escribe `a`, se descubre también la `á`).
+
+Para dibujar el ahorcado 
+
+![image-20261015102218778](/programacion-java/assets/img/arraysii/image-20261015102218778.png)
+
+usa 
+
+```java
+   static final String[] DIBUJOS = {
+        "  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n      |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n  |   |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n /|   |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n /|\\  |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n /|\\  |\n /    |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n /|\\  |\n / \\  |\n      |\n========="
+    };
+```
+
+donde cada fila (desde 0) imprime la figura asociada al número de errores
+
+![image-20261015102533736](/programacion-java/assets/img/arraysii/image-20261015102533736.png)
