@@ -8,7 +8,7 @@ conToc: true
 permalink: strings
 ---
 
-# Principales métodos de `String` en Java
+## Principales métodos de `String` en Java
 
 Un `String` es **inmutable**: ningún método modifica la cadena original, sino que devuelve una nueva. Por eso hay que guardar el resultado:
 
@@ -129,7 +129,7 @@ public class EjemploString {
 - Los métodos **devuelven** una cadena nueva: guarda el resultado.
 - Para comparar contenido: **`equals()`**, nunca `==`.
 
-## Analizar una palabra
+## Ej. Analizar una palabra `Analizar.java`
 
 Pide al usuario una palabra y muestra:
 
@@ -148,7 +148,7 @@ Minúsculas: programacion
 Número de 'a': 2
 ```
 
-## ¿Es un palíndromo?
+## Ej. ¿Es un palíndromo? `Palindromo.java`
 
 Pide una frase y muestra:
 
@@ -161,7 +161,7 @@ Invertida: anit al aval atinA
 ¿Es palíndromo? Sí
 ```
 
-## Formatear nombre y generar usuario
+## Ej. Formatear nombre y generar usuario `NombreUsuario`
 
 Pide un nombre completo (nombre y dos apellidos) que el usuario puede escribir mal, con espacios de sobra y mayúsculas mezcladas. El programa debe:
 
@@ -177,7 +177,7 @@ Iniciales: J.P.L.
 Usuario: jpérezl
 ```
 
-## Palabras de longitud dada `Longitud.java` (F)
+## Ej. Palabras de longitud dada `Longitud.java` (F)
 
 Realiza un programa que lea una cadena de texto y nos diga cuántas palabras tienen una longitud de `k` caracteres.
 
@@ -185,34 +185,35 @@ Para extraer las palabras de la frase usa `split("\\s+")` que te creará un arra
 
 ```
 Introduce una frase:
-Hola cómo estás hoy
+	Hola cómo estás hoy
 y una longitud:
-4
-Hay 2 palabras con una longitud de 4 caracteres
+	4
+	
+	Hay 2 palabras con una longitud de 4 caracteres
 ```
 
-## Palabras de longitud dada II `Longitud2.java` (F)
+## Ej. Palabras de longitud dada II `Longitud2.java` (F)
 
 Realiza un programa que lea una cadena de texto y nos diga si alguna palabra tiene una longitud de `k` caracteres.
 
 ```
 Introduce una frase:
-Hola cómo estás hoy
+	Hola cómo estás hoy
 y una longitud:
-4
-Hay alguna palabra con una longitud de 4 caracteres
+	4
+	
+	Hay alguna palabra con una longitud de 4 caracteres
 
 Introduce una frase:
-Hola cómo estás hoy
+	Hola cómo estás hoy
 y una longitud:
-6
-No hay ninguna palabra con una longitud de 6 caracteres
+	6
+	
+	No hay ninguna palabra con una longitud de 6 caracteres
 ```
 
 
-
-
-## Palabras de longitud dada III `Longitud3.java` (F)
+## Ej. Palabras de longitud dada III `Longitud3.java` (F)
 
 Escribe un programa que lea una cadena y un número entero `k` y muestre el mensaje "Todas las cadenas son cortas" si todas las palabras tienen una longitud estrictamente menor que `k` y "Hay alguna palabra larga" en caso contrario.
 
@@ -220,40 +221,56 @@ Escribe un programa que lea una cadena y un número entero `k` y muestre el mens
 Introduce una frase:
 Hola cómo estás hoy
 y una longitud:
+6
+Todas las cadenas son cortas
+
+Introduce una frase:
+Hola cómo estás hoy
+y una longitud:
 4
+	Hay alguna palabra larga
 ```
 
 
 
-## Dígitos `Digitos.java` (F)
+## Ej. Dígitos `Digitos.java` (F)
 
-Escribe un programa que muestre la cantidad de dígitos que aparecen en una cadena. Por ejemplo, la cadena "1 20 hola 234 45a", tiene 8 dígitos.
+Escribe un programa que muestre la cantidad de dígitos que aparecen en una cadena. .
 
-## Dígitos II `Digitos2.java` (D)
+```
+1 20 hola 234 45a -> 8 dígitos
+abcd -> 0 dígitos
+abcd 123a 45 -> 5 dígitos
+```
 
-Escribe un programa que muestre la cantidad de números que aparecen en una cadena. Por ejemplo, la cadena "1 20 hola 234 45a", tiene 3 números. Las palabras **deben** separarse por blancos.
+## Ej. Números `Números.java` (D)
+
+Escribe un programa que muestre la cantidad de números que aparecen en una cadena. Las palabras **deben** separarse por blancos.
+
+```
+1 20 hola 234 45a -> 3 
+12 3 45 1a -> 3
+12a 5b -> 0
+```
 
 ## Paréntesis `Parentesis.java` (M)
 
-Un texto está bien parentizado si por cada paréntesis abierto hay otro detrás que lo cierra. Por ejemplo, la cadena
+Un texto está bien parentizado si por cada paréntesis abierto hay otro detrás que lo cierra. Por ejemplo, las cadenas
 
-> Esto \(es \(un ejemplo\) \(de\) una \(cadena bien\) parentizada\)
-
-está bien parentizada.
-
-Pero las cadenas
-
-> una \)cadena \(mal \(parentizada\)
->
-> **y**
->
-> (una)(
-
-no lo están.
+```
+Esto (es (un ejemplo) (de) una (cadena bien) parentizada)
+	-> Está bien 
+	
+una )cadena (mal (parentizada)
+	-> Está mal
+	
+(una)(
+	-> Está mal
+```
 
 Diseña un programa que nos diga si una cadena está bien parentizada o no.
 
-## Frase invertida `Invertida.java` (F)
+## Ej. Frase invertida `Invertida.java` (F)
 
 Escribe un programa que lea una frase del teclado y luego imprima las palabras que la forman de forma invertida.
 
@@ -262,28 +279,45 @@ Por ejemplo:
 ```
 "Esto es una frase" => "frase una es Esto"  
 ```
-## Siglas `Siglas.java` (F)
+## EJ. Siglas `Siglas.java` (F)
 
 Realiza un programa que lea un frase y la convierta en unas siglas. Por ejemplo, Escuela Oficial de Idiomas, se convierte en EOI.
 Date cuenta que las palabras en minúsculas no forman parte de las siglas.
 
-## Alfabética `Alfabetica.java` (M)
+```
+Escuela Oficial de Idiomas -> EOI
+Instituto Nacional de Estadística -> INE
+```
 
-Una palabra es _alfabética_ si todas sus letras están ordenadas alfabéticamente. Por ejemplo, "amor", "chino" e "himno" son palabras alfabéticas. Diseña un programa que nos diga si una palabra es alfabética o no.
+## EJ. Alfabética `Alfabetica.java` (M)
 
-## Pasatiempos `Pasatiempos.java` (F)
+Una palabra es _alfabética_ si todas sus letras están ordenadas alfabéticamente. Diseña un programa que nos diga si una palabra es alfabética o no.
+
+```
+amor -> sí
+chino -> sí
+himno -> sí
+humor -> no
+```
+
+
+
+## Ej. Pasatiempos `Pasatiempos.java` (F)
 
 Hay un tipo de pasatiempos que propone descifrar un texto del que se han suprimido las vocales. Por ejemplo, el texto ".n .j.mpl. d. p.s.t..mp.s" se descrifra sustituyendo cada punto por una vocal. La solución es "un ejemplo de pasatiempos".
 
 Diseña un programa que ayude al creador de pasatiempos. Recibirá una cadena y mostrará otra en la que cada vocal ha sido reemplazada por un punto.
 
-## Suma binaria `SumarBinario.java` (D)
-Haz un programa que lea dos cadenas que representen a sendos números binarios. A continuación, el programa mostrará el número binario que resulta de sumar ambos (y que será otra cadena\). Si, por ejemplo, el usuario introduce las cadenas '100' y '111', el programa mostrará como resultado la cadena '1011'
+## Ej. Suma binaria `SumarBinario.java` (D)
+Haz un programa que lea dos cadenas que representen a sendos números binarios. A continuación, el programa mostrará el número binario que resulta de sumar ambos (y que será otra cadena\). 
 
-## Palíndromo `Palindromo`(M)
-Una palabra es palíndroma si se lee igual de derecha a izquierda como de izquierda a derecha. Haz un programa para saber si una palabra es palíndroma.
+```
+1010 + 1111 -> 11001
+100 + 111 -> 1011
+10010 + 10011 -> 100101
+```
 
-## Encadenando palabras (M)
+## Ej. Encadenando palabras (M)
 
 A Samuel y a Clara les encanta jugar a encadenar palabras. Si Samuel dice *Mata*, Clara sigue diciendo *Tapa*. Samuel le sigue el juego diciendo *Papa* y Clara remata diciendo *Pato*.
 
@@ -304,16 +338,17 @@ cata tasama malote tejaba batama -> Sí
 kiosko comida -> No
 ```
 
-## Boleto de lotería
+## Ej. Boleto de lotería
 
-Cuando se creo la lotería y se estaban redactando las bases del sorteo, omitieron la coletilla *y en el mismo orden* . Menos mal que se dieron cuenta y lo corrigieron.
+Cuando se creo la lotería y se estaban redactando las bases del sorteo, omitieron la coletilla *y en el mismo orden*. Menos mal que se dieron cuenta y lo corrigieron.
 
 El programa trata de averiguar si un boleto comprado coincide con los dígitos del boleto premiado, aunque no estén en el mismo orden.
 
-> Por ejemplo:
->
-> Premiado: 12345 Boleto: 54321 -> Ha ganado
->
-> Premiado: 12345 Boleto: 12345 -> Ha ganado
->
-> Premiado: 89345 Boleto: 89541 -> Ha perdido
+```
+Premiado: 12345 Boleto: 54321 -> Ha ganado
+
+Premiado: 12345 Boleto: 12345 -> Ha ganado
+
+Premiado: 89345 Boleto: 89541 -> Ha perdido
+```
+
