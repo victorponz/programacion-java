@@ -251,7 +251,7 @@ public class EsPositivoMain {
 }
 ```
 
-En este caso, el argumento para el algoritmo (que empieza en la línea 9 y acaba en la 13), es un número de tipo **int**:
+En este caso, el argumento para el algoritmo (que empieza en la línea 9 y acaba en la 13), es un número de tipo **int** y este devuelve un **booleano**
 
 ```java
 public static boolean esPositivo(int num) {
@@ -334,9 +334,30 @@ public static void main(String[] args) {
 
 Un programa que indica si un [número está incluido en los valores de un array de enteros](https://gist.github.com/victorponz/634756bf4a17bb81ce9cb33dd3f978de):
 
-<script src="https://gist.github.com/victorponz/634756bf4a17bb81ce9cb33dd3f978de.js"></script>
+```java
+public class EncontrarUnValor{
+    public static void main(String[] args)
+    {	
+        //Datos de ejemplo
+        int[] numeros = {20, 10, 5, 8};
+        int numeroBuscado = 10;
 
-El algoritmo empieza en la línea 12 y acaba en la 17. Como dato sólo le hace falta un `array` de números y un valor a buscar de tipo entero. Por tanto tiene dos argumentos. Y el valor devuelto es un `boolean`.
+        for (int num : numeros) { //Este bucle se llama `for mejorado
+            if (num == numeroBuscado) {
+                encontrado = true;
+                break;
+            }
+        }
+        if (encontrado) {
+            System.out.printf("El número %d está en el array", numeroBuscado);
+        } else {
+            System.out.printf("El número %d NO está en el array", numeroBuscado);
+        }
+    }
+}
+```
+
+El algoritmo empieza en la línea 7 y acaba en la 12. Como dato sólo le hace falta un `array` de números y un valor a buscar de tipo entero. Por tanto tiene dos argumentos. Y el valor devuelto es un `boolean`.
 
 Este sería el algoritmo completo:
 
@@ -359,7 +380,7 @@ Pero este tipo de algoritmos que devuelven un `boolean` se pueden resolver de la
 public static boolean estaEnElArray(int[] numeros, int numeroABuscar) {
 	for (int num : numeros) {
 		if (num == numeroABuscar) {
-			return true;
+			return true; // Devolvemos true y acabamos
 		}
 	}
 	return false;
@@ -373,14 +394,10 @@ Y el programa `main` será de la siguiente forma:
 ```java
 public static void main(String[] args)
 {	
-	int[] numeros = new int[20];
-	int numeroBuscado;;
+    //Datos de ejemplo
+	int[] numeros = {20, 10, 5, 8};
+    int numeroBuscado = 10;
 	
-	Utilidades.rellenaArray(numeros, -10, 10);
-	System.out.println(Arrays.toString(numeros));
-	
-	numeroBuscado = Utilidades.leerEntero("Introduce un número a buscar");
-
 	if (estaEnElArray(numeros, numeroBuscado)) {
 		System.out.printf("El número %d está en el array", numeroBuscado);
 	} else {
@@ -395,7 +412,29 @@ Fijaos que, de nuevo, todas las variables que usa el algoritmo localmente han de
 
 Vamos a hacer un programa que [calcule la media de una serie de notas](https://gist.github.com/victorponz/0b1069abe05ce68248cfa9fc696df17b) (almacenadas en un array)  y nos diga si había un diez entre ellas:
 
-<script src="https://gist.github.com/victorponz/0b1069abe05ce68248cfa9fc696df17b.js"></script>
+```java
+public class NotaMedia{
+    public static void main(String[] args) {
+        int[] notas = {5, 6, 7, 8};
+        int sumaNotas = 0;
+        boolean hayUnDiez = false;
+      
+        for (int nota : notas) {
+            sumaNotas += nota;
+            if (nota == 10) {
+                //cambiamos el valor de la bandera
+                hayUnDiez = true;
+            }
+        }
+
+        System.out.println("La nota media es " + ((double) sumaNotas / (double) notas.length));
+
+        if (hayUnDiez) {
+            System.out.println("Había al menos un 10");
+        }
+    }
+}
+```
 
 En este caso vemos que el algoritmo hace dos cosas: calcular la media y comprobar si hay un diez. Pero un **método sólo debe hacer una cosa**. Por tanto hemos de hacer dos métodos:
 
@@ -414,20 +453,6 @@ public static double notaMedia(int[] notas) {
 }
 ```
 
-Pero realmente este algoritmo calcula la media de un `array` de números, no solo de notas. Por tanto vamos a refactorizar los nombres:
-
-```java
-public static double calcularMedia(int[] numeros) {
-	int sumaNumeros = 0;
-	for (int num : numeros) {
-		sumaNumeros += num;
-	}
-	return ((double) sumaNumeros / (double) numeros.length);
-}
-```
-
-De esta forma tenemos un algoritmo más genérico.
-
 Y el algoritmo para comprobar si tiene un 10:
 
 ```java
@@ -441,38 +466,19 @@ public static boolean hayUnDiez(int[] notas) {
 }
 ```
 
-Pero aquí, otra vez nos estamos limitando a comprobar sólo si tiene un 10!!. Vamos a hacerlo más genérico, de tal forma que compruebe si un valor pasado como parámetro está o no en el `array`
-
-```java
-public static boolean hayUnNumero(int[] numeros, int numeroBuscado) {
-	for (int num : numeros) {
-		if (num == numeroBuscado) {
-			return true;
-		}
-	}
-	return false;
-}
-```
-
 Y ahora el método `main` quedaría como sigue:
 
 ```java
 public static void main(String[] args) {
-	int cuantasNotas = Utilidades.leerEntero("¿Cuántas notas va a introducir?");
-	int[] notas;
-
-	System.out.println("Introduce las notas (enteros)");
-	notas = leerNotas(cuantasNotas);
+	int[] notas = {5, 6, 7, 8};
 	
 	System.out.println("La nota media es " + calcularMedia(notas));
 
-	if (hayUnNumero(notas, 10)) {
+	if (hayUnDiez(notas)) {
 		System.out.println("Había al menos un 10");
 	}
 }
 ```
-
-De esta forma hemos creado dos métodos que son genéricos.
 
 **Una de las tareas de un programador es crear bloques**. Piensa en que cada un bloque (método) es como una pieza de lego: cuantas más piezas genéricas tengamos, más cosas podemos hacer. Como programador nuestra tarea es juntar *piececitas* de lego **para formar piezas más grandes**.
 
@@ -480,18 +486,53 @@ De esta forma hemos creado dos métodos que son genéricos.
 
 Vamos a rediseñar el [programa que calculaba el salario neto de un trabajador](https://gist.github.com/victorponz/239344bf480c0390be4b0f53d38ae348). Para calcular el neto hay que saber las horas trabajadas, el precio de la hora. Con estos datos calculamos el bruto y los impuestos:
 
-<script src="https://gist.github.com/victorponz/239344bf480c0390be4b0f53d38ae348.js"></script>
+```java
+public class Salario{
+    public static void main(String argv[]) {
+        double horas = 50; // Datos a mano
+        double precio = 20;
+        double bruto;
+        double impuestos;
 
-En este caso, el algoritmo empieza en la línea 12 y acaba en la línea 31. Pero realmente hace dos cálculos: salario bruto e impuestos.
+        //Calcular bruto
+        if (horas <= 35) {
+            bruto = horas * precio;
+        }else {
+            //Las primeras 35 se pagan normal
+            bruto = 35 * precio;
+            //Las siguientes se pagan a 1,5 veces el precio normal
+            bruto += (horas - 35) * precio * 1.5;
+        }
+
+        //Calcular impuestos
+        if (bruto <= 500) {
+            impuestos = 0;
+        }else if (bruto <= 900){
+            //Cobra entre 500 y 900, de los primeros 500 no paga nada
+            impuestos = (bruto - 500) * 0.25f;
+        }else {
+            //Si cobra más de 900
+            impuestos = (400 * 0.25f) + (bruto - 500 - 400) * 0.45f;
+        }
+
+        // Imprimir resultados	
+        System.out.println("Pago bruto: " + bruto);
+        System.out.println("Salario neto: " + (bruto - impuestos));
+        System.out.println("Impuestos: " + impuestos);
+    }
+}
+```
+
+En este caso, el algoritmo empieza en la línea 9 y acaba en la línea 27. Pero realmente hace **dos cálculos**: salario bruto e impuestos.
 
 Como hemos quedado que un algoritmo sólo hace una cosa, vamos a descomponerlo en dos algoritmos.
 
 **Cálculo del salario bruto**
 
-Para este algoritmo (líneas 12 a 20), hace falta saber las horas (**int** ) y el precio (**double**) y calcula el bruto como **double**. Por tanto:
+Para este algoritmo (líneas 9 a 16), hace falta saber las horas (**double** ) y el precio (**double**) y calcula el bruto como **double**. Por tanto:
 
 ```java
-public static double calcularBruto(int horas, double precioHora) {
+public static double calcularBruto(double horas, double precioHora) {
 	double bruto;
 	if (horas <= 35) {
 		return horas * precioHora;
@@ -507,7 +548,7 @@ public static double calcularBruto(int horas, double precioHora) {
 
 **Cálculo de los impuestos**
 
-Para este algoritmo (líneas 13 a 31), sólo hace falta conocer el salario bruto (**double**) y calcula los impuestos (**double**). Por tanto:
+Para este algoritmo (líneas 19 a 27), sólo hace falta conocer el salario bruto (**double**) y calcula los impuestos (**double**). Por tanto:
 
 ```java
 public static double calcularImpuestos(double bruto) {
@@ -529,8 +570,8 @@ Y finalmente, `main` quedaría como sigue:
 
 ```java
 public static void main(String argv[]) {
-	int horas = Utilidades.leerEntero("Introduce las horas trabajadas:");
-	double precio = Utilidades.leerDoble("Introduce el precio por hora:");
+    double horas = 50; // Datos a mano
+    double precio = 20;
 
 	double bruto = calcularBruto(horas, precio);
 
