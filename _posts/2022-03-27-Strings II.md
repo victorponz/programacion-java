@@ -136,7 +136,17 @@ Pide al usuario una palabra y muestra:
 - Su longitud.
 - La primera y la última letra.
 - La palabra en mayúsculas y en minúsculas.
-- Cuántas veces aparece la letra `a` (sin distinguir mayúsculas).****
+- Cuántas veces aparece la letra `a` (sin distinguir mayúsculas).
+
+```
+Introduce una palabra: Programacion
+Longitud: 12
+Primera letra: P
+Última letra: n
+Mayúsculas: PROGRAMACION
+Minúsculas: programacion
+Número de 'a': 2
+```
 
 ## ¿Es un palíndromo?
 
@@ -144,6 +154,12 @@ Pide una frase y muestra:
 
 - La frase invertida.
 - Si es un palíndromo, ignorando espacios y mayúsculas.
+
+```
+Introduce una frase: Anita lava la tina
+Invertida: anit al aval atinA
+¿Es palíndromo? Sí
+```
 
 ## Formatear nombre y generar usuario
 
@@ -154,20 +170,60 @@ Pide un nombre completo (nombre y dos apellidos) que el usuario puede escribir m
 3. Generar un nombre de usuario: inicial del nombre + primer apellido + inicial del segundo apellido, todo en minúsculas.
 4. Si no se introducen exactamente tres palabras, mostrar un mensaje de error.
 
+```
+Introduce nombre completo:   jUAN   pérez   LÓPEZ  
+Nombre formateado: Juan Pérez López
+Iniciales: J.P.L.
+Usuario: jpérezl
+```
+
 ## Palabras de longitud dada `Longitud.java` (F)
 
 Realiza un programa que lea una cadena de texto y nos diga cuántas palabras tienen una longitud de `k` caracteres.
 
 Para extraer las palabras de la frase usa `split("\\s+")` que te creará un array de Strings con cada una de ellas
 
+```
+Introduce una frase:
+Hola cómo estás hoy
+y una longitud:
+4
+Hay 2 palabras con una longitud de 4 caracteres
+```
+
 ## Palabras de longitud dada II `Longitud2.java` (F)
 
 Realiza un programa que lea una cadena de texto y nos diga si alguna palabra tiene una longitud de `k` caracteres.
+
+```
+Introduce una frase:
+Hola cómo estás hoy
+y una longitud:
+4
+Hay alguna palabra con una longitud de 4 caracteres
+
+Introduce una frase:
+Hola cómo estás hoy
+y una longitud:
+6
+No hay ninguna palabra con una longitud de 6 caracteres
+```
+
+
 
 
 ## Palabras de longitud dada III `Longitud3.java` (F)
 
 Escribe un programa que lea una cadena y un número entero `k` y muestre el mensaje "Todas las cadenas son cortas" si todas las palabras tienen una longitud estrictamente menor que `k` y "Hay alguna palabra larga" en caso contrario.
+
+```
+Introduce una frase:
+Hola cómo estás hoy
+y una longitud:
+4
+```
+
+
 
 ## Dígitos `Digitos.java` (F)
 
