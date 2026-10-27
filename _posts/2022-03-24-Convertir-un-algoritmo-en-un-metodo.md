@@ -122,7 +122,36 @@ Fijaos que ahora quien imprime es `main`, no el algoritmo.
 
 Tenemos un programa que [lee una nota y muestra su valor en texto](https://gist.github.com/victorponz/a2e4e06b90f723a31c6ecb009990a529):
 
-<script src="https://gist.github.com/victorponz/a2e4e06b90f723a31c6ecb009990a529.js"></script>
+```java
+//Diseña un algoritmo que lea un valor numérico 
+//entero correspondiente a la nota de un examen y muestre su valor en letra
+public class ValorNotaMain {
+	public static void main(String argv[]) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce el valor de la nota entera:");
+		int nota = sc.nextInt();
+	
+		// Si las condiciones son mutuamente excluyentes, se usa if .. else if ...
+		if ((nota < 0) || (nota > 10)) {
+			System.out.println("Nota inválida");
+		}else if (nota < 3) {
+			System.out.println("Muy deficiente");
+		}else if (nota < 5 ) {
+			// No hace falta que comprobemos que es mayor que 3, porque si lo fuera
+			// habría entrado por el if (nota < 3) {
+			System.out.println("Insuficiente");
+		}else if (nota < 6 ) {
+			System.out.println("Suficiente");
+		}else if (nota < 7 ) {
+			System.out.println("bien");
+		}else if (nota < 9 ) {
+			System.out.println("Notable");
+		}else {
+			System.out.println("Sobresaliente");
+		}
+	}
+}
+```
 
 El algoritmo empieza en la línea 10 y acaba en la 26. Antes de que comience el algoritmo, obtenemos una nota de tipo `int`, que es el único dato que necesita el algoritmo. Como hemos quedado que el algoritmo no imprime nada, lo que hacemos es devolver un `String`.
 
@@ -192,7 +221,9 @@ Ahora ya podemos modificar `main`:
 
 ```java
 public static void main(String argv[]) {
-	int nota = Utilidades.leerEntero("Introduce el valor de la nota entera:");
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Introduce uma nota: ");
+	int nota = sc.nextInt();
 	System.out.println(convertirEnLetra(nota));
 }
 ```
@@ -201,9 +232,26 @@ public static void main(String argv[]) {
 
 Otro ejemplo es convertir algoritmos que [calculan si algo es verdadero o falso](https://gist.github.com/victorponz/c524aa76348cc754a4ff2db85b2a4e73). En este tipo de algoritmos el valor de retorno siempre es **boolean**.
 
-<script src="https://gist.github.com/victorponz/c524aa76348cc754a4ff2db85b2a4e73.js"></script>
+```java
+//Diseña un algoritmo que lea un valor y muestre si es positivo o negativo (0 es positivo)
+public class EsPositivoMain {
+	public static void main(String argv[]) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduce un número entero:");
+		int numero = sc.nextInt();
+		
+		//Si las condiciones son mutuamente excluyentes, se usa if .. else
+		if (numero >= 0) {
+			System.out.println("El número es positivo");
+		} else {
+			System.out.println("El número es negativo");
+		}
+		
+	}
+}
+```
 
-En este caso, el argumento para el algoritmo (que empieza en la línea 8 y acaba en la 12), es un número de tipo **int**:
+En este caso, el argumento para el algoritmo (que empieza en la línea 9 y acaba en la 13), es un número de tipo **int**:
 
 ```java
 public static boolean esPositivo(int num) {
@@ -229,9 +277,26 @@ Porque si `(num >= 0 )` devolverá **true** y sino devolverá **false** (lo mism
 
 El siguiente programa calcula [cuántos números de un array son positivos](https://gist.github.com/victorponz/7a11ad0302aa1670781702db029e3fce):
 
-<script src="https://gist.github.com/victorponz/7a11ad0302aa1670781702db029e3fce.js"></script>
+```java
+public class Positivos{
+    public static void main(String[] args)
+    {	
+        int[] numeros = {5, 4, -5, -2, 6};
+        int positivos = 0;
 
-El algoritmo empieza en la línea 9 y acaba en la 15. Como datos de entrada tiene un **array de números** y lo que calcula es el número (**int**) de positivos (que lo va calculando en la variable **positivos**). Es decir, la variable **positivos** es **local** al algoritmo y por tanto no es un dato de entrada sino que es el valor que produce. Por tanto, la signatura del método sería la siguiente:
+        for (int i = 0; i < numeros.length; i ++) {
+            if (numeros [i] >= 0){
+                //Cuando encuentro un positivo, se aumenta la variable de tipo "contador"
+                positivos++;
+            }
+        }
+
+        System.out.println("Ha introducido " + positivos + " números positivos");
+    }
+}
+```
+
+El algoritmo empieza en la línea 7 y acaba en la 12. Como datos de entrada tiene un **array de números** y lo que calcula es el número (**int**) de positivos (que lo va calculando en la variable **positivos**). Es decir, la variable **positivos** es **local** al algoritmo y por tanto no es un dato de entrada sino que es el valor que produce. Por tanto, la signatura del método sería la siguiente:
 
 ```java
 public static int cuantosPositivos(int[] numeros) {
@@ -244,11 +309,12 @@ Y el método completo sería como sigue:
 ```java
 public static int cuantosPositivos(int[] numeros) {
 	int contador = 0;
-	for (int numero : numeros) {
-		if (numero >= 0) {
-			contador++;
+    for (int i = 0; i < numeros.length; i ++) {
+        if (numeros [i] >= 0){
+            //Cuando encuentro un positivo, se aumenta la variable de tipo "contador"
+            positivos++;
         }
-	}
+    }
 	return contador;
 }
 ```
@@ -258,13 +324,9 @@ Fijaos como la variable **contador** ha pasado a estar definida dentro del algor
 ```java
 public static void main(String[] args) {
 
-	int[] array = new int[20];
+	 int[] numeros = {5, 4, -5, -2, 6};
 
-	Utilidades.rellenaArray(array, -10, 10);
-
-	System.out.println(Arrays.toString(array));
-
-	System.out.println("Hay " + cuantosPositivos(array) + " positivos");
+	System.out.println("Hay " + cuantosPositivos(numeros) + " positivos");
 }
 ```
 
