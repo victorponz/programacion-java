@@ -177,7 +177,7 @@ Iniciales: J.P.L.
 Usuario: jpérezl
 ```
 
-## Ej. Palabras de longitud dada `Longitud.java` (F)
+## Ej. Palabras de longitud dada `LongitudI.java` (F)
 
 Realiza un programa que lea una cadena de texto y nos diga cuántas palabras tienen una longitud de `k` caracteres.
 
@@ -192,7 +192,7 @@ y una longitud:
 	Hay 2 palabras con una longitud de 4 caracteres
 ```
 
-## Ej. Palabras de longitud dada II `Longitud2.java` (F)
+## Ej. Palabras de longitud dada II `LongitudII.java` (F)
 
 Realiza un programa que lea una cadena de texto y nos diga si alguna palabra tiene una longitud de `k` caracteres.
 
@@ -213,7 +213,7 @@ y una longitud:
 ```
 
 
-## Ej. Palabras de longitud dada III `Longitud3.java` (F)
+## Ej. Palabras de longitud dada III `LongitudIII.java` (F)
 
 Escribe un programa que lea una cadena y un número entero `k` y muestre el mensaje "Todas las cadenas son cortas" si todas las palabras tienen una longitud estrictamente menor que `k` y "Hay alguna palabra larga" en caso contrario.
 
