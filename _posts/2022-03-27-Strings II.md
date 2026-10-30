@@ -253,7 +253,7 @@ Escribe un programa que muestre la cantidad de números que aparecen en una cade
 12a 5b -> 0
 ```
 
-## Paréntesis `Parentesis.java` (M)
+## Ej. Paréntesis `Parentesis.java` (M)
 
 Un texto está bien parentizado si por cada paréntesis abierto hay otro detrás que lo cierra. Por ejemplo, las cadenas
 
