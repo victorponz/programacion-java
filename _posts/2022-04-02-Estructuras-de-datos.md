@@ -11,7 +11,7 @@ permalink: estructuras-basicas
 ## ArrayList
 Hemos visto en el tema de Arrays que éstos tienen un tamaño definido en el momento de la creación y que este tamaño es inmutable.
 
-Si queremos usar este tipo de estructura pero que **pueda cambiar el tamaño**, usaremos `ArrayList`
+Si queremos usar este tipo de estructura pero que **pueda cambiar el tamaño** (entre otras cosas), usaremos `ArrayList`
 
 ```java
 import java.util.ArrayList; 
@@ -736,9 +736,9 @@ Luego el programa deberá mostrar la cantidad de alumnos de un país pasado como
 > map.put(splittedLine[6], map.getOrDefault(splittedLine[6] , 0) + 1);
 > ```
 
+### Ejercicio 12 
 
-### Ejercicio 12 [Los pendientes de la señora Ignacia](https://aceptaelreto.com/problem/statement.php?id=718&cat=21) (F)
-
+### [Los pendientes de la señora Ignacia](https://aceptaelreto.com/problem/statement.php?id=718&cat=21) (F)
 
 ### Ejercicio 13 El ahorcado (Ms)
 
