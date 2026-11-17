@@ -3,7 +3,7 @@ typora-copy-images-to: ../assets/img/estructuras/
 typora-root-url: ../../
 layout: post
 title: Colecciones como flujos
-categories: estructuras
+categories: no-usar
 conToc: true
 permalink: streams
 ---
