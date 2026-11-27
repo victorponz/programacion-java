@@ -590,7 +590,96 @@ Se trata de implementar el ejercicio anterior pero un contacto puede tener más 
 >
 > ![image-20231212083247483](/programacion-java/assets/img/estructuras/image-20231212083247483.png)
 
+| Método | Qué hace |
+|---|---|
+| `put(k, v)` | Añade o reemplaza. Devuelve el valor anterior (o `null`) |
+| `get(k)` | Devuelve el valor, o `null` si no existe |
+| `getOrDefault(k, def)` | Devuelve el valor, o `def` si no existe |
+| `containsKey(k)` / `containsValue(v)` | ¿Existe la clave / el valor? |
+| `remove(k)` | Elimina el par |
+| `putIfAbsent(k, v)` | Añade solo si la clave no existe |
+| `merge(k, v, función)` | Combina el valor nuevo con el existente |
+| `keySet()` | Conjunto de claves (`Set`) |
+| `values()` | Colección de valores |
+| `entrySet()` | Conjunto de pares clave-valor |
 
+### Patrones
+
+**Patrón 1: contar frecuencias**
+
+Es el uso más típico de un `HashMap`.
+
+```java
+String texto = "el perro y el gato y el ratón";
+Map<String, Integer> frecuencias = new HashMap<>();
+ 
+for (String palabra : texto.split(" ")) {
+    frecuencias.put(palabra, frecuencias.getOrDefault(palabra, 0) + 1);
+}
+System.out.println(frecuencias);   // {el=3, y=2, perro=1, gato=1, ratón=1} (orden variable)
+```
+
+Versión equivalente y más compacta con `merge`:
+
+```java
+frecuencias.merge(palabra, 1, Integer::sum);
+// si no existe → pone 1; si existe → suma 1 al valor actual
+```
+**Patrón 2: agrupar (un valor que es una lista)**
+
+```java
+Map<String, List<String>> alumnosPorGrupo = new HashMap<>();
+ 
+alumnosPorGrupo.computeIfAbsent("1DAW-A", k -> new ArrayList<>()).add("Ana");
+alumnosPorGrupo.computeIfAbsent("1DAW-A", k -> new ArrayList<>()).add("Luis");
+alumnosPorGrupo.computeIfAbsent("1DAW-B", k -> new ArrayList<>()).add("Marta");
+ 
+System.out.println(alumnosPorGrupo);
+// {1DAW-A=[Ana, Luis], 1DAW-B=[Marta]}
+```
+
+`computeIfAbsent` crea la lista si la clave no existe y la devuelve en cualquier caso. Sin él tendrías que escribir:
+
+```java
+if (!alumnosPorGrupo.containsKey(grupo)) {
+    alumnosPorGrupo.put(grupo, new ArrayList<>());
+}
+alumnosPorGrupo.get(grupo).add(nombre);
+```
+
+**Patrón 3: búsqueda rápida por identificador**
+
+```java
+Map<String, Alumno> porNia = new HashMap<>();
+porNia.put("111", new Alumno("111", "Ana", 8));
+porNia.put("222", new Alumno("222", "Luis", 9.5));
+ 
+Alumno a = porNia.get("222");   // inmediato, sin recorrer nada
+```
+**Métodos útiles de la clase `Collections`**
+
+```java
+List<Integer> lista = new ArrayList<>(List.of(5, 3, 8, 1, 3));
+ 
+Collections.sort(lista);                     // [1, 3, 3, 5, 8]
+Collections.reverse(lista);                  // [8, 5, 3, 3, 1]
+Collections.shuffle(lista);                  // orden aleatorio
+System.out.println(Collections.max(lista));  // 8
+System.out.println(Collections.min(lista));  // 1
+System.out.println(Collections.frequency(lista, 3)); // 2
+Collections.swap(lista, 0, 1);               // intercambia posiciones 0 y 1
+```
+**Ejercicio - Votos del consejo escolar**
+
+En las elecciones al consejo escolar, cada alumno vota escribiendo el nombre de un candidato. Los votos llegan como una lista de `String`, algunos con mayúsculas, minúsculas o espacios de más (`"  laura "`, `"LAURA"`, `"Laura"`).
+
+```java
+new ArrayList<>(List.of("Laura", "pablo", " LAURA", "Iván", "Pablo ", "laura", "iván", "Nerea", "pablo", "Laura"));
+```
+1. Normaliza cada voto (quita espacios y unifica mayúsculas).
+2. Cuenta los votos de cada candidato.
+3. Muestra los resultados ordenados de **más a menos votos**.
+4. Indica quién ha ganado. Si hay empate en el primer puesto, indícalo.
 
 ### Ejercicio 7 La mejor terminación (M)
 
