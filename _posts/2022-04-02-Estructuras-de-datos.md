@@ -674,7 +674,7 @@ Collections.swap(lista, 0, 1);               // intercambia posiciones 0 y 1
 En las elecciones al consejo escolar, cada alumno vota escribiendo el nombre de un candidato. Los votos llegan como una lista de `String`, algunos con mayúsculas, minúsculas o espacios de más (`"  laura "`, `"LAURA"`, `"Laura"`).
 
 ```java
-new ArrayList<>(List.of("Laura", "pablo", " LAURA", "Iván", "Pablo ", "laura", "iván", "Nerea", "pablo", "Laura"));
+List<String> votos = new ArrayList<>(List.of("Laura", "pablo", " LAURA", "Iván", "Pablo ", "laura", "iván", "Nerea", "pablo", "Laura"));
 ```
 1. Normaliza cada voto (quita espacios y unifica mayúsculas).
 2. Cuenta los votos de cada candidato.
