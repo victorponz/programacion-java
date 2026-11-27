@@ -678,7 +678,7 @@ List<String> votos = new ArrayList<>(List.of("Laura", "pablo", " LAURA", "Iván"
 ```
 1. Normaliza cada voto (quita espacios y unifica mayúsculas).
 2. Cuenta los votos de cada candidato.
-4. Indica quién ha ganado.
+4. Indica quién ha ganado (no hay más de un ganador)
 
 ### Ejercicio 7 La mejor terminación (M)
 
